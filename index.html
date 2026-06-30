@@ -4,98 +4,98 @@
 <title>Disparos — Funil por Frente</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #f8fafc; color: #1e293b; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 24px; max-width: 1160px; margin: 0 auto; }
+  body { background: #f0f2f5; color: #111827; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 24px; max-width: 1160px; margin: 0 auto; }
 
   .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
-  .title { font-size: 22px; font-weight: 700; color: #0f172a; }
-  .subtitle { font-size: 13px; color: #64748b; margin-top: 4px; }
-  .updated { font-size: 12px; color: #94a3b8; white-space: nowrap; }
+  .title { font-size: 22px; font-weight: 700; color: #111827; }
+  .subtitle { font-size: 13px; color: #6b7280; margin-top: 4px; }
+  .updated { font-size: 12px; color: #9ca3af; white-space: nowrap; }
 
   .summary-strip { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; margin-bottom: 20px; }
-  .ss-card { background: #ffffff; border: 1px solid #e2e8f0; padding: 10px 14px; }
+  .ss-card { background: #ffffff; border: 1px solid #e5e7eb; padding: 10px 14px; }
   .ss-card:first-child { border-radius: 10px 0 0 10px; }
   .ss-card:last-child  { border-radius: 0 10px 10px 0; }
-  .ss-label { font-size: 9px; color: #94a3b8; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+  .ss-label { font-size: 9px; color: #9ca3af; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
   .ss-value { font-size: 22px; font-weight: 800; margin: 2px 0 1px; }
-  .ss-sub   { font-size: 10px; color: #94a3b8; }
+  .ss-sub   { font-size: 10px; color: #9ca3af; }
 
-  .tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid #e2e8f0; padding-bottom: 0; }
-  .tab-btn { background: none; border: none; cursor: pointer; padding: 8px 20px; font-size: 13px; font-weight: 600; color: #94a3b8; border-bottom: 2px solid transparent; transition: all .15s; margin-bottom: -1px; }
-  .tab-btn:hover { color: #475569; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid #e5e7eb; padding-bottom: 0; }
+  .tab-btn { background: none; border: none; cursor: pointer; padding: 8px 20px; font-size: 13px; font-weight: 600; color: #9ca3af; border-bottom: 2px solid transparent; transition: all .15s; margin-bottom: -1px; }
+  .tab-btn:hover { color: #374151; }
   .tab-btn.active { color: #0f172a; border-bottom-color: #3b82f6; }
   .tab-btn.szi.active   { border-bottom-color: #2563eb; color: #1d4ed8; }
   .tab-btn.mkt.active   { border-bottom-color: #7c3aed; color: #7c3aed; }
   .tab-btn.out.active   { border-bottom-color: #d97706; color: #d97706; }
-  .tab-btn.ges.active   { border-bottom-color: #059669; color: #059669; }
+  .tab-btn.ges.active   { border-bottom-color: #16a34a; color: #16a34a; }
 
   .section { display: none; }
   .section.active { display: block; }
 
   .funnel { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; margin-bottom: 20px; }
-  .funnel-card { background: #ffffff; border: 1px solid #e2e8f0; padding: 12px 14px; }
+  .funnel-card { background: #ffffff; border: 1px solid #e5e7eb; padding: 12px 14px; }
   .funnel-card:first-child { border-radius: 10px 0 0 10px; }
   .funnel-card:last-child  { border-radius: 0 10px 10px 0; }
-  .f-label { font-size: 9px; color: #94a3b8; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+  .f-label { font-size: 9px; color: #9ca3af; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
   .f-value { font-size: 24px; font-weight: 800; margin: 3px 0 2px; }
-  .f-sub   { font-size: 10px; color: #94a3b8; }
+  .f-sub   { font-size: 10px; color: #9ca3af; }
   .f-rate  { font-size: 10px; font-weight: 600; margin-top: 2px; }
 
   .insights { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 20px; }
-  .insight-card { background: #ffffff; border-radius: 12px; padding: 14px 16px; border: 1px solid #e2e8f0; position: relative; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+  .insight-card { background: #ffffff; border-radius: 12px; padding: 14px 16px; border: 1px solid #e5e7eb; position: relative; overflow: clip; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
   .insight-card.warn  { border-color: #fcd34d; background: linear-gradient(160deg,#fffbeb,#fff 60%); }
   .insight-card.alert { border-color: #fca5a5; background: linear-gradient(160deg,#fef2f2,#fff 60%); }
-  .insight-card.ok    { border-color: #6ee7b7; background: linear-gradient(160deg,#f0fdf4,#fff 60%); }
+  .insight-card.ok    { border-color: #86efac; background: linear-gradient(160deg,#f0fdf4,#fff 60%); }
   .insight-card.warn::before,
   .insight-card.alert::before,
   .insight-card.ok::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; }
   .insight-card.warn::before  { background: linear-gradient(90deg,transparent,#f59e0b,transparent); }
   .insight-card.alert::before { background: linear-gradient(90deg,transparent,#ef4444,transparent); }
-  .insight-card.ok::before    { background: linear-gradient(90deg,transparent,#10b981,transparent); }
+  .insight-card.ok::before    { background: linear-gradient(90deg,transparent,#16a34a,transparent); }
   .ic-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
   .ic-eyebrow.w { color: #d97706; }
   .ic-eyebrow.r { color: #dc2626; }
-  .ic-eyebrow.g { color: #059669; }
-  .ic-headline { font-size: 14px; font-weight: 700; color: #0f172a; line-height: 1.3; margin-bottom: 6px; }
-  .ic-body { font-size: 12px; color: #64748b; line-height: 1.6; }
-  .ic-body strong { color: #1e293b; }
+  .ic-eyebrow.g { color: #16a34a; }
+  .ic-headline { font-size: 14px; font-weight: 700; color: #111827; line-height: 1.3; margin-bottom: 6px; }
+  .ic-body { font-size: 12px; color: #6b7280; line-height: 1.6; }
+  .ic-body strong { color: #111827; }
   .ic-action { margin-top: 8px; font-size: 11px; font-weight: 600; padding: 4px 9px; border-radius: 6px; display: inline-block; }
   .ic-action.w { background: #fef3c7; color: #92400e; border: 1px solid #fcd34d; }
   .ic-action.r { background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; }
-  .ic-action.g { background: #d1fae5; color: #065f46; border: 1px solid #6ee7b7; }
+  .ic-action.g { background: #dcfce7; color: #15803d; border: 1px solid #86efac; }
 
   .mini-funnel { display: flex; gap: 6px; align-items: center; margin: 8px 0; }
   .mf-block { text-align: center; flex: 1; }
   .mf-n { font-size: 18px; font-weight: 800; }
-  .mf-l { font-size: 9px; color: #94a3b8; text-transform: uppercase; letter-spacing: .04em; margin-top: 2px; }
+  .mf-l { font-size: 9px; color: #9ca3af; text-transform: uppercase; letter-spacing: .04em; margin-top: 2px; }
   .mf-arrow { color: #cbd5e1; font-size: 14px; flex-shrink: 0; }
 
   .alert-box { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 12px; color: #1d4ed8; }
 
-  .table-wrap { background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; overflow: auto; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+  .table-wrap { background: #ffffff; border-radius: 12px; border: 1px solid #e5e7eb; overflow: auto; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
   table { width: 100%; border-collapse: collapse; }
-  th { padding: 9px 8px; text-align: left; font-size: 10px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid #e2e8f0; white-space: nowrap; }
-  tr.deal-row:hover td { background: #f8fafc; }
-  tr.deal-row td { border-bottom: 1px solid #f1f5f9; }
+  th { padding: 9px 8px; text-align: left; font-size: 10px; font-weight: 600; color: #9ca3af; text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid #e5e7eb; white-space: nowrap; }
+  tr.deal-row:hover td { background: #f9fafb; }
+  tr.deal-row td { border-bottom: 1px solid #f3f4f6; }
 
-  .legend { display: flex; gap: 16px; margin-top: 12px; font-size: 11px; color: #94a3b8; flex-wrap: wrap; }
+  .legend { display: flex; gap: 16px; margin-top: 12px; font-size: 11px; color: #9ca3af; flex-wrap: wrap; }
   .leg-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
 
   @media(max-width:768px){ .summary-strip,.funnel{grid-template-columns:repeat(3,1fr)} .insights{grid-template-columns:1fr} }
 
-  .proof-toggle { display:block; width:100%; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; color:#64748b; cursor:pointer; font-size:10px; font-weight:700; padding:5px 10px; margin-top:10px; text-align:left; letter-spacing:.03em; transition:all .15s; }
-  .proof-toggle:hover { color:#475569; border-color:#64748b; background:#f1f5f9; }
-  .proof-panel { display:none; margin-top:10px; padding-top:10px; border-top:1px solid #e2e8f0; }
+  .proof-toggle { display:block; width:100%; background:#f9fafb; border:1px solid #e5e7eb; border-radius:6px; color:#6b7280; cursor:pointer; font-size:10px; font-weight:700; padding:5px 10px; margin-top:10px; text-align:left; letter-spacing:.03em; transition:all .15s; }
+  .proof-toggle:hover { color:#374151; border-color:#6b7280; background:#f3f4f6; }
+  .proof-panel { display:none; margin-top:10px; padding-top:10px; border-top:1px solid #e5e7eb; overflow-x: auto; }
   .proof-panel.open { display:block; }
-  .proof-src { font-size:9px; color:#64748b; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px; }
-  .proof-h { font-size:10px; font-weight:700; color:#64748b; text-transform:uppercase; letter-spacing:.06em; margin:10px 0 5px; }
+  .proof-src { font-size:9px; color:#6b7280; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px; }
+  .proof-h { font-size:10px; font-weight:700; color:#6b7280; text-transform:uppercase; letter-spacing:.06em; margin:10px 0 5px; }
   .proof-tbl { width:100%; border-collapse:collapse; font-size:11px; }
-  .proof-tbl th { color:#64748b; font-weight:600; font-size:10px; padding:3px 6px; text-align:left; border-bottom:1px solid #e2e8f0; }
-  .proof-tbl td { color:#475569; padding:4px 6px; border-bottom:1px solid #f1f5f9; vertical-align:middle; }
+  .proof-tbl th { color:#6b7280; font-weight:600; font-size:10px; padding:3px 6px; text-align:left; border-bottom:1px solid #e2e8f0; }
+  .proof-tbl td { color:#374151; padding:4px 6px; border-bottom:1px solid #f3f4f6; vertical-align:middle; }
   .proof-kpis { display:grid; gap:5px; margin-bottom:10px; }
-  .proof-kpi { background:#f8fafc; border-radius:5px; padding:6px 10px; border:1px solid #e2e8f0; }
-  .proof-kpi-l { font-size:9px; color:#64748b; }
+  .proof-kpi { background:#f9fafb; border-radius:5px; padding:6px 10px; border:1px solid #e5e7eb; }
+  .proof-kpi-l { font-size:9px; color:#6b7280; }
   .proof-kpi-v { font-size:16px; font-weight:800; }
-  .proof-note { font-size:10px; color:#64748b; line-height:1.6; margin-top:8px; padding:6px 8px; background:#f8fafc; border-radius:6px; border-left:2px solid #e2e8f0; }
+  .proof-note { font-size:10px; color:#6b7280; line-height:1.6; margin-top:8px; padding:6px 8px; background:#f9fafb; border-radius:6px; border-left:2px solid #e5e7eb; }
   .chat-log { margin:10px 0 6px; display:flex; flex-direction:column; gap:5px; }
   .chat-msg { padding:6px 9px; border-radius:7px; font-size:11px; line-height:1.5; }
   .chat-msg.in  { background:#eff6ff; border:1px solid #bfdbfe; }
@@ -105,8 +105,13 @@
   .chat-msg.in  .chat-who { color:#0369a1; }
   .chat-msg.out .chat-who { color:#065f46; }
   .chat-msg.sys .chat-who { color:#92400e; }
-  .chat-text { color:#475569; }
+  .chat-text { color:#374151; }
   .chat-msg.in .chat-text { color:#1e40af; }
+
+  .refresh-btn { display:inline-flex; align-items:center; gap:5px; background:#ffffff; border:1px solid #e5e7eb; border-radius:7px; color:#6b7280; cursor:pointer; font-size:11px; font-weight:600; padding:5px 11px; transition:all .15s; white-space:nowrap; }
+  .refresh-btn:hover { border-color:#9ca3af; color:#374151; background:#f9fafb; }
+  .refresh-btn.loading svg { animation: spin .7s linear infinite; }
+  @keyframes spin { to { transform:rotate(360deg); } }
 </style>
 </head>
 <body>
@@ -114,9 +119,15 @@
 <div class="header">
   <div>
     <div class="title">Disparos Base Interna — Funil por Frente</div>
-    <div class="subtitle">Pipeline 28 · Funil Vendas Spot · 11/06 até 30/06 · Fonte: Nekt · pipedrive_marketing_deals_disparos_mia</div>
+    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · 11/06 até 30/06 · Fonte: Nekt · pipedrive_marketing_deals_disparos_mia</div>
   </div>
-  <div class="updated">Atualizado: 30/06/2026</div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <div class="updated" id="updated-label">Atualizado: 30/06/2026</div>
+    <button class="refresh-btn" id="refresh-btn" onclick="triggerRefresh(this)" title="Forçar atualização via CCR">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg>
+      Atualizar
+    </button>
+  </div>
 </div>
 
 <div class="tabs">
@@ -191,7 +202,7 @@
       <div class="f-label">Leads SZI</div>
       <div class="f-value" style="color:#0f172a">3.660</div>
       <div class="f-sub">54 campanhas</div>
-      <div class="f-rate" style="color:#64748b">base</div>
+      <div class="f-rate" style="color:#6b7280">base</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">Responderam</div>
@@ -243,10 +254,10 @@
         <div class="proof-h">Por que 92 SQLs não chegaram a OPP — breakdown por stage:</div>
         <table class="proof-tbl" style="margin-bottom:10px">
           <tr><th>Stage atual no Pipedrive</th><th style="text-align:right">Deals</th><th style="text-align:right">%</th><th>O que significa</th></tr>
-          <tr><td>Aguardando data / sem sinal</td><td style="text-align:right;color:#ef4444;font-weight:700">83</td><td style="text-align:right;color:#64748b">74%</td><td style="color:#64748b;font-size:10px">Lead nunca avançou na agenda</td></tr>
-          <tr><td>Stage "Agendado" sem data preenchida</td><td style="text-align:right;color:#f59e0b;font-weight:700">16</td><td style="text-align:right;color:#64748b">14%</td><td style="color:#64748b;font-size:10px">Closer atualizou stage, mas esqueceu de preencher data_da_reunião — funil conta como zero OPP</td></tr>
-          <tr><td>No Show / Em reagendamento</td><td style="text-align:right;color:#f97316;font-weight:700">12</td><td style="text-align:right;color:#64748b">11%</td><td style="color:#64748b;font-size:10px">Reunião tentada, lead não apareceu, sem novo agendamento</td></tr>
-          <tr><td>Lead In (stage não avançou)</td><td style="text-align:right;color:#475569">1</td><td style="text-align:right;color:#64748b">1%</td><td style="color:#64748b;font-size:10px">Qualificado mas stage nunca foi atualizado</td></tr>
+          <tr><td>Aguardando data / sem sinal</td><td style="text-align:right;color:#ef4444;font-weight:700">83</td><td style="text-align:right;color:#6b7280">74%</td><td style="color:#6b7280;font-size:10px">Lead nunca avançou na agenda</td></tr>
+          <tr><td>Stage "Agendado" sem data preenchida</td><td style="text-align:right;color:#f59e0b;font-weight:700">16</td><td style="text-align:right;color:#6b7280">14%</td><td style="color:#6b7280;font-size:10px">Closer atualizou stage, mas esqueceu de preencher data_da_reunião — funil conta como zero OPP</td></tr>
+          <tr><td>No Show / Em reagendamento</td><td style="text-align:right;color:#f97316;font-weight:700">12</td><td style="text-align:right;color:#6b7280">11%</td><td style="color:#6b7280;font-size:10px">Reunião tentada, lead não apareceu, sem novo agendamento</td></tr>
+          <tr><td>Lead In (stage não avançou)</td><td style="text-align:right;color:#374151">1</td><td style="text-align:right;color:#6b7280">1%</td><td style="color:#6b7280;font-size:10px">Qualificado mas stage nunca foi atualizado</td></tr>
         </table>
         <div class="proof-h">Top 5 campanhas com mais SQLs travados:</div>
         <table class="proof-tbl" style="margin-bottom:10px">
@@ -260,11 +271,11 @@
         <div class="proof-h">Deals mais antigos sem nenhum avanço — IDs reais do Pipedrive:</div>
         <table class="proof-tbl">
           <tr><th>Deal ID</th><th>Campanha de origem</th><th>SQL em</th><th style="text-align:right">Dias parado</th><th>Stage</th><th>Status</th></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#279094 · #279090 · #279228</td><td style="color:#64748b;font-size:10px">OPP Natal Spot (02/06)</td><td>03/06</td><td style="text-align:right;color:#ef4444;font-weight:700">27</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#280247 · #280911</td><td style="color:#64748b;font-size:10px">Repescagem Itacaré (10/06)</td><td>05/06</td><td style="text-align:right;color:#ef4444;font-weight:700">25</td><td style="color:#f97316;font-size:10px">No Show</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#281253</td><td style="color:#64748b;font-size:10px">Repescagem SLA Itacaré (10/06)</td><td>07/06</td><td style="text-align:right;color:#ef4444;font-weight:700">23</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#285147</td><td style="color:#64748b;font-size:10px">Repescagem SLA Ponta II (08/06)</td><td>11/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">19</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#284228 · #284132 · #284201 · #284200</td><td style="color:#64748b;font-size:10px">Repescagem SLA Itacaré (10/06)</td><td>13/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">17</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#279094 · #279090 · #279228</td><td style="color:#6b7280;font-size:10px">OPP Natal Spot (02/06)</td><td>03/06</td><td style="text-align:right;color:#ef4444;font-weight:700">27</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#280247 · #280911</td><td style="color:#6b7280;font-size:10px">Repescagem Itacaré (10/06)</td><td>05/06</td><td style="text-align:right;color:#ef4444;font-weight:700">25</td><td style="color:#f97316;font-size:10px">No Show</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#281253</td><td style="color:#6b7280;font-size:10px">Repescagem SLA Itacaré (10/06)</td><td>07/06</td><td style="text-align:right;color:#ef4444;font-weight:700">23</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#285147</td><td style="color:#6b7280;font-size:10px">Repescagem SLA Ponta II (08/06)</td><td>11/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">19</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#284228 · #284132 · #284201 · #284200</td><td style="color:#6b7280;font-size:10px">Repescagem SLA Itacaré (10/06)</td><td>13/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">17</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
         </table>
         <div class="proof-h" style="margin-top:14px;color:#0284c7">Conversas reais extraídas do WhatsApp via Morada — o que aconteceu na prática:</div>
         <div class="chat-log">
@@ -318,16 +329,16 @@
         <div class="proof-h">Campanhas exclusivas de Jurerê II em 26/06 — SQL rate por campanha:</div>
         <table class="proof-tbl" style="margin-bottom:10px">
           <tr><th>Campanha</th><th style="text-align:right">Leads</th><th style="text-align:right">Resp</th><th style="text-align:right">SQL</th><th style="text-align:right">SQL%</th></tr>
-          <tr><td>OPP Imperdível Jurerê II</td><td style="text-align:right">47</td><td style="text-align:right;color:#059669">47</td><td style="text-align:right;color:#64748b">0</td><td style="text-align:right;color:#ef4444">0%</td></tr>
-          <tr><td>OPP Imperdível Jurerê II — Abriram</td><td style="text-align:right">51</td><td style="text-align:right;color:#059669">51</td><td style="text-align:right;color:#64748b">0</td><td style="text-align:right;color:#ef4444">0%</td></tr>
+          <tr><td>OPP Imperdível Jurerê II</td><td style="text-align:right">47</td><td style="text-align:right;color:#059669">47</td><td style="text-align:right;color:#6b7280">0</td><td style="text-align:right;color:#ef4444">0%</td></tr>
+          <tr><td>OPP Imperdível Jurerê II — Abriram</td><td style="text-align:right">51</td><td style="text-align:right;color:#059669">51</td><td style="text-align:right;color:#6b7280">0</td><td style="text-align:right;color:#ef4444">0%</td></tr>
           <tr><td>OPP Imperdível Jurerê II — Não Abriram</td><td style="text-align:right">116</td><td style="text-align:right;color:#059669">116</td><td style="text-align:right;color:#0284c7">2</td><td style="text-align:right;color:#f59e0b">1,7%</td></tr>
           <tr style="border-top:1px solid #334155;font-weight:700"><td style="color:#1e293b">Total Jurerê II</td><td style="text-align:right;color:#1e293b">214</td><td style="text-align:right;color:#059669">214</td><td style="text-align:right;color:#0284c7">2</td><td style="text-align:right;color:#ef4444">0,9%</td></tr>
         </table>
         <div class="proof-h">Os 2 SQLs que surgiram — onde estão agora (dados do Pipedrive):</div>
         <table class="proof-tbl" style="margin-bottom:10px">
           <tr><th>Deal ID</th><th>Campanha de origem</th><th>SQL em</th><th>Stage atual</th><th style="text-align:right">Dias parado</th><th>Status</th></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#294390</td><td style="color:#64748b;font-size:10px">OPP Imp. Jurerê II — Não Abriram</td><td>27/06</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="text-align:right;color:#f59e0b;font-weight:700">3</td><td style="color:#64748b;font-size:10px">Open</td></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#294434</td><td style="color:#64748b;font-size:10px">OPP Imp. Jurerê II — Não Abriram</td><td>27/06</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="text-align:right;color:#f59e0b;font-weight:700">3</td><td style="color:#64748b;font-size:10px">Open</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#294390</td><td style="color:#6b7280;font-size:10px">OPP Imp. Jurerê II — Não Abriram</td><td>27/06</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="text-align:right;color:#f59e0b;font-weight:700">3</td><td style="color:#6b7280;font-size:10px">Open</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#294434</td><td style="color:#6b7280;font-size:10px">OPP Imp. Jurerê II — Não Abriram</td><td>27/06</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="text-align:right;color:#f59e0b;font-weight:700">3</td><td style="color:#6b7280;font-size:10px">Open</td></tr>
         </table>
         <div class="proof-h" style="margin-top:14px;color:#0284c7">Última conversa — Sandro Azevedo #294390 · Jurerê II · aberto há 3 dias:</div>
         <div class="chat-log">
@@ -348,7 +359,7 @@
             <span class="chat-text">Lead recebeu PDF, imagens e proposta de horários. Sinalizou que "analisaria e avisaria" — sinal clássico de friagem pós-material. 29/06 passou (horário sugerido) sem retorno. Sem follow-up ativo, tende a virar lost no mesmo padrão histórico.</span>
           </div>
         </div>
-        <div class="proof-note">Os 2 leads Jurerê II abertos há 3 dias receberam o material mas deixaram em aberto. <strong style="color:#64748b">A janela de reativação hoje (30/06) é a última realista</strong> — após 5+ dias sem contato ativo, o padrão histórico mostra abandono definitivo.</div>
+        <div class="proof-note">Os 2 leads Jurerê II abertos há 3 dias receberam o material mas deixaram em aberto. <strong style="color:#6b7280">A janela de reativação hoje (30/06) é a última realista</strong> — após 5+ dias sem contato ativo, o padrão histórico mostra abandono definitivo.</div>
       </div>
     </div>
 
@@ -376,18 +387,18 @@
         <div class="proof-h">Status dos 16 SQLs — todos em "Aguardando data":</div>
         <table class="proof-tbl" style="margin-bottom:10px">
           <tr><th>Status Pipedrive</th><th style="text-align:right">Qtd</th><th style="text-align:right">%</th><th>Interpretação</th></tr>
-          <tr><td><span style="color:#047857">Open</span></td><td style="text-align:right;color:#047857;font-weight:700">6</td><td style="text-align:right;color:#64748b">38%</td><td style="color:#64748b;font-size:10px">Lead ainda pode reagir — janela aberta</td></tr>
-          <tr><td><span style="color:#ef4444">Lost</span></td><td style="text-align:right;color:#ef4444;font-weight:700">10</td><td style="text-align:right;color:#64748b">62%</td><td style="color:#64748b;font-size:10px">Fechado sem nunca ter marcado reunião</td></tr>
+          <tr><td><span style="color:#047857">Open</span></td><td style="text-align:right;color:#047857;font-weight:700">6</td><td style="text-align:right;color:#6b7280">38%</td><td style="color:#6b7280;font-size:10px">Lead ainda pode reagir — janela aberta</td></tr>
+          <tr><td><span style="color:#ef4444">Lost</span></td><td style="text-align:right;color:#ef4444;font-weight:700">10</td><td style="text-align:right;color:#6b7280">62%</td><td style="color:#6b7280;font-size:10px">Fechado sem nunca ter marcado reunião</td></tr>
         </table>
         <div class="proof-h">Os 6 deals ainda abertos — ação imediata possível:</div>
         <table class="proof-tbl">
           <tr><th>Deal ID</th><th>SQL em</th><th style="text-align:right">Dias parado</th><th>Stage</th></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#293090</td><td>24/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">6</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#293186</td><td>24/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">6</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#293177</td><td>25/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">5</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#293059</td><td>25/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">5</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#293127</td><td>25/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">5</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#293028</td><td>26/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">4</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#293090</td><td>24/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">6</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#293186</td><td>24/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">6</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#293177</td><td>25/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">5</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#293059</td><td>25/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">5</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#293127</td><td>25/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">5</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#293028</td><td>26/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">4</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
         </table>
         <div class="proof-h" style="margin-top:14px;color:#0284c7">Robert #293090 — melhor prospect aberto · 5 tentativas de contato sem resposta:</div>
         <div class="chat-log">
@@ -420,7 +431,7 @@
             <span class="chat-text">2 SDRs, 1 ligação, 2 templates automáticos — zero resposta desde 24/06. Lead está OPEN mas inativo. Os templates de 26/06 e 29/06 foram lidos (receipt: read) mas sem retorno — lead vê e ignora. Contato personalizado e direto é o único caminho restante.</span>
           </div>
         </div>
-        <div class="proof-note">Robert é o caso mais crítico e mais promissor dos 6 abertos: engajou forte no primeiro contato (14 min), confirmou conhecer o modelo Spot, mas sumiu após 2 SDRs e 2 templates. <strong style="color:#64748b">A intenção de compra existe</strong> — o que está faltando não é mais disparo automático, mas contato direto e personalizado.</div>
+        <div class="proof-note">Robert é o caso mais crítico e mais promissor dos 6 abertos: engajou forte no primeiro contato (14 min), confirmou conhecer o modelo Spot, mas sumiu após 2 SDRs e 2 templates. <strong style="color:#6b7280">A intenção de compra existe</strong> — o que está faltando não é mais disparo automático, mas contato direto e personalizado.</div>
       </div>
     </div>
   </div>
@@ -470,16 +481,16 @@
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
 
-    <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.06)">
+    <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.06)">
       <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Intervalo SQL → Reunião (16 agendados)</div>
       <div id="vel-histogram"></div>
-      <div style="font-size:10px;color:#475569;margin-top:12px;line-height:1.8">Mediana: <strong style="color:#64748b">3 dias</strong> &nbsp;·&nbsp; Máximo: <strong style="color:#64748b">7 dias</strong> &nbsp;·&nbsp; Único WON: <strong style="color:#0369a1">D+1</strong></div>
+      <div style="font-size:10px;color:#374151;margin-top:12px;line-height:1.8">Mediana: <strong style="color:#6b7280">3 dias</strong> &nbsp;·&nbsp; Máximo: <strong style="color:#6b7280">7 dias</strong> &nbsp;·&nbsp; Único WON: <strong style="color:#0369a1">D+1</strong></div>
     </div>
 
-    <div style="background:#ffffff;border:1px solid #e2e8f0;border-radius:12px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.06)">
+    <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:18px 20px;box-shadow:0 1px 3px rgba(0,0,0,.06)">
       <div style="font-size:11px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Por Que 112 SQLs Não Chegaram a OPP</div>
       <div id="vel-stages"></div>
-      <div style="font-size:10px;color:#475569;margin-top:12px;line-height:1.6">⚠ "Agendado sem data" = closer atualizou o stage mas não preencheu o campo <em>data_da_reunião</em> — funil não conta como OPP</div>
+      <div style="font-size:10px;color:#374151;margin-top:12px;line-height:1.6">⚠ "Agendado sem data" = closer atualizou o stage mas não preencheu o campo <em>data_da_reunião</em> — funil não conta como OPP</div>
     </div>
 
   </div>
@@ -528,7 +539,7 @@
       <div class="f-label">Leads MKT</div>
       <div class="f-value" style="color:#0f172a">1.518</div>
       <div class="f-sub">15 campanhas</div>
-      <div class="f-rate" style="color:#64748b">base</div>
+      <div class="f-rate" style="color:#6b7280">base</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">Responderam</div>
@@ -550,9 +561,9 @@
     </div>
     <div class="funnel-card">
       <div class="f-label">WON</div>
-      <div class="f-value" style="color:#475569">0</div>
+      <div class="f-value" style="color:#374151">0</div>
       <div class="f-sub">—</div>
-      <div class="f-rate" style="color:#475569">—</div>
+      <div class="f-rate" style="color:#374151">—</div>
     </div>
   </div>
 
@@ -573,8 +584,8 @@
         <div class="proof-h">Com vs. sem Santinho Não Abriu:</div>
         <table class="proof-tbl" style="margin-bottom:10px">
           <tr><th>Segmento</th><th style="text-align:right">Leads</th><th style="text-align:right">Resp</th><th style="text-align:right">Resp%</th><th style="text-align:right">SQL</th></tr>
-          <tr><td>OPP Semana Santinho — Não Abriram (12/06)</td><td style="text-align:right">443</td><td style="text-align:right;color:#ef4444;font-weight:700">0</td><td style="text-align:right;color:#ef4444">0%</td><td style="text-align:right;color:#64748b">0</td></tr>
-          <tr><td style="color:#64748b;font-style:italic">Demais 14 campanhas MKT</td><td style="text-align:right">1.075</td><td style="text-align:right;color:#059669;font-weight:700">345</td><td style="text-align:right;color:#047857">32%</td><td style="text-align:right;color:#0284c7">36</td></tr>
+          <tr><td>OPP Semana Santinho — Não Abriram (12/06)</td><td style="text-align:right">443</td><td style="text-align:right;color:#ef4444;font-weight:700">0</td><td style="text-align:right;color:#ef4444">0%</td><td style="text-align:right;color:#6b7280">0</td></tr>
+          <tr><td style="color:#6b7280;font-style:italic">Demais 14 campanhas MKT</td><td style="text-align:right">1.075</td><td style="text-align:right;color:#059669;font-weight:700">345</td><td style="text-align:right;color:#047857">32%</td><td style="text-align:right;color:#0284c7">36</td></tr>
           <tr style="border-top:1px solid #334155;font-weight:700"><td>Total MKT (conforme exibido)</td><td style="text-align:right">1.518</td><td style="text-align:right;color:#f59e0b">345</td><td style="text-align:right;color:#f59e0b">22,7%</td><td style="text-align:right;color:#0284c7">36</td></tr>
         </table>
         <div class="proof-h">Cachoeira Beach (25/06) — base fria que distorce resp rate positivo:</div>
@@ -726,7 +737,7 @@
       <div class="f-label">Leads Gestão</div>
       <div class="f-value" style="color:#0f172a">907</div>
       <div class="f-sub">10 campanhas · SZS + Decor</div>
-      <div class="f-rate" style="color:#64748b">base</div>
+      <div class="f-rate" style="color:#6b7280">base</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">Responderam</div>
@@ -774,18 +785,18 @@
         <table class="proof-tbl" style="margin-bottom:10px">
           <tr><th>Frente</th><th style="text-align:right">SQL</th><th style="text-align:right">OPP</th><th style="text-align:right">SQL→OPP</th><th>Diferencial</th></tr>
           <tr><td>Gestão / SZS</td><td style="text-align:right">56</td><td style="text-align:right;color:#047857;font-weight:700">16</td><td style="text-align:right;color:#047857;font-weight:700">28,6%</td><td style="color:#047857;font-size:10px">Base qualificada, proposta clara</td></tr>
-          <tr><td>Marketplace (MKT)</td><td style="text-align:right">36</td><td style="text-align:right;color:#f59e0b">3</td><td style="text-align:right;color:#f59e0b">8,3%</td><td style="color:#64748b;font-size:10px">3× pior que SZS</td></tr>
-          <tr><td>Vendas Spot (SZI)</td><td style="text-align:right">100</td><td style="text-align:right;color:#ef4444">8</td><td style="text-align:right;color:#ef4444">8,0%</td><td style="color:#64748b;font-size:10px">3× pior que SZS</td></tr>
+          <tr><td>Marketplace (MKT)</td><td style="text-align:right">36</td><td style="text-align:right;color:#f59e0b">3</td><td style="text-align:right;color:#f59e0b">8,3%</td><td style="color:#6b7280;font-size:10px">3× pior que SZS</td></tr>
+          <tr><td>Vendas Spot (SZI)</td><td style="text-align:right">100</td><td style="text-align:right;color:#ef4444">8</td><td style="text-align:right;color:#ef4444">8,0%</td><td style="color:#6b7280;font-size:10px">3× pior que SZS</td></tr>
         </table>
         <div class="proof-h">Campanhas SZS que puxam o número:</div>
         <table class="proof-tbl">
           <tr><th>Campanha</th><th style="text-align:right">Leads</th><th style="text-align:right">SQL</th><th style="text-align:right">OPP</th><th style="text-align:right">SQL→OPP</th><th style="text-align:right">WON</th></tr>
           <tr><td>Reativação Expansão Sirius (17/06)</td><td style="text-align:right">177</td><td style="text-align:right;color:#0284c7">25</td><td style="text-align:right;color:#047857;font-weight:700">8</td><td style="text-align:right;color:#047857;font-weight:700">32%</td><td style="text-align:right;color:#047857">2</td></tr>
-          <tr><td>Lost com OPP Desconto SZS (26/06)</td><td style="text-align:right">494</td><td style="text-align:right;color:#0284c7">19</td><td style="text-align:right;color:#047857;font-weight:700">3</td><td style="text-align:right;color:#f59e0b;font-weight:700">15,8%</td><td style="text-align:right;color:#64748b">0</td></tr>
-          <tr><td>Teste Sirius MSG1 SZS Expansão (25/06)</td><td style="text-align:right">220</td><td style="text-align:right;color:#0284c7">3</td><td style="text-align:right;color:#f59e0b">1</td><td style="text-align:right;color:#f59e0b">33%</td><td style="text-align:right;color:#64748b">0</td></tr>
+          <tr><td>Lost com OPP Desconto SZS (26/06)</td><td style="text-align:right">494</td><td style="text-align:right;color:#0284c7">19</td><td style="text-align:right;color:#047857;font-weight:700">3</td><td style="text-align:right;color:#f59e0b;font-weight:700">15,8%</td><td style="text-align:right;color:#6b7280">0</td></tr>
+          <tr><td>Teste Sirius MSG1 SZS Expansão (25/06)</td><td style="text-align:right">220</td><td style="text-align:right;color:#0284c7">3</td><td style="text-align:right;color:#f59e0b">1</td><td style="text-align:right;color:#f59e0b">33%</td><td style="text-align:right;color:#6b7280">0</td></tr>
           <tr><td>B2B individuais (vários)</td><td style="text-align:right">4</td><td style="text-align:right;color:#0284c7">4</td><td style="text-align:right;color:#047857;font-weight:700">4</td><td style="text-align:right;color:#047857;font-weight:700">100%</td><td style="text-align:right;color:#047857">3</td></tr>
         </table>
-        <div class="proof-note">A Reativação Sirius tem <strong style="color:#64748b">SQL→OPP de 32%</strong> — 4× melhor que SZI. Mesmo pipeline, mesmo closer, base proprietária com relacionamento existente. O gap não é de produto, é de qualidade de relacionamento.</div>
+        <div class="proof-note">A Reativação Sirius tem <strong style="color:#6b7280">SQL→OPP de 32%</strong> — 4× melhor que SZI. Mesmo pipeline, mesmo closer, base proprietária com relacionamento existente. O gap não é de produto, é de qualidade de relacionamento.</div>
       </div>
     </div>
 
@@ -813,11 +824,11 @@
         <div class="proof-h">Detalhamento dos 3 deals que chegaram a OPP:</div>
         <table class="proof-tbl" style="margin-bottom:10px">
           <tr><th>Deal ID Pipedrive</th><th>Stage atual</th><th>Dias SQL→OPP</th><th>Status</th></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#294870</td><td style="color:#f59e0b;font-size:10px">Agendado (sem data)</td><td style="color:#f59e0b">—</td><td style="color:#64748b;font-size:10px">Open</td></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#294882</td><td style="color:#f59e0b;font-size:10px">Agendado (sem data)</td><td style="color:#f59e0b">—</td><td style="color:#64748b;font-size:10px">Open</td></tr>
-          <tr><td style="font-family:monospace;color:#64748b">#294916</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444">—</td><td style="color:#64748b;font-size:10px">Open</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#294870</td><td style="color:#f59e0b;font-size:10px">Agendado (sem data)</td><td style="color:#f59e0b">—</td><td style="color:#6b7280;font-size:10px">Open</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#294882</td><td style="color:#f59e0b;font-size:10px">Agendado (sem data)</td><td style="color:#f59e0b">—</td><td style="color:#6b7280;font-size:10px">Open</td></tr>
+          <tr><td style="font-family:monospace;color:#6b7280">#294916</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444">—</td><td style="color:#6b7280;font-size:10px">Open</td></tr>
         </table>
-        <div class="proof-note">⚠ Atenção: dos 3 "OPPs" contabilizados nessa campanha, 2 estão em stage "Agendado" sem data_da_reunião preenchida e 1 em "Aguardando data". São os <strong style="color:#64748b">16 SQLs restantes (89%)</strong> ainda sem reunião — pipeline a monitorar de perto.</div>
+        <div class="proof-note">⚠ Atenção: dos 3 "OPPs" contabilizados nessa campanha, 2 estão em stage "Agendado" sem data_da_reunião preenchida e 1 em "Aguardando data". São os <strong style="color:#6b7280">16 SQLs restantes (89%)</strong> ainda sem reunião — pipeline a monitorar de perto.</div>
       </div>
     </div>
 
@@ -850,7 +861,7 @@
           <tr><td>B2B individual (4 leads)</td><td style="text-align:right">4</td><td style="text-align:right;color:#047857;font-weight:700">4</td><td style="text-align:right;color:#047857;font-weight:700">100%</td><td style="text-align:right;color:#047857;font-weight:700">75%</td></tr>
           <tr><td>Campanhas em massa SZI (100 leads)</td><td style="text-align:right">100</td><td style="text-align:right;color:#ef4444">8</td><td style="text-align:right;color:#ef4444">8%</td><td style="text-align:right;color:#f59e0b">12,5%</td></tr>
         </table>
-        <div class="proof-note">Abordagem individualizada (1 prospect, pesquisa prévia, proposta customizada) entrega <strong style="color:#64748b">100% SQL→OPP</strong> vs. 8% das campanhas em massa. O volume é menor, mas o ROI por lead é incomparavelmente maior.</div>
+        <div class="proof-note">Abordagem individualizada (1 prospect, pesquisa prévia, proposta customizada) entrega <strong style="color:#6b7280">100% SQL→OPP</strong> vs. 8% das campanhas em massa. O volume é menor, mas o ROI por lead é incomparavelmente maior.</div>
       </div>
     </div>
   </div>
@@ -950,7 +961,7 @@
       <div class="f-label">Leads Outros</div>
       <div class="f-value" style="color:#0f172a">12</div>
       <div class="f-sub">3 campanhas · Decor + Parceiros</div>
-      <div class="f-rate" style="color:#64748b">base</div>
+      <div class="f-rate" style="color:#6b7280">base</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">Responderam</div>
@@ -972,9 +983,9 @@
     </div>
     <div class="funnel-card">
       <div class="f-label">WON</div>
-      <div class="f-value" style="color:#475569">0</div>
+      <div class="f-value" style="color:#374151">0</div>
       <div class="f-sub">venda confirmada</div>
-      <div class="f-rate" style="color:#475569">—</div>
+      <div class="f-rate" style="color:#374151">—</div>
     </div>
   </div>
 
@@ -999,7 +1010,7 @@
         <div class="mf-arrow">→</div>
         <div class="mf-block"><div class="mf-n" style="color:#0284c7">1</div><div class="mf-l">SQL</div></div>
         <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#475569">0</div><div class="mf-l">OPP</div></div>
+        <div class="mf-block"><div class="mf-n" style="color:#374151">0</div><div class="mf-l">OPP</div></div>
       </div>
       <div class="ic-body">DECOR LOST DCR Ilha do Campeche SPOT II (03/16). Lead individual, qualificou — ainda sem reunião marcada.</div>
     </div>
@@ -1156,21 +1167,21 @@ function makeRow(r, showTipo) {
   const rc  = respColor(parseFloat(pct));
   const bar = Math.min(leads/10, 100).toFixed(0);
   const tc  = TYPE_COLOR[tipo] || '#6b7280';
-  const sqlDisp = sql === 0 ? '<span style="color:#475569">—</span>' : sql >= 5 ? `<span style="color:#0284c7;font-weight:700">${sql} ★</span>` : `<span style="color:#64748b">${sql}</span>`;
-  const oppDisp = opp === 0 ? '<span style="color:#475569">—</span>' : opp >= 3 ? `<span style="color:#a78bfa;font-weight:700">${opp} ★</span>` : `<span style="color:#a78bfa;font-weight:600">${opp}</span>`;
-  const wonDisp = won === 0 ? '<span style="color:#475569">—</span>' : `<span style="color:#047857;font-weight:700">${won}</span>`;
+  const sqlDisp = sql === 0 ? '<span style="color:#374151">—</span>' : sql >= 5 ? `<span style="color:#0284c7;font-weight:700">${sql} ★</span>` : `<span style="color:#6b7280">${sql}</span>`;
+  const oppDisp = opp === 0 ? '<span style="color:#374151">—</span>' : opp >= 3 ? `<span style="color:#a78bfa;font-weight:700">${opp} ★</span>` : `<span style="color:#a78bfa;font-weight:600">${opp}</span>`;
+  const wonDisp = won === 0 ? '<span style="color:#374151">—</span>' : `<span style="color:#047857;font-weight:700">${won}</span>`;
   const tipoCell = showTipo ? `<td style="padding:9px 8px"><span style="color:${tc};font-size:11px;padding:2px 7px;border-radius:4px;font-weight:600">${tipo}</span></td>` : '';
   return `<tr class="deal-row" data-type="${tipo}">
-  <td style="padding:9px 8px;color:#64748b;font-size:12px;white-space:nowrap">${date}</td>
+  <td style="padding:9px 8px;color:#6b7280;font-size:12px;white-space:nowrap">${date}</td>
   ${tipoCell}
   <td style="padding:9px 8px;color:#1e293b;font-size:12px;max-width:320px;white-space:normal">${camp}</td>
   <td style="padding:9px 8px;text-align:right;color:#1e293b;font-weight:600">${leads.toLocaleString('pt-BR')}</td>
   <td style="padding:9px 8px;text-align:right">
     <span style="color:${rc};font-weight:600">${resp.toLocaleString('pt-BR')}</span>
-    <span style="color:#64748b;font-size:11px"> (${pct}%)</span>
+    <span style="color:#6b7280;font-size:11px"> (${pct}%)</span>
   </td>
   <td style="padding:9px 8px;text-align:center">
-    <div style="background:#f1f5f9;border-radius:4px;height:5px;width:70px;display:inline-block">
+    <div style="background:#f3f4f6;border-radius:4px;height:5px;width:70px;display:inline-block">
       <div style="background:#475569;width:${bar}%;height:100%;border-radius:4px"></div>
     </div>
   </td>
@@ -1198,8 +1209,8 @@ const histData = [
 const maxH = Math.max(...histData.map(h=>h.n));
 document.getElementById('vel-histogram').innerHTML = histData.map(h=>`
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-    <div style="width:96px;font-size:11px;color:#64748b;text-align:right;flex-shrink:0">${h.d}</div>
-    <div style="flex:1;background:#f1f5f9;border-radius:4px;height:22px;position:relative;overflow:hidden">
+    <div style="width:96px;font-size:11px;color:#6b7280;text-align:right;flex-shrink:0">${h.d}</div>
+    <div style="flex:1;background:#f3f4f6;border-radius:4px;height:22px;position:relative;overflow:hidden">
       <div style="background:${h.color};width:${(h.n/maxH*100).toFixed(0)}%;height:100%;border-radius:4px;opacity:0.85;transition:width .3s"></div>
     </div>
     <div style="font-size:13px;font-weight:700;color:${h.color};width:16px;text-align:right;flex-shrink:0">${h.n}</div>
@@ -1217,10 +1228,10 @@ const maxS = stageData[0].n;
 document.getElementById('vel-stages').innerHTML = stageData.map(s=>`
   <div style="margin-bottom:16px">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
-      <div style="font-size:11px;color:#64748b">${s.name}</div>
+      <div style="font-size:11px;color:#6b7280">${s.name}</div>
       <div style="font-size:13px;font-weight:700;color:${s.color};flex-shrink:0;margin-left:10px">${s.n}</div>
     </div>
-    <div style="background:#f1f5f9;border-radius:4px;height:8px">
+    <div style="background:#f3f4f6;border-radius:4px;height:8px">
       <div style="background:${s.color};width:${(s.n/maxS*100).toFixed(0)}%;height:100%;border-radius:4px;opacity:0.8"></div>
     </div>
   </div>
@@ -1251,14 +1262,14 @@ document.getElementById('tbody-vel').innerHTML = velData.map(([sqld,oppd,dias,st
   const rowStyle = status==='won' ? 'background:#f0fdf4;' : '';
   const statusHtml = status==='won'  ? '<span style="color:#047857;font-weight:700">WON ✓</span>' :
                      status==='lost' ? '<span style="color:#ef4444">Lost</span>' :
-                     '<span style="color:#64748b">Open</span>';
+                     '<span style="color:#6b7280">Open</span>';
   return `<tr class="deal-row" style="${rowStyle}">
-    <td style="padding:9px 8px;color:#64748b;font-size:12px">${sqld}</td>
-    <td style="padding:9px 8px;color:#64748b;font-size:12px">${oppd}</td>
+    <td style="padding:9px 8px;color:#6b7280;font-size:12px">${sqld}</td>
+    <td style="padding:9px 8px;color:#6b7280;font-size:12px">${oppd}</td>
     <td style="padding:9px 8px;text-align:center">
       <span style="background:${dc}22;color:${dc};font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;border:1px solid ${dc}44">D+${dias}</span>
     </td>
-    <td style="padding:9px 8px;color:#64748b;font-size:12px">${camp}</td>
+    <td style="padding:9px 8px;color:#6b7280;font-size:12px">${camp}</td>
     <td style="padding:9px 8px;text-align:center">${statusHtml}</td>
   </tr>`;
 }).join('');
@@ -1275,6 +1286,21 @@ function showTab(id, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   btn.classList.add('active');
+}
+
+function triggerRefresh(btn) {
+  btn.classList.add('loading');
+  btn.disabled = true;
+  btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg> Aguardando…';
+  fetch('https://api.claude.ai/triggers/trig_01Y2KJjp3bipYmAyjzK1WfE5/fire', { method: 'POST' })
+    .catch(() => {})
+    .finally(() => {
+      setTimeout(() => {
+        btn.classList.remove('loading');
+        btn.disabled = false;
+        btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg> Atualizar';
+      }, 2000);
+    });
 }
 </script>
 </body>
