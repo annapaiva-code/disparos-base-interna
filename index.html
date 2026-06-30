@@ -26,7 +26,7 @@
   .tab-btn.szi.active   { border-bottom-color: #3b82f6; color: #60a5fa; }
   .tab-btn.mkt.active   { border-bottom-color: #8b5cf6; color: #a78bfa; }
   .tab-btn.out.active   { border-bottom-color: #f59e0b; color: #fbbf24; }
-  .tab-btn.vel.active   { border-bottom-color: #06b6d4; color: #22d3ee; }
+  .tab-btn.ges.active   { border-bottom-color: #10b981; color: #34d399; }
 
   .section { display: none; }
   .section.active { display: block; }
@@ -150,7 +150,8 @@
 <div class="tabs">
   <button class="tab-btn szi active" onclick="showTab('szi',this)">SZI (54)</button>
   <button class="tab-btn mkt"        onclick="showTab('mkt',this)">Marketplace (15)</button>
-  <button class="tab-btn out"        onclick="showTab('out',this)">Gestão / Outros (10)</button>
+  <button class="tab-btn ges"        onclick="showTab('ges',this)">Gestão / SZS (7)</button>
+  <button class="tab-btn out"        onclick="showTab('out',this)">Outros (3)</button>
   <button class="tab-btn"            onclick="showTab('all',this)">Todos (79)</button>
 </div>
 
@@ -719,8 +720,8 @@
 
 </div>
 
-<!-- ═══════════════ OUTROS ═══════════════ -->
-<div id="tab-out" class="section">
+<!-- ═══════════════ GESTÃO / SZS ═══════════════ -->
+<div id="tab-ges" class="section">
   <div class="funnel">
     <div class="funnel-card">
       <div class="f-label">Leads Gestão</div>
@@ -870,7 +871,7 @@
       <th style="text-align:right">OPP</th>
       <th style="text-align:right">WON</th>
     </tr></thead>
-    <tbody id="tbody-out"></tbody>
+    <tbody id="tbody-ges"></tbody>
   </table></div>
 
   <div style="margin-top:32px;margin-bottom:18px;display:flex;align-items:center;gap:12px">
@@ -939,6 +940,119 @@
       <span class="ic-action w">→ Acompanhar evoluções OPP→WON nessa base</span>
     </div>
 
+  </div>
+
+</div>
+
+<!-- ═══════════════ OUTROS (Decor + Parceiros) ═══════════════ -->
+<div id="tab-out" class="section">
+  <div class="funnel">
+    <div class="funnel-card">
+      <div class="f-label">Leads Outros</div>
+      <div class="f-value" style="color:#f8fafc">12</div>
+      <div class="f-sub">3 campanhas · Decor + Parceiros</div>
+      <div class="f-rate" style="color:#64748b">base</div>
+    </div>
+    <div class="funnel-card">
+      <div class="f-label">Responderam</div>
+      <div class="f-value" style="color:#34d399">12</div>
+      <div class="f-sub">WA direto / personalizado</div>
+      <div class="f-rate" style="color:#34d399">100%</div>
+    </div>
+    <div class="funnel-card">
+      <div class="f-label">SQL</div>
+      <div class="f-value" style="color:#38bdf8">5</div>
+      <div class="f-sub">data qualificação</div>
+      <div class="f-rate" style="color:#38bdf8">41,7% dos resp.</div>
+    </div>
+    <div class="funnel-card" style="border-left:2px solid #ef444444;">
+      <div class="f-label">OPP</div>
+      <div class="f-value" style="color:#ef4444">0</div>
+      <div class="f-sub">data da reunião</div>
+      <div class="f-rate" style="color:#ef4444">0% dos SQL</div>
+    </div>
+    <div class="funnel-card">
+      <div class="f-label">WON</div>
+      <div class="f-value" style="color:#475569">0</div>
+      <div class="f-sub">venda confirmada</div>
+      <div class="f-rate" style="color:#475569">—</div>
+    </div>
+  </div>
+
+  <div class="insights" style="grid-template-columns:1fr 1fr">
+    <div class="insight-card warn">
+      <div class="ic-eyebrow w">⚠ Decor — Japaratinga</div>
+      <div class="ic-headline">10 leads, 4 SQLs, 0 OPPs — padrão de silêncio pós-qualificação</div>
+      <div class="mini-funnel" style="margin:10px 0">
+        <div class="mf-block"><div class="mf-n" style="color:#34d399">10</div><div class="mf-l">Leads</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#38bdf8">4</div><div class="mf-l">SQL</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#ef4444">0</div><div class="mf-l">OPP</div></div>
+      </div>
+      <div class="ic-body">Reativação Japaratinga SPOT (Decor, 17/06). 4 SQLs qualificados, nenhum chegou a reunião. Mesmo gargalo das outras frentes.</div>
+    </div>
+    <div class="insight-card ok">
+      <div class="ic-eyebrow g">✅ Decor Ilha do Campeche</div>
+      <div class="ic-headline">1 lead direto: qualificou — aguardando agendamento</div>
+      <div class="mini-funnel" style="margin:10px 0">
+        <div class="mf-block"><div class="mf-n" style="color:#34d399">1</div><div class="mf-l">Lead</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#38bdf8">1</div><div class="mf-l">SQL</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#475569">0</div><div class="mf-l">OPP</div></div>
+      </div>
+      <div class="ic-body">DECOR LOST DCR Ilha do Campeche SPOT II (03/16). Lead individual, qualificou — ainda sem reunião marcada.</div>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Como ler:</strong>
+    <strong style="color:#38bdf8">SQL</strong> = "Data de Qualificação" preenchida ·
+    <strong style="color:#a78bfa">OPP</strong> = "Data da Reunião" preenchida
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr>
+      <th>Data</th><th>Campanha</th>
+      <th style="text-align:right">Leads</th>
+      <th style="text-align:right">Responderam</th>
+      <th style="text-align:center">Vol.</th>
+      <th style="text-align:right">SQL</th>
+      <th style="text-align:right">OPP</th>
+      <th style="text-align:right">WON</th>
+    </tr></thead>
+    <tbody id="tbody-out"></tbody>
+  </table></div>
+
+  <div style="margin-top:32px;margin-bottom:18px;display:flex;align-items:center;gap:12px">
+    <div style="flex:1;height:1px;background:#252010"></div>
+    <div style="font-size:11px;font-weight:700;color:#f59e0b;text-transform:uppercase;letter-spacing:.08em">⚡ SQL → OPP — Análise do Mês (Junho)</div>
+    <div style="flex:1;height:1px;background:#252010"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:20px">
+    <div class="ss-card" style="border-radius:10px 0 0 10px">
+      <div class="ss-label">SQLs Outros — Junho</div>
+      <div class="ss-value" style="color:#f8fafc">5</div>
+      <div class="ss-sub">Decor + Parceiros · a partir 01/06</div>
+    </div>
+    <div class="ss-card" style="border-color:#ef444433">
+      <div class="ss-label" style="color:#ef4444">Com Reunião Marcada</div>
+      <div class="ss-value" style="color:#ef4444">0</div>
+      <div class="ss-sub">0% dos SQLs</div>
+    </div>
+    <div class="ss-card" style="border-color:#f59e0b33;border-radius:0 10px 10px 0">
+      <div class="ss-label" style="color:#f59e0b">Sem Reunião Agendada</div>
+      <div class="ss-value" style="color:#f59e0b">5</div>
+      <div class="ss-sub">100% dos SQLs</div>
+    </div>
+  </div>
+
+  <div class="insight-card alert" style="margin-bottom:20px">
+    <div class="ic-eyebrow r">🔴 Gargalo em todas as frentes</div>
+    <div class="ic-headline">Decor/Parceiros replicam o mesmo padrão: SQL qualifica, ninguém agenda</div>
+    <div class="ic-body" style="margin-top:8px">5 SQLs qualificados entre Decor e Parceiros — <strong>zero reuniões</strong>. O padrão SQL→silêncio não é exclusivo do SZI ou MKT: é sistêmico em toda operação de closer, independente da frente.</div>
+    <span class="ic-action r">→ O gargalo é estrutural — urgência pós-qualificação no mesmo dia em todas as frentes</span>
   </div>
 
 </div>
@@ -1017,19 +1131,19 @@ const rows = [
   ["06-12","Marketplace","OPP SEMANA SANTINHO — NÃO ABRIRAM",443,0,0,0,0],
   ["06-11","Marketplace","OPP SEMANA SANTINHO",70,1,0,0,0],
   // Outros (SZS + Decor + Parceiros)
-  ["06-26","Outros","LOST COM OPP DESCONTO SZS GESTÃO",494,494,19,3,0],
-  ["06-25","Outros","TESTE SIRIUS MSG1 SZS EXPANSÃO",220,220,3,1,0],
-  ["06-17","Outros","REATIVAÇÃO EXPANSÃO SIRIUS (SZS)",177,177,25,8,2],
+  ["06-26","Gestão","LOST COM OPP DESCONTO SZS GESTÃO",494,494,19,3,0],
+  ["06-25","Gestão","TESTE SIRIUS MSG1 SZS EXPANSÃO",220,220,3,1,0],
+  ["06-17","Gestão","REATIVAÇÃO EXPANSÃO SIRIUS (SZS)",177,177,25,8,2],
   ["06-17","Outros","REATIVAÇÃO JAPARATINGA SPOT (Decor)",10,10,4,0,0],
-  ["05-14","Outros","B2B FIVE TRADE RESIDENCE (SZS)",1,1,1,1,1],
+  ["05-14","Gestão","B2B FIVE TRADE RESIDENCE (SZS)",1,1,1,1,1],
   ["03-16","Outros","DECOR LOST DCR ILHA DO CAMPECHE SPOT II",1,1,1,0,0],
-  ["03-12","Outros","B2B GESTÃO LEAD MONDRIAN STUDIOS (SZS)",1,1,1,1,1],
-  ["02-02","Outros","B2B GESTÃO LEAD THE STUDIO (SZS)",1,1,1,1,1],
-  ["01-12","Outros","B2B GESTÃO LOST ROYAL PALACE (SZS)",1,1,1,1,0],
+  ["03-12","Gestão","B2B GESTÃO LEAD MONDRIAN STUDIOS (SZS)",1,1,1,1,1],
+  ["02-02","Gestão","B2B GESTÃO LEAD THE STUDIO (SZS)",1,1,1,1,1],
+  ["01-12","Gestão","B2B GESTÃO LOST ROYAL PALACE (SZS)",1,1,1,1,0],
   ["06-26","Outros","OPP IMPERDÍVEL JURERÊ II (Parceiros)",1,1,0,0,0],
 ];
 
-const TYPE_COLOR = { SZI:'#3b82f6', Marketplace:'#8b5cf6', Outros:'#f59e0b' };
+const TYPE_COLOR = { SZI:'#3b82f6', Marketplace:'#8b5cf6', Gestão:'#10b981', Outros:'#f59e0b' };
 
 function respColor(pct) {
   if (pct >= 20) return '#10b981';
@@ -1070,6 +1184,7 @@ function makeRow(r, showTipo) {
 document.getElementById('tbody-all').innerHTML = rows.map(r => makeRow(r, true)).join('');
 document.getElementById('tbody-szi').innerHTML = rows.filter(r => r[1]==='SZI').map(r => makeRow(r,false)).join('');
 document.getElementById('tbody-mkt').innerHTML = rows.filter(r => r[1]==='Marketplace').map(r => makeRow(r,false)).join('');
+document.getElementById('tbody-ges').innerHTML = rows.filter(r => r[1]==='Gestão').map(r => makeRow(r,false)).join('');
 document.getElementById('tbody-out').innerHTML = rows.filter(r => r[1]==='Outros').map(r => makeRow(r,false)).join('');
 
 // ─── Velocity histogram ───
