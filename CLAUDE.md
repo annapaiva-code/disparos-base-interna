@@ -1,0 +1,41 @@
+# Disparos Base Interna — Dashboard de Funil
+
+## O que é
+Dashboard HTML de funil de conversão dos disparos MIA (SZI + Marketplace + Gestão/SZS).
+Cobre leads gerados por campanhas de WA via MIA a partir de 11/06/2026.
+
+## Links
+- **Público:** https://disparos-base-interna.vercel.app
+- **GitHub:** https://github.com/annapaiva-code/disparos-base-interna (branch `main`)
+- **Drive:** "Disparos SZI — Funil Diário" (sobrescreve diariamente)
+- **Arquivo local:** `C:\Users\compu\Desktop\disparos_szi_funil.html`
+
+## Rotina automática
+- **Trigger:** `trig_01Y2KJjp3bipYmAyjzK1WfE5`
+- **Horário:** `0 10 * * *` = 7h BRT todo dia
+- Puxa `nekt_operacional_silver.pipedrive_marketing_deals_disparos_mia`
+- Gera HTML → salva no Drive → push GitHub → Vercel auto-deploya
+
+## Estrutura das abas
+| Aba | ID | Cor |
+|-----|-----|-----|
+| SZI | `tab-szi` | azul `#3b82f6` |
+| Marketplace | `tab-mkt` | roxo `#8b5cf6` |
+| Gestão / Outros | `tab-out` | âmbar `#f59e0b` |
+| Todos | `tab-all` | neutro |
+
+Cada aba tem: funil do mês → 3 cards insight → tabela de campanhas → seção SQL→OPP ⚡ (análise do mês).
+
+## Dados
+- **Fonte:** Nekt → `pipedrive_marketing_deals_disparos_mia`
+- **Período:** a partir de `2026-06-11` (atualizar no prompt da rotina ao iniciar nova campanha)
+- **Pipelines:** Vendas Spot = SZI · Marketplace = MKT · outros = Gestão/Outros
+
+## SDRs vs Closers
+- **SDRs (Pré-venda):** Jeniffer Correa, Karoane Soares, Cesar Araujo — fazem cadência de contato via MIA até o agendamento
+- **Closers:** Luana, Hellen, Jonathan — atuam após a reunião acontecer
+
+## Vercel
+- Projeto: `disparos-base-interna` (team `annapaiva`)
+- Token: `C:\Users\compu\AppData\Roaming\xdg.data\com.vercel.cli\auth.json`
+- Deploy via push no GitHub (auto-deploy configurado)
