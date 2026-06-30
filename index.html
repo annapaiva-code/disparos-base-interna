@@ -1161,6 +1161,8 @@ function respColor(pct) {
   return '#ef4444';
 }
 
+function fmtDate(d) { const p = d.split('-'); return p.length === 2 ? p[1]+'-'+p[0] : d; }
+
 function makeRow(r, showTipo) {
   const [date,tipo,camp,leads,resp,sql,opp,won] = r;
   const pct = leads > 0 ? (resp/leads*100).toFixed(1) : 0;
@@ -1172,7 +1174,7 @@ function makeRow(r, showTipo) {
   const wonDisp = won === 0 ? '<span style="color:#374151">—</span>' : `<span style="color:#047857;font-weight:700">${won}</span>`;
   const tipoCell = showTipo ? `<td style="padding:9px 8px"><span style="color:${tc};font-size:11px;padding:2px 7px;border-radius:4px;font-weight:600">${tipo}</span></td>` : '';
   return `<tr class="deal-row" data-type="${tipo}">
-  <td style="padding:9px 8px;color:#6b7280;font-size:12px;white-space:nowrap">${date}</td>
+  <td style="padding:9px 8px;color:#6b7280;font-size:12px;white-space:nowrap">${fmtDate(date)}</td>
   ${tipoCell}
   <td style="padding:9px 8px;color:#1e293b;font-size:12px;max-width:320px;white-space:normal">${camp}</td>
   <td style="padding:9px 8px;text-align:right;color:#1e293b;font-weight:600">${leads.toLocaleString('pt-BR')}</td>
