@@ -151,7 +151,6 @@
   <button class="tab-btn szi active" onclick="showTab('szi',this)">SZI (54)</button>
   <button class="tab-btn mkt"        onclick="showTab('mkt',this)">Marketplace (15)</button>
   <button class="tab-btn out"        onclick="showTab('out',this)">Gestão / Outros (10)</button>
-  <button class="tab-btn vel"        onclick="showTab('vel',this)">SQL → OPP ⚡</button>
   <button class="tab-btn"            onclick="showTab('all',this)">Todos (79)</button>
 </div>
 
@@ -444,6 +443,82 @@
     </tr></thead>
     <tbody id="tbody-szi"></tbody>
   </table></div>
+
+  <div style="margin-top:32px;margin-bottom:18px;display:flex;align-items:center;gap:12px">
+    <div style="flex:1;height:1px;background:#1e3a5f"></div>
+    <div style="font-size:11px;font-weight:700;color:#22d3ee;text-transform:uppercase;letter-spacing:.08em">⚡ SQL → OPP — Análise do Mês (Junho)</div>
+    <div style="flex:1;height:1px;background:#1e3a5f"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:20px">
+    <div class="ss-card" style="border-radius:10px 0 0 10px">
+      <div class="ss-label">SQLs SZI — Junho</div>
+      <div class="ss-value" style="color:#f8fafc">128</div>
+      <div class="ss-sub">data_de_qualificacao preenchida · a partir 01/06</div>
+    </div>
+    <div class="ss-card" style="border-color:#06b6d433">
+      <div class="ss-label" style="color:#22d3ee">Com Reunião Marcada</div>
+      <div class="ss-value" style="color:#22d3ee">16</div>
+      <div class="ss-sub">12,5% dos SQLs · data_da_reuniao preenchida</div>
+    </div>
+    <div class="ss-card" style="border-color:#ef444433;border-radius:0 10px 10px 0">
+      <div class="ss-label" style="color:#ef4444">Sem Reunião Agendada</div>
+      <div class="ss-value" style="color:#ef4444">112</div>
+      <div class="ss-sub">87,5% dos SQLs · gargalo principal</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+
+    <div style="background:#1e293b;border:1px solid #334155;border-radius:12px;padding:18px 20px">
+      <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Intervalo SQL → Reunião (16 agendados)</div>
+      <div id="vel-histogram"></div>
+      <div style="font-size:10px;color:#475569;margin-top:12px;line-height:1.8">Mediana: <strong style="color:#94a3b8">3 dias</strong> &nbsp;·&nbsp; Máximo: <strong style="color:#94a3b8">7 dias</strong> &nbsp;·&nbsp; Único WON: <strong style="color:#22d3ee">D+1</strong></div>
+    </div>
+
+    <div style="background:#1e293b;border:1px solid #334155;border-radius:12px;padding:18px 20px">
+      <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Por Que 112 SQLs Não Chegaram a OPP</div>
+      <div id="vel-stages"></div>
+      <div style="font-size:10px;color:#475569;margin-top:12px;line-height:1.6">⚠ "Agendado sem data" = closer atualizou o stage mas não preencheu o campo <em>data_da_reunião</em> — funil não conta como OPP</div>
+    </div>
+
+  </div>
+
+  <div class="insight-card ok" style="margin-bottom:20px">
+    <div class="ic-eyebrow g">✅ Única fórmula vencedora: D+1</div>
+    <div class="ic-headline">O único WON SZI de junho foi qualificado e agendado no dia seguinte</div>
+    <div class="mini-funnel" style="margin:10px 0">
+      <div class="mf-block"><div class="mf-n" style="color:#38bdf8">18/06</div><div class="mf-l">SQL</div></div>
+      <div class="mf-arrow">→</div>
+      <div class="mf-block"><div class="mf-n" style="color:#a78bfa">19/06</div><div class="mf-l">Reunião</div></div>
+      <div class="mf-arrow">→</div>
+      <div class="mf-block"><div class="mf-n" style="color:#10b981">WON</div><div class="mf-l">Repescagem SLA Jurerê II</div></div>
+    </div>
+    <div class="ic-body">Dos 16 que chegaram a ter reunião: <strong>0 WONs</strong> entre os agendados com 2+ dias de atraso. A janela de comprometimento do lead fecha rápido após a qualificação.<br><br>3 SQLs foram agendados em D+1: <strong>1 WON, 2 lost</strong>. Dos 12 agendados em D+3 ou mais: <strong>0 WONs</strong>. Correlação direta entre velocidade e fechamento.</div>
+    <span class="ic-action g">→ Política: reunião marcada no mesmo dia ou no dia seguinte à qualificação</span>
+  </div>
+
+  <div class="alert-box">
+    Os <strong>16 SQLs SZI</strong> (Junho/2026) que chegaram a ter <strong>data de reunião preenchida</strong> no Pipedrive · dados individuais por deal
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr>
+      <th>Data SQL</th>
+      <th>Data Reunião</th>
+      <th style="text-align:center">Intervalo</th>
+      <th>Campanha</th>
+      <th style="text-align:center">Resultado</th>
+    </tr></thead>
+    <tbody id="tbody-vel"></tbody>
+  </table></div>
+  <div class="legend" style="margin-top:12px">
+    <span><span class="leg-dot" style="background:#10b981"></span>D+0 mesmo dia</span>
+    <span><span class="leg-dot" style="background:#22d3ee"></span>D+1 (onde veio o WON)</span>
+    <span><span class="leg-dot" style="background:#f59e0b"></span>D+2</span>
+    <span><span class="leg-dot" style="background:#f97316"></span>D+3–4</span>
+    <span><span class="leg-dot" style="background:#ef4444"></span>D+7+</span>
+  </div>
+
 </div>
 
 <!-- ═══════════════ MKT ═══════════════ -->
@@ -585,6 +660,63 @@
     </tr></thead>
     <tbody id="tbody-mkt"></tbody>
   </table></div>
+
+  <div style="margin-top:32px;margin-bottom:18px;display:flex;align-items:center;gap:12px">
+    <div style="flex:1;height:1px;background:#2d1f5e"></div>
+    <div style="font-size:11px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:.08em">⚡ SQL → OPP — Análise do Mês (Junho)</div>
+    <div style="flex:1;height:1px;background:#2d1f5e"></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:20px">
+    <div class="ss-card" style="border-radius:10px 0 0 10px">
+      <div class="ss-label">SQLs MKT — Junho</div>
+      <div class="ss-value" style="color:#f8fafc">36</div>
+      <div class="ss-sub">data_de_qualificacao preenchida · a partir 01/06</div>
+    </div>
+    <div class="ss-card" style="border-color:#a78bfa33">
+      <div class="ss-label" style="color:#a78bfa">Com Reunião Marcada</div>
+      <div class="ss-value" style="color:#a78bfa">3</div>
+      <div class="ss-sub">8,3% dos SQLs · apenas Rosa SPOT</div>
+    </div>
+    <div class="ss-card" style="border-color:#ef444433;border-radius:0 10px 10px 0">
+      <div class="ss-label" style="color:#ef4444">Sem Reunião Agendada</div>
+      <div class="ss-value" style="color:#ef4444">33</div>
+      <div class="ss-sub">91,7% dos SQLs · gargalo principal</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+
+    <div class="insight-card alert">
+      <div class="ic-eyebrow r">🔴 Penha SPOT — caso crítico</div>
+      <div class="ic-headline">11 SQLs, 0 OPPs — melhor volume, pior conversão</div>
+      <div class="mini-funnel" style="margin:10px 0">
+        <div class="mf-block"><div class="mf-n" style="color:#34d399">218</div><div class="mf-l">Leads</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#38bdf8">11</div><div class="mf-l">SQL</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#ef4444">0</div><div class="mf-l">OPP</div></div>
+      </div>
+      <div class="ic-body">24% de resposta (melhor do MKT), 11 SQLs — mas <strong>zero reuniões</strong>. Mesmo padrão do SZI: lead qualifica, closer tenta, lead some. Sul da Ilha adiciona mais 6 SQLs e 0 OPPs ao gargalo.</div>
+      <span class="ic-action r">→ Urgência pós-qualificação no mesmo dia</span>
+    </div>
+
+    <div class="insight-card ok">
+      <div class="ic-eyebrow g">✅ Rosa SPOT — referência MKT</div>
+      <div class="ic-headline">30% SQL→OPP — única campanha com conversão real</div>
+      <div class="mini-funnel" style="margin:10px 0">
+        <div class="mf-block"><div class="mf-n" style="color:#34d399">186</div><div class="mf-l">Leads</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#38bdf8">10</div><div class="mf-l">SQL</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#a78bfa">3</div><div class="mf-l">OPP</div></div>
+      </div>
+      <div class="ic-body">14,5% resp, 10 SQLs, <strong>3 OPPs (30%)</strong>. Penha tem resp maior (24%) e mais SQLs (11) — e zero OPPs. A diferença não é no lead, é na velocidade pós-qualificação.</div>
+      <span class="ic-action g">→ Replicar segmentação Rosa SPOT em novos lançamentos</span>
+    </div>
+
+  </div>
+
 </div>
 
 <!-- ═══════════════ OUTROS ═══════════════ -->
@@ -740,78 +872,73 @@
     </tr></thead>
     <tbody id="tbody-out"></tbody>
   </table></div>
-</div>
 
-<!-- ═══════════════ VELOCITY ═══════════════ -->
-<div id="tab-vel" class="section">
+  <div style="margin-top:32px;margin-bottom:18px;display:flex;align-items:center;gap:12px">
+    <div style="flex:1;height:1px;background:#1c2a12"></div>
+    <div style="font-size:11px;font-weight:700;color:#10b981;text-transform:uppercase;letter-spacing:.08em">⚡ SQL → OPP — Análise do Mês (Junho)</div>
+    <div style="flex:1;height:1px;background:#1c2a12"></div>
+  </div>
 
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:20px">
     <div class="ss-card" style="border-radius:10px 0 0 10px">
-      <div class="ss-label">SQLs SZI — Junho</div>
-      <div class="ss-value" style="color:#f8fafc">128</div>
+      <div class="ss-label">SQLs Gestão — Junho</div>
+      <div class="ss-value" style="color:#f8fafc">56</div>
       <div class="ss-sub">data_de_qualificacao preenchida · a partir 01/06</div>
     </div>
-    <div class="ss-card" style="border-color:#06b6d433">
-      <div class="ss-label" style="color:#22d3ee">Com Reunião Marcada</div>
-      <div class="ss-value" style="color:#22d3ee">16</div>
-      <div class="ss-sub">12,5% dos SQLs · data_da_reuniao preenchida</div>
+    <div class="ss-card" style="border-color:#10b98133">
+      <div class="ss-label" style="color:#10b981">Com Reunião Marcada</div>
+      <div class="ss-value" style="color:#10b981">16</div>
+      <div class="ss-sub">28,6% dos SQLs · melhor frente</div>
     </div>
-    <div class="ss-card" style="border-color:#ef444433;border-radius:0 10px 10px 0">
-      <div class="ss-label" style="color:#ef4444">Sem Reunião Agendada</div>
-      <div class="ss-value" style="color:#ef4444">112</div>
-      <div class="ss-sub">87,5% dos SQLs · gargalo principal</div>
+    <div class="ss-card" style="border-color:#f59e0b33;border-radius:0 10px 10px 0">
+      <div class="ss-label" style="color:#f59e0b">Sem Reunião Agendada</div>
+      <div class="ss-value" style="color:#f59e0b">40</div>
+      <div class="ss-sub">71,4% dos SQLs · ainda há oportunidade</div>
     </div>
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px">
 
-    <div style="background:#1e293b;border:1px solid #334155;border-radius:12px;padding:18px 20px">
-      <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Intervalo SQL → Reunião (16 agendados)</div>
-      <div id="vel-histogram"></div>
-      <div style="font-size:10px;color:#475569;margin-top:12px;line-height:1.8">Mediana: <strong style="color:#94a3b8">3 dias</strong> &nbsp;·&nbsp; Máximo: <strong style="color:#94a3b8">7 dias</strong> &nbsp;·&nbsp; Único WON: <strong style="color:#22d3ee">D+1</strong></div>
+    <div class="insight-card ok">
+      <div class="ic-eyebrow g">✅ Melhor conversão</div>
+      <div class="ic-headline">SZS Gestão: 28,6% SQL→OPP — 3× melhor que SZI</div>
+      <div class="mini-funnel" style="margin:10px 0">
+        <div class="mf-block"><div class="mf-n" style="color:#38bdf8">56</div><div class="mf-l">SQL</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#10b981">16</div><div class="mf-l">OPP</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#10b981">5</div><div class="mf-l">WON</div></div>
+      </div>
+      <div class="ic-body">Base proprietária com relacionamento existente. Sirius 32%, Lost com OPP 15,8%, B2B 100%. Perfil mais qualificado, menor fricção pra agendar.</div>
     </div>
 
-    <div style="background:#1e293b;border:1px solid #334155;border-radius:12px;padding:18px 20px">
-      <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Por Que 112 SQLs Não Chegaram a OPP</div>
-      <div id="vel-stages"></div>
-      <div style="font-size:10px;color:#475569;margin-top:12px;line-height:1.6">⚠ "Agendado sem data" = closer atualizou o stage mas não preencheu o campo <em>data_da_reunião</em> — funil não conta como OPP</div>
+    <div class="insight-card ok">
+      <div class="ic-eyebrow g">✅ B2B individual = 100%</div>
+      <div class="ic-headline">4 leads B2B: todos chegaram a OPP, 3 WON</div>
+      <div class="mini-funnel" style="margin:10px 0">
+        <div class="mf-block"><div class="mf-n" style="color:#38bdf8">4</div><div class="mf-l">SQL</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#10b981">4</div><div class="mf-l">OPP</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#10b981">3</div><div class="mf-l">WON</div></div>
+      </div>
+      <div class="ic-body">Abordagem individualizada (1 prospect, pesquisa prévia, proposta customizada) entrega <strong>100% SQL→OPP</strong> vs. 8% das campanhas em massa. ROI por lead incomparável.</div>
     </div>
 
-  </div>
-
-  <div class="insight-card ok" style="margin-bottom:20px">
-    <div class="ic-eyebrow g">✅ Única fórmula vencedora: D+1</div>
-    <div class="ic-headline">O único WON SZI de junho foi qualificado e agendado no dia seguinte</div>
-    <div class="mini-funnel" style="margin:10px 0">
-      <div class="mf-block"><div class="mf-n" style="color:#38bdf8">18/06</div><div class="mf-l">SQL</div></div>
-      <div class="mf-arrow">→</div>
-      <div class="mf-block"><div class="mf-n" style="color:#a78bfa">19/06</div><div class="mf-l">Reunião</div></div>
-      <div class="mf-arrow">→</div>
-      <div class="mf-block"><div class="mf-n" style="color:#10b981">WON</div><div class="mf-l">Repescagem SLA Jurerê II</div></div>
+    <div class="insight-card warn">
+      <div class="ic-eyebrow w">⚠ Oportunidade ativa</div>
+      <div class="ic-headline">Lost com OPP Desconto: 19 SQLs ainda em aberto</div>
+      <div class="mini-funnel" style="margin:10px 0">
+        <div class="mf-block"><div class="mf-n" style="color:#34d399">494</div><div class="mf-l">Leads</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#38bdf8">19</div><div class="mf-l">SQL</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#a78bfa">3</div><div class="mf-l">OPP</div></div>
+      </div>
+      <div class="ic-body">Maior campanha do período (26/06). 15,8% SQL→OPP em 4 dias — ainda em desenvolvimento. 16 SQLs sem reunião marcada são leads quentes com desconto ativo.</div>
+      <span class="ic-action w">→ Acompanhar evoluções OPP→WON nessa base</span>
     </div>
-    <div class="ic-body">Dos 16 que chegaram a ter reunião: <strong>0 WONs</strong> entre os agendados com 2+ dias de atraso. A janela de comprometimento do lead fecha rápido após a qualificação.<br><br>3 SQLs foram agendados em D+1: <strong>1 WON, 2 lost</strong>. Dos 12 agendados em D+3 ou mais: <strong>0 WONs</strong>. Correlação direta entre velocidade e fechamento.</div>
-    <span class="ic-action g">→ Política: reunião marcada no mesmo dia ou no dia seguinte à qualificação</span>
-  </div>
 
-  <div class="alert-box">
-    Os <strong>16 SQLs SZI</strong> (Junho/2026) que chegaram a ter <strong>data de reunião preenchida</strong> no Pipedrive · dados individuais por deal
-  </div>
-  <div class="table-wrap"><table>
-    <thead><tr>
-      <th>Data SQL</th>
-      <th>Data Reunião</th>
-      <th style="text-align:center">Intervalo</th>
-      <th>Campanha</th>
-      <th style="text-align:center">Resultado</th>
-    </tr></thead>
-    <tbody id="tbody-vel"></tbody>
-  </table></div>
-  <div class="legend" style="margin-top:12px">
-    <span><span class="leg-dot" style="background:#10b981"></span>D+0 mesmo dia</span>
-    <span><span class="leg-dot" style="background:#22d3ee"></span>D+1 (onde veio o WON)</span>
-    <span><span class="leg-dot" style="background:#f59e0b"></span>D+2</span>
-    <span><span class="leg-dot" style="background:#f97316"></span>D+3–4</span>
-    <span><span class="leg-dot" style="background:#ef4444"></span>D+7+</span>
   </div>
 
 </div>
