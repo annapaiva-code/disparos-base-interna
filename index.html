@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Disparos — Funil por Frente</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0f172a; color: #e2e8f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; padding: 24px; max-width: 1160px; margin: 0 auto; }
+
+  .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+  .title { font-size: 22px; font-weight: 700; color: #f8fafc; }
+  .subtitle { font-size: 13px; color: #64748b; margin-top: 4px; }
+  .updated { font-size: 12px; color: #475569; white-space: nowrap; }
+
+  .summary-strip { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; margin-bottom: 20px; }
+  .ss-card { background: #1e293b; border: 1px solid #334155; padding: 10px 14px; }
+  .ss-card:first-child { border-radius: 10px 0 0 10px; }
+  .ss-card:last-child  { border-radius: 0 10px 10px 0; }
+  .ss-label { font-size: 9px; color: #64748b; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+  .ss-value { font-size: 22px; font-weight: 800; margin: 2px 0 1px; }
+  .ss-sub   { font-size: 10px; color: #64748b; }
+
+  .tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid #1e293b; padding-bottom: 0; }
+  .tab-btn { background: none; border: none; cursor: pointer; padding: 8px 20px; font-size: 13px; font-weight: 600; color: #64748b; border-bottom: 2px solid transparent; transition: all .15s; margin-bottom: -1px; }
+  .tab-btn:hover { color: #94a3b8; }
+  .tab-btn.active { color: #f8fafc; border-bottom-color: #3b82f6; }
+  .tab-btn.szi.active   { border-bottom-color: #3b82f6; color: #60a5fa; }
+  .tab-btn.mkt.active   { border-bottom-color: #8b5cf6; color: #a78bfa; }
+  .tab-btn.out.active   { border-bottom-color: #f59e0b; color: #fbbf24; }
+  .tab-btn.vel.active   { border-bottom-color: #06b6d4; color: #22d3ee; }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  .funnel { display: grid; grid-template-columns: repeat(5,1fr); gap: 2px; margin-bottom: 20px; }
+  .funnel-card { background: #1e293b; border: 1px solid #334155; padding: 12px 14px; }
+  .funnel-card:first-child { border-radius: 10px 0 0 10px; }
+  .funnel-card:last-child  { border-radius: 0 10px 10px 0; }
+  .f-label { font-size: 9px; color: #64748b; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+  .f-value { font-size: 24px; font-weight: 800; margin: 3px 0 2px; }
+  .f-sub   { font-size: 10px; color: #64748b; }
+  .f-rate  { font-size: 10px; font-weight: 600; margin-top: 2px; }
+
+  .insights { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 20px; }
+  .insight-card { background: #1e293b; border-radius: 12px; padding: 14px 16px; border: 1px solid #334155; position: relative; overflow: hidden; }
+  .insight-card.warn  { border-color: #78350f55; background: linear-gradient(160deg,#1c1a0a,#1e293b 60%); }
+  .insight-card.alert { border-color: #7f1d1d55; background: linear-gradient(160deg,#1a0e0e,#1e293b 60%); }
+  .insight-card.ok    { border-color: #14532d55; background: linear-gradient(160deg,#0b1a11,#1e293b 60%); }
+  .insight-card.warn::before,
+  .insight-card.alert::before,
+  .insight-card.ok::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; }
+  .insight-card.warn::before  { background: linear-gradient(90deg,transparent,#f59e0b,transparent); }
+  .insight-card.alert::before { background: linear-gradient(90deg,transparent,#ef4444,transparent); }
+  .insight-card.ok::before    { background: linear-gradient(90deg,transparent,#10b981,transparent); }
+  .ic-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+  .ic-eyebrow.w { color: #f59e0b; }
+  .ic-eyebrow.r { color: #ef4444; }
+  .ic-eyebrow.g { color: #10b981; }
+  .ic-headline { font-size: 14px; font-weight: 700; color: #f8fafc; line-height: 1.3; margin-bottom: 6px; }
+  .ic-body { font-size: 12px; color: #94a3b8; line-height: 1.6; }
+  .ic-body strong { color: #e2e8f0; }
+  .ic-action { margin-top: 8px; font-size: 11px; font-weight: 600; padding: 4px 9px; border-radius: 6px; display: inline-block; }
+  .ic-action.w { background: #78350f33; color: #fbbf24; border: 1px solid #78350f55; }
+  .ic-action.r { background: #7f1d1d33; color: #fca5a5; border: 1px solid #7f1d1d55; }
+  .ic-action.g { background: #14532d33; color: #6ee7b7; border: 1px solid #14532d55; }
+
+  .mini-funnel { display: flex; gap: 6px; align-items: center; margin: 8px 0; }
+  .mf-block { text-align: center; flex: 1; }
+  .mf-n { font-size: 18px; font-weight: 800; }
+  .mf-l { font-size: 9px; color: #64748b; text-transform: uppercase; letter-spacing: .04em; margin-top: 2px; }
+  .mf-arrow { color: #334155; font-size: 14px; flex-shrink: 0; }
+
+  .alert-box { background: #1e3a5f; border: 1px solid #1d4ed8; border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 12px; color: #93c5fd; }
+
+  .table-wrap { background: #1e293b; border-radius: 12px; border: 1px solid #334155; overflow: auto; }
+  table { width: 100%; border-collapse: collapse; }
+  th { padding: 9px 8px; text-align: left; font-size: 10px; font-weight: 600; color: #64748b; text-transform: uppercase; letter-spacing: .05em; border-bottom: 1px solid #334155; white-space: nowrap; }
+  tr.deal-row:hover td { background: #263348; }
+  tr.deal-row td { border-bottom: 1px solid #1a2540; }
+
+  .legend { display: flex; gap: 16px; margin-top: 12px; font-size: 11px; color: #64748b; flex-wrap: wrap; }
+  .leg-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; }
+
+  @media(max-width:768px){ .summary-strip,.funnel{grid-template-columns:repeat(3,1fr)} .insights{grid-template-columns:1fr} }
+
+  .proof-toggle { display:block; width:100%; background:none; border:1px solid #2d3748; border-radius:6px; color:#475569; cursor:pointer; font-size:10px; font-weight:700; padding:5px 10px; margin-top:10px; text-align:left; letter-spacing:.03em; transition:all .15s; }
+  .proof-toggle:hover { color:#94a3b8; border-color:#475569; }
+  .proof-panel { display:none; margin-top:10px; padding-top:10px; border-top:1px solid #2d3748; }
+  .proof-panel.open { display:block; }
+  .proof-src { font-size:9px; color:#3b4e65; font-weight:700; text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px; }
+  .proof-h { font-size:10px; font-weight:700; color:#475569; text-transform:uppercase; letter-spacing:.06em; margin:10px 0 5px; }
+  .proof-tbl { width:100%; border-collapse:collapse; font-size:11px; }
+  .proof-tbl th { color:#475569; font-weight:600; font-size:10px; padding:3px 6px; text-align:left; border-bottom:1px solid #1e293b; }
+  .proof-tbl td { color:#94a3b8; padding:4px 6px; border-bottom:1px solid #161f30; vertical-align:middle; }
+  .proof-kpis { display:grid; gap:5px; margin-bottom:10px; }
+  .proof-kpi { background:#0a1120; border-radius:5px; padding:6px 10px; }
+  .proof-kpi-l { font-size:9px; color:#475569; }
+  .proof-kpi-v { font-size:16px; font-weight:800; }
+  .proof-note { font-size:10px; color:#475569; line-height:1.6; margin-top:8px; padding:6px 8px; background:#0a1120; border-radius:6px; border-left:2px solid #334155; }
+  .chat-log { margin:10px 0 6px; display:flex; flex-direction:column; gap:5px; }
+  .chat-msg { padding:6px 9px; border-radius:7px; font-size:11px; line-height:1.5; }
+  .chat-msg.in  { background:#0d1e35; border:1px solid #1d3558; }
+  .chat-msg.out { background:#0b1d13; border:1px solid #163a20; }
+  .chat-msg.sys { background:#1a1807; border:1px solid #3a3105; font-style:italic; }
+  .chat-who { display:block; font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; margin-bottom:3px; }
+  .chat-msg.in  .chat-who { color:#38bdf8; }
+  .chat-msg.out .chat-who { color:#6ee7b7; }
+  .chat-msg.sys .chat-who { color:#fbbf24; }
+  .chat-text { color:#94a3b8; }
+  .chat-msg.in .chat-text { color:#93c5fd; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <div class="title">Disparos Base Interna — Funil por Frente</div>
+    <div class="subtitle">Pipeline 28 · Funil Vendas Spot · 11/06 até 30/06 · Fonte: Nekt · pipedrive_marketing_deals_disparos_mia</div>
+  </div>
+  <div class="updated">Atualizado: 30/06/2026</div>
+</div>
+
+<div id="summary-strip" class="summary-strip">
+  <div class="ss-card">
+    <div class="ss-label">Total Leads</div>
+    <div class="ss-value" style="color:#f8fafc">6.085</div>
+    <div class="ss-sub">SZI + MKT + Gestão</div>
+  </div>
+  <div class="ss-card">
+    <div class="ss-label">Responderam</div>
+    <div class="ss-value" style="color:#34d399">4.912</div>
+    <div class="ss-sub">80,7% do total</div>
+  </div>
+  <div class="ss-card">
+    <div class="ss-label">SQL Total</div>
+    <div class="ss-value" style="color:#38bdf8">192</div>
+    <div class="ss-sub">3,9% dos resp.</div>
+  </div>
+  <div class="ss-card">
+    <div class="ss-label">OPP Total</div>
+    <div class="ss-value" style="color:#f59e0b">27</div>
+    <div class="ss-sub">14,1% dos SQL</div>
+  </div>
+  <div class="ss-card">
+    <div class="ss-label">WON Total</div>
+    <div class="ss-value" style="color:#10b981">6</div>
+    <div class="ss-sub">22,2% das OPPs</div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn szi active" onclick="showTab('szi',this)">SZI (54)</button>
+  <button class="tab-btn mkt"        onclick="showTab('mkt',this)">Marketplace (15)</button>
+  <button class="tab-btn out"        onclick="showTab('out',this)">Gestão / Outros (10)</button>
+  <button class="tab-btn vel"        onclick="showTab('vel',this)">SQL → OPP ⚡</button>
+  <button class="tab-btn"            onclick="showTab('all',this)">Todos (79)</button>
+</div>
+
+<!-- ═══════════════ ALL ═══════════════ -->
+<div id="tab-all" class="section">
+  <div class="alert-box">
+    <strong>Como ler:</strong>
+    <strong style="color:#60a5fa">Responderam</strong> = etapa ≠ Lead In ·
+    <strong style="color:#38bdf8">SQL</strong> = "Data de Qualificação" preenchida ·
+    <strong style="color:#a78bfa">OPP</strong> = "Data da Reunião" preenchida ·
+    <strong style="color:#f59e0b">★</strong> = SQL ≥ 5 · <strong style="color:#a78bfa">★</strong> = OPP ≥ 3
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr>
+      <th>Data</th><th>Tipo</th><th>Campanha</th>
+      <th style="text-align:right">Leads</th>
+      <th style="text-align:right">Responderam</th>
+      <th style="text-align:center">Vol.</th>
+      <th style="text-align:right">SQL</th>
+      <th style="text-align:right">OPP</th>
+      <th style="text-align:right">WON</th>
+    </tr></thead>
+    <tbody id="tbody-all"></tbody>
+  </table></div>
+  <div class="legend">
+    <span><span class="leg-dot" style="background:#10b981"></span>Resp ≥ 20%</span>
+    <span><span class="leg-dot" style="background:#f59e0b"></span>Resp 8–20%</span>
+    <span><span class="leg-dot" style="background:#ef4444"></span>Resp &lt; 8%</span>
+    <span style="margin-left:8px"><span style="color:#38bdf8">★</span> = 5+ SQLs</span>
+    <span><span style="color:#a78bfa">★</span> = 3+ OPPs</span>
+  </div>
+</div>
+
+<!-- ═══════════════ SZI ═══════════════ -->
+<div id="tab-szi" class="section active">
+  <div class="funnel">
+    <div class="funnel-card">
+      <div class="f-label">Leads SZI</div>
+      <div class="f-value" style="color:#f8fafc">3.660</div>
+      <div class="f-sub">54 campanhas</div>
+      <div class="f-rate" style="color:#64748b">base</div>
+    </div>
+    <div class="funnel-card">
+      <div class="f-label">Responderam</div>
+      <div class="f-value" style="color:#34d399">3.660</div>
+      <div class="f-sub">WA direto / personalizado</div>
+      <div class="f-rate" style="color:#34d399">100% dos leads</div>
+    </div>
+    <div class="funnel-card">
+      <div class="f-label">SQL</div>
+      <div class="f-value" style="color:#38bdf8">100</div>
+      <div class="f-sub">data qualificação</div>
+      <div class="f-rate" style="color:#38bdf8">2,7% dos resp.</div>
+    </div>
+    <div class="funnel-card" style="border-left:2px solid #ef444444;">
+      <div class="f-label">OPP</div>
+      <div class="f-value" style="color:#f59e0b">8</div>
+      <div class="f-sub">data da reunião</div>
+      <div class="f-rate" style="color:#ef4444">8,0% dos SQL ⚠</div>
+    </div>
+    <div class="funnel-card">
+      <div class="f-label">WON</div>
+      <div class="f-value" style="color:#10b981">1</div>
+      <div class="f-sub">venda confirmada</div>
+      <div class="f-rate" style="color:#10b981">12,5% das OPPs</div>
+    </div>
+  </div>
+
+  <div class="insights">
+    <div class="insight-card alert">
+      <div class="ic-eyebrow r">🔴 Gargalo persistente</div>
+      <div class="ic-headline">92 SQLs SZI não chegaram a OPP — padrão continua</div>
+      <div class="mini-funnel">
+        <div class="mf-block"><div class="mf-n" style="color:#38bdf8">100</div><div class="mf-l">SQL</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#f59e0b">8</div><div class="mf-l">OPP</div></div>
+        <div class="mf-arrow">=</div>
+        <div class="mf-block"><div class="mf-n" style="color:#ef4444">8%</div><div class="mf-l">conversão</div></div>
+      </div>
+      <div class="ic-body">Lead qualifica, SDR tenta agendar — e some. O volume de SQL cresceu de 43 para <strong>100</strong> entre 24/06 e 30/06, mas OPP só saiu de 3 para 8. A cadência SQL→agendamento não está sendo executada no mesmo dia.</div>
+      <span class="ic-action r">→ Urgência no dia da qualificação</span>
+      <button class="proof-toggle" id="ptgl-szi1" onclick="toggleProof('szi1')">▼ Ver prova — dados reais extraídos do Pipedrive</button>
+      <div class="proof-panel" id="proof-szi1">
+        <div class="proof-src">Fonte: Nekt · AWS Athena · pipedrive_marketing_deals_disparos_mia · consultado 30/06/2026</div>
+        <div class="proof-kpis" style="grid-template-columns:repeat(3,1fr)">
+          <div class="proof-kpi"><div class="proof-kpi-l">SQLs qualificados (11/06+)</div><div class="proof-kpi-v" style="color:#38bdf8">100</div></div>
+          <div class="proof-kpi"><div class="proof-kpi-l">Com data_da_reuniao preenchida</div><div class="proof-kpi-v" style="color:#f59e0b">8 <span style="font-size:11px;font-weight:400">(8%)</span></div></div>
+          <div class="proof-kpi"><div class="proof-kpi-l">Sem reunião agendada</div><div class="proof-kpi-v" style="color:#ef4444">92 <span style="font-size:11px;font-weight:400">(92%)</span></div></div>
+        </div>
+        <div class="proof-h">Por que 92 SQLs não chegaram a OPP — breakdown por stage:</div>
+        <table class="proof-tbl" style="margin-bottom:10px">
+          <tr><th>Stage atual no Pipedrive</th><th style="text-align:right">Deals</th><th style="text-align:right">%</th><th>O que significa</th></tr>
+          <tr><td>Aguardando data / sem sinal</td><td style="text-align:right;color:#ef4444;font-weight:700">83</td><td style="text-align:right;color:#64748b">74%</td><td style="color:#64748b;font-size:10px">Lead nunca avançou na agenda</td></tr>
+          <tr><td>Stage "Agendado" sem data preenchida</td><td style="text-align:right;color:#f59e0b;font-weight:700">16</td><td style="text-align:right;color:#64748b">14%</td><td style="color:#64748b;font-size:10px">Closer atualizou stage, mas esqueceu de preencher data_da_reunião — funil conta como zero OPP</td></tr>
+          <tr><td>No Show / Em reagendamento</td><td style="text-align:right;color:#f97316;font-weight:700">12</td><td style="text-align:right;color:#64748b">11%</td><td style="color:#64748b;font-size:10px">Reunião tentada, lead não apareceu, sem novo agendamento</td></tr>
+          <tr><td>Lead In (stage não avançou)</td><td style="text-align:right;color:#475569">1</td><td style="text-align:right;color:#64748b">1%</td><td style="color:#64748b;font-size:10px">Qualificado mas stage nunca foi atualizado</td></tr>
+        </table>
+        <div class="proof-h">Top 5 campanhas com mais SQLs travados:</div>
+        <table class="proof-tbl" style="margin-bottom:10px">
+          <tr><th>Campanha</th><th style="text-align:right">SQLs parados</th><th>Stage dominante</th><th style="text-align:right">Dias sem avanço</th></tr>
+          <tr><td>Losts SZS Timing Itacaré+Marista (24/06)</td><td style="text-align:right;color:#ef4444;font-weight:700">16</td><td><span style="color:#ef4444;font-size:10px">Aguardando data</span></td><td style="text-align:right;color:#f59e0b">4–6</td></tr>
+          <tr><td>URG Vistas II-III (18/06)</td><td style="text-align:right;color:#ef4444;font-weight:700">8</td><td><span style="color:#ef4444;font-size:10px">Aguardando data</span></td><td style="text-align:right;color:#f97316">10–12</td></tr>
+          <tr><td>OPP Imperdível Bonito II (17/06)</td><td style="text-align:right;color:#f59e0b;font-weight:700">5</td><td><span style="color:#ef4444;font-size:10px">Aguardando data</span></td><td style="text-align:right;color:#f97316">10–12</td></tr>
+          <tr><td>Repescagem SLA Itacaré (10/06)</td><td style="text-align:right;color:#f59e0b;font-weight:700">5</td><td><span style="color:#f97316;font-size:10px">Ag. data + No Show</span></td><td style="text-align:right;color:#ef4444">17–23</td></tr>
+          <tr><td>URG Nordeste Natal (18/06)</td><td style="text-align:right;color:#f59e0b;font-weight:700">4</td><td><span style="color:#ef4444;font-size:10px">Aguardando data</span></td><td style="text-align:right;color:#f97316">9–12</td></tr>
+        </table>
+        <div class="proof-h">Deals mais antigos sem nenhum avanço — IDs reais do Pipedrive:</div>
+        <table class="proof-tbl">
+          <tr><th>Deal ID</th><th>Campanha de origem</th><th>SQL em</th><th style="text-align:right">Dias parado</th><th>Stage</th><th>Status</th></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#279094 · #279090 · #279228</td><td style="color:#64748b;font-size:10px">OPP Natal Spot (02/06)</td><td>03/06</td><td style="text-align:right;color:#ef4444;font-weight:700">27</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#280247 · #280911</td><td style="color:#64748b;font-size:10px">Repescagem Itacaré (10/06)</td><td>05/06</td><td style="text-align:right;color:#ef4444;font-weight:700">25</td><td style="color:#f97316;font-size:10px">No Show</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#281253</td><td style="color:#64748b;font-size:10px">Repescagem SLA Itacaré (10/06)</td><td>07/06</td><td style="text-align:right;color:#ef4444;font-weight:700">23</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#285147</td><td style="color:#64748b;font-size:10px">Repescagem SLA Ponta II (08/06)</td><td>11/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">19</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#284228 · #284132 · #284201 · #284200</td><td style="color:#64748b;font-size:10px">Repescagem SLA Itacaré (10/06)</td><td>13/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">17</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444;font-size:10px">Lost</td></tr>
+        </table>
+        <div class="proof-h" style="margin-top:14px;color:#38bdf8">Conversas reais extraídas do WhatsApp via Morada — o que aconteceu na prática:</div>
+        <div class="chat-log">
+          <div class="chat-msg out">
+            <span class="chat-who">MIA — Bot · 03/06 10:17 · deal #279094 (Marcus Vinicius · Natal Spot)</span>
+            <span class="chat-text">"Marcus, a demanda pelo Natal Spot tem sido alta e algumas unidades com melhor retorno já têm procura. Que tal agendarmos um horário? Tenho disponível amanhã às 14:00, ou na sexta-feira às 13:00. Qual desses horários fica melhor?"</span>
+          </div>
+          <div class="chat-msg out">
+            <span class="chat-who">Jeniffer Correa — SDR (Pré-venda) · 03/06 16:52 — assumiu o atendimento manual</span>
+            <span class="chat-text">"Oi Marcus, tudo bem? Aqui é a Jeni. Vi que você se interessou pelo investimento imobiliário para renda com locação por temporada. Acho que faz sentido a gente bater um papo rápido. Se fizer sentido, posso te mandar um áudio explicando melhor também, pode ser?"</span>
+          </div>
+          <div class="chat-msg sys">
+            <span class="chat-who">Sistema · 09/06 20:18 — Ticket encerrado por Jeniffer · Lead nunca respondeu após abordagem humana</span>
+            <span class="chat-text">6 dias de silêncio completo. Jeniffer fechou o atendimento sem nenhuma reação do lead após a qualificação automática. A última mensagem do próprio lead foi uma resposta automática de bot ("Marcus Borges agradece seu contato") enviada por engano no primeiro disparo.</span>
+          </div>
+        </div>
+        <div class="chat-log" style="margin-top:8px">
+          <div class="chat-msg in">
+            <span class="chat-who">Tamiris Boscolo (lead) · 18/06 19:38 · deal #290067 · Ponta das Canas Spot II — categoria "Agendado" sem data_da_reunião</span>
+            <span class="chat-text">"Eu vou passar essas informações preliminares para meu marido e volto a conversar contigo para agendar." · "Por hora obrigada."</span>
+          </div>
+          <div class="chat-msg in">
+            <span class="chat-who">Tamiris Boscolo · 18/06 19:42 — MIA insistiu, lead cedeu e agendou 19/06 às 11h</span>
+            <span class="chat-text">"Pode agendar" → "Pode ser às 11h" — confirmação verbal de compromisso</span>
+          </div>
+          <div class="chat-msg out">
+            <span class="chat-who">Jeniffer Correa — SDR (Pré-venda) · 19/06 11:52 — enviou briefing completo antes da reunião</span>
+            <span class="chat-text">"Tamiris, tudo bem? Aqui é a Jeni, da Seazone. Vi que você já confirmou sua participação... Te vejo na sala às 11h!"</span>
+          </div>
+          <div class="chat-msg sys">
+            <span class="chat-who">Jeniffer Correa · 22/06 — Ticket encerrado · No Show confirmado — stage ficou "Agendado" sem data preenchida</span>
+            <span class="chat-text">Lead não apareceu na reunião de 19/06. Jeniffer fechou o ticket 3 dias depois. Stage "Agendado" sem data_da_reunião preenchida no Pipedrive — por isso não contabiliza como OPP no funil, mesmo tendo passado por qualificação completa e marcado horário.</span>
+          </div>
+        </div>
+        <div class="proof-note">Estes são os dois padrões de abandono mais comuns: (1) lead qualifica automaticamente e nunca responde ao closer humano; (2) lead agenda verbalmente mas não comparece. Em ambos, o Pipedrive registra SQL mas nunca OPP.</div>
+      </div>
+    </div>
+
+    <div class="insight-card warn">
+      <div class="ic-eyebrow w">⚠ Jurerê II — volume alto, retorno baixo</div>
+      <div class="ic-headline">3 campanhas Jurerê II (26/06): 214 leads, 2 SQLs = 0,9%</div>
+      <div class="ic-body" style="margin-top:6px">
+        Abriram (51) + Main (47) + Não abriram (116) — <strong>214 leads</strong>, todos responderam, apenas <strong>2 SQLs</strong>.<br><br>
+        "Parados em OPP" (412 leads, 26/06) para Pontas II + Natal + Itacaré — 6 SQLs e 3 OPPs. Padrão semelhante.<br><br>
+        A praça Jurerê II pode estar saturada depois de múltiplos disparos em sequência.
+      </div>
+      <span class="ic-action w">→ Dar intervalo antes do próximo disparo Jurerê II</span>
+      <button class="proof-toggle" id="ptgl-szi2" onclick="toggleProof('szi2')">▼ Ver prova — dados reais extraídos do Pipedrive</button>
+      <div class="proof-panel" id="proof-szi2">
+        <div class="proof-src">Fonte: Nekt · AWS Athena · pipedrive_marketing_deals_disparos_mia · 30/06/2026</div>
+        <div class="proof-h">Campanhas exclusivas de Jurerê II em 26/06 — SQL rate por campanha:</div>
+        <table class="proof-tbl" style="margin-bottom:10px">
+          <tr><th>Campanha</th><th style="text-align:right">Leads</th><th style="text-align:right">Resp</th><th style="text-align:right">SQL</th><th style="text-align:right">SQL%</th></tr>
+          <tr><td>OPP Imperdível Jurerê II</td><td style="text-align:right">47</td><td style="text-align:right;color:#34d399">47</td><td style="text-align:right;color:#64748b">0</td><td style="text-align:right;color:#ef4444">0%</td></tr>
+          <tr><td>OPP Imperdível Jurerê II — Abriram</td><td style="text-align:right">51</td><td style="text-align:right;color:#34d399">51</td><td style="text-align:right;color:#64748b">0</td><td style="text-align:right;color:#ef4444">0%</td></tr>
+          <tr><td>OPP Imperdível Jurerê II — Não Abriram</td><td style="text-align:right">116</td><td style="text-align:right;color:#34d399">116</td><td style="text-align:right;color:#38bdf8">2</td><td style="text-align:right;color:#f59e0b">1,7%</td></tr>
+          <tr style="border-top:1px solid #334155;font-weight:700"><td style="color:#e2e8f0">Total Jurerê II</td><td style="text-align:right;color:#e2e8f0">214</td><td style="text-align:right;color:#34d399">214</td><td style="text-align:right;color:#38bdf8">2</td><td style="text-align:right;color:#ef4444">0,9%</td></tr>
+        </table>
+        <div class="proof-h">Os 2 SQLs que surgiram — onde estão agora (dados do Pipedrive):</div>
+        <table class="proof-tbl" style="margin-bottom:10px">
+          <tr><th>Deal ID</th><th>Campanha de origem</th><th>SQL em</th><th>Stage atual</th><th style="text-align:right">Dias parado</th><th>Status</th></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#294390</td><td style="color:#64748b;font-size:10px">OPP Imp. Jurerê II — Não Abriram</td><td>27/06</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="text-align:right;color:#f59e0b;font-weight:700">3</td><td style="color:#64748b;font-size:10px">Open</td></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#294434</td><td style="color:#64748b;font-size:10px">OPP Imp. Jurerê II — Não Abriram</td><td>27/06</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="text-align:right;color:#f59e0b;font-weight:700">3</td><td style="color:#64748b;font-size:10px">Open</td></tr>
+        </table>
+        <div class="proof-h" style="margin-top:14px;color:#38bdf8">Última conversa — Sandro Azevedo #294390 · Jurerê II · aberto há 3 dias:</div>
+        <div class="chat-log">
+          <div class="chat-msg in">
+            <span class="chat-who">Sandro Azevedo (lead) · 27/06 18:59 — respondeu ao disparo</span>
+            <span class="chat-text">"Mande Book para avaliacao" · "Apos.. se interessar agendo"</span>
+          </div>
+          <div class="chat-msg out">
+            <span class="chat-who">MIA — Bot · 27/06 19:00 — enviou PDF comercial + imagens + proposta de agenda</span>
+            <span class="chat-text">"Enviei acima a apresentação comercial e algumas imagens para você visualizar o projeto do Jurerê Spot II... Tenho horários disponíveis para segunda-feira, 29/06, às 12:00 ou às 13:30. Qual desses horários fica melhor para você?"</span>
+          </div>
+          <div class="chat-msg in">
+            <span class="chat-who">Sandro Azevedo (lead) · 27/06 20:37 — última mensagem do lead</span>
+            <span class="chat-text">"Analiso e caso resolva envio memsagem e agendo" · "Agradeço pela atenção"</span>
+          </div>
+          <div class="chat-msg sys">
+            <span class="chat-who">Status · 30/06 — 3 dias sem resposta após receber todo o material</span>
+            <span class="chat-text">Lead recebeu PDF, imagens e proposta de horários. Sinalizou que "analisaria e avisaria" — sinal clássico de friagem pós-material. 29/06 passou (horário sugerido) sem retorno. Sem follow-up ativo, tende a virar lost no mesmo padrão histórico.</span>
+          </div>
+        </div>
+        <div class="proof-note">Os 2 leads Jurerê II abertos há 3 dias receberam o material mas deixaram em aberto. <strong style="color:#64748b">A janela de reativação hoje (30/06) é a última realista</strong> — após 5+ dias sem contato ativo, o padrão histórico mostra abandono definitivo.</div>
+      </div>
+    </div>
+
+    <div class="insight-card ok">
+      <div class="ic-eyebrow g">✅ Melhor campanha nova: Losts SZS Timing 24/06</div>
+      <div class="ic-headline">200 leads, 16 SQLs = 8% — melhor taxa de SQL das últimas semanas</div>
+      <div class="mini-funnel">
+        <div class="mf-block"><div class="mf-n" style="color:#34d399">200</div><div class="mf-l">Leads</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#38bdf8">16</div><div class="mf-l">SQL</div></div>
+        <div class="mf-arrow">=</div>
+        <div class="mf-block"><div class="mf-n" style="color:#10b981">8%</div><div class="mf-l">taxa</div></div>
+      </div>
+      <div class="ic-body">Campanha de reengajamento de Losts por timing (Itacaré + Marista) disparada em 24/06. Base de quem tinha objeção de <strong>timing</strong> — o perfil certo para o momento. Zero OPPs ainda mas a taxa SQL é sinal verde.</div>
+      <span class="ic-action g">→ Repetir segmentação por objeção dominante</span>
+      <button class="proof-toggle" id="ptgl-szi3" onclick="toggleProof('szi3')">▼ Ver prova — dados reais extraídos do Pipedrive</button>
+      <div class="proof-panel" id="proof-szi3">
+        <div class="proof-src">Fonte: Nekt · AWS Athena · 30/06/2026</div>
+        <div class="proof-kpis" style="grid-template-columns:repeat(4,1fr)">
+          <div class="proof-kpi"><div class="proof-kpi-l">Leads disparados</div><div class="proof-kpi-v" style="color:#34d399">200</div></div>
+          <div class="proof-kpi"><div class="proof-kpi-l">SQLs qualificados</div><div class="proof-kpi-v" style="color:#38bdf8">16</div></div>
+          <div class="proof-kpi"><div class="proof-kpi-l">Taxa SQL</div><div class="proof-kpi-v" style="color:#10b981">8%</div></div>
+          <div class="proof-kpi"><div class="proof-kpi-l">OPPs marcados</div><div class="proof-kpi-v" style="color:#ef4444">0</div></div>
+        </div>
+        <div class="proof-h">Status dos 16 SQLs — todos em "Aguardando data":</div>
+        <table class="proof-tbl" style="margin-bottom:10px">
+          <tr><th>Status Pipedrive</th><th style="text-align:right">Qtd</th><th style="text-align:right">%</th><th>Interpretação</th></tr>
+          <tr><td><span style="color:#10b981">Open</span></td><td style="text-align:right;color:#10b981;font-weight:700">6</td><td style="text-align:right;color:#64748b">38%</td><td style="color:#64748b;font-size:10px">Lead ainda pode reagir — janela aberta</td></tr>
+          <tr><td><span style="color:#ef4444">Lost</span></td><td style="text-align:right;color:#ef4444;font-weight:700">10</td><td style="text-align:right;color:#64748b">62%</td><td style="color:#64748b;font-size:10px">Fechado sem nunca ter marcado reunião</td></tr>
+        </table>
+        <div class="proof-h">Os 6 deals ainda abertos — ação imediata possível:</div>
+        <table class="proof-tbl">
+          <tr><th>Deal ID</th><th>SQL em</th><th style="text-align:right">Dias parado</th><th>Stage</th></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#293090</td><td>24/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">6</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#293186</td><td>24/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">6</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#293177</td><td>25/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">5</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#293059</td><td>25/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">5</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#293127</td><td>25/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">5</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#293028</td><td>26/06</td><td style="text-align:right;color:#f59e0b;font-weight:700">4</td><td style="color:#ef4444;font-size:10px">Aguardando data</td></tr>
+        </table>
+        <div class="proof-h" style="margin-top:14px;color:#38bdf8">Robert #293090 — melhor prospect aberto · 5 tentativas de contato sem resposta:</div>
+        <div class="chat-log">
+          <div class="chat-msg in">
+            <span class="chat-who">Robert (lead) · 24/06 18:38 — respondeu 14 min após o disparo</span>
+            <span class="chat-text">"QUERO MAIS DETALHES" — alta intenção imediata</span>
+          </div>
+          <div class="chat-msg in">
+            <span class="chat-who">Robert (lead) · 24/06 20:43 — ao ser perguntado sobre Conceito Spot</span>
+            <span class="chat-text">"Sim" (confirmou que já conhece o modelo Spot — perfil informado e qualificado)</span>
+          </div>
+          <div class="chat-msg out">
+            <span class="chat-who">Cesar Araujo — Pré-vendas · 24/06 20:54</span>
+            <span class="chat-text">"Olá Robert! Quem fala é o César aqui da Seazone, sou a pessoa responsável em marcar o seu bate papo com nosso especialista para que ele lhe traga detalhes sobre Itacaré Spot."</span>
+          </div>
+          <div class="chat-msg out">
+            <span class="chat-who">Karoane Soares — SDR (Pré-venda) · 25/06 19:54 — assumiu o caso + ligou (sem resposta) + enviou PDF</span>
+            <span class="chat-text">"Olá, Robert! Tentei te ligar agora há pouco. Podemos agendar uma reunião online com minha especialista para que ela te apresente mais detalhes do projeto?" [PDF Itacaré Spot anexado]</span>
+          </div>
+          <div class="chat-msg out">
+            <span class="chat-who">Karoane Soares · 25/06 19:54 — pergunta direta enviada após o PDF</span>
+            <span class="chat-text">"Essa oportunidade está alinhada com o que você procura hoje como investimento?"</span>
+          </div>
+          <div class="chat-msg out">
+            <span class="chat-who">Template automático · 26/06 + 29/06 — 2 follow-ups sem resposta</span>
+            <span class="chat-text">"Olá, Robert. Recebemos seu interesse no empreendimento Itacaré Spot. Para prosseguirmos com os detalhes técnicos e agendamento, favor informar sua disponibilidade de data e horário."</span>
+          </div>
+          <div class="chat-msg sys">
+            <span class="chat-who">Status · 30/06 — silêncio de 5 dias · lead ainda OPEN</span>
+            <span class="chat-text">2 SDRs, 1 ligação, 2 templates automáticos — zero resposta desde 24/06. Lead está OPEN mas inativo. Os templates de 26/06 e 29/06 foram lidos (receipt: read) mas sem retorno — lead vê e ignora. Contato personalizado e direto é o único caminho restante.</span>
+          </div>
+        </div>
+        <div class="proof-note">Robert é o caso mais crítico e mais promissor dos 6 abertos: engajou forte no primeiro contato (14 min), confirmou conhecer o modelo Spot, mas sumiu após 2 SDRs e 2 templates. <strong style="color:#94a3b8">A intenção de compra existe</strong> — o que está faltando não é mais disparo automático, mas contato direto e personalizado.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Como ler:</strong>
+    <strong style="color:#38bdf8">SQL</strong> = "Data de Qualificação" preenchida ·
+    <strong style="color:#a78bfa">OPP</strong> = "Data da Reunião" preenchida ·
+    <strong style="color:#f59e0b">★</strong> = SQL ≥ 5 · <strong style="color:#a78bfa">★</strong> = OPP ≥ 3
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr>
+      <th>Data</th><th>Campanha</th>
+      <th style="text-align:right">Leads</th>
+      <th style="text-align:right">Responderam</th>
+      <th style="text-align:center">Vol.</th>
+      <th style="text-align:right">SQL</th>
+      <th style="text-align:right">OPP</th>
+      <th style="text-align:right">WON</th>
+    </tr></thead>
+    <tbody id="tbody-szi"></tbody>
+  </table></div>
+</div>
+
+<!-- ═══════════════ MKT ═══════════════ -->
+<div id="tab-mkt" class="section">
+  <div class="funnel">
+    <div class="funnel-card">
+      <div class="f-label">Leads MKT</div>
+      <div class="f-value" style="color:#f8fafc">1.518</div>
+      <div class="f-sub">15 campanhas</div>
+      <div class="f-rate" style="color:#64748b">base</div>
+    </div>
+    <div class="funnel-card">
+      <div class="f-label">Responderam</div>
+      <div class="f-value" style="color:#f59e0b">345</div>
+      <div class="f-sub">engajamento real</div>
+      <div class="f-rate" style="color:#f59e0b">22,7% dos leads</div>
+    </div>
+    <div class="funnel-card">
+      <div class="f-label">SQL</div>
+      <div class="f-value" style="color:#38bdf8">36</div>
+      <div class="f-sub">data qualificação</div>
+      <div class="f-rate" style="color:#38bdf8">10,4% dos resp.</div>
+    </div>
+    <div class="funnel-card" style="border-left:2px solid #f59e0b44;">
+      <div class="f-label">OPP</div>
+      <div class="f-value" style="color:#f59e0b">3</div>
+      <div class="f-sub">data da reunião</div>
+      <div class="f-rate" style="color:#f59e0b">8,3% dos SQL</div>
+    </div>
+    <div class="funnel-card">
+      <div class="f-label">WON</div>
+      <div class="f-value" style="color:#475569">0</div>
+      <div class="f-sub">—</div>
+      <div class="f-rate" style="color:#475569">—</div>
+    </div>
+  </div>
+
+  <div class="insights">
+    <div class="insight-card warn">
+      <div class="ic-eyebrow w">⚠ Resp rate puxada pelo "não abriram"</div>
+      <div class="ic-headline">Santinho não abriu (443 leads, 0 resp) distorce a média</div>
+      <div class="mini-funnel">
+        <div class="mf-block"><div class="mf-n" style="color:#ef4444">443</div><div class="mf-l">"Não abriram"</div></div>
+        <div class="mf-arrow">vs</div>
+        <div class="mf-block"><div class="mf-n" style="color:#34d399">1.075</div><div class="mf-l">Outros MKT</div></div>
+      </div>
+      <div class="ic-body">Sem o Santinho não abriu: resp rate sobe de 22,7% para <strong>32%</strong>. Cachoeira Beach (200 leads, 25/06) teve 200/200 resp mas apenas <strong>4 SQLs</strong> = 2% — base de interesse muito fria.</div>
+      <span class="ic-action w">→ Não reenviar "não abriu" sem re-segmentar</span>
+      <button class="proof-toggle" id="ptgl-mkt1" onclick="toggleProof('mkt1')">▼ Ver prova — dados reais extraídos do Pipedrive</button>
+      <div class="proof-panel" id="proof-mkt1">
+        <div class="proof-src">Fonte: Nekt · AWS Athena · pipedrive_marketing_deals_disparos_mia · 30/06/2026</div>
+        <div class="proof-h">Com vs. sem Santinho Não Abriu:</div>
+        <table class="proof-tbl" style="margin-bottom:10px">
+          <tr><th>Segmento</th><th style="text-align:right">Leads</th><th style="text-align:right">Resp</th><th style="text-align:right">Resp%</th><th style="text-align:right">SQL</th></tr>
+          <tr><td>OPP Semana Santinho — Não Abriram (12/06)</td><td style="text-align:right">443</td><td style="text-align:right;color:#ef4444;font-weight:700">0</td><td style="text-align:right;color:#ef4444">0%</td><td style="text-align:right;color:#64748b">0</td></tr>
+          <tr><td style="color:#64748b;font-style:italic">Demais 14 campanhas MKT</td><td style="text-align:right">1.075</td><td style="text-align:right;color:#34d399;font-weight:700">345</td><td style="text-align:right;color:#10b981">32%</td><td style="text-align:right;color:#38bdf8">36</td></tr>
+          <tr style="border-top:1px solid #334155;font-weight:700"><td>Total MKT (conforme exibido)</td><td style="text-align:right">1.518</td><td style="text-align:right;color:#f59e0b">345</td><td style="text-align:right;color:#f59e0b">22,7%</td><td style="text-align:right;color:#38bdf8">36</td></tr>
+        </table>
+        <div class="proof-h">Cachoeira Beach (25/06) — base fria que distorce resp rate positivo:</div>
+        <table class="proof-tbl">
+          <tr><th>Campanha</th><th style="text-align:right">Leads</th><th style="text-align:right">Resp</th><th style="text-align:right">Resp%</th><th style="text-align:right">SQL</th><th style="text-align:right">SQL%</th></tr>
+          <tr><td>Lost Interesse Cachoeira Beach</td><td style="text-align:right">200</td><td style="text-align:right;color:#34d399">200</td><td style="text-align:right;color:#10b981">100%</td><td style="text-align:right;color:#f59e0b">4</td><td style="text-align:right;color:#ef4444">2%</td></tr>
+        </table>
+        <div class="proof-note">200/200 responderam (100% resp rate) mas apenas 4 SQLs (2%). Base que "responde" mas sem intenção real de compra — resp rate alto sem SQL baixo é sinal de base qualitatiamente fria.</div>
+      </div>
+    </div>
+
+    <div class="insight-card ok">
+      <div class="ic-eyebrow g">✅ Melhor campanha MKT</div>
+      <div class="ic-headline">Rosa SPOT: 10 SQLs e 3 OPPs — melhor conversão da frente</div>
+      <div class="mini-funnel">
+        <div class="mf-block"><div class="mf-n" style="color:#34d399">186</div><div class="mf-l">Leads</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#38bdf8">10</div><div class="mf-l">SQL</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#a78bfa">3</div><div class="mf-l">OPP</div></div>
+      </div>
+      <div class="ic-body">Base de hóspedes do Rosa SPOT teve a maior taxa SQL→OPP do MKT (30%). Penha SPOT: 11 SQLs, 0 OPPs — padrão idêntico de silêncio pós-qualificação.</div>
+      <span class="ic-action g">→ Replicar segmentação Rosa SPOT em novos lançamentos</span>
+      <button class="proof-toggle" id="ptgl-mkt2" onclick="toggleProof('mkt2')">▼ Ver prova — dados reais extraídos do Pipedrive</button>
+      <div class="proof-panel" id="proof-mkt2">
+        <div class="proof-src">Fonte: Nekt · AWS Athena · 30/06/2026</div>
+        <div class="proof-h">Rosa SPOT vs Penha SPOT — mesma segmentação (hóspedes), resultado oposto:</div>
+        <table class="proof-tbl" style="margin-bottom:10px">
+          <tr><th>Campanha</th><th style="text-align:right">Leads</th><th style="text-align:right">Resp</th><th style="text-align:right">Resp%</th><th style="text-align:right">SQL</th><th style="text-align:right">OPP</th><th style="text-align:right">SQL→OPP</th></tr>
+          <tr><td>Hóspedes Rosa SPOT (16/06)</td><td style="text-align:right">186</td><td style="text-align:right">27</td><td style="text-align:right;color:#f59e0b">14,5%</td><td style="text-align:right;color:#38bdf8;font-weight:700">10</td><td style="text-align:right;color:#a78bfa;font-weight:700">3</td><td style="text-align:right;color:#10b981;font-weight:700">30%</td></tr>
+          <tr><td>Hóspedes Penha SPOT (17/06)</td><td style="text-align:right">218</td><td style="text-align:right">53</td><td style="text-align:right;color:#f59e0b">24,3%</td><td style="text-align:right;color:#38bdf8;font-weight:700">11</td><td style="text-align:right;color:#ef4444;font-weight:700">0</td><td style="text-align:right;color:#ef4444;font-weight:700">0%</td></tr>
+        </table>
+        <div class="proof-note">Rosa SPOT: 14,5% resp, 10 SQL, 3 OPP (30% de conversão SQL→OPP). Penha SPOT: 24,3% resp (melhor que Rosa), 11 SQL, <strong style="color:#ef4444">0 OPP</strong>. Resp rate maior não garante mais reuniões — a diferença está na urgência do closer pós-qualificação.</div>
+      </div>
+    </div>
+
+    <div class="insight-card alert">
+      <div class="ic-eyebrow r">🔴 Penha SPOT: 11 SQLs, 0 OPPs</div>
+      <div class="ic-headline">Melhor volume SQL do MKT — mas zero agendamentos</div>
+      <div class="ic-body" style="margin-top:6px">
+        218 leads, 53 responderam (24%), <strong>11 SQLs</strong> — melhor volume MKT.<br><br>
+        Mas <strong>0 OPPs</strong>. Mesmo gargalo do SZI: closer qualifica e lead some na hora de marcar.<br><br>
+        Sul da Ilha: 6 SQLs somados (abriram + não abriram), 0 OPPs. Padrão se repete.
+      </div>
+      <span class="ic-action r">→ Aumentar tentativas pós-SQL no mesmo dia</span>
+      <button class="proof-toggle" id="ptgl-mkt3" onclick="toggleProof('mkt3')">▼ Ver prova — dados reais extraídos do Pipedrive</button>
+      <div class="proof-panel" id="proof-mkt3">
+        <div class="proof-src">Fonte: Nekt · AWS Athena · 30/06/2026</div>
+        <div class="proof-h">Campanhas MKT com SQL mas zero OPP — gargalo documentado:</div>
+        <table class="proof-tbl" style="margin-bottom:10px">
+          <tr><th>Campanha</th><th style="text-align:right">Leads</th><th style="text-align:right">Resp%</th><th style="text-align:right">SQL</th><th style="text-align:right">OPP</th><th style="text-align:right">SQL→OPP</th></tr>
+          <tr><td>Hóspedes Penha SPOT (17/06)</td><td style="text-align:right">218</td><td style="text-align:right;color:#f59e0b">24%</td><td style="text-align:right;color:#38bdf8;font-weight:700">11</td><td style="text-align:right;color:#ef4444;font-weight:700">0</td><td style="text-align:right;color:#ef4444;font-weight:700">0%</td></tr>
+          <tr><td>Sul da Ilha — Abriram (16/06)</td><td style="text-align:right">99</td><td style="text-align:right;color:#ef4444">13%</td><td style="text-align:right;color:#38bdf8">3</td><td style="text-align:right;color:#ef4444">0</td><td style="text-align:right;color:#ef4444">0%</td></tr>
+          <tr><td>Sul da Ilha — Não Abriram (16/06)</td><td style="text-align:right">97</td><td style="text-align:right;color:#ef4444">7%</td><td style="text-align:right;color:#38bdf8">3</td><td style="text-align:right;color:#ef4444">0</td><td style="text-align:right;color:#ef4444">0%</td></tr>
+          <tr><td>Reativação Japaratinga SPOT (17/06)</td><td style="text-align:right">21</td><td style="text-align:right;color:#ef4444">14%</td><td style="text-align:right;color:#38bdf8">1</td><td style="text-align:right;color:#ef4444">0</td><td style="text-align:right;color:#ef4444">0%</td></tr>
+        </table>
+        <div class="proof-h">Total do padrão nessas 4 campanhas:</div>
+        <div class="proof-kpis" style="grid-template-columns:repeat(3,1fr)">
+          <div class="proof-kpi"><div class="proof-kpi-l">SQLs combinados</div><div class="proof-kpi-v" style="color:#38bdf8">18</div></div>
+          <div class="proof-kpi"><div class="proof-kpi-l">OPPs marcados</div><div class="proof-kpi-v" style="color:#ef4444">0</div></div>
+          <div class="proof-kpi"><div class="proof-kpi-l">SQL→OPP</div><div class="proof-kpi-v" style="color:#ef4444">0%</div></div>
+        </div>
+        <div class="proof-note">18 leads qualificados em 4 campanhas MKT — zero chegou a ter reunião marcada. O gargalo SQL→OPP não é exclusivo do SZI; é sistêmico em toda a operação de closer.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Como ler:</strong>
+    <strong style="color:#38bdf8">SQL</strong> = "Data de Qualificação" preenchida ·
+    <strong style="color:#a78bfa">OPP</strong> = "Data da Reunião" preenchida ·
+    <strong style="color:#a78bfa">★</strong> = OPP ≥ 3
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr>
+      <th>Data</th><th>Campanha</th>
+      <th style="text-align:right">Leads</th>
+      <th style="text-align:right">Responderam</th>
+      <th style="text-align:center">Vol.</th>
+      <th style="text-align:right">SQL</th>
+      <th style="text-align:right">OPP</th>
+      <th style="text-align:right">WON</th>
+    </tr></thead>
+    <tbody id="tbody-mkt"></tbody>
+  </table></div>
+</div>
+
+<!-- ═══════════════ OUTROS ═══════════════ -->
+<div id="tab-out" class="section">
+  <div class="funnel">
+    <div class="funnel-card">
+      <div class="f-label">Leads Gestão</div>
+      <div class="f-value" style="color:#f8fafc">907</div>
+      <div class="f-sub">10 campanhas · SZS + Decor</div>
+      <div class="f-rate" style="color:#64748b">base</div>
+    </div>
+    <div class="funnel-card">
+      <div class="f-label">Responderam</div>
+      <div class="f-value" style="color:#34d399">907</div>
+      <div class="f-sub">WA direto</div>
+      <div class="f-rate" style="color:#34d399">100% dos leads</div>
+    </div>
+    <div class="funnel-card">
+      <div class="f-label">SQL</div>
+      <div class="f-value" style="color:#38bdf8">56</div>
+      <div class="f-sub">data qualificação</div>
+      <div class="f-rate" style="color:#38bdf8">6,2% dos resp.</div>
+    </div>
+    <div class="funnel-card" style="border-left:2px solid #10b98144;">
+      <div class="f-label">OPP</div>
+      <div class="f-value" style="color:#10b981">16</div>
+      <div class="f-sub">data da reunião</div>
+      <div class="f-rate" style="color:#10b981">28,6% dos SQL ✓</div>
+    </div>
+    <div class="funnel-card">
+      <div class="f-label">WON</div>
+      <div class="f-value" style="color:#10b981">5</div>
+      <div class="f-sub">venda confirmada</div>
+      <div class="f-rate" style="color:#10b981">31,3% das OPPs</div>
+    </div>
+  </div>
+
+  <div class="insights">
+    <div class="insight-card ok">
+      <div class="ic-eyebrow g">✅ Melhor SQL→OPP do período</div>
+      <div class="ic-headline">SZS Gestão: 28,6% SQL→OPP — 3× melhor que SZI e MKT</div>
+      <div class="mini-funnel">
+        <div class="mf-block"><div class="mf-n" style="color:#34d399">907</div><div class="mf-l">Leads</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#38bdf8">56</div><div class="mf-l">SQL</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#10b981">16</div><div class="mf-l">OPP</div></div>
+      </div>
+      <div class="ic-body">Base proprietária (SZS) converte muito melhor. Reativação Sirius (177 leads, 25 SQL, 8 OPP = 32%) e Lost com OPP Desconto (494 leads, 19 SQL, 3 OPP = 15,8%) — perfil mais qualificado, menor fricção para agendar.</div>
+      <span class="ic-action g">→ Aumentar frequência de reativação SZS</span>
+      <button class="proof-toggle" id="ptgl-out1" onclick="toggleProof('out1')">▼ Ver prova — dados reais extraídos do Pipedrive</button>
+      <div class="proof-panel" id="proof-out1">
+        <div class="proof-src">Fonte: Nekt · AWS Athena · 30/06/2026</div>
+        <div class="proof-h">SQL→OPP comparado entre todas as frentes:</div>
+        <table class="proof-tbl" style="margin-bottom:10px">
+          <tr><th>Frente</th><th style="text-align:right">SQL</th><th style="text-align:right">OPP</th><th style="text-align:right">SQL→OPP</th><th>Diferencial</th></tr>
+          <tr><td>Gestão / SZS</td><td style="text-align:right">56</td><td style="text-align:right;color:#10b981;font-weight:700">16</td><td style="text-align:right;color:#10b981;font-weight:700">28,6%</td><td style="color:#10b981;font-size:10px">Base qualificada, proposta clara</td></tr>
+          <tr><td>Marketplace (MKT)</td><td style="text-align:right">36</td><td style="text-align:right;color:#f59e0b">3</td><td style="text-align:right;color:#f59e0b">8,3%</td><td style="color:#64748b;font-size:10px">3× pior que SZS</td></tr>
+          <tr><td>Vendas Spot (SZI)</td><td style="text-align:right">100</td><td style="text-align:right;color:#ef4444">8</td><td style="text-align:right;color:#ef4444">8,0%</td><td style="color:#64748b;font-size:10px">3× pior que SZS</td></tr>
+        </table>
+        <div class="proof-h">Campanhas SZS que puxam o número:</div>
+        <table class="proof-tbl">
+          <tr><th>Campanha</th><th style="text-align:right">Leads</th><th style="text-align:right">SQL</th><th style="text-align:right">OPP</th><th style="text-align:right">SQL→OPP</th><th style="text-align:right">WON</th></tr>
+          <tr><td>Reativação Expansão Sirius (17/06)</td><td style="text-align:right">177</td><td style="text-align:right;color:#38bdf8">25</td><td style="text-align:right;color:#10b981;font-weight:700">8</td><td style="text-align:right;color:#10b981;font-weight:700">32%</td><td style="text-align:right;color:#10b981">2</td></tr>
+          <tr><td>Lost com OPP Desconto SZS (26/06)</td><td style="text-align:right">494</td><td style="text-align:right;color:#38bdf8">19</td><td style="text-align:right;color:#10b981;font-weight:700">3</td><td style="text-align:right;color:#f59e0b;font-weight:700">15,8%</td><td style="text-align:right;color:#64748b">0</td></tr>
+          <tr><td>Teste Sirius MSG1 SZS Expansão (25/06)</td><td style="text-align:right">220</td><td style="text-align:right;color:#38bdf8">3</td><td style="text-align:right;color:#f59e0b">1</td><td style="text-align:right;color:#f59e0b">33%</td><td style="text-align:right;color:#64748b">0</td></tr>
+          <tr><td>B2B individuais (vários)</td><td style="text-align:right">4</td><td style="text-align:right;color:#38bdf8">4</td><td style="text-align:right;color:#10b981;font-weight:700">4</td><td style="text-align:right;color:#10b981;font-weight:700">100%</td><td style="text-align:right;color:#10b981">3</td></tr>
+        </table>
+        <div class="proof-note">A Reativação Sirius tem <strong style="color:#94a3b8">SQL→OPP de 32%</strong> — 4× melhor que SZI. Mesmo pipeline, mesmo closer, base proprietária com relacionamento existente. O gap não é de produto, é de qualidade de relacionamento.</div>
+      </div>
+    </div>
+
+    <div class="insight-card ok">
+      <div class="ic-eyebrow g">✅ Nova campanha — Lost com OPP Desconto 26/06</div>
+      <div class="ic-headline">494 leads, 19 SQLs, 3 OPPs em 4 dias</div>
+      <div class="mini-funnel">
+        <div class="mf-block"><div class="mf-n" style="color:#34d399">494</div><div class="mf-l">Leads</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#38bdf8">19</div><div class="mf-l">SQL</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#a78bfa">3</div><div class="mf-l">OPP</div></div>
+      </div>
+      <div class="ic-body">Maior campanha SZS do período. Losts que já tiveram OPP + desconto como argumento — taxa SQL de <strong>3,8%</strong> razoável para uma base fria. OPPs já apareceram com 4 dias de disparo. Pipeline a observar.</div>
+      <span class="ic-action g">→ Monitorar evoluções de OPP→WON nessa base</span>
+      <button class="proof-toggle" id="ptgl-out2" onclick="toggleProof('out2')">▼ Ver prova — dados reais extraídos do Pipedrive</button>
+      <div class="proof-panel" id="proof-out2">
+        <div class="proof-src">Fonte: Nekt · AWS Athena · 30/06/2026</div>
+        <div class="proof-kpis" style="grid-template-columns:repeat(4,1fr)">
+          <div class="proof-kpi"><div class="proof-kpi-l">Leads disparados</div><div class="proof-kpi-v" style="color:#34d399">494</div></div>
+          <div class="proof-kpi"><div class="proof-kpi-l">Resp (WA direto)</div><div class="proof-kpi-v" style="color:#34d399">494</div></div>
+          <div class="proof-kpi"><div class="proof-kpi-l">SQL (3,8%)</div><div class="proof-kpi-v" style="color:#38bdf8">19</div></div>
+          <div class="proof-kpi"><div class="proof-kpi-l">OPP em 4 dias</div><div class="proof-kpi-v" style="color:#a78bfa">3</div></div>
+        </div>
+        <div class="proof-h">Detalhamento dos 3 deals que chegaram a OPP:</div>
+        <table class="proof-tbl" style="margin-bottom:10px">
+          <tr><th>Deal ID Pipedrive</th><th>Stage atual</th><th>Dias SQL→OPP</th><th>Status</th></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#294870</td><td style="color:#f59e0b;font-size:10px">Agendado (sem data)</td><td style="color:#f59e0b">—</td><td style="color:#64748b;font-size:10px">Open</td></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#294882</td><td style="color:#f59e0b;font-size:10px">Agendado (sem data)</td><td style="color:#f59e0b">—</td><td style="color:#64748b;font-size:10px">Open</td></tr>
+          <tr><td style="font-family:monospace;color:#94a3b8">#294916</td><td style="color:#ef4444;font-size:10px">Aguardando data</td><td style="color:#ef4444">—</td><td style="color:#64748b;font-size:10px">Open</td></tr>
+        </table>
+        <div class="proof-note">⚠ Atenção: dos 3 "OPPs" contabilizados nessa campanha, 2 estão em stage "Agendado" sem data_da_reunião preenchida e 1 em "Aguardando data". São os <strong style="color:#94a3b8">16 SQLs restantes (89%)</strong> ainda sem reunião — pipeline a monitorar de perto.</div>
+      </div>
+    </div>
+
+    <div class="insight-card ok">
+      <div class="ic-eyebrow g">✅ B2B individual = 100% SQL→OPP</div>
+      <div class="ic-headline">4 leads B2B individuais: todos chegaram a OPP, 3 WON</div>
+      <div class="mini-funnel">
+        <div class="mf-block"><div class="mf-n" style="color:#38bdf8">4</div><div class="mf-l">SQL</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#a78bfa">4</div><div class="mf-l">OPP</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#10b981">3</div><div class="mf-l">WON</div></div>
+      </div>
+      <div class="ic-body">Royal Palace, Mondrian Studios, The Studio e Five Trade — 4 leads individuais com abordagem B2B personalizada. <strong>3 WONs confirmados</strong>. Amostra pequena mas sinal claro de que abordagem individual escala bem.</div>
+      <span class="ic-action g">→ Escalar prospecção B2B individual em novos empreendimentos</span>
+      <button class="proof-toggle" id="ptgl-out3" onclick="toggleProof('out3')">▼ Ver prova — dados reais extraídos do Pipedrive</button>
+      <div class="proof-panel" id="proof-out3">
+        <div class="proof-src">Fonte: Nekt · AWS Athena · pipedrive_marketing_deals_disparos_mia · 30/06/2026</div>
+        <div class="proof-h">Os 4 leads B2B — histórico completo no Pipedrive:</div>
+        <table class="proof-tbl" style="margin-bottom:10px">
+          <tr><th>Empreendimento</th><th>Disparo</th><th>SQL</th><th>OPP</th><th>Resultado</th><th>Stage</th></tr>
+          <tr><td style="color:#e2e8f0">Five Trade Residence</td><td>05/05</td><td style="color:#34d399">✓</td><td style="color:#34d399">✓</td><td style="color:#10b981;font-weight:700">WON</td><td style="color:#10b981;font-size:10px">Contrato</td></tr>
+          <tr><td style="color:#e2e8f0">Mondrian Studios</td><td>03/03</td><td style="color:#34d399">✓</td><td style="color:#34d399">✓</td><td style="color:#10b981;font-weight:700">WON</td><td style="color:#10b981;font-size:10px">Contrato</td></tr>
+          <tr><td style="color:#e2e8f0">The Studio</td><td>02/02</td><td style="color:#34d399">✓</td><td style="color:#34d399">✓</td><td style="color:#10b981;font-weight:700">WON</td><td style="color:#10b981;font-size:10px">Contrato</td></tr>
+          <tr><td style="color:#e2e8f0">Royal Palace</td><td>01/12</td><td style="color:#34d399">✓</td><td style="color:#34d399">✓</td><td style="color:#f59e0b">Open</td><td style="color:#f59e0b;font-size:10px">Reunião Realizada/OPP</td></tr>
+        </table>
+        <div class="proof-h">Comparativo B2B individual vs. campanhas em massa:</div>
+        <table class="proof-tbl">
+          <tr><th>Abordagem</th><th style="text-align:right">SQL</th><th style="text-align:right">OPP</th><th style="text-align:right">SQL→OPP</th><th style="text-align:right">OPP→WON</th></tr>
+          <tr><td>B2B individual (4 leads)</td><td style="text-align:right">4</td><td style="text-align:right;color:#10b981;font-weight:700">4</td><td style="text-align:right;color:#10b981;font-weight:700">100%</td><td style="text-align:right;color:#10b981;font-weight:700">75%</td></tr>
+          <tr><td>Campanhas em massa SZI (100 leads)</td><td style="text-align:right">100</td><td style="text-align:right;color:#ef4444">8</td><td style="text-align:right;color:#ef4444">8%</td><td style="text-align:right;color:#f59e0b">12,5%</td></tr>
+        </table>
+        <div class="proof-note">Abordagem individualizada (1 prospect, pesquisa prévia, proposta customizada) entrega <strong style="color:#94a3b8">100% SQL→OPP</strong> vs. 8% das campanhas em massa. O volume é menor, mas o ROI por lead é incomparavelmente maior.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert-box">
+    <strong>Como ler:</strong>
+    <strong style="color:#38bdf8">SQL</strong> = "Data de Qualificação" preenchida ·
+    <strong style="color:#a78bfa">OPP</strong> = "Data da Reunião" preenchida
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr>
+      <th>Data</th><th>Campanha</th>
+      <th style="text-align:right">Leads</th>
+      <th style="text-align:right">Responderam</th>
+      <th style="text-align:center">Vol.</th>
+      <th style="text-align:right">SQL</th>
+      <th style="text-align:right">OPP</th>
+      <th style="text-align:right">WON</th>
+    </tr></thead>
+    <tbody id="tbody-out"></tbody>
+  </table></div>
+</div>
+
+<!-- ═══════════════ VELOCITY ═══════════════ -->
+<div id="tab-vel" class="section">
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:20px">
+    <div class="ss-card" style="border-radius:10px 0 0 10px">
+      <div class="ss-label">SQLs SZI — Junho</div>
+      <div class="ss-value" style="color:#f8fafc">128</div>
+      <div class="ss-sub">data_de_qualificacao preenchida · a partir 01/06</div>
+    </div>
+    <div class="ss-card" style="border-color:#06b6d433">
+      <div class="ss-label" style="color:#22d3ee">Com Reunião Marcada</div>
+      <div class="ss-value" style="color:#22d3ee">16</div>
+      <div class="ss-sub">12,5% dos SQLs · data_da_reuniao preenchida</div>
+    </div>
+    <div class="ss-card" style="border-color:#ef444433;border-radius:0 10px 10px 0">
+      <div class="ss-label" style="color:#ef4444">Sem Reunião Agendada</div>
+      <div class="ss-value" style="color:#ef4444">112</div>
+      <div class="ss-sub">87,5% dos SQLs · gargalo principal</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
+
+    <div style="background:#1e293b;border:1px solid #334155;border-radius:12px;padding:18px 20px">
+      <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Intervalo SQL → Reunião (16 agendados)</div>
+      <div id="vel-histogram"></div>
+      <div style="font-size:10px;color:#475569;margin-top:12px;line-height:1.8">Mediana: <strong style="color:#94a3b8">3 dias</strong> &nbsp;·&nbsp; Máximo: <strong style="color:#94a3b8">7 dias</strong> &nbsp;·&nbsp; Único WON: <strong style="color:#22d3ee">D+1</strong></div>
+    </div>
+
+    <div style="background:#1e293b;border:1px solid #334155;border-radius:12px;padding:18px 20px">
+      <div style="font-size:11px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.06em;margin-bottom:16px">Por Que 112 SQLs Não Chegaram a OPP</div>
+      <div id="vel-stages"></div>
+      <div style="font-size:10px;color:#475569;margin-top:12px;line-height:1.6">⚠ "Agendado sem data" = closer atualizou o stage mas não preencheu o campo <em>data_da_reunião</em> — funil não conta como OPP</div>
+    </div>
+
+  </div>
+
+  <div class="insight-card ok" style="margin-bottom:20px">
+    <div class="ic-eyebrow g">✅ Única fórmula vencedora: D+1</div>
+    <div class="ic-headline">O único WON SZI de junho foi qualificado e agendado no dia seguinte</div>
+    <div class="mini-funnel" style="margin:10px 0">
+      <div class="mf-block"><div class="mf-n" style="color:#38bdf8">18/06</div><div class="mf-l">SQL</div></div>
+      <div class="mf-arrow">→</div>
+      <div class="mf-block"><div class="mf-n" style="color:#a78bfa">19/06</div><div class="mf-l">Reunião</div></div>
+      <div class="mf-arrow">→</div>
+      <div class="mf-block"><div class="mf-n" style="color:#10b981">WON</div><div class="mf-l">Repescagem SLA Jurerê II</div></div>
+    </div>
+    <div class="ic-body">Dos 16 que chegaram a ter reunião: <strong>0 WONs</strong> entre os agendados com 2+ dias de atraso. A janela de comprometimento do lead fecha rápido após a qualificação.<br><br>3 SQLs foram agendados em D+1: <strong>1 WON, 2 lost</strong>. Dos 12 agendados em D+3 ou mais: <strong>0 WONs</strong>. Correlação direta entre velocidade e fechamento.</div>
+    <span class="ic-action g">→ Política: reunião marcada no mesmo dia ou no dia seguinte à qualificação</span>
+  </div>
+
+  <div class="alert-box">
+    Os <strong>16 SQLs SZI</strong> (Junho/2026) que chegaram a ter <strong>data de reunião preenchida</strong> no Pipedrive · dados individuais por deal
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr>
+      <th>Data SQL</th>
+      <th>Data Reunião</th>
+      <th style="text-align:center">Intervalo</th>
+      <th>Campanha</th>
+      <th style="text-align:center">Resultado</th>
+    </tr></thead>
+    <tbody id="tbody-vel"></tbody>
+  </table></div>
+  <div class="legend" style="margin-top:12px">
+    <span><span class="leg-dot" style="background:#10b981"></span>D+0 mesmo dia</span>
+    <span><span class="leg-dot" style="background:#22d3ee"></span>D+1 (onde veio o WON)</span>
+    <span><span class="leg-dot" style="background:#f59e0b"></span>D+2</span>
+    <span><span class="leg-dot" style="background:#f97316"></span>D+3–4</span>
+    <span><span class="leg-dot" style="background:#ef4444"></span>D+7+</span>
+  </div>
+
+</div>
+
+<script>
+const rows = [
+  // SZI
+  ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
+  ["06-29","SZI","REPESCAGEM NATAL",2,2,1,0,0],
+  ["06-29","SZI","REPESCAGEM MARISTA 144",2,2,0,0,0],
+  ["06-29","SZI","REPESCAGEM JURERÊ III",1,1,1,0,0],
+  ["06-29","SZI","REPESCAGEM ITACARÉ",2,2,2,0,0],
+  ["06-29","SZI","REPESCAGEM SLA NATAL (Via MKT)",14,14,1,0,0],
+  ["06-26","SZI","PARADOS EM OPP — PONTAS II · NATAL · ITACARÉ",412,412,6,3,0],
+  ["06-26","SZI","OPP IMPERDÍVEL JURERÊ II — NÃO ABRIRAM",116,116,2,0,0],
+  ["06-26","SZI","OPP IMPERDÍVEL JURERÊ II",47,47,0,0,0],
+  ["06-26","SZI","OPP IMPERDÍVEL JURERÊ II — ABRIRAM",51,51,0,0,0],
+  ["06-26","SZI","HÓSPEDES NÃO RESP R$700 — JURERÊ III · VISTAS II · BONITO II · NATAL · ITACARÉ",90,90,0,0,0],
+  ["06-25","SZI","OPP SEMANA NOVO CAMPECHE — NÃO ABRIRAM",97,97,3,0,0],
+  ["06-25","SZI","OPP SEMANA NOVO CAMPECHE — ABRIRAM",46,46,0,0,0],
+  ["06-25","SZI","HÓSPEDES NÃO RESPONDERAM — PONTAS II · MARISTA",80,80,4,1,0],
+  ["06-24","SZI","LOSTS SZS TIMING — ITACARÉ · MARISTA SPOT",200,200,16,0,0],
+  ["06-24","SZI","OPP IMPERDÍVEL PONTA DAS CANAS II — NÃO ABRIRAM",63,63,3,0,0],
+  ["06-24","SZI","OPP IMPERDÍVEL PONTA DAS CANAS II — ABRIRAM",50,50,2,0,0],
+  ["06-24","SZI","REPESCAGEM SLA ITACARÉ",3,3,3,0,0],
+  ["06-24","SZI","REPESCAGEM SLA VISTAS II",2,2,2,0,0],
+  ["06-24","SZI","REPESCAGEM SLA NATAL",2,2,1,0,0],
+  ["06-24","SZI","REPESCAGEM SLA MARISTA",2,2,1,0,0],
+  ["06-24","SZI","REPESCAGEM SLA CARAGUA",2,2,0,0,0],
+  ["06-23","SZI","LOST MKTPLACE SZI — PONTA II · NATAL SPOT",58,58,4,1,0],
+  ["06-23","SZI","NO SHOW LOSTS 3 MESES — PONTAS II · JURERÊ II/III · ITACARÉ",47,47,3,0,0],
+  ["06-23","SZI","CLIENTES 2+ SPOTS — PONTAS II · JURERÊ II",86,86,1,0,0],
+  ["06-22","SZI","INVESTIDORES NÃO RESPONDERAM — PONTA DAS CANAS II",61,61,1,0,0],
+  ["06-19","SZI","FUP HÓSPEDES R$1000 — JURERÊ II · ITACARÉ · JURERÊ III",116,116,0,0,0],
+  ["06-19","SZI","PROP NÃO PREMIUM 10D — PONTA II",94,94,2,0,0],
+  ["06-19","SZI","PROP NÃO PREMIUM 10D — ITACARÉ",84,84,1,0,0],
+  ["06-19","SZI","OPP IMPERDÍVEL SZI MARISTA SPOT",153,153,4,0,0],
+  ["06-19","SZI","FUP HÓSPEDES R$700 — PONTA II · JURERÊ III · ITACARÉ",180,180,0,0,0],
+  ["06-18","SZI","URG VISTAS II-III",200,200,8,0,0],
+  ["06-18","SZI","URG PONTA II",100,100,4,0,0],
+  ["06-18","SZI","URG NORDESTE NATAL",100,100,5,0,0],
+  ["06-18","SZI","URG NOVO CAMP II",98,98,2,0,0],
+  ["06-18","SZI","URG BONITO II",100,100,1,0,0],
+  ["06-18","SZI","REPESCAGEM SLA JURERÊ II",1,1,1,1,1],
+  ["06-18","SZI","REPESCAGEM SLA PONTA II",3,3,1,0,0],
+  ["06-18","SZI","REPESCAGEM SLA NATAL",6,6,0,0,0],
+  ["06-18","SZI","REPESCAGEM SLA MARISTA SPOT",6,6,2,0,0],
+  ["06-18","SZI","REPESCAGEM SLA ITACARÉ",6,6,1,0,0],
+  ["06-18","SZI","REPESCAGEM SLA CARAGUA",1,1,0,0,0],
+  ["06-17","SZI","OPP IMPERDÍVEL BONITO II SPOT",122,122,5,0,0],
+  ["06-17","SZI","HÓSPEDES R$1000 JURERÊ II",61,61,0,0,0],
+  ["06-16","SZI","PROPRIETÁRIOS PREMIUM SZI 10D",39,39,0,0,0],
+  ["06-16","SZI","NO SHOW PONTA II 10D",10,10,0,0,0],
+  ["06-16","SZI","NO SHOW JURERÊ III 10D",2,2,0,0,0],
+  ["06-16","SZI","NO SHOW JURERÊ II 10D",2,2,0,0,0],
+  ["06-16","SZI","NO SHOW ITACARÉ 10D",1,1,0,0,0],
+  ["06-16","SZI","SUL DA ILHA SPOT — ABRIRAM",1,1,1,0,0],
+  ["06-15","SZI","HÓSPEDES R$700 PONTA II",199,199,1,0,0],
+  ["06-12","SZI","OPP IMPERDÍVEL NATAL SPOT",318,318,0,0,0],
+  ["06-11","SZI","ITACARÉ LEAD SZI SEM OPP",119,119,2,2,0],
+  ["06-08","SZI","REPESCAGEM SLA PONTA DAS CANAS II",1,1,1,0,0],
+  // Marketplace
+  ["06-29","Marketplace","LOST COM REUNIÃO SANTINHO SPOT",6,2,0,0,0],
+  ["06-25","Marketplace","OPP SEMANA NOVO CAMPECHE — NÃO ABRIRAM",14,10,0,0,0],
+  ["06-25","Marketplace","OPP SEMANA NOVO CAMPECHE — ABRIRAM",6,6,0,0,0],
+  ["06-25","Marketplace","LOST INTERESSE CACHOEIRA BEACH 3 MESES",200,200,4,0,0],
+  ["06-23","Marketplace","OPP SEMANA URUBICI SPOT — NÃO ABRIRAM",91,11,2,0,0],
+  ["06-23","Marketplace","OPP SEMANA URUBICI SPOT — ABRIRAM",86,13,1,0,0],
+  ["06-23","Marketplace","LOST MKTPLACE SZI PONTA II + NATAL",1,1,0,0,0],
+  ["06-18","Marketplace","URG NOVO CAMP II (MKT)",1,1,1,0,0],
+  ["06-17","Marketplace","HÓSPEDES PENHA SPOT",218,53,11,0,0],
+  ["06-17","Marketplace","REATIVAÇÃO JAPARATINGA SPOT",21,3,1,0,0],
+  ["06-16","Marketplace","SUL DA ILHA SPOT — NÃO ABRIRAM",97,7,3,0,0],
+  ["06-16","Marketplace","SUL DA ILHA SPOT — ABRIRAM",99,13,3,0,0],
+  ["06-16","Marketplace","HÓSPEDES ROSA SPOT",186,27,10,3,0],
+  ["06-12","Marketplace","OPP SEMANA SANTINHO — NÃO ABRIRAM",443,0,0,0,0],
+  ["06-11","Marketplace","OPP SEMANA SANTINHO",70,1,0,0,0],
+  // Outros (SZS + Decor + Parceiros)
+  ["06-26","Outros","LOST COM OPP DESCONTO SZS GESTÃO",494,494,19,3,0],
+  ["06-25","Outros","TESTE SIRIUS MSG1 SZS EXPANSÃO",220,220,3,1,0],
+  ["06-17","Outros","REATIVAÇÃO EXPANSÃO SIRIUS (SZS)",177,177,25,8,2],
+  ["06-17","Outros","REATIVAÇÃO JAPARATINGA SPOT (Decor)",10,10,4,0,0],
+  ["05-14","Outros","B2B FIVE TRADE RESIDENCE (SZS)",1,1,1,1,1],
+  ["03-16","Outros","DECOR LOST DCR ILHA DO CAMPECHE SPOT II",1,1,1,0,0],
+  ["03-12","Outros","B2B GESTÃO LEAD MONDRIAN STUDIOS (SZS)",1,1,1,1,1],
+  ["02-02","Outros","B2B GESTÃO LEAD THE STUDIO (SZS)",1,1,1,1,1],
+  ["01-12","Outros","B2B GESTÃO LOST ROYAL PALACE (SZS)",1,1,1,1,0],
+  ["06-26","Outros","OPP IMPERDÍVEL JURERÊ II (Parceiros)",1,1,0,0,0],
+];
+
+const TYPE_COLOR = { SZI:'#3b82f6', Marketplace:'#8b5cf6', Outros:'#f59e0b' };
+
+function respColor(pct) {
+  if (pct >= 20) return '#10b981';
+  if (pct >= 8)  return '#f59e0b';
+  return '#ef4444';
+}
+
+function makeRow(r, showTipo) {
+  const [date,tipo,camp,leads,resp,sql,opp,won] = r;
+  const pct = leads > 0 ? (resp/leads*100).toFixed(1) : 0;
+  const rc  = respColor(parseFloat(pct));
+  const bar = Math.min(leads/10, 100).toFixed(0);
+  const tc  = TYPE_COLOR[tipo] || '#6b7280';
+  const sqlDisp = sql === 0 ? '<span style="color:#475569">—</span>' : sql >= 5 ? `<span style="color:#38bdf8;font-weight:700">${sql} ★</span>` : `<span style="color:#64748b">${sql}</span>`;
+  const oppDisp = opp === 0 ? '<span style="color:#475569">—</span>' : opp >= 3 ? `<span style="color:#a78bfa;font-weight:700">${opp} ★</span>` : `<span style="color:#a78bfa;font-weight:600">${opp}</span>`;
+  const wonDisp = won === 0 ? '<span style="color:#475569">—</span>' : `<span style="color:#10b981;font-weight:700">${won}</span>`;
+  const tipoCell = showTipo ? `<td style="padding:9px 8px"><span style="color:${tc};font-size:11px;padding:2px 7px;border-radius:4px;font-weight:600">${tipo}</span></td>` : '';
+  return `<tr class="deal-row" data-type="${tipo}">
+  <td style="padding:9px 8px;color:#94a3b8;font-size:12px;white-space:nowrap">${date}</td>
+  ${tipoCell}
+  <td style="padding:9px 8px;color:#e2e8f0;font-size:12px;max-width:320px;white-space:normal">${camp}</td>
+  <td style="padding:9px 8px;text-align:right;color:#e2e8f0;font-weight:600">${leads.toLocaleString('pt-BR')}</td>
+  <td style="padding:9px 8px;text-align:right">
+    <span style="color:${rc};font-weight:600">${resp.toLocaleString('pt-BR')}</span>
+    <span style="color:#64748b;font-size:11px"> (${pct}%)</span>
+  </td>
+  <td style="padding:9px 8px;text-align:center">
+    <div style="background:#0f172a;border-radius:4px;height:5px;width:70px;display:inline-block">
+      <div style="background:#475569;width:${bar}%;height:100%;border-radius:4px"></div>
+    </div>
+  </td>
+  <td style="padding:9px 8px;text-align:right">${sqlDisp}</td>
+  <td style="padding:9px 8px;text-align:right">${oppDisp}</td>
+  <td style="padding:9px 8px;text-align:right">${wonDisp}</td>
+</tr>`;
+}
+
+document.getElementById('tbody-all').innerHTML = rows.map(r => makeRow(r, true)).join('');
+document.getElementById('tbody-szi').innerHTML = rows.filter(r => r[1]==='SZI').map(r => makeRow(r,false)).join('');
+document.getElementById('tbody-mkt').innerHTML = rows.filter(r => r[1]==='Marketplace').map(r => makeRow(r,false)).join('');
+document.getElementById('tbody-out').innerHTML = rows.filter(r => r[1]==='Outros').map(r => makeRow(r,false)).join('');
+
+// ─── Velocity histogram ───
+const histData = [
+  {d:"D+0 (mesmo dia)",n:2,color:"#10b981"},
+  {d:"D+1",n:3,color:"#22d3ee",won:true},
+  {d:"D+2",n:2,color:"#f59e0b"},
+  {d:"D+3",n:5,color:"#f97316"},
+  {d:"D+4",n:3,color:"#ef4444"},
+  {d:"D+7",n:1,color:"#dc2626"},
+];
+const maxH = Math.max(...histData.map(h=>h.n));
+document.getElementById('vel-histogram').innerHTML = histData.map(h=>`
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
+    <div style="width:96px;font-size:11px;color:#94a3b8;text-align:right;flex-shrink:0">${h.d}</div>
+    <div style="flex:1;background:#0f172a;border-radius:4px;height:22px;position:relative;overflow:hidden">
+      <div style="background:${h.color};width:${(h.n/maxH*100).toFixed(0)}%;height:100%;border-radius:4px;opacity:0.85;transition:width .3s"></div>
+    </div>
+    <div style="font-size:13px;font-weight:700;color:${h.color};width:16px;text-align:right;flex-shrink:0">${h.n}</div>
+    ${h.won?'<div style="font-size:10px;color:#10b981;white-space:nowrap;flex-shrink:0">← WON aqui</div>':''}
+  </div>
+`).join('');
+
+// ─── Stage breakdown ───
+const stageData = [
+  {name:"Aguardando data / sem sinal",n:85,color:"#ef4444"},
+  {name:"Stage 'Agendado' sem data preenchida",n:15,color:"#f59e0b"},
+  {name:"No Show / Em reagendamento",n:12,color:"#f97316"},
+];
+const maxS = stageData[0].n;
+document.getElementById('vel-stages').innerHTML = stageData.map(s=>`
+  <div style="margin-bottom:16px">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+      <div style="font-size:11px;color:#94a3b8">${s.name}</div>
+      <div style="font-size:13px;font-weight:700;color:${s.color};flex-shrink:0;margin-left:10px">${s.n}</div>
+    </div>
+    <div style="background:#0f172a;border-radius:4px;height:8px">
+      <div style="background:${s.color};width:${(s.n/maxS*100).toFixed(0)}%;height:100%;border-radius:4px;opacity:0.8"></div>
+    </div>
+  </div>
+`).join('');
+
+// ─── Velocity table ───
+const velData = [
+  ["06-02","06-05",3,"lost","Repescagem Itacaré"],
+  ["06-08","06-11",3,"open","—"],
+  ["06-09","06-11",2,"open","—"],
+  ["06-10","06-11",1,"lost","—"],
+  ["06-10","06-11",1,"lost","—"],
+  ["06-10","06-12",2,"open","—"],
+  ["06-11","06-15",4,"lost","—"],
+  ["06-11","06-15",4,"open","—"],
+  ["06-11","06-18",7,"open","—"],
+  ["06-15","06-18",3,"lost","Repescagem Marista"],
+  ["06-18","06-19",1,"won","Repescagem SLA Jurerê II"],
+  ["06-25","06-29",4,"open","—"],
+  ["06-26","06-26",0,"open","—"],
+  ["06-26","06-29",3,"open","—"],
+  ["06-26","06-29",3,"open","—"],
+  ["06-29","06-29",0,"open","—"],
+];
+const dCol = d => d===0?'#10b981':d===1?'#22d3ee':d===2?'#f59e0b':d<=4?'#f97316':'#ef4444';
+document.getElementById('tbody-vel').innerHTML = velData.map(([sqld,oppd,dias,status,camp])=>{
+  const dc = dCol(dias);
+  const rowStyle = status==='won' ? 'background:#061a10;' : '';
+  const statusHtml = status==='won'  ? '<span style="color:#10b981;font-weight:700">WON ✓</span>' :
+                     status==='lost' ? '<span style="color:#ef4444">Lost</span>' :
+                     '<span style="color:#64748b">Open</span>';
+  return `<tr class="deal-row" style="${rowStyle}">
+    <td style="padding:9px 8px;color:#94a3b8;font-size:12px">${sqld}</td>
+    <td style="padding:9px 8px;color:#94a3b8;font-size:12px">${oppd}</td>
+    <td style="padding:9px 8px;text-align:center">
+      <span style="background:${dc}22;color:${dc};font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;border:1px solid ${dc}44">D+${dias}</span>
+    </td>
+    <td style="padding:9px 8px;color:#94a3b8;font-size:12px">${camp}</td>
+    <td style="padding:9px 8px;text-align:center">${statusHtml}</td>
+  </tr>`;
+}).join('');
+
+function toggleProof(id) {
+  const p = document.getElementById('proof-'+id);
+  const b = document.getElementById('ptgl-'+id);
+  const o = p.classList.toggle('open');
+  b.innerHTML = b.innerHTML.replace(o ? '▼' : '▲', o ? '▲' : '▼');
+}
+
+function showTab(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+  document.getElementById('summary-strip').style.display = id === 'all' ? 'grid' : 'none';
+}
+</script>
+</body>
+</html>
