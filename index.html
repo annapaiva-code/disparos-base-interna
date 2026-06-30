@@ -119,34 +119,6 @@
   <div class="updated">Atualizado: 30/06/2026</div>
 </div>
 
-<div id="summary-strip" class="summary-strip">
-  <div class="ss-card">
-    <div class="ss-label">Total Leads</div>
-    <div class="ss-value" style="color:#f8fafc">6.085</div>
-    <div class="ss-sub">SZI + MKT + Gestão</div>
-  </div>
-  <div class="ss-card">
-    <div class="ss-label">Responderam</div>
-    <div class="ss-value" style="color:#34d399">4.912</div>
-    <div class="ss-sub">80,7% do total</div>
-  </div>
-  <div class="ss-card">
-    <div class="ss-label">SQL Total</div>
-    <div class="ss-value" style="color:#38bdf8">192</div>
-    <div class="ss-sub">3,9% dos resp.</div>
-  </div>
-  <div class="ss-card">
-    <div class="ss-label">OPP Total</div>
-    <div class="ss-value" style="color:#f59e0b">27</div>
-    <div class="ss-sub">14,1% dos SQL</div>
-  </div>
-  <div class="ss-card">
-    <div class="ss-label">WON Total</div>
-    <div class="ss-value" style="color:#10b981">6</div>
-    <div class="ss-sub">22,2% das OPPs</div>
-  </div>
-</div>
-
 <div class="tabs">
   <button class="tab-btn szi active" onclick="showTab('szi',this)">SZI (54)</button>
   <button class="tab-btn mkt"        onclick="showTab('mkt',this)">Marketplace (15)</button>
@@ -157,6 +129,33 @@
 
 <!-- ═══════════════ ALL ═══════════════ -->
 <div id="tab-all" class="section">
+  <div class="summary-strip" style="margin-bottom:20px">
+    <div class="ss-card">
+      <div class="ss-label">Total Leads</div>
+      <div class="ss-value" style="color:#f8fafc">6.085</div>
+      <div class="ss-sub">SZI + MKT + Gestão</div>
+    </div>
+    <div class="ss-card">
+      <div class="ss-label">Responderam</div>
+      <div class="ss-value" style="color:#34d399">4.912</div>
+      <div class="ss-sub">80,7% do total</div>
+    </div>
+    <div class="ss-card">
+      <div class="ss-label">SQL Total</div>
+      <div class="ss-value" style="color:#38bdf8">192</div>
+      <div class="ss-sub">3,9% dos resp.</div>
+    </div>
+    <div class="ss-card">
+      <div class="ss-label">OPP Total</div>
+      <div class="ss-value" style="color:#f59e0b">27</div>
+      <div class="ss-sub">14,1% dos SQL</div>
+    </div>
+    <div class="ss-card">
+      <div class="ss-label">WON Total</div>
+      <div class="ss-value" style="color:#10b981">6</div>
+      <div class="ss-sub">22,2% das OPPs</div>
+    </div>
+  </div>
   <div class="alert-box">
     <strong>Como ler:</strong>
     <strong style="color:#60a5fa">Responderam</strong> = etapa ≠ Lead In ·
@@ -1276,7 +1275,6 @@ function showTab(id, btn) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   document.getElementById('tab-'+id).classList.add('active');
   btn.classList.add('active');
-  document.getElementById('summary-strip').style.display = id === 'all' ? 'grid' : 'none';
 }
 </script>
 </body>
