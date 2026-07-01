@@ -329,7 +329,6 @@
     </div>
   </div>
 
-  <div class="szi-month-only" id="szi-month-only-sections">
   <!-- Comparativo 3 meses — SZI -->
   <div style="margin-bottom:20px">
     <div style="font-size:11px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;border-left:3px solid #2563eb;padding-left:8px">Comparativo SZI — Últimos 3 Meses</div>
@@ -578,11 +577,6 @@
       </div>
     </div>
   </div>
-  </div>
-
-  <div id="szi-filtered-note" class="alert-box" style="display:none">
-    📅 Mostrando apenas o período selecionado. Comparativo, insights e análise SQL→OPP consideram o mês completo — volte ao range padrão para vê-los.
-  </div>
 
   <div class="alert-box">
     <strong>Como ler:</strong>
@@ -603,7 +597,6 @@
     <tbody id="tbody-szi"></tbody>
   </table></div>
 
-  <div class="szi-month-only">
   <div style="margin-top:32px;margin-bottom:18px;display:flex;align-items:center;gap:12px">
     <div style="flex:1;height:1px;background:#dbeafe"></div>
     <div style="font-size:11px;font-weight:700;color:#0369a1;text-transform:uppercase;letter-spacing:.08em">⚡ SQL → OPP — Análise do Mês (Junho)</div>
@@ -677,7 +670,6 @@
     <span><span class="leg-dot" style="background:#f59e0b"></span>D+2</span>
     <span><span class="leg-dot" style="background:#f97316"></span>D+3–4</span>
     <span><span class="leg-dot" style="background:#ef4444"></span>D+7+</span>
-  </div>
   </div>
 
 </div>
@@ -1304,9 +1296,6 @@
 </div>
 
 <script>
-const DEFAULT_FROM = document.getElementById('date-from').value;
-const DEFAULT_TO = document.getElementById('date-to').value;
-
 const rows = [
   ["07-01","SZI","OPORTUNIDADE IMPERDÍVEL NOVO CAMPECHE II SPOT — NÃO ABRIRAM",176,176,2,0,0],
   ["07-01","SZI","OPORTUNIDADE IMPERDÍVEL NOVO CAMPECHE II SPOT — ABRIRAM",150,150,2,0,0],
@@ -1544,22 +1533,6 @@ function updateDynamicNumbers(list) {
 }
 updateDynamicNumbers(rows);
 
-// ─── SZI: comparativo / insights / análise SQL→OPP são narrativa fixa do MÊS
-// INTEIRO (dados granulares de stage/chat/deal não existem linha a linha) —
-// só fazem sentido exibidos quando o filtro cobre o range completo.
-function toggleSziMonthSections(filteredList, from, to) {
-  const sziMonthSection = document.getElementById('szi-month-only-sections');
-  if (!sziMonthSection) return; // só existe na aba SZI
-  const isFullRangeByDates = (from === DEFAULT_FROM && to === DEFAULT_TO) || (!from && !to);
-  const isFullRange = isFullRangeByDates || filteredList.length === rows.length;
-  document.querySelectorAll('.szi-month-only').forEach(el => {
-    el.style.display = isFullRange ? '' : 'none';
-  });
-  const note = document.getElementById('szi-filtered-note');
-  if (note) note.style.display = isFullRange ? 'none' : '';
-}
-toggleSziMonthSections(rows, DEFAULT_FROM, DEFAULT_TO);
-
 function applyDateFilter() {
   const from = document.getElementById('date-from').value;
   const to = document.getElementById('date-to').value;
@@ -1569,7 +1542,6 @@ function applyDateFilter() {
   });
   renderAll(filtered);
   updateDynamicNumbers(filtered);
-  toggleSziMonthSections(filtered, from, to);
 }
 document.getElementById('date-from').addEventListener('change', applyDateFilter);
 document.getElementById('date-to').addEventListener('change', applyDateFilter);
