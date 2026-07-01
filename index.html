@@ -149,28 +149,28 @@
   <div class="summary-strip" style="margin-bottom:20px">
     <div class="ss-card">
       <div class="ss-label">Total Leads</div>
-      <div class="ss-value" style="color:#0f172a">8.487</div>
-      <div class="ss-sub">SZI + MKT + Gestão</div>
+      <div class="ss-value" id="all-leads-v" style="color:#0f172a">8.487</div>
+      <div class="ss-sub" id="all-leads-sub">SZI + MKT + Gestão</div>
     </div>
     <div class="ss-card">
       <div class="ss-label">Responderam</div>
-      <div class="ss-value" style="color:#059669">6.699</div>
-      <div class="ss-sub">78,9% do total</div>
+      <div class="ss-value" id="all-resp-v" style="color:#059669">6.699</div>
+      <div class="ss-sub" id="all-resp-sub">78,9% do total</div>
     </div>
     <div class="ss-card">
       <div class="ss-label">SQL Total</div>
-      <div class="ss-value" style="color:#0284c7">253</div>
-      <div class="ss-sub">3,8% dos resp.</div>
+      <div class="ss-value" id="all-sql-v" style="color:#0284c7">253</div>
+      <div class="ss-sub" id="all-sql-sub">3,8% dos resp.</div>
     </div>
     <div class="ss-card">
       <div class="ss-label">OPP Total</div>
-      <div class="ss-value" style="color:#f59e0b">46</div>
-      <div class="ss-sub">18,2% dos SQL</div>
+      <div class="ss-value" id="all-opp-v" style="color:#f59e0b">46</div>
+      <div class="ss-sub" id="all-opp-sub">18,2% dos SQL</div>
     </div>
     <div class="ss-card">
       <div class="ss-label">WON Total</div>
-      <div class="ss-value" style="color:#047857">8</div>
-      <div class="ss-sub">17,4% das OPPs</div>
+      <div class="ss-value" id="all-won-v" style="color:#047857">8</div>
+      <div class="ss-sub" id="all-won-sub">17,4% das OPPs</div>
     </div>
   </div>
   <!-- Comparativo 3 meses -->
@@ -236,15 +236,15 @@
 
       <!-- Junho -->
       <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);border-top:3px solid #3b82f6">
-        <div style="font-size:11px;font-weight:700;color:#1d4ed8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Jun/26 ← fechado</div>
+        <div style="font-size:11px;font-weight:700;color:#1d4ed8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Jun/26 ← atual</div>
         <div style="display:flex;gap:8px;align-items:baseline;margin-bottom:12px;flex-wrap:wrap">
-          <div><span style="font-size:20px;font-weight:800;color:#111827">8.487</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
+          <div><span id="cmp-all-leads" style="font-size:20px;font-weight:800;color:#111827">8.487</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span style="font-size:16px;font-weight:700;color:#2563eb">253</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
+          <div><span id="cmp-all-sql" style="font-size:16px;font-weight:700;color:#2563eb">253</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span style="font-size:16px;font-weight:700;color:#f59e0b">46</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">OPP</span></div>
+          <div><span id="cmp-all-opp" style="font-size:16px;font-weight:700;color:#f59e0b">46</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">OPP</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span style="font-size:16px;font-weight:700;color:#16a34a">8</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">WON</span></div>
+          <div><span id="cmp-all-won" style="font-size:16px;font-weight:700;color:#16a34a">8</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">WON</span></div>
         </div>
         <table style="width:100%;border-collapse:collapse;font-size:11px">
           <thead><tr>
@@ -263,6 +263,7 @@
       </div>
 
     </div>
+    <div style="font-size:9px;color:#9ca3af;margin-top:4px">Abr/26 e Mai/26 são histórico fixo — meses anteriores não respondem ao filtro de data. Só o card à direita (mês atual) é recalculado pelo período selecionado.</div>
   </div>
 
   <div class="alert-box">
@@ -298,33 +299,33 @@
   <div class="funnel">
     <div class="funnel-card">
       <div class="f-label">Leads SZI</div>
-      <div class="f-value" style="color:#0f172a">5.270</div>
-      <div class="f-sub">56 campanhas</div>
+      <div class="f-value" id="szi-leads-v" style="color:#0f172a">5.270</div>
+      <div class="f-sub" id="szi-leads-sub">56 campanhas</div>
       <div class="f-rate" style="color:#6b7280">base</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">Responderam</div>
-      <div class="f-value" style="color:#059669">5.270</div>
+      <div class="f-value" id="szi-resp-v" style="color:#059669">5.270</div>
       <div class="f-sub">WA direto / personalizado</div>
-      <div class="f-rate" style="color:#059669">100% dos leads</div>
+      <div class="f-rate" id="szi-resp-rate" style="color:#059669">100% dos leads</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">SQL</div>
-      <div class="f-value" style="color:#0284c7">128</div>
+      <div class="f-value" id="szi-sql-v" style="color:#0284c7">128</div>
       <div class="f-sub">data qualificação</div>
-      <div class="f-rate" style="color:#0284c7">2,4% dos resp.</div>
+      <div class="f-rate" id="szi-sql-rate" style="color:#0284c7">2,4% dos resp.</div>
     </div>
     <div class="funnel-card" style="border-left:2px solid #ef444444;">
       <div class="f-label">OPP</div>
-      <div class="f-value" style="color:#f59e0b">18</div>
+      <div class="f-value" id="szi-opp-v" style="color:#f59e0b">18</div>
       <div class="f-sub">data da reunião</div>
-      <div class="f-rate" style="color:#ef4444">14,1% dos SQL</div>
+      <div class="f-rate" id="szi-opp-rate" style="color:#ef4444">14,1% dos SQL</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">WON</div>
-      <div class="f-value" style="color:#047857">1</div>
+      <div class="f-value" id="szi-won-v" style="color:#047857">1</div>
       <div class="f-sub">venda confirmada</div>
-      <div class="f-rate" style="color:#047857">5,6% das OPPs</div>
+      <div class="f-rate" id="szi-won-rate" style="color:#047857">5,6% das OPPs</div>
     </div>
   </div>
 
@@ -357,15 +358,15 @@
         </div>
       </div>
       <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);border-top:3px solid #2563eb">
-        <div style="font-size:11px;font-weight:700;color:#1d4ed8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Jun/26 ← fechado</div>
+        <div style="font-size:11px;font-weight:700;color:#1d4ed8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Jun/26 ← atual</div>
         <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
-          <div><span style="font-size:20px;font-weight:800;color:#111827">5.270</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
+          <div><span id="cmp-szi-leads" style="font-size:20px;font-weight:800;color:#111827">5.270</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span style="font-size:16px;font-weight:700;color:#2563eb">128</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
+          <div><span id="cmp-szi-sql" style="font-size:16px;font-weight:700;color:#2563eb">128</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span style="font-size:16px;font-weight:700;color:#f59e0b">18</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">OPP</span></div>
+          <div><span id="cmp-szi-opp" style="font-size:16px;font-weight:700;color:#f59e0b">18</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">OPP</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span style="font-size:16px;font-weight:700;color:#16a34a">1</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">WON</span></div>
+          <div><span id="cmp-szi-won" style="font-size:16px;font-weight:700;color:#16a34a">1</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">WON</span></div>
         </div>
       </div>
     </div>
@@ -678,33 +679,33 @@
   <div class="funnel">
     <div class="funnel-card">
       <div class="f-label">Leads MKT</div>
-      <div class="f-value" style="color:#0f172a">2.186</div>
-      <div class="f-sub">16 campanhas</div>
+      <div class="f-value" id="mkt-leads-v" style="color:#0f172a">2.186</div>
+      <div class="f-sub" id="mkt-leads-sub">16 campanhas</div>
       <div class="f-rate" style="color:#6b7280">base</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">Responderam</div>
-      <div class="f-value" style="color:#f59e0b">398</div>
+      <div class="f-value" id="mkt-resp-v" style="color:#f59e0b">398</div>
       <div class="f-sub">engajamento real</div>
-      <div class="f-rate" style="color:#f59e0b">18,2% dos leads</div>
+      <div class="f-rate" id="mkt-resp-rate" style="color:#f59e0b">18,2% dos leads</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">SQL</div>
-      <div class="f-value" style="color:#0284c7">43</div>
+      <div class="f-value" id="mkt-sql-v" style="color:#0284c7">43</div>
       <div class="f-sub">data qualificação</div>
-      <div class="f-rate" style="color:#0284c7">10,8% dos resp.</div>
+      <div class="f-rate" id="mkt-sql-rate" style="color:#0284c7">10,8% dos resp.</div>
     </div>
     <div class="funnel-card" style="border-left:2px solid #f59e0b44;">
       <div class="f-label">OPP</div>
-      <div class="f-value" style="color:#f59e0b">4</div>
+      <div class="f-value" id="mkt-opp-v" style="color:#f59e0b">4</div>
       <div class="f-sub">data da reunião</div>
-      <div class="f-rate" style="color:#f59e0b">9,3% dos SQL</div>
+      <div class="f-rate" id="mkt-opp-rate" style="color:#f59e0b">9,3% dos SQL</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">WON</div>
-      <div class="f-value" style="color:#374151">0</div>
-      <div class="f-sub">—</div>
-      <div class="f-rate" style="color:#374151">—</div>
+      <div class="f-value" id="mkt-won-v" style="color:#374151">0</div>
+      <div class="f-sub" id="mkt-won-sub">—</div>
+      <div class="f-rate" id="mkt-won-rate" style="color:#374151">—</div>
     </div>
   </div>
 
@@ -737,15 +738,15 @@
         </div>
       </div>
       <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);border-top:3px solid #7c3aed">
-        <div style="font-size:11px;font-weight:700;color:#6d28d9;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Jun/26 ← fechado</div>
+        <div style="font-size:11px;font-weight:700;color:#6d28d9;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Jun/26 ← atual</div>
         <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
-          <div><span style="font-size:20px;font-weight:800;color:#111827">2.186</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
+          <div><span id="cmp-mkt-leads" style="font-size:20px;font-weight:800;color:#111827">2.186</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span style="font-size:16px;font-weight:700;color:#7c3aed">43</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
+          <div><span id="cmp-mkt-sql" style="font-size:16px;font-weight:700;color:#7c3aed">43</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span style="font-size:16px;font-weight:700;color:#f59e0b">4</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">OPP</span></div>
+          <div><span id="cmp-mkt-opp" style="font-size:16px;font-weight:700;color:#f59e0b">4</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">OPP</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span style="font-size:16px;font-weight:700;color:#9ca3af">—</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">WON</span></div>
+          <div><span id="cmp-mkt-won" style="font-size:16px;font-weight:700;color:#9ca3af">—</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">WON</span></div>
         </div>
       </div>
     </div>
@@ -919,33 +920,33 @@
   <div class="funnel">
     <div class="funnel-card">
       <div class="f-label">Leads Gestão</div>
-      <div class="f-value" style="color:#0f172a">977</div>
-      <div class="f-sub">8 campanhas · SZS + Decor</div>
+      <div class="f-value" id="ges-leads-v" style="color:#0f172a">977</div>
+      <div class="f-sub" id="ges-leads-sub">8 campanhas · SZS + Decor</div>
       <div class="f-rate" style="color:#6b7280">base</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">Responderam</div>
-      <div class="f-value" style="color:#059669">977</div>
+      <div class="f-value" id="ges-resp-v" style="color:#059669">977</div>
       <div class="f-sub">WA direto</div>
-      <div class="f-rate" style="color:#059669">100% dos leads</div>
+      <div class="f-rate" id="ges-resp-rate" style="color:#059669">100% dos leads</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">SQL</div>
-      <div class="f-value" style="color:#0284c7">58</div>
+      <div class="f-value" id="ges-sql-v" style="color:#0284c7">58</div>
       <div class="f-sub">data qualificação</div>
-      <div class="f-rate" style="color:#0284c7">5,9% dos resp.</div>
+      <div class="f-rate" id="ges-sql-rate" style="color:#0284c7">5,9% dos resp.</div>
     </div>
     <div class="funnel-card" style="border-left:2px solid #10b98144;">
       <div class="f-label">OPP</div>
-      <div class="f-value" style="color:#047857">20</div>
+      <div class="f-value" id="ges-opp-v" style="color:#047857">20</div>
       <div class="f-sub">data da reunião</div>
-      <div class="f-rate" style="color:#047857">34,5% dos SQL ✓</div>
+      <div class="f-rate" id="ges-opp-rate" style="color:#047857">34,5% dos SQL ✓</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">WON</div>
-      <div class="f-value" style="color:#047857">6</div>
+      <div class="f-value" id="ges-won-v" style="color:#047857">6</div>
       <div class="f-sub">venda confirmada</div>
-      <div class="f-rate" style="color:#047857">30% das OPPs</div>
+      <div class="f-rate" id="ges-won-rate" style="color:#047857">30% das OPPs</div>
     </div>
   </div>
 
@@ -978,15 +979,15 @@
         </div>
       </div>
       <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);border-top:3px solid #16a34a">
-        <div style="font-size:11px;font-weight:700;color:#15803d;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Jun/26 ← fechado</div>
+        <div style="font-size:11px;font-weight:700;color:#15803d;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Jun/26 ← atual</div>
         <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
-          <div><span style="font-size:20px;font-weight:800;color:#111827">977</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
+          <div><span id="cmp-ges-leads" style="font-size:20px;font-weight:800;color:#111827">977</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span style="font-size:16px;font-weight:700;color:#16a34a">58</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
+          <div><span id="cmp-ges-sql" style="font-size:16px;font-weight:700;color:#16a34a">58</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span style="font-size:16px;font-weight:700;color:#f59e0b">20</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">OPP</span></div>
+          <div><span id="cmp-ges-opp" style="font-size:16px;font-weight:700;color:#f59e0b">20</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">OPP</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span style="font-size:16px;font-weight:700;color:#047857">6</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">WON</span></div>
+          <div><span id="cmp-ges-won" style="font-size:16px;font-weight:700;color:#047857">6</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">WON</span></div>
         </div>
       </div>
     </div>
@@ -1186,33 +1187,33 @@
   <div class="funnel">
     <div class="funnel-card">
       <div class="f-label">Leads Outros</div>
-      <div class="f-value" style="color:#0f172a">54</div>
-      <div class="f-sub">3 campanhas · Decor + Parceiros</div>
+      <div class="f-value" id="out-leads-v" style="color:#0f172a">54</div>
+      <div class="f-sub" id="out-leads-sub">3 campanhas · Decor + Parceiros</div>
       <div class="f-rate" style="color:#6b7280">base</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">Responderam</div>
-      <div class="f-value" style="color:#059669">54</div>
+      <div class="f-value" id="out-resp-v" style="color:#059669">54</div>
       <div class="f-sub">WA direto / personalizado</div>
-      <div class="f-rate" style="color:#059669">100%</div>
+      <div class="f-rate" id="out-resp-rate" style="color:#059669">100%</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">SQL</div>
-      <div class="f-value" style="color:#0284c7">24</div>
+      <div class="f-value" id="out-sql-v" style="color:#0284c7">24</div>
       <div class="f-sub">data qualificação</div>
-      <div class="f-rate" style="color:#0284c7">44,4% dos resp.</div>
+      <div class="f-rate" id="out-sql-rate" style="color:#0284c7">44,4% dos resp.</div>
     </div>
     <div class="funnel-card" style="border-left:2px solid #f59e0b44;">
       <div class="f-label">OPP</div>
-      <div class="f-value" style="color:#f59e0b">4</div>
+      <div class="f-value" id="out-opp-v" style="color:#f59e0b">4</div>
       <div class="f-sub">data da reunião</div>
-      <div class="f-rate" style="color:#f59e0b">16,7% dos SQL</div>
+      <div class="f-rate" id="out-opp-rate" style="color:#f59e0b">16,7% dos SQL</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">WON</div>
-      <div class="f-value" style="color:#047857">1</div>
+      <div class="f-value" id="out-won-v" style="color:#047857">1</div>
       <div class="f-sub">venda confirmada</div>
-      <div class="f-rate" style="color:#047857">25% das OPPs</div>
+      <div class="f-rate" id="out-won-rate" style="color:#047857">25% das OPPs</div>
     </div>
   </div>
 
@@ -1433,6 +1434,105 @@ function renderAll(list) {
 }
 renderAll(rows);
 
+// ─── Dynamic funnel / summary / comparativo numbers (reagem ao filtro de data) ───
+function aggregate(list, tipo) {
+  const filtered = tipo === 'all' ? list : list.filter(r => r[1] === tipo);
+  const campanhas = new Set(filtered.map(r => r[2])).size;
+  return filtered.reduce((acc, r) => {
+    acc.leads += r[3]; acc.resp += r[4]; acc.sql += r[5]; acc.opp += r[6]; acc.won += r[7];
+    acc.campanhas = campanhas;
+    return acc;
+  }, {leads:0, resp:0, sql:0, opp:0, won:0, campanhas:0});
+}
+
+function pct(n, d) { return d > 0 ? (n/d*100).toFixed(1).replace('.', ',') + '%' : '—'; }
+
+// Cores condicionais — aproximação heurística dos mesmos limiares já usados em respColor()
+// (o texto original tinha cores "editoriais" escolhidas manualmente por campanha; aqui aplicamos
+// uma regra consistente e monotônica para que a cor sempre reflita a taxa exibida, sem ficar cinza)
+function oppRateColor(p) {
+  if (p >= 25) return '#047857';
+  if (p >= 15) return '#f59e0b';
+  return '#ef4444';
+}
+
+function setText(id, txt) { const el = document.getElementById(id); if (el) el.textContent = txt; }
+function setColor(id, color) { const el = document.getElementById(id); if (el) el.style.color = color; }
+
+function updateDynamicNumbers(list) {
+  const tipos = { all: 'all', szi: 'SZI', mkt: 'Marketplace', ges: 'Gestão', out: 'Outros' };
+  const agg = {};
+
+  for (const [tab, tipo] of Object.entries(tipos)) {
+    const s = aggregate(list, tipo);
+    agg[tab] = s;
+
+    if (tab === 'all') {
+      // summary-strip da aba Todos
+      setText('all-leads-v', s.leads.toLocaleString('pt-BR'));
+      setText('all-resp-v', s.resp.toLocaleString('pt-BR'));
+      setText('all-resp-sub', pct(s.resp, s.leads) + ' do total');
+      setText('all-sql-v', s.sql.toLocaleString('pt-BR'));
+      setText('all-sql-sub', pct(s.sql, s.resp) + ' dos resp.');
+      setText('all-opp-v', s.opp.toLocaleString('pt-BR'));
+      setText('all-opp-sub', pct(s.opp, s.sql) + ' dos SQL');
+      setText('all-won-v', s.won.toLocaleString('pt-BR'));
+      setText('all-won-sub', pct(s.won, s.opp) + ' das OPPs');
+      continue;
+    }
+
+    // funnel-card de cada aba (szi / mkt / ges / out)
+    setText(`${tab}-leads-v`, s.leads.toLocaleString('pt-BR'));
+    setText(`${tab}-leads-sub`, s.campanhas + ' campanhas no período');
+
+    const respPct = s.leads > 0 ? (s.resp/s.leads*100) : 0;
+    setText(`${tab}-resp-v`, s.resp.toLocaleString('pt-BR'));
+    setText(`${tab}-resp-rate`, pct(s.resp, s.leads) + ' dos leads');
+    const rc = respColor(respPct);
+    setColor(`${tab}-resp-v`, rc);
+    setColor(`${tab}-resp-rate`, rc);
+
+    setText(`${tab}-sql-v`, s.sql.toLocaleString('pt-BR'));
+    setText(`${tab}-sql-rate`, pct(s.sql, s.resp) + ' dos resp.');
+    // SQL mantém azul fixo — é sempre um avanço, não carrega leitura de "bom/ruim"
+    setColor(`${tab}-sql-v`, '#0284c7');
+    setColor(`${tab}-sql-rate`, '#0284c7');
+
+    setText(`${tab}-opp-v`, s.opp.toLocaleString('pt-BR'));
+    setText(`${tab}-opp-rate`, pct(s.opp, s.sql) + ' dos SQL');
+    const oppPct = s.sql > 0 ? (s.opp/s.sql*100) : 0;
+    const oc = s.sql > 0 ? oppRateColor(oppPct) : '#9ca3af';
+    setColor(`${tab}-opp-v`, oc);
+    setColor(`${tab}-opp-rate`, oc);
+
+    setText(`${tab}-won-v`, s.won.toLocaleString('pt-BR'));
+    // só a aba MKT tem sub dinâmico aqui (nasceu como "—" por ter 0 WON na autoria original);
+    // nas demais abas esse id não existe e setText vira no-op
+    setText(`${tab}-won-sub`, s.won > 0 ? 'venda confirmada' : '—');
+    if (s.opp > 0) {
+      setText(`${tab}-won-rate`, pct(s.won, s.opp) + ' das OPPs');
+      const wc = s.won > 0 ? '#047857' : '#ef4444';
+      setColor(`${tab}-won-v`, wc);
+      setColor(`${tab}-won-rate`, wc);
+    } else {
+      setText(`${tab}-won-rate`, '—');
+      setColor(`${tab}-won-v`, '#374151');
+      setColor(`${tab}-won-rate`, '#374151');
+    }
+  }
+
+  // Card "mês atual" dentro do comparativo 3 meses (só o card do período selecionado, os
+  // 2 anteriores são histórico fixo e não têm dado linha-a-linha no array rows)
+  for (const tab of ['all', 'szi', 'mkt', 'ges']) {
+    const s = agg[tab];
+    setText(`cmp-${tab}-leads`, s.leads.toLocaleString('pt-BR'));
+    setText(`cmp-${tab}-sql`, s.sql.toLocaleString('pt-BR'));
+    setText(`cmp-${tab}-opp`, s.opp > 0 ? s.opp.toLocaleString('pt-BR') : '—');
+    setText(`cmp-${tab}-won`, s.won > 0 ? s.won.toLocaleString('pt-BR') : '—');
+  }
+}
+updateDynamicNumbers(rows);
+
 function applyDateFilter() {
   const from = document.getElementById('date-from').value;
   const to = document.getElementById('date-to').value;
@@ -1441,6 +1541,7 @@ function applyDateFilter() {
     return (!from || iso >= from) && (!to || iso <= to);
   });
   renderAll(filtered);
+  updateDynamicNumbers(filtered);
 }
 document.getElementById('date-from').addEventListener('change', applyDateFilter);
 document.getElementById('date-to').addEventListener('change', applyDateFilter);
