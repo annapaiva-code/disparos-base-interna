@@ -30,6 +30,14 @@ Cada aba tem: funil do mês → 3 cards insight → tabela de campanhas → seç
 - **Fonte:** Nekt → `pipedrive_marketing_deals_disparos_mia`
 - **Período:** a partir de `2026-06-11` (atualizar no prompt da rotina ao iniciar nova campanha)
 - **Pipelines:** Vendas Spot = SZI · Marketplace = MKT · outros = Gestão/Outros
+- **ATENÇÃO — bug de case no cálculo de "Responderam":** `stage_name` do estágio inicial
+  vem como `'Lead in'` (i minúsculo) nos pipelines Vendas Spot, Comercial SZS e Comercial
+  Decor, mas como `'Lead In'` (I maiúsculo) no pipeline Marketplace. A fórmula
+  `responderam = COUNT(CASE WHEN stage_name != 'Lead In' THEN 1 END)` é case-sensitive no
+  Athena e portanto SUBESTIMA quem não respondeu (mostra ~100% de resposta) para
+  SZI/Gestão/Decor. Use sempre `lower(stage_name) != 'lead in'` para o cálculo de
+  "responderam" em qualquer frente. (Descoberto e corrigido retroativamente em 02/07/2026 —
+  ver commit "Corrigir bug de case-sensitivity no cálculo de Resp".)
 
 ## SDRs vs Closers
 - **SDRs (Pré-venda):** Jeniffer Correa, Karoane Soares, Cesar Araujo — fazem cadência de contato via MIA até o agendamento
