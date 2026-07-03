@@ -127,14 +127,14 @@
 </div>
 
 <div class="tabs">
-  <button class="tab-btn szi active" onclick="showTab('szi',this)">SZI (61)</button>
+  <button class="tab-btn szi active" onclick="showTab('szi',this)">SZI (63)</button>
   <button class="tab-btn mkt"        onclick="showTab('mkt',this)">Marketplace (19)</button>
   <button class="tab-btn ges"        onclick="showTab('ges',this)">Gestão / SZS (11)</button>
   <button class="tab-btn out"        onclick="showTab('out',this)">Outros (3)</button>
-  <button class="tab-btn"            onclick="showTab('all',this)">Todos (94)</button>
+  <button class="tab-btn"            onclick="showTab('all',this)">Todos (96)</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho: 1.050 leads em 15 campanhas até 03/07 (506 SZI · 314 MKT · 230 Gestão), 15 SQLs já qualificados — ainda sem novos disparos hoje. Novidade: APRESENTAÇÃO EXPANSÃO SZS (Gestão, 199 leads), OPORTUNIDADE DA SEMANA ROSA NORTE SPOT (MKT), DESCONTO/TAXA ISENTA URUBICI (Gestão), LOST NO-SHOW NATAL/ITACARÉ e LOST COM OPP PONTA DAS CANAS (SZI/MKT) e REPESCAGEM SZI 29/06–02/07 disparadas em 02/07.</div>
+<div class="alert-box" style="margin-bottom:12px">📅 Julho: 1.218 leads em 17 campanhas até 03/07 (674 SZI · 314 MKT · 230 Gestão), 16 SQLs já qualificados. Novidade: OPORTUNIDADE IMPERDÍVEL ITACARÉ SPOT (SZI) disparada hoje (03/07); APRESENTAÇÃO EXPANSÃO SZS (Gestão, 199 leads), OPORTUNIDADE DA SEMANA ROSA NORTE SPOT (MKT), DESCONTO/TAXA ISENTA URUBICI (Gestão), LOST NO-SHOW NATAL/ITACARÉ e LOST COM OPP PONTA DAS CANAS (SZI/MKT) e REPESCAGEM SZI 29/06–02/07 disparadas em 02/07.</div>
 
 <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap">
   <label for="date-from" style="font-size:11px;color:#6b7280;font-weight:600">De</label>
@@ -149,18 +149,18 @@
   <div class="summary-strip" style="margin-bottom:20px">
     <div class="ss-card">
       <div class="ss-label">Total Leads</div>
-      <div class="ss-value" id="all-leads-v" style="color:#0f172a">1.050</div>
+      <div class="ss-value" id="all-leads-v" style="color:#0f172a">1.218</div>
       <div class="ss-sub" id="all-leads-sub">SZI + MKT + Gestão</div>
     </div>
     <div class="ss-card">
       <div class="ss-label">Responderam</div>
-      <div class="ss-value" id="all-resp-v" style="color:#f59e0b">97</div>
-      <div class="ss-sub" id="all-resp-sub">9,2% do total</div>
+      <div class="ss-value" id="all-resp-v" style="color:#f59e0b">102</div>
+      <div class="ss-sub" id="all-resp-sub">8,4% do total</div>
     </div>
     <div class="ss-card">
       <div class="ss-label">SQL Total</div>
-      <div class="ss-value" id="all-sql-v" style="color:#0284c7">15</div>
-      <div class="ss-sub" id="all-sql-sub">15,5% dos resp.</div>
+      <div class="ss-value" id="all-sql-v" style="color:#0284c7">16</div>
+      <div class="ss-sub" id="all-sql-sub">15,7% dos resp.</div>
     </div>
     <div class="ss-card">
       <div class="ss-label">OPP Total</div>
@@ -238,9 +238,9 @@
       <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);border-top:3px solid #3b82f6">
         <div style="font-size:11px;font-weight:700;color:#1d4ed8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Jul/26 ← atual</div>
         <div style="display:flex;gap:8px;align-items:baseline;margin-bottom:12px;flex-wrap:wrap">
-          <div><span id="cmp-all-leads" style="font-size:20px;font-weight:800;color:#111827">1.050</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
+          <div><span id="cmp-all-leads" style="font-size:20px;font-weight:800;color:#111827">1.218</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span id="cmp-all-sql" style="font-size:16px;font-weight:700;color:#2563eb">15</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
+          <div><span id="cmp-all-sql" style="font-size:16px;font-weight:700;color:#2563eb">16</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
           <span style="color:#d1d5db">→</span>
           <div><span id="cmp-all-opp" style="font-size:16px;font-weight:700;color:#9ca3af">—</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">OPP</span></div>
           <span style="color:#d1d5db">→</span>
@@ -255,9 +255,9 @@
             <th style="text-align:right;padding:2px 4px;color:#9ca3af;font-weight:600;font-size:10px;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid #f3f4f6">WON</th>
           </tr></thead>
           <tbody>
-            <tr><td style="padding:3px 4px;color:#2563eb;font-weight:600;border-bottom:1px solid #f3f4f6">SZI</td><td style="text-align:right;padding:3px 4px;color:#374151;border-bottom:1px solid #f3f4f6">506</td><td style="text-align:right;padding:3px 4px;color:#374151;border-bottom:1px solid #f3f4f6">13</td><td style="text-align:right;padding:3px 4px;color:#9ca3af;border-bottom:1px solid #f3f4f6">—</td><td style="text-align:right;padding:3px 4px;color:#9ca3af;border-bottom:1px solid #f3f4f6">—</td></tr>
+            <tr><td style="padding:3px 4px;color:#2563eb;font-weight:600;border-bottom:1px solid #f3f4f6">SZI</td><td style="text-align:right;padding:3px 4px;color:#374151;border-bottom:1px solid #f3f4f6">674</td><td style="text-align:right;padding:3px 4px;color:#374151;border-bottom:1px solid #f3f4f6">13</td><td style="text-align:right;padding:3px 4px;color:#9ca3af;border-bottom:1px solid #f3f4f6">—</td><td style="text-align:right;padding:3px 4px;color:#9ca3af;border-bottom:1px solid #f3f4f6">—</td></tr>
             <tr><td style="padding:3px 4px;color:#7c3aed;font-weight:600;border-bottom:1px solid #f3f4f6">MKT</td><td style="text-align:right;padding:3px 4px;color:#374151;border-bottom:1px solid #f3f4f6">314</td><td style="text-align:right;padding:3px 4px;color:#374151;border-bottom:1px solid #f3f4f6">1</td><td style="text-align:right;padding:3px 4px;color:#9ca3af;border-bottom:1px solid #f3f4f6">—</td><td style="text-align:right;padding:3px 4px;color:#9ca3af;border-bottom:1px solid #f3f4f6">—</td></tr>
-            <tr><td style="padding:3px 4px;color:#16a34a;font-weight:600">Gestão</td><td style="text-align:right;padding:3px 4px;color:#374151">230</td><td style="text-align:right;padding:3px 4px;color:#374151">1</td><td style="text-align:right;padding:3px 4px;color:#9ca3af">—</td><td style="text-align:right;padding:3px 4px;color:#9ca3af">—</td></tr>
+            <tr><td style="padding:3px 4px;color:#16a34a;font-weight:600">Gestão</td><td style="text-align:right;padding:3px 4px;color:#374151">230</td><td style="text-align:right;padding:3px 4px;color:#374151">2</td><td style="text-align:right;padding:3px 4px;color:#9ca3af">—</td><td style="text-align:right;padding:3px 4px;color:#9ca3af">—</td></tr>
           </tbody>
         </table>
       </div>
@@ -299,21 +299,21 @@
   <div class="funnel">
     <div class="funnel-card">
       <div class="f-label">Leads SZI</div>
-      <div class="f-value" id="szi-leads-v" style="color:#0f172a">506</div>
-      <div class="f-sub" id="szi-leads-sub">7 campanhas no período</div>
+      <div class="f-value" id="szi-leads-v" style="color:#0f172a">674</div>
+      <div class="f-sub" id="szi-leads-sub">9 campanhas no período</div>
       <div class="f-rate" style="color:#6b7280">base</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">Responderam</div>
-      <div class="f-value" id="szi-resp-v" style="color:#f59e0b">68</div>
+      <div class="f-value" id="szi-resp-v" style="color:#f59e0b">72</div>
       <div class="f-sub">WA direto / personalizado</div>
-      <div class="f-rate" id="szi-resp-rate" style="color:#f59e0b">13,4% dos leads</div>
+      <div class="f-rate" id="szi-resp-rate" style="color:#f59e0b">10,7% dos leads</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">SQL</div>
       <div class="f-value" id="szi-sql-v" style="color:#0284c7">13</div>
       <div class="f-sub">data qualificação</div>
-      <div class="f-rate" id="szi-sql-rate" style="color:#0284c7">19,1% dos resp.</div>
+      <div class="f-rate" id="szi-sql-rate" style="color:#0284c7">18,1% dos resp.</div>
     </div>
     <div class="funnel-card" style="border-left:2px solid #ef444444;">
       <div class="f-label">OPP</div>
@@ -360,7 +360,7 @@
       <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);border-top:3px solid #2563eb">
         <div style="font-size:11px;font-weight:700;color:#1d4ed8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Jul/26 ← atual</div>
         <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
-          <div><span id="cmp-szi-leads" style="font-size:20px;font-weight:800;color:#111827">506</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
+          <div><span id="cmp-szi-leads" style="font-size:20px;font-weight:800;color:#111827">674</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
           <span style="color:#d1d5db">→</span>
           <div><span id="cmp-szi-sql" style="font-size:16px;font-weight:700;color:#2563eb">13</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
           <span style="color:#d1d5db">→</span>
@@ -926,15 +926,15 @@
     </div>
     <div class="funnel-card">
       <div class="f-label">Responderam</div>
-      <div class="f-value" id="ges-resp-v" style="color:#ef4444">15</div>
+      <div class="f-value" id="ges-resp-v" style="color:#ef4444">16</div>
       <div class="f-sub">WA direto</div>
-      <div class="f-rate" id="ges-resp-rate" style="color:#ef4444">6,5% dos leads</div>
+      <div class="f-rate" id="ges-resp-rate" style="color:#ef4444">7,0% dos leads</div>
     </div>
     <div class="funnel-card">
       <div class="f-label">SQL</div>
-      <div class="f-value" id="ges-sql-v" style="color:#0284c7">1</div>
+      <div class="f-value" id="ges-sql-v" style="color:#0284c7">2</div>
       <div class="f-sub">data qualificação</div>
-      <div class="f-rate" id="ges-sql-rate" style="color:#0284c7">6,7% dos resp.</div>
+      <div class="f-rate" id="ges-sql-rate" style="color:#0284c7">12,5% dos resp.</div>
     </div>
     <div class="funnel-card" style="border-left:2px solid #9ca3af44;">
       <div class="f-label">OPP</div>
@@ -983,7 +983,7 @@
         <div style="display:flex;gap:8px;align-items:baseline;flex-wrap:wrap">
           <div><span id="cmp-ges-leads" style="font-size:20px;font-weight:800;color:#111827">230</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
           <span style="color:#d1d5db">→</span>
-          <div><span id="cmp-ges-sql" style="font-size:16px;font-weight:700;color:#9ca3af">1</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
+          <div><span id="cmp-ges-sql" style="font-size:16px;font-weight:700;color:#9ca3af">2</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
           <span style="color:#d1d5db">→</span>
           <div><span id="cmp-ges-opp" style="font-size:16px;font-weight:700;color:#9ca3af">—</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">OPP</span></div>
           <span style="color:#d1d5db">→</span>
@@ -1306,12 +1306,14 @@ const rows = [
   ["07-01","Gestão","DECOR URUBICI SPOT (SZS)",8,1,0,0,0],
   ["07-02","Gestão","DESCONTO URUBICI SPOT (SZS)",20,4,0,0,0],
   ["07-02","Gestão","TAXA ISENTA URUBICI SPOT (SZS)",3,1,0,0,0],
-  ["07-02","Gestão","APRESENTAÇÃO EXPANSÃO SZS",199,9,1,0,0],
+  ["07-02","Gestão","APRESENTAÇÃO EXPANSÃO SZS",199,10,2,0,0],
   ["07-02","SZI","LOST NO-SHOW — NATAL · ITACARÉ SPOT",174,21,2,0,0],
   ["07-02","SZI","REPESCAGEM 29/06–02/07 — MARISTA 144",3,0,0,0,0],
   ["07-02","SZI","REPESCAGEM 29/06–02/07 — NATAL",1,0,0,0,0],
   ["07-02","SZI","REPESCAGEM 29/06–02/07 — JURERÊ III",1,0,0,0,0],
   ["07-02","SZI","REPESCAGEM 29/06–02/07 — ITACARÉ",1,0,0,0,0],
+  ["07-03","SZI","OPORTUNIDADE IMPERDÍVEL ITACARÉ SPOT — ABRIRAM",139,4,0,0,0],
+  ["07-03","SZI","OPORTUNIDADE IMPERDÍVEL ITACARÉ SPOT — NÃO ABRIRAM",29,0,0,0,0],
   // SZI
   ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
   ["06-29","SZI","REPESCAGEM NATAL",2,2,1,0,0],
