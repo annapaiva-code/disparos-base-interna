@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('all',this)">Todos (102)</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho: 1.678 leads em 22 campanhas até 03/07 (926 SZI · 346 MKT · 405 Gestão · 1 Outros), 43 SQLs qualificados — ainda sem OPP. Disparos de 03/07: OPORTUNIDADE IMPERDÍVEL ITACARÉ SPOT (SZI, ABRIRAM 139 + NÃO ABRIRAM 198; MKT NÃO ABRIRAM 2), LOST TIMING PONTAS II · ITACARÉ (SZI, 96), LOST COM REUNIÃO JAPARATINGA SPOT (MKT, 31) e LOST COM OPP TIMING DEZ-MAR (Gestão/SZS, 176 leads · 56 resp · 8 SQL — melhor taxa de SQL do dia). Em 02/07: LOST NO-SHOW NATAL/ITACARÉ (SZI, 172), ROSA NORTE (MKT), APRESENTAÇÃO/DESCONTO/TAXA ISENTA URUBICI (Gestão), LOST COM OPP PONTA DAS CANAS (MKT) e REPESCAGEM SZI 29/06–02/07.</div>
+<div class="alert-box" style="margin-bottom:12px">📅 Julho: 1.493 leads em 23 campanhas até 03/07 (925 SZI · 347 MKT · 220 Gestão · 1 Outros), 45 SQLs qualificados e as 3 primeiras OPPs do mês (1 SZI + 2 Gestão/SZS). Disparos de 03/07: OPORTUNIDADE IMPERDÍVEL ITACARÉ SPOT (SZI, ABRIRAM 139 + NÃO ABRIRAM 198; MKT NÃO ABRIRAM 2), LOST TIMING PONTAS II · ITACARÉ (SZI, 96, 2 SQL), LOST COM REUNIÃO JAPARATINGA SPOT (MKT, 31) e LOST COM OPP TIMING DEZ-MAR (Gestão/SZS, 176 leads · 57 resp · 8 SQL · 2 OPP — melhor taxa de SQL do mês). Em 02/07: LOST NO-SHOW NATAL/ITACARÉ (SZI, 172), ROSA NORTE (MKT), DESCONTO/TAXA ISENTA URUBICI (Gestão) e REPESCAGEM SZI 29/06–02/07. Correção de sincronização: APRESENTAÇÃO EXPANSÃO SZS (02/07) recontabilizada de 199 para 14 leads pelo Pipedrive. Sem novos leads desde 03/07.</div>
 
 <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap">
   <label for="date-from" style="font-size:11px;color:#6b7280;font-weight:600">De</label>
@@ -150,7 +150,7 @@
   <div class="summary-strip" style="margin-bottom:20px">
     <div class="ss-card">
       <div class="ss-label">Total Leads</div>
-      <div class="ss-value" id="all-leads-v" style="color:#0f172a">1.678</div>
+      <div class="ss-value" id="all-leads-v" style="color:#0f172a">1.493</div>
       <div class="ss-sub" id="all-leads-sub">SZI + MKT + Gestão</div>
     </div>
     <div class="ss-card">
@@ -239,7 +239,7 @@
       <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.06);border-top:3px solid #3b82f6">
         <div style="font-size:11px;font-weight:700;color:#1d4ed8;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px">Jul/26 ← atual</div>
         <div style="display:flex;gap:8px;align-items:baseline;margin-bottom:12px;flex-wrap:wrap">
-          <div><span id="cmp-all-leads" style="font-size:20px;font-weight:800;color:#111827">1.678</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
+          <div><span id="cmp-all-leads" style="font-size:20px;font-weight:800;color:#111827">1.493</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">leads</span></div>
           <span style="color:#d1d5db">→</span>
           <div><span id="cmp-all-sql" style="font-size:16px;font-weight:700;color:#2563eb">43</span><span style="font-size:10px;color:#9ca3af;margin-left:3px">SQL</span></div>
           <span style="color:#d1d5db">→</span>
@@ -1298,29 +1298,29 @@
 
 <script>
 const rows = [
-  ["07-01","SZI","OPORTUNIDADE IMPERDÍVEL NOVO CAMPECHE II SPOT — NÃO ABRIRAM",167,26,7,0,0],
-  ["07-01","SZI","OPORTUNIDADE IMPERDÍVEL NOVO CAMPECHE II SPOT — ABRIRAM",147,22,5,0,0],
-  ["07-01","Marketplace","OPORTUNIDADE IMPERDÍVEL NOVO CAMPECHE II SPOT — ABRIRAM",1,1,1,0,0],
-  ["07-02","Marketplace","OPORTUNIDADE DA SEMANA ROSA NORTE SPOT — ABRIRAM",96,8,0,0,0],
-  ["07-02","Marketplace","OPORTUNIDADE DA SEMANA ROSA NORTE SPOT — NÃO ABRIRAM",190,6,0,0,0],
-  ["07-02","Marketplace","LOST COM OPP SZI TIMING — PONTA DAS CANAS I/II SPOT",26,4,0,0,0],
-  ["07-02","SZI","LOST COM OPP SZI TIMING — PONTA DAS CANAS I/II SPOT",1,1,1,0,0],
+  ["07-01","SZI","OPORTUNIDADE IMPERDÍVEL NOVO CAMPECHE II SPOT — ABRIRAM",146,21,4,0,0],
+  ["07-01","SZI","OPORTUNIDADE IMPERDÍVEL NOVO CAMPECHE II SPOT — NÃO ABRIRAM",167,26,7,1,0],
+  ["07-01","Marketplace","OPORTUNIDADE IMPERDÍVEL NOVO CAMPECHE II SPOT — ABRIRAM",2,2,2,0,0],
   ["07-01","Gestão","DECOR URUBICI SPOT (SZS)",7,2,1,0,0],
-  ["07-02","Gestão","DESCONTO URUBICI SPOT (SZS)",19,7,0,0,0],
-  ["07-02","Gestão","TAXA ISENTA URUBICI SPOT (SZS)",4,1,0,0,0],
-  ["07-02","Gestão","APRESENTAÇÃO EXPANSÃO SZS",199,30,2,0,0],
+  ["07-01","Outros","DECOR URUBICI SPOT (Comercial Decor)",1,1,1,0,0],
+  ["07-02","SZI","LOST COM OPP SZI TIMING — PONTA DAS CANAS I/II SPOT",1,1,1,0,0],
   ["07-02","SZI","LOST NO-SHOW — NATAL · ITACARÉ SPOT",172,28,7,0,0],
   ["07-02","SZI","REPESCAGEM 29/06–02/07 — MARISTA 144",3,1,1,0,0],
   ["07-02","SZI","REPESCAGEM 29/06–02/07 — NATAL",1,0,0,0,0],
   ["07-02","SZI","REPESCAGEM 29/06–02/07 — JURERÊ III",1,0,0,0,0],
   ["07-02","SZI","REPESCAGEM 29/06–02/07 — ITACARÉ",1,0,0,0,0],
+  ["07-02","Marketplace","OPORTUNIDADE DA SEMANA ROSA NORTE SPOT — ABRIRAM",96,8,0,0,0],
+  ["07-02","Marketplace","OPORTUNIDADE DA SEMANA ROSA NORTE SPOT — NÃO ABRIRAM",190,6,0,0,0],
+  ["07-02","Marketplace","LOST COM OPP SZI TIMING — PONTA DAS CANAS I/II SPOT",26,4,0,0,0],
+  ["07-02","Gestão","DESCONTO URUBICI SPOT (SZS)",19,7,0,0,0],
+  ["07-02","Gestão","TAXA ISENTA URUBICI SPOT (SZS)",4,1,0,0,0],
+  ["07-02","Gestão","APRESENTAÇÃO EXPANSÃO SZS",14,14,2,0,0],
   ["07-03","SZI","OPORTUNIDADE IMPERDÍVEL ITACARÉ SPOT — ABRIRAM",139,16,1,0,0],
   ["07-03","SZI","OPORTUNIDADE IMPERDÍVEL ITACARÉ SPOT — NÃO ABRIRAM",198,23,6,0,0],
-  ["07-03","SZI","LOST TIMING — PONTAS II · ITACARÉ SPOT",96,20,1,0,0],
+  ["07-03","SZI","LOST TIMING — PONTAS II · ITACARÉ SPOT",96,21,2,0,0],
   ["07-03","Marketplace","OPORTUNIDADE IMPERDÍVEL ITACARÉ SPOT — NÃO ABRIRAM",2,2,2,0,0],
   ["07-03","Marketplace","LOST COM REUNIÃO — ITACARÉ/BARRA GDE TIMING · JAPARATINGA SPOT",31,0,0,0,0],
-  ["07-03","Gestão","LOST COM OPP TIMING DEZ-MAR (SZS)",176,56,8,0,0],
-  ["07-01","Outros","DECOR URUBICI SPOT (Comercial Decor)",1,0,0,0,0],
+  ["07-03","Gestão","LOST COM OPP TIMING DEZ-MAR (SZS)",176,57,8,2,0],
   // SZI
   ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
   ["06-29","SZI","REPESCAGEM NATAL",2,2,1,0,0],
