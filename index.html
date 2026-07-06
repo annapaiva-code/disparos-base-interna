@@ -120,10 +120,10 @@
 <div class="header">
   <div>
     <div class="title">Disparos Base Interna — Funil por Frente</div>
-    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · 05/07 em andamento · Fonte: Nekt · pipedrive_marketing_deals_disparos_mia</div>
+    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · 06/07 em andamento (sem novos leads desde 03/07) · Fonte: Nekt · pipedrive_marketing_deals_disparos_mia</div>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
-    <div class="updated" id="updated-label">Atualizado: 05/07/2026</div>
+    <div class="updated" id="updated-label">Atualizado: 06/07/2026</div>
   </div>
 </div>
 
@@ -141,7 +141,7 @@
   <label for="date-from" style="font-size:11px;color:#6b7280;font-weight:600">De</label>
   <input type="date" id="date-from" value="2026-07-01" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <label for="date-to" style="font-size:11px;color:#6b7280;font-weight:600">Até</label>
-  <input type="date" id="date-to" value="2026-07-05" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
+  <input type="date" id="date-to" value="2026-07-06" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <button id="date-clear-btn" class="refresh-btn" style="padding:5px 11px">Limpar</button>
 </div>
 
@@ -1567,7 +1567,7 @@ document.getElementById('date-from').addEventListener('change', applyDateFilter)
 document.getElementById('date-to').addEventListener('change', applyDateFilter);
 document.getElementById('date-clear-btn').addEventListener('click', () => {
   document.getElementById('date-from').value = '2026-01-01';
-  document.getElementById('date-to').value = '2026-07-05';
+  document.getElementById('date-to').value = '2026-07-06';
   applyDateFilter();
 });
 
