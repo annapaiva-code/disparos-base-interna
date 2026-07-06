@@ -130,12 +130,12 @@
 <div class="tabs">
   <button class="tab-btn szi active" onclick="showTab('szi',this)">SZI (71)</button>
   <button class="tab-btn mkt"        onclick="showTab('mkt',this)">Marketplace (22)</button>
-  <button class="tab-btn ges"        onclick="showTab('ges',this)">Gestão / SZS (12)</button>
+  <button class="tab-btn ges"        onclick="showTab('ges',this)">Gestão / SZS (13)</button>
   <button class="tab-btn out"        onclick="showTab('out',this)">Outros (3)</button>
-  <button class="tab-btn"            onclick="showTab('all',this)">Todos (108)</button>
+  <button class="tab-btn"            onclick="showTab('all',this)">Todos (109)</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho: 1.526 leads em 29 campanhas até 06/07 (947 SZI · 359 MKT · 220 Gestão · 0 Outros), 45 SQLs qualificados e já 7 OPPs no mês (2 SZI + 5 Gestão/SZS). Disparos de 03/07: OPORTUNIDADE IMPERDÍVEL ITACARÉ SPOT (SZI, ABRIRAM 139 + NÃO ABRIRAM 198), LOST TIMING PONTAS II · ITACARÉ (SZI, 96, 2 SQL), LOST COM REUNIÃO JAPARATINGA SPOT (MKT, 31) e LOST COM OPP TIMING DEZ-MAR (Gestão/SZS, 176 leads · 58 resp · 8 SQL · 4 OPP — melhor conversão do mês). Em 02/07: LOST NO-SHOW NATAL/ITACARÉ (SZI, 172), ROSA NORTE (MKT), DESCONTO/TAXA ISENTA URUBICI (Gestão) e REPESCAGEM SZI 29/06–02/07. Em 06/07: repescagens pontuais de SLA em 6 mini-campanhas SZI (22 leads, 1 novo SQL) e LOST COM REUNIÃO TIMING — CANAS BEACH SPOT (MKT, 12 leads). Correção de dados: removida linha duplicada "DECOR URUBICI SPOT" indevidamente categorizada em Outros (campanha real pertence 100% ao pipeline Comercial SZS/Gestão).</div>
+<div class="alert-box" style="margin-bottom:12px">📅 Julho: 1.760 leads em 30 campanhas até 06/07 (947 SZI · 359 MKT · 454 Gestão · 0 Outros), 46 SQLs qualificados e já 7 OPPs no mês (2 SZI + 5 Gestão/SZS). Disparos de 03/07: OPORTUNIDADE IMPERDÍVEL ITACARÉ SPOT (SZI, ABRIRAM 139 + NÃO ABRIRAM 198), LOST TIMING PONTAS II · ITACARÉ (SZI, 96, 2 SQL), LOST COM REUNIÃO JAPARATINGA SPOT (MKT, 31) e LOST COM OPP TIMING DEZ-MAR (Gestão/SZS, 176 leads · 59 resp · 8 SQL · 4 OPP — melhor conversão do mês). Em 02/07: LOST NO-SHOW NATAL/ITACARÉ (SZI, 172), ROSA NORTE (MKT), DESCONTO/TAXA ISENTA URUBICI (Gestão) e REPESCAGEM SZI 29/06–02/07. Em 06/07: APRESENTAÇÃO EXPANSÃO SUMMER CLUB (Gestão/SZS, 235 leads · 16 resp · 1 SQL), repescagens pontuais de SLA em 6 mini-campanhas SZI (22 leads, 1 novo SQL) e LOST COM REUNIÃO TIMING — CANAS BEACH SPOT (MKT, 12 leads). Correção de dados: removida linha duplicada "DECOR URUBICI SPOT" indevidamente categorizada em Outros (campanha real pertence 100% ao pipeline Comercial SZS/Gestão).</div>
 
 <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap">
   <label for="date-from" style="font-size:11px;color:#6b7280;font-weight:600">De</label>
@@ -1312,14 +1312,14 @@ const rows = [
   ["07-02","Marketplace","OPORTUNIDADE DA SEMANA ROSA NORTE SPOT — NÃO ABRIRAM",190,6,0,0,0],
   ["07-02","Marketplace","LOST COM OPP SZI TIMING — PONTA DAS CANAS I/II SPOT",26,4,0,0,0],
   ["07-02","Gestão","DESCONTO URUBICI SPOT (SZS)",19,7,0,0,0],
-  ["07-02","Gestão","TAXA ISENTA URUBICI SPOT (SZS)",4,1,0,0,0],
+  ["07-02","Gestão","TAXA ISENTA URUBICI SPOT (SZS)",3,1,0,0,0],
   ["07-02","Gestão","APRESENTAÇÃO EXPANSÃO SZS",14,14,2,1,0],
   ["07-03","SZI","OPORTUNIDADE IMPERDÍVEL ITACARÉ SPOT — ABRIRAM",139,16,1,0,0],
   ["07-03","SZI","OPORTUNIDADE IMPERDÍVEL ITACARÉ SPOT — NÃO ABRIRAM",198,23,6,0,0],
   ["07-03","SZI","LOST TIMING — PONTAS II · ITACARÉ SPOT",96,21,2,0,0],
   ["07-03","Marketplace","OPORTUNIDADE IMPERDÍVEL ITACARÉ SPOT — NÃO ABRIRAM",2,2,2,0,0],
   ["07-03","Marketplace","LOST COM REUNIÃO — ITACARÉ/BARRA GDE TIMING · JAPARATINGA SPOT",31,0,0,0,0],
-  ["07-03","Gestão","LOST COM OPP TIMING DEZ-MAR (SZS)",176,58,8,4,0],
+  ["07-03","Gestão","LOST COM OPP TIMING DEZ-MAR (SZS)",176,59,8,4,0],
   ["07-06","SZI","REPESCAGEM SLA JAN–JUN — NATAL",14,1,0,0,0],
   ["07-06","SZI","REPESCAGEM SLA — CARAGUATATUBA",1,1,1,0,0],
   ["07-06","SZI","REPESCAGEM SLA — ITACARÉ",1,1,0,0,0],
@@ -1327,6 +1327,7 @@ const rows = [
   ["07-06","SZI","REPESCAGEM SLA — MARISTA",3,1,0,0,0],
   ["07-06","SZI","REPESCAGEM SLA — NATAL",2,0,0,0,0],
   ["07-06","Marketplace","LOST COM REUNIÃO TIMING — CANAS BEACH SPOT",12,1,0,0,0],
+  ["07-06","Gestão","APRESENTAÇÃO EXPANSÃO SUMMER CLUB (SZS)",235,16,1,0,0],
   // SZI
   ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
   ["06-29","SZI","REPESCAGEM NATAL",2,2,1,0,0],
