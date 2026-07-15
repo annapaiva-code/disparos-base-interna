@@ -119,28 +119,29 @@
 <div class="header">
   <div>
     <div class="title">Disparos Base Interna — Funil por Frente</div>
-    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · Jul/26 em andamento (dados até 13/07) · Fonte: Nekt · pipedrive_marketing_deals_disparos_mia</div>
+    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · Jul/26 em andamento (dados até 15/07) · Fonte: Nekt · pipedrive_marketing_deals_disparos_mia</div>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
-    <div class="updated" id="updated-label">Atualizado: 14/07/2026 (dados até 13/07)</div>
+    <div class="updated" id="updated-label">Atualizado: 15/07/2026 (dados até 15/07)</div>
   </div>
 </div>
 
 <div class="tabs">
-  <button class="tab-btn szi active" onclick="showTab('szi',this)">SZI (24)</button>
-  <button class="tab-btn mkt"        onclick="showTab('mkt',this)">Marketplace (14)</button>
-  <button class="tab-btn ges"        onclick="showTab('ges',this)">Gestão / SZS (9)</button>
-  <button class="tab-btn out"        onclick="showTab('out',this)">Outros (0)</button>
-  <button class="tab-btn"            onclick="showTab('all',this)">Todos (47)</button>
+  <button class="tab-btn szi active" id="btn-szi" data-label="SZI"          onclick="showTab('szi',this)">SZI</button>
+  <button class="tab-btn mkt"        id="btn-mkt" data-label="Marketplace"  onclick="showTab('mkt',this)">Marketplace</button>
+  <button class="tab-btn ges"        id="btn-ges" data-label="Gestão / SZS" onclick="showTab('ges',this)">Gestão / SZS</button>
+  <button class="tab-btn out"        id="btn-out" data-label="Outros"       onclick="showTab('out',this)">Outros</button>
+  <button class="tab-btn"            id="btn-all" data-label="Todos"        onclick="showTab('all',this)">Todos</button>
+  <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 13/07): <strong>6.101 leads</strong> em 103 campanhas (2.317 SZI · 1.826 MKT · 1.958 Gestão), <strong>228 SQLs</strong>, <strong>29 OPPs</strong> (7 SZI + 4 MKT + 18 Gestão/SZS) e <strong>11 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 20,9% · SZI 13,5% · MKT 4,4%</strong>. <strong>Gestão/SZS lidera a conversão</strong> — a reativação LOST COM OPP TIMING DEZ-MAR (02/07) sozinha fez 28 SQL, 9 OPP e 4 WON, e a correção do cálculo trouxe +3 vendas de disparos de junho (LOST COM OPP DESCONTO SZS ×2 e base Decor Jurerê ×1). <strong>MKT</strong> teve salto de topo — CACHOEIRA BEACH (10/07) com 232 respostas de 243 leads (95%) e 14 SQL — mas a <strong>pior conversão SQL→OPP da Seazone</strong> (só 2 de 50): o gargalo é transformar SQL em reunião. <strong>SZI</strong> fechou 1 WON (repescagem PROP NÃO PREMIUM 10D — PONTA II, agendado em D+1) e o entrante mais forte foi LOST GOOGLE JURERÊ (10/07, canal de busca, 7 SQL logo no 1º dia). Fim de semana (12–13/07) sem disparo, exceto o de 13/07 (Novo Campeche II SZI + repescagens SLA).</div>
+<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 15/07): <strong>7.490 leads</strong> (2.751 SZI · 2.146 MKT · 2.592 Gestão/SZS), <strong>248 SQLs</strong>, <strong>32 OPPs</strong> (7 SZI + 4 MKT + 21 Gestão/SZS) e <strong>12 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 23,1% · SZI 12,3% · MKT 4,0%</strong>. <strong>Novidade 14–15/07:</strong> Gestão/SZS abriu a base <em>"LOST etapas avançadas"</em> — o maior disparo dos dois dias (322 leads em 15/07, +204 em 14/07; 5 SQL, 3 OPP) — e fechou o <strong>12º WON do mês</strong> (Apresentação Expansão · Smart Amaralina, ganho em 14/07). <strong>SZI</strong> reativou Bonito II (183) e Ponta das Canas II→Jurerê II (147), ainda sem OPP nova; o entrante mais quente foi Marista 144 (3 SQL em 40 leads). <strong>MKT</strong> estreou a base de proprietários <em>"1 imóvel"</em> (Ponta das Canas e Ponta+Foz, 3 SQL), mas segue com a <strong>pior conversão SQL→OPP</strong> (4 de 99): o gargalo continua sendo transformar SQL em reunião. <strong>Gestão/SZS segue liderando a conversão</strong> do mês (a reativação LOST COM OPP TIMING DEZ-MAR sozinha fez 28 SQL, 9 OPP e 4 WON).</div>
 
 <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap">
   <label for="date-from" style="font-size:11px;color:#6b7280;font-weight:600">De</label>
   <input type="date" id="date-from" value="2026-07-01" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <label for="date-to" style="font-size:11px;color:#6b7280;font-weight:600">Até</label>
-  <input type="date" id="date-to" value="2026-07-13" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
+  <input type="date" id="date-to" value="2026-07-15" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <button id="date-clear-btn" class="refresh-btn" style="padding:5px 11px">Limpar</button>
 </div>
 
@@ -1124,6 +1125,55 @@
 
 </div>
 
+<div id="tab-copy" class="section">
+  <div style="font-size:18px;font-weight:800;color:#111827;margin:4px 0 4px">🏆 Copy campeão — o que converte, por frente</div>
+  <div class="subtitle" style="margin-bottom:16px">Copies que mais geraram SQL/OPP no trimestre (mai–jul). Fonte: este painel + templates da Morada. Bloco fixo — não muda com a atualização diária.</div>
+
+  <div class="alert-box" style="margin-bottom:18px">📌 <strong>Padrão comum (todas as frentes):</strong> (1) reativa reconhecendo o interesse anterior · (2) 1 gancho de valor forte — muda por frente · (3) escassez real quando existe · (4) CTA de baixo atrito ("Responde aqui") · (5) curto, 1 oferta. <strong>Evitar:</strong> lista de 2-3 empreendimentos, sem número de renda, FGTS no 1º toque, CTA genérico.</div>
+
+  <!-- SZI -->
+  <div style="font-weight:800;font-size:15px;color:#1d4ed8;border-left:3px solid #2563eb;padding-left:9px;margin:22px 0 8px">SZI · investimento — gancho: <span style="font-weight:600">renda projetada em R$/mês + % a.a. + escassez</span></div>
+  <div class="table-wrap" style="margin-bottom:12px"><table>
+    <thead><tr><th>Disparo</th><th>Resultado</th><th>Gancho</th></tr></thead>
+    <tbody>
+      <tr class="deal-row"><td style="padding:9px 8px;font-weight:600">Novo Campeche II "Não abriram"</td><td style="padding:9px 8px"><strong>7 SQL · 3 OPP</strong></td><td style="padding:9px 8px;font-size:12px;color:#6b7280">Reta final (+90% vendidas) + renda R$5.535/mês + 81% valoriz.</td></tr>
+      <tr class="deal-row"><td style="padding:9px 8px;font-weight:600">Lost Google Jurerê</td><td style="padding:9px 8px">7 SQL · 18% resp</td><td style="padding:9px 8px;font-size:12px;color:#6b7280">Intenção ("você pesquisou") + renda R$6.200/mês</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chat-log">
+    <div class="chat-msg out"><span class="chat-who">🥇 Novo Campeche II · 7 SQL · 3 OPP</span><span class="chat-text">Oi [Nome]! Você demonstrou interesse no Novo Campeche II e não chegamos a avançar, agora ele está na reta final: +90% das cotas vendidas, restam menos de 9%. Entrada 3x R$15 mil, renda projetada R$5.535/mês (16,4% a.a.) e +81% de valorização. Vale eu te mostrar as condições? Responde aqui que te mando.</span></div>
+    <div class="chat-msg out"><span class="chat-who">🥈 Lost Google Jurerê · 7 SQL · 18% resp</span><span class="chat-text">Oi [Nome], aqui é da Seazone. Você pesquisou sobre investir em aluguel por temporada e separei uma oportunidade forte: o Jurerê Spot III, a 100m da praia em Florianópolis, projeta renda líquida R$6.200/mês (14,2% a.a.). Quer a análise de rentabilidade completa? Responde aqui.</span></div>
+    <div class="chat-msg out"><span class="chat-who">Template SZI</span><span class="chat-text">Oi [Nome]! Você [demonstrou interesse em / pesquisou sobre investir em] [EMPREENDIMENTO] — e [reta final / oportunidade forte agora]: renda projetada R$ [X]/mês ([Y]% a.a.)[; escassez real]. Vale eu te mostrar as condições? Responde aqui que te mando.</span></div>
+  </div>
+
+  <!-- MKT -->
+  <div style="font-weight:800;font-size:15px;color:#7c3aed;border-left:3px solid #7c3aed;padding-left:9px;margin:26px 0 8px">Marketplace — gancho: <span style="font-weight:600">desconto vs mercado + números concretos</span></div>
+  <div class="table-wrap" style="margin-bottom:12px"><table>
+    <thead><tr><th>Disparo</th><th>Resultado</th><th>Gancho</th></tr></thead>
+    <tbody>
+      <tr class="deal-row"><td style="padding:9px 8px;font-weight:600">Cachoeira Beach — Oportunidade da Semana</td><td style="padding:9px 8px"><strong>14 SQL</strong> · alta resp</td><td style="padding:9px 8px;font-size:12px;color:#6b7280">"Cota 37% abaixo do mercado" + vista mar + entrada 6x</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chat-log">
+    <div class="chat-msg out"><span class="chat-who">🥇 Cachoeira Beach · 14 SQL</span><span class="chat-text">Oportunidade rara: cota 37% abaixo do valor de mercado em Floripa, com vista lateral mar. Oi [Nome]! Temos uma cota no Cachoeira Beach Spot, norte da Ilha, a 10m da praia, com piscina climatizada. Investimento R$275.281 (37% abaixo do mercado), entrada R$130.626 parcelada em 6x, entrega out/2029. Vamos marcar uma reunião para eu te passar os detalhes?</span></div>
+  </div>
+
+  <!-- Gestão -->
+  <div style="font-weight:800;font-size:15px;color:#16a34a;border-left:3px solid #16a34a;padding-left:9px;margin:26px 0 8px">Gestão / SZS — gancho: <span style="font-weight:600">dor da gestão amadora + autoridade</span></div>
+  <div class="table-wrap" style="margin-bottom:12px"><table>
+    <thead><tr><th>Disparo</th><th>Resultado</th><th>Gancho</th></tr></thead>
+    <tbody>
+      <tr class="deal-row"><td style="padding:9px 8px;font-weight:600">Lost c/ OPP Timing (Dez–Mar)</td><td style="padding:9px 8px"><strong>28 SQL · 9 OPP · 4 WON</strong></td><td style="padding:9px 8px;font-size:12px;color:#6b7280">Dor (gestão amadora custa caro) + autoridade (maior do BR, +3.600, SuperHost)</td></tr>
+      <tr class="deal-row"><td style="padding:9px 8px;font-weight:600">No-show SZS</td><td style="padding:9px 8px">3 SQL · 3 OPP · 1 WON</td><td style="padding:9px 8px;font-size:12px;color:#6b7280">Reengajar quem já tinha reunião + dor/autoridade</td></tr>
+    </tbody>
+  </table></div>
+  <div class="chat-log">
+    <div class="chat-msg out"><span class="chat-who">🥇 Lost c/ OPP Timing · 28 SQL · 9 OPP · 4 WON</span><span class="chat-text">Oi [Nome]! Aqui é a Seazone. Quando conversamos, o momento não fazia sentido para seguir com a nossa gestão profissional. Mas uma gestão amadora pode prejudicar o rendimento do seu imóvel: responder hóspede, coordenar limpeza, ajustar preço todo dia, vistoria, manutenção… Com a maior empresa de gestão do Brasil (+3.600 imóveis, SuperHost no Airbnb) tudo fica mais fácil — você só acompanha pelo app e recebe o repasse. Vamos retomar a conversa?</span></div>
+  </div>
+
+  <div class="proof-note" style="margin-top:16px">Análise cross-frente (mai–jul 2026). SQL/OPP por disparo; conversão a WON ainda em maturação. Bloco fixo — não muda com a atualização diária dos dados.</div>
+</div>
+
 <script>
 const rows = [
   ["07-01","Gestão","WON RETROATIVO — LOST COM OPP DESCONTO SZS GESTAO (lead 06-26, ganho em julho)",0,0,0,0,2],
@@ -1179,7 +1229,7 @@ const rows = [
   ["07-08","SZI","REPESCAGEM SLA LEAD SZI MARISTA SPOT",2,1,1,0,0],
   ["07-08","SZI","REPESCAGEM SLA LEAD SZI JURERE III SPOT",1,0,0,0,0],
   ["07-08","SZI","REPESCAGEM SLA LEAD SZI NATAL SPOT",1,0,0,0,0],
-  ["07-09","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS SMART AMARALINA",143,6,2,2,0],
+  ["07-09","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS SMART AMARALINA",143,6,2,2,1],
   ["07-09","Gestão","LOST TIMING GESTAO APRESENTACAO SZS",35,13,4,0,0],
   ["07-09","Gestão","NUTRICAO SZS GESTAO",3,1,1,0,0],
   ["07-09","Gestão","LOST BARRA SPOT SZS GESTAO BATEL SPOT",3,0,0,0,0],
@@ -1231,6 +1281,22 @@ const rows = [
   ["07-13","SZI","REPESCAGEM SLA LEAD SZI JURERE III",2,0,0,0,0],
   ["07-13","SZI","REPESCAGEM SLA LEAD SZI ITACARE SPOT",1,1,0,0,0],
   ["07-13","SZI","REPESCAGEM SLA INTERESSE PONTA LEAD SZI JURERE III",1,0,0,0,0],
+  // ─── 14–15/07 (refresh 15/07 — Nekt) ───
+  ["07-14","SZI","LOST BONITO SPOT II SZI BONITO II",183,28,1,0,0],
+  ["07-14","SZI","LOST PONTA DAS CANAS II MQL SZI JURERE II",147,15,0,0,0],
+  ["07-14","SZI","LOST MARISTA SEM CAMPANHA SZI MARISTA 144",40,5,3,0,0],
+  ["07-14","SZI","TESTE LOST NATAL TIMING SZI MARISTA 144",32,4,0,0,0],
+  ["07-14","Gestão","LOST ETAPAS AVANCADAS SZS GESTAO",204,35,2,2,0],
+  ["07-14","Gestão","GESTAO APRESENTACAO EXPANSÃO NEW-TIME SZS",108,3,0,0,0],
+  ["07-14","Marketplace","HOSP CANAS/CACHOEIRA/PONTA MKTPL PONTA DAS CANAS",80,10,5,0,0],
+  ["07-14","Marketplace","OPORTUNIDADE DA SEMANA MKTPL NOVO CAMPECHE",40,6,1,0,0],
+  ["07-14","Marketplace","OPORTUNIDADE DA SEMANA MKTPL NOVO CAMPECHE — NÃO ABRIRAM",40,1,0,0,0],
+  ["07-14","Marketplace","TESTE OPORTUNIDADE DA SEMANA MKTPL NOVO CAMPECHE",3,0,0,0,0],
+  ["07-14","Outros","DECOR APRESENTACAO EXPANSÃO SZS HOUSE JDN",1,1,1,0,0],
+  ["07-15","Gestão","LOST ETAPAS AVANCADAS SZS GESTAO",322,42,3,1,0],
+  ["07-15","Marketplace","BASE PROP 1 IMOVEL MKTPL PONTA DAS CANAS",86,15,0,0,0],
+  ["07-15","Marketplace","BASE PROP 1 IMOVEL MKTPL PONTA E FOZ",71,15,3,0,0],
+  ["07-15","SZI","LOST NATAL SPOT GOOGLE SZI NATAL",32,2,1,0,0],
   // SZI
   ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
   ["06-29","SZI","REPESCAGEM NATAL",2,2,1,0,0],
@@ -1464,6 +1530,18 @@ function updateDynamicNumbers(list) {
 const CURRENT_MONTH_PREFIX = '07-';
 updateDynamicNumbers(rows.filter(r => r[0].startsWith(CURRENT_MONTH_PREFIX)));
 
+// Contagem de campanhas distintas do mês corrente nos rótulos das abas (auto-mantida)
+(function setTabCounts(){
+  const jul = rows.filter(r => r[0].startsWith(CURRENT_MONTH_PREFIX));
+  const map = {szi:'SZI', mkt:'Marketplace', ges:'Gestão', out:'Outros'};
+  let total = 0;
+  for (const [tab, tipo] of Object.entries(map)) {
+    const n = aggregate(jul, tipo).campanhas; total += n;
+    const b = document.getElementById('btn-'+tab); if (b) b.textContent = b.dataset.label + ' (' + n + ')';
+  }
+  const ball = document.getElementById('btn-all'); if (ball) ball.textContent = 'Todos (' + total + ')';
+})();
+
 function applyDateFilter() {
   const from = document.getElementById('date-from').value;
   const to = document.getElementById('date-to').value;
@@ -1478,7 +1556,7 @@ document.getElementById('date-from').addEventListener('change', applyDateFilter)
 document.getElementById('date-to').addEventListener('change', applyDateFilter);
 document.getElementById('date-clear-btn').addEventListener('click', () => {
   document.getElementById('date-from').value = '2026-01-01';
-  document.getElementById('date-to').value = '2026-07-13';
+  document.getElementById('date-to').value = '2026-07-15';
   applyDateFilter();
 });
 
