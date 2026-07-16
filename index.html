@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 16/07): <strong>8.545 leads</strong> (3.226 SZI · 2.552 MKT · 2.766 Gestão/SZS), <strong>253 SQLs</strong>, <strong>32 OPPs</strong> (7 SZI + 4 MKT + 21 Gestão/SZS) e <strong>13 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 23,1% · SZI 12,3% · MKT 3,8%</strong>. <strong>Novidade 16/07:</strong> <strong>SZI</strong> abriu a base <em>LOST SQL/OPP Vistas I e II → Vistas de Anitá III</em> (475 leads, sem SQL ainda) e <strong>MKT</strong> disparou a base de proprietários <em>"1 imóvel" Ponta das Canas</em> (398 leads, 4 SQL) + repescagens fora de SLA. <strong>Gestão/SZS fechou o 13º WON do mês</strong> (LOST etapas avançadas, ganho em D+0 no dia 15/07) e segue liderando a conversão. <strong>MKT</strong> continua com a <strong>pior conversão SQL→OPP</strong> (4 de 104): o gargalo permanece transformar SQL em reunião.</div>
+<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 16/07): <strong>8.529 leads</strong> (3.209 SZI · 2.553 MKT · 2.766 Gestão/SZS), <strong>254 SQLs</strong>, <strong>32 OPPs</strong> (7 SZI + 4 MKT + 21 Gestão/SZS) e <strong>14 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 23,1% · SZI 12,1% · MKT 3,8%</strong>. <em>Atualização automática · 16/07/2026.</em></div>
 
 <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap">
   <label for="date-from" style="font-size:11px;color:#6b7280;font-weight:600">De</label>
@@ -1281,7 +1281,6 @@ const rows = [
   ["07-13","SZI","REPESCAGEM SLA LEAD SZI JURERE III",2,0,0,0,0],
   ["07-13","SZI","REPESCAGEM SLA LEAD SZI ITACARE SPOT",1,1,0,0,0],
   ["07-13","SZI","REPESCAGEM SLA INTERESSE PONTA LEAD SZI JURERE III",1,0,0,0,0],
-  // ─── 14–15/07 (refresh 15/07 — Nekt) ───
   ["07-14","SZI","LOST BONITO SPOT II SZI BONITO II",183,28,1,0,0],
   ["07-14","SZI","LOST PONTA DAS CANAS II MQL SZI JURERE II",147,15,0,0,0],
   ["07-14","SZI","LOST MARISTA SEM CAMPANHA SZI MARISTA 144",40,5,3,0,0],
@@ -1297,18 +1296,22 @@ const rows = [
   ["07-15","Marketplace","BASE PROP 1 IMOVEL MKTPL PONTA DAS CANAS",86,15,0,0,0],
   ["07-15","Marketplace","BASE PROP 1 IMOVEL MKTPL PONTA E FOZ",71,15,3,0,0],
   ["07-15","SZI","LOST NATAL SPOT GOOGLE SZI NATAL",32,2,1,0,0],
-  // ─── 16/07 (refresh 16/07 — Nekt) ───
-  ["07-16","SZI","LOST SQL VISTAS I E II IMAGEM SZI VISTAS DE ANITA III",290,6,0,0,0],
-  ["07-16","SZI","LOST SQL VISTAS I E II SZI VISTAS DE ANITA III",142,0,0,0,0],
-  ["07-16","SZI","LOST OPP VISTAS I E II SZI VISTAS DE ANITA III",43,1,0,0,0],
-  ["07-16","Gestão","HOSPEDES MAIOR 8K SZS GESTAO",154,8,0,0,0],
-  ["07-16","Gestão","TESTE SIRIUS MSG5 D+22 SZS EXPANSAO",20,1,0,0,0],
-  ["07-16","Marketplace","BASE PROP 1 IMOVEL MKTPL PONTA DAS CANAS",398,41,4,0,0],
-  ["07-16","Marketplace","REPESCAGEM FORA DO SLA MKTPL PONTA DAS CANAS",2,1,1,0,0],
-  ["07-16","Marketplace","REPESCAGEM FORA DO SLA MKTPL FOZ",3,0,0,0,0],
-  ["07-16","Marketplace","REPESCAGEM FORA DO SLA MKTPL CACHOEIRA BEACH",2,0,0,0,0],
+  ["07-16","Marketplace","BASE PROP 1 IMOVEL SEM CAMPANHA MKTPL PONTA DAS CANAS SPOT",398,42,4,0,0],
+  ["07-16","Gestão","TESTE SIRIUS MSG5 D+22 SZS EXPANSAO",20,2,0,0,0],
   ["07-16","Marketplace","REPESCAGEM FORA DO SLA MKTPL SALVADOR",1,0,0,0,0],
-  // SZI
+  ["07-16","Marketplace","REPESCAGEM FORA DO SLA MKTPL NOVO CAMPECHE",1,0,0,0,0],
+  ["07-16","Gestão","HOSPEDES MAIOR 8K SZS GESTAO",154,8,0,0,0],
+  ["07-16","Marketplace","REPESCAGEM FORA DO SLA MKTPL CACHOEIRA BEACH",2,0,0,0,0],
+  ["07-16","SZI","HOSPEDES VISTAS B SZI VISTAS DE ANITA III",40,9,0,0,0],
+  ["07-16","SZI","2026 07 16 MIA MKT UTIL LOST AVISO ENTRADA MKTP MKTPL PONTA DAS CANAS SPOT II",7,2,0,0,0],
+  ["07-16","SZI","LOST SQL VISTAS I E II IMAGEM SZI VISTAS DE ANITA III",290,24,1,0,0],
+  ["07-16","SZI","LOST OPP VISTAS I E II SZI VISTAS DE ANITA III",43,1,0,0,0],
+  ["07-16","SZI","LOST SQL VISTAS I E II SZI VISTAS DE ANITA III",10,1,0,0,0],
+  ["07-16","Marketplace","REPESCAGEM FORA DO SLA MKTPL FOZ SPOT",3,0,0,0,0],
+  ["07-16","Marketplace","REPESCAGEM FORA DO SLA MKTPL PONTA DAS CANAS",2,1,1,0,0],
+  ["07-16","SZI","HOSPEDES VISTAS A SZI VISTAS DE ANITA III",68,13,0,0,0],
+  ["07-16","Outros","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,1],
+  // ── histórico (congelado) ──,
   ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
   ["06-29","SZI","REPESCAGEM NATAL",2,2,1,0,0],
   ["06-29","SZI","REPESCAGEM MARISTA 144",2,2,0,0,0],
@@ -1363,7 +1366,6 @@ const rows = [
   ["06-12","SZI","OPP IMPERDÍVEL NATAL SPOT",318,0,0,0,0],
   ["06-11","SZI","ITACARÉ LEAD SZI SEM OPP",119,5,2,2,0],
   ["06-08","SZI","REPESCAGEM SLA PONTA DAS CANAS II",1,1,1,0,0],
-  // Marketplace
   ["06-29","Marketplace","LOST COM REUNIÃO SANTINHO SPOT",6,2,0,0,0],
   ["06-25","Marketplace","OPP SEMANA NOVO CAMPECHE — NÃO ABRIRAM",14,10,0,0,0],
   ["06-25","Marketplace","OPP SEMANA NOVO CAMPECHE — ABRIRAM",6,6,0,0,0],
@@ -1379,7 +1381,6 @@ const rows = [
   ["06-16","Marketplace","HÓSPEDES ROSA SPOT",186,27,10,3,0],
   ["06-12","Marketplace","OPP SEMANA SANTINHO — NÃO ABRIRAM",443,0,0,0,0],
   ["06-11","Marketplace","OPP SEMANA SANTINHO",70,1,0,0,0],
-  // Outros (SZS + Decor + Parceiros)
   ["06-26","Gestão","LOST COM OPP DESCONTO SZS GESTÃO",494,118,19,3,0],
   ["06-25","Gestão","TESTE SIRIUS MSG1 SZS EXPANSÃO",220,31,3,1,0],
   ["06-17","Gestão","REATIVAÇÃO EXPANSÃO SIRIUS (SZS)",177,64,25,8,2],
@@ -1389,7 +1390,7 @@ const rows = [
   ["03-12","Gestão","B2B GESTÃO LEAD MONDRIAN STUDIOS (SZS)",1,1,1,1,1],
   ["02-02","Gestão","B2B GESTÃO LEAD THE STUDIO (SZS)",1,1,1,1,1],
   ["01-12","Gestão","B2B GESTÃO LOST ROYAL PALACE (SZS)",1,1,1,1,0],
-  ["06-26","Outros","OPP IMPERDÍVEL JURERÊ II (Parceiros)",1,1,0,0,0],
+  ["06-26","Outros","OPP IMPERDÍVEL JURERÊ II (Parceiros)",1,1,0,0,0]
 ];
 
 const TYPE_COLOR = { SZI:'#3b82f6', Marketplace:'#8b5cf6', Gestão:'#10b981', Outros:'#f59e0b' };
