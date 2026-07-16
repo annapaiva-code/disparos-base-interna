@@ -119,10 +119,10 @@
 <div class="header">
   <div>
     <div class="title">Disparos Base Interna — Funil por Frente</div>
-    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · Jul/26 em andamento (dados até 15/07) · Fonte: Nekt · pipedrive_marketing_deals_disparos_mia</div>
+    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · Jul/26 em andamento (dados até 16/07) · Fonte: Nekt · pipedrive_marketing_deals_disparos_mia</div>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
-    <div class="updated" id="updated-label">Atualizado: 15/07/2026 (dados até 15/07)</div>
+    <div class="updated" id="updated-label">Atualizado: 16/07/2026 (dados até 16/07)</div>
   </div>
 </div>
 
@@ -135,13 +135,13 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 15/07): <strong>7.490 leads</strong> (2.751 SZI · 2.146 MKT · 2.592 Gestão/SZS), <strong>248 SQLs</strong>, <strong>32 OPPs</strong> (7 SZI + 4 MKT + 21 Gestão/SZS) e <strong>12 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 23,1% · SZI 12,3% · MKT 4,0%</strong>. <strong>Novidade 14–15/07:</strong> Gestão/SZS abriu a base <em>"LOST etapas avançadas"</em> — o maior disparo dos dois dias (322 leads em 15/07, +204 em 14/07; 5 SQL, 3 OPP) — e fechou o <strong>12º WON do mês</strong> (Apresentação Expansão · Smart Amaralina, ganho em 14/07). <strong>SZI</strong> reativou Bonito II (183) e Ponta das Canas II→Jurerê II (147), ainda sem OPP nova; o entrante mais quente foi Marista 144 (3 SQL em 40 leads). <strong>MKT</strong> estreou a base de proprietários <em>"1 imóvel"</em> (Ponta das Canas e Ponta+Foz, 3 SQL), mas segue com a <strong>pior conversão SQL→OPP</strong> (4 de 99): o gargalo continua sendo transformar SQL em reunião. <strong>Gestão/SZS segue liderando a conversão</strong> do mês (a reativação LOST COM OPP TIMING DEZ-MAR sozinha fez 28 SQL, 9 OPP e 4 WON).</div>
+<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 16/07): <strong>8.545 leads</strong> (3.226 SZI · 2.552 MKT · 2.766 Gestão/SZS), <strong>253 SQLs</strong>, <strong>32 OPPs</strong> (7 SZI + 4 MKT + 21 Gestão/SZS) e <strong>13 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 23,1% · SZI 12,3% · MKT 3,8%</strong>. <strong>Novidade 16/07:</strong> <strong>SZI</strong> abriu a base <em>LOST SQL/OPP Vistas I e II → Vistas de Anitá III</em> (475 leads, sem SQL ainda) e <strong>MKT</strong> disparou a base de proprietários <em>"1 imóvel" Ponta das Canas</em> (398 leads, 4 SQL) + repescagens fora de SLA. <strong>Gestão/SZS fechou o 13º WON do mês</strong> (LOST etapas avançadas, ganho em D+0 no dia 15/07) e segue liderando a conversão. <strong>MKT</strong> continua com a <strong>pior conversão SQL→OPP</strong> (4 de 104): o gargalo permanece transformar SQL em reunião.</div>
 
 <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap">
   <label for="date-from" style="font-size:11px;color:#6b7280;font-weight:600">De</label>
   <input type="date" id="date-from" value="2026-07-01" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <label for="date-to" style="font-size:11px;color:#6b7280;font-weight:600">Até</label>
-  <input type="date" id="date-to" value="2026-07-15" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
+  <input type="date" id="date-to" value="2026-07-16" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <button id="date-clear-btn" class="refresh-btn" style="padding:5px 11px">Limpar</button>
 </div>
 
@@ -1293,10 +1293,21 @@ const rows = [
   ["07-14","Marketplace","OPORTUNIDADE DA SEMANA MKTPL NOVO CAMPECHE — NÃO ABRIRAM",40,1,0,0,0],
   ["07-14","Marketplace","TESTE OPORTUNIDADE DA SEMANA MKTPL NOVO CAMPECHE",3,0,0,0,0],
   ["07-14","Outros","DECOR APRESENTACAO EXPANSÃO SZS HOUSE JDN",1,1,1,0,0],
-  ["07-15","Gestão","LOST ETAPAS AVANCADAS SZS GESTAO",322,42,3,1,0],
+  ["07-15","Gestão","LOST ETAPAS AVANCADAS SZS GESTAO",322,42,3,1,1],
   ["07-15","Marketplace","BASE PROP 1 IMOVEL MKTPL PONTA DAS CANAS",86,15,0,0,0],
   ["07-15","Marketplace","BASE PROP 1 IMOVEL MKTPL PONTA E FOZ",71,15,3,0,0],
   ["07-15","SZI","LOST NATAL SPOT GOOGLE SZI NATAL",32,2,1,0,0],
+  // ─── 16/07 (refresh 16/07 — Nekt) ───
+  ["07-16","SZI","LOST SQL VISTAS I E II IMAGEM SZI VISTAS DE ANITA III",290,6,0,0,0],
+  ["07-16","SZI","LOST SQL VISTAS I E II SZI VISTAS DE ANITA III",142,0,0,0,0],
+  ["07-16","SZI","LOST OPP VISTAS I E II SZI VISTAS DE ANITA III",43,1,0,0,0],
+  ["07-16","Gestão","HOSPEDES MAIOR 8K SZS GESTAO",154,8,0,0,0],
+  ["07-16","Gestão","TESTE SIRIUS MSG5 D+22 SZS EXPANSAO",20,1,0,0,0],
+  ["07-16","Marketplace","BASE PROP 1 IMOVEL MKTPL PONTA DAS CANAS",398,41,4,0,0],
+  ["07-16","Marketplace","REPESCAGEM FORA DO SLA MKTPL PONTA DAS CANAS",2,1,1,0,0],
+  ["07-16","Marketplace","REPESCAGEM FORA DO SLA MKTPL FOZ",3,0,0,0,0],
+  ["07-16","Marketplace","REPESCAGEM FORA DO SLA MKTPL CACHOEIRA BEACH",2,0,0,0,0],
+  ["07-16","Marketplace","REPESCAGEM FORA DO SLA MKTPL SALVADOR",1,0,0,0,0],
   // SZI
   ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
   ["06-29","SZI","REPESCAGEM NATAL",2,2,1,0,0],
@@ -1556,7 +1567,7 @@ document.getElementById('date-from').addEventListener('change', applyDateFilter)
 document.getElementById('date-to').addEventListener('change', applyDateFilter);
 document.getElementById('date-clear-btn').addEventListener('click', () => {
   document.getElementById('date-from').value = '2026-01-01';
-  document.getElementById('date-to').value = '2026-07-15';
+  document.getElementById('date-to').value = '2026-07-16';
   applyDateFilter();
 });
 
