@@ -1434,11 +1434,14 @@ function makeRow(r, showTipo) {
 }
 
 function renderAll(list) {
-  document.getElementById('tbody-all').innerHTML = list.map(r => makeRow(r, true)).join('');
-  document.getElementById('tbody-szi').innerHTML = list.filter(r => r[1]==='SZI').map(r => makeRow(r,false)).join('');
-  document.getElementById('tbody-mkt').innerHTML = list.filter(r => r[1]==='Marketplace').map(r => makeRow(r,false)).join('');
-  document.getElementById('tbody-ges').innerHTML = list.filter(r => r[1]==='Gestão').map(r => makeRow(r,false)).join('');
-  document.getElementById('tbody-out').innerHTML = list.filter(r => r[1]==='Outros').map(r => makeRow(r,false)).join('');
+  // Ordena por data (MM-DD) decrescente — campanhas mais recentes no topo.
+  // Todo o dataset é do mesmo ano (2026), então comparar a string MM-DD basta.
+  const sorted = [...list].sort((a, b) => a[0] < b[0] ? 1 : a[0] > b[0] ? -1 : 0);
+  document.getElementById('tbody-all').innerHTML = sorted.map(r => makeRow(r, true)).join('');
+  document.getElementById('tbody-szi').innerHTML = sorted.filter(r => r[1]==='SZI').map(r => makeRow(r,false)).join('');
+  document.getElementById('tbody-mkt').innerHTML = sorted.filter(r => r[1]==='Marketplace').map(r => makeRow(r,false)).join('');
+  document.getElementById('tbody-ges').innerHTML = sorted.filter(r => r[1]==='Gestão').map(r => makeRow(r,false)).join('');
+  document.getElementById('tbody-out').innerHTML = sorted.filter(r => r[1]==='Outros').map(r => makeRow(r,false)).join('');
 }
 renderAll(rows);
 
