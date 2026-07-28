@@ -383,86 +383,92 @@
 
   <div class="insights">
     <div class="insight-card alert">
-      <div class="ic-eyebrow r">🔴 O maior ralo: no-show</div>
-      <div class="ic-headline">57% das reuniões marcadas não acontecem — o funil quebra em SQL→reunião, não no copy</div>
+      <div class="ic-eyebrow r">🔴 O maior ralo: SQL sem horário + no-show</div>
+      <div class="ic-headline">Só 22% dos SQLs chegam a ter reunião marcada — e 55% do que é marcado não acontece</div>
       <div class="mini-funnel">
-        <div class="mf-block"><div class="mf-n" style="color:#0f172a">21</div><div class="mf-l">Agendadas</div></div>
+        <div class="mf-block"><div class="mf-n" style="color:#0f172a">191</div><div class="mf-l">SQL</div></div>
         <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">12</div><div class="mf-l">No-show</div></div>
-        <div class="mf-arrow">=</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">57%</div><div class="mf-l">não vieram</div></div>
+        <div class="mf-block"><div class="mf-n" style="color:#f59e0b">42</div><div class="mf-l">Agendadas</div></div>
+        <div class="mf-arrow">→</div>
+        <div class="mf-block"><div class="mf-n" style="color:#059669">19</div><div class="mf-l">Realizadas</div></div>
+        <div class="mf-arrow">·</div>
+        <div class="mf-block"><div class="mf-n" style="color:#ef4444">23</div><div class="mf-l">No-show</div></div>
       </div>
-      <div class="ic-body">O disparo qualifica <strong>7–10 SQL por dia</strong> — o topo do funil funciona. O vazamento vem depois: das reuniões marcadas em julho, <strong>12 de 21 não aconteceram (57%)</strong>, contra apenas 9 realizadas. A reunião está sendo marcada, mas não acontece — é por isso que a chefia "não vê OPP". Nada a ver com copy.</div>
-      <span class="ic-action r">→ Confirmação ativa no dia + lembrete 1h antes + resgate em 10 min p/ quem não aparece · Meta: no-show 57% → ≤35%</span>
-      <button class="proof-toggle" id="ptgl-szi1" onclick="toggleProof('szi1')">▼ Ver prova — auditoria de funil (Pipedrive · Nekt · Morada)</button>
+      <div class="ic-body">O topo funciona: <strong>6.896 leads e 905 respostas</strong> no mês. O funil quebra em duas etapas seguidas, não uma: <strong>dos 191 SQLs, apenas 42 (22%) chegaram a ter horário marcado</strong> — e desses, <strong>23 não aconteceram (55%)</strong>, contra 19 reuniões realizadas. Nenhum dos 23 estava agendado para os próximos dias: é no-show puro. Diagnóstico de 16/07 confirmado com o mês praticamente fechado.</div>
+      <span class="ic-action r">→ Agendar no ato da qualificação (não depois) + confirmação no dia + resgate em 10 min de quem não aparece · Metas: SQL→agendou 22% → 40% · no-show 55% → ≤35%</span>
+      <button class="proof-toggle" id="ptgl-szi1" onclick="toggleProof('szi1')">▼ Ver prova — reapuração do mês (Pipedrive · Nekt)</button>
       <div class="proof-panel" id="proof-szi1">
-        <div class="proof-src">Fonte: Auditoria de Funil SZI · base interna MIA (pipeline 28) · 3.607 leads em julho, 0 pago · Pipedrive/Nekt + 13 conversas lidas na Morada.ai</div>
-        <div class="proof-h">Junho × Julho (dias 1–16) — mais volume, pior eficiência:</div>
+        <div class="proof-src">Fonte: Nekt · pipedrive_deals_readable · pipeline 28 (SZI) · campanhas MIA + SIA · julho/26 (dias 1–28) · reapurado em 28/07/2026</div>
+        <div class="proof-h">O que mudou entre a auditoria (16/07) e o mês fechando (28/07):</div>
         <table class="proof-tbl" style="margin-bottom:10px">
-          <tr><th>Métrica</th><th style="text-align:right">Junho</th><th style="text-align:right">Julho</th><th style="text-align:right">Var.</th></tr>
-          <tr><td>SQL qualificados</td><td style="text-align:right">32</td><td style="text-align:right">68</td><td style="text-align:right;color:#16a34a">+113%</td></tr>
-          <tr><td>Reuniões realizadas (OPP)</td><td style="text-align:right">8</td><td style="text-align:right">10</td><td style="text-align:right;color:#16a34a">+25%</td></tr>
-          <tr><td>SQL→OPP (qualificado → reunião)</td><td style="text-align:right">25%</td><td style="text-align:right;color:#ef4444;font-weight:700">15%</td><td style="text-align:right;color:#ef4444">piorou</td></tr>
-          <tr><td>No-show (marcou, não veio)</td><td style="text-align:right">6</td><td style="text-align:right;color:#ef4444;font-weight:700">12</td><td style="text-align:right;color:#ef4444">dobrou</td></tr>
-          <tr><td>WON (vendas)</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td style="text-align:right;color:#6b7280">empate</td></tr>
+          <tr><th>Métrica</th><th style="text-align:right">Auditoria 16/07</th><th style="text-align:right">Mês 1–28/07</th><th style="text-align:right">Leitura</th></tr>
+          <tr><td>SQL qualificados</td><td style="text-align:right">68</td><td style="text-align:right">191</td><td style="text-align:right;color:#16a34a">+181%</td></tr>
+          <tr><td>Reuniões realizadas (OPP)</td><td style="text-align:right">10</td><td style="text-align:right">19</td><td style="text-align:right;color:#16a34a">+90%</td></tr>
+          <tr><td>SQL→OPP</td><td style="text-align:right">15%</td><td style="text-align:right;color:#ef4444;font-weight:700">9,9%</td><td style="text-align:right;color:#ef4444">piorou</td></tr>
+          <tr><td>No-show</td><td style="text-align:right">12 de 21 (57%)</td><td style="text-align:right;color:#ef4444;font-weight:700">23 de 42 (55%)</td><td style="text-align:right;color:#6b7280">manteve</td></tr>
+          <tr><td>WON (criados no mês)</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td style="text-align:right;color:#6b7280">empate</td></tr>
         </table>
-        <div class="proof-note">Dobramos SQL e esforço, mas o gargalo SQL→reunião engoliu o ganho de volume — a venda empatou. "Correndo mais para ficar no mesmo lugar." (No-show de julho levemente inflado por reuniões recentes ainda pendentes.)</div>
+        <div class="proof-note">O volume de SQL quase triplicou e as reuniões realizadas só dobraram — a taxa caiu de 15% para 9,9%. O no-show é estrutural, não ruído: manteve-se em ~55% com o dobro de agendamentos. Ressalva de método: até 27/07 este painel congelava os dias passados e por isso subcontava OPP (marcava 34 no mês contra 82 reais); a reapuração acima já usa o estado atual do Nekt.</div>
       </div>
     </div>
 
     <div class="insight-card warn">
-      <div class="ic-eyebrow w">⚠ Lead quente sem horário + SQL frouxo</div>
-      <div class="ic-headline">Leads que pediram "marcar com especialista" ouviram "agendas lotadas" — e 42% das perdas somem em "Aguardando data"</div>
+      <div class="ic-eyebrow w">⚠ Mudou o diagnóstico: silêncio pós-qualificação</div>
+      <div class="ic-headline">Não é mais "aguardando data": 103 dos 153 SQLs perdidos (67%) morreram em "Não atende/Não responde"</div>
       <div class="mini-funnel">
-        <div class="mf-block"><div class="mf-n" style="color:#0f172a">33</div><div class="mf-l">Perdas SQL</div></div>
+        <div class="mf-block"><div class="mf-n" style="color:#0f172a">153</div><div class="mf-l">Perdas SQL</div></div>
         <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">14</div><div class="mf-l">Sumiu s/ marcar</div></div>
+        <div class="mf-block"><div class="mf-n" style="color:#ef4444">103</div><div class="mf-l">Não atende</div></div>
         <div class="mf-arrow">=</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">42%</div><div class="mf-l">das perdas</div></div>
+        <div class="mf-block"><div class="mf-n" style="color:#ef4444">67%</div><div class="mf-l">das perdas</div></div>
       </div>
-      <div class="ic-body">Dois furos no meio do funil: <strong>(1)</strong> leads que clicaram "MARCAR COM ESPECIALISTA" ouviram <em>"nossas agendas estão lotadas"</em> e esfriaram — gargalo de capacidade visto em várias conversas (Rogério/Natal, Itacaré); <strong>(2)</strong> das 33 perdas de leads qualificados, <strong>14 (42%)</strong> sumiram em "Aguardando data" — muito SQL é curiosidade, não compromisso.</div>
-      <span class="ic-action w">→ Destravar slots de especialista + só marcar SQL com aceite de horário (micro-compromisso) · Meta: SQL→agendou 30% → 50%</span>
-      <button class="proof-toggle" id="ptgl-szi2" onclick="toggleProof('szi2')">▼ Ver prova — 33 perdas classificadas uma a uma</button>
+      <div class="ic-body">Com o mês inteiro na conta, o retrato virou: <strong>153 dos 191 SQLs foram perdidos</strong> e a causa dominante é <strong>silêncio depois de qualificar — 103 casos (67%)</strong>. O lead responde ao disparo, é qualificado, e some antes de marcar. Fit errado (perfil/valor/prazo) responde por 18 (12%) e desinteresse declarado por outros 18 (12%): o problema é muito maior de <em>alcance na hora de agendar</em> do que de público.</div>
+      <span class="ic-action w">→ Qualificar só com horário aceito no mesmo contato + segunda tentativa por outro canal (ligação/áudio) antes de dar por perdido · Meta: perda por silêncio 67% → ≤45%</span>
+      <button class="proof-toggle" id="ptgl-szi2" onclick="toggleProof('szi2')">▼ Ver prova — motivo das 153 perdas de SQL</button>
       <div class="proof-panel" id="proof-szi2">
-        <div class="proof-src">Fonte: Auditoria de Funil SZI · 33 perdas de leads qualificados classificadas (estágio × motivo no Pipedrive/Nekt) · julho/26</div>
-        <div class="proof-h">Motivo das 33 perdas de SQL:</div>
+        <div class="proof-src">Fonte: Nekt · pipedrive_deals_readable · pipeline 28 (SZI) · campanhas MIA + SIA · SQLs de julho/26 com status lost · reapurado em 28/07/2026</div>
+        <div class="proof-h">Motivo das 153 perdas de SQL (agrupado):</div>
         <table class="proof-tbl">
           <tr><th>Motivo</th><th style="text-align:right">Perdas</th><th style="text-align:right">%</th></tr>
-          <tr><td>Qualificou e sumiu ("Aguardando data")</td><td style="text-align:right;color:#ef4444;font-weight:700">14</td><td style="text-align:right;color:#6b7280">42%</td></tr>
-          <tr><td>Público / fit errado (perfil, valor, região)</td><td style="text-align:right;color:#f59e0b;font-weight:700">12</td><td style="text-align:right;color:#6b7280">36%</td></tr>
-          <tr><td>No-show (marcou, não veio)</td><td style="text-align:right;color:#f97316;font-weight:700">6</td><td style="text-align:right;color:#6b7280">18%</td></tr>
-          <tr><td>Timing</td><td style="text-align:right;color:#6b7280">1</td><td style="text-align:right;color:#6b7280">3%</td></tr>
+          <tr><td>Não atende / Não responde (inclui "sem resposta — disparo 24h")</td><td style="text-align:right;color:#ef4444;font-weight:700">106</td><td style="text-align:right;color:#6b7280">69%</td></tr>
+          <tr><td>Perfil / fit errado (valor, tamanho, prazo, SPE, jurídico)</td><td style="text-align:right;color:#f59e0b;font-weight:700">18</td><td style="text-align:right;color:#6b7280">12%</td></tr>
+          <tr><td>Não tem interesse / sem interesse</td><td style="text-align:right;color:#f59e0b;font-weight:700">18</td><td style="text-align:right;color:#6b7280">12%</td></tr>
+          <tr><td>Timing</td><td style="text-align:right;color:#6b7280">8</td><td style="text-align:right;color:#6b7280">5%</td></tr>
+          <tr><td>Outros (localização, concorrência, não reconhece campanha)</td><td style="text-align:right;color:#6b7280">3</td><td style="text-align:right;color:#6b7280">2%</td></tr>
         </table>
-        <div class="proof-note">Somado à rajada da Mia (4–7 mensagens em segundos + template reenviado até 3×) e ao bloqueio de WhatsApp (erro 131049), o meio do funil satura o lead antes de marcar.</div>
+        <div class="proof-note">A auditoria de 16/07 via "Aguardando data" liderando com 42% de 33 perdas — amostra pequena e etapa, não motivo. Com 153 perdas classificadas por <code>motivo_da_perda</code>, o silêncio pós-qualificação aparece como a causa dominante. As duas leituras apontam para a mesma ação: tirar o lead do limbo entre qualificar e marcar.</div>
       </div>
     </div>
 
     <div class="insight-card ok">
       <div class="ic-eyebrow g">📊 SQL→reunião por empreendimento</div>
-      <div class="ic-headline">Itacaré é o epicentro do vazamento (16 SQL → 1 reunião); Novo Campeche II mostra o teto (20%)</div>
+      <div class="ic-headline">Natal Spot: 28 SQLs, 6 agendamentos e <em>zero</em> reunião realizada — o novo epicentro; Novo Campeche II segue provando o teto (24%)</div>
       <div class="mini-funnel">
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">6%</div><div class="mf-l">Itacaré</div></div>
+        <div class="mf-block"><div class="mf-n" style="color:#ef4444">0%</div><div class="mf-l">Natal</div></div>
         <div class="mf-arrow">vs</div>
-        <div class="mf-block"><div class="mf-n" style="color:#059669">20%</div><div class="mf-l">Novo Campeche II</div></div>
+        <div class="mf-block"><div class="mf-n" style="color:#059669">24%</div><div class="mf-l">Novo Campeche II</div></div>
         <div class="mf-arrow">·</div>
-        <div class="mf-block"><div class="mf-n" style="color:#f59e0b">15%</div><div class="mf-l">média frente</div></div>
+        <div class="mf-block"><div class="mf-n" style="color:#f59e0b">9,9%</div><div class="mf-l">média frente</div></div>
       </div>
-      <div class="ic-body">A conversão SQL→reunião varia muito por empreendimento. <strong>Itacaré gera muito SQL e quase nenhuma reunião (16 → 1, 6%)</strong> — boa parte por região errada ("na Bahia não tenho interesse"). <strong>Novo Campeche II lidera (15 → 3, 20%)</strong> e prova que o teto existe. Todo WON histórico veio de reunião marcada em até 24h da qualificação.</div>
-      <span class="ic-action g">→ Qualificar região no fluxo + oferta cruzada Natal/Floripa; roteiro que força reunião em D+1 · Meta: Itacaré 6% → 13%+</span>
-      <button class="proof-toggle" id="ptgl-szi3" onclick="toggleProof('szi3')">▼ Ver prova — SQL→OPP por empreendimento (julho)</button>
+      <div class="ic-body">A conversão SQL→reunião varia de 0% a 24% entre empreendimentos. <strong>Natal Spot é o caso extremo: 28 SQLs, 6 agendamentos e nenhuma reunião aconteceu</strong> — 100% de no-show. <strong>Itacaré vaza em escala (44 SQLs → 2 reuniões, 4,5%)</strong>, mantendo o padrão de região errada visto na auditoria. No outro extremo, <strong>Novo Campeche II (29 → 7, 24%)</strong> e <strong>Marista 144 (22 → 4, 18%)</strong> mostram que o teto existe dentro da mesma operação.</div>
+      <span class="ic-action g">→ Tratar Natal como incidente (revisar quem agenda e confirmar 1:1 os 6 casos) + qualificar região no fluxo de Itacaré · Meta: Natal 0% → 15% · Itacaré 4,5% → 13%</span>
+      <button class="proof-toggle" id="ptgl-szi3" onclick="toggleProof('szi3')">▼ Ver prova — SQL→OPP por empreendimento (julho 1–28)</button>
       <div class="proof-panel" id="proof-szi3">
-        <div class="proof-src">Fonte: Auditoria de Funil SZI · conversão SQL→reunião por empreendimento · julho/26 (Pipedrive/Nekt)</div>
-        <div class="proof-h">Conversão SQL → reunião (OPP) por empreendimento:</div>
+        <div class="proof-src">Fonte: Nekt · pipedrive_deals_readable · pipeline 28 (SZI) · campanhas MIA + SIA · julho/26 (dias 1–28) · reapurado em 28/07/2026 · empreendimentos com ≥4 SQL</div>
+        <div class="proof-h">Conversão SQL → agendamento → reunião (OPP) por empreendimento:</div>
         <table class="proof-tbl">
-          <tr><th>Empreendimento</th><th style="text-align:right">SQL</th><th style="text-align:right">Reunião</th><th style="text-align:right">SQL→OPP</th></tr>
-          <tr><td>Itacaré Spot</td><td style="text-align:right">16</td><td style="text-align:right">1</td><td style="text-align:right;color:#ef4444;font-weight:700">6%</td></tr>
-          <tr><td>Jurerê Spot III</td><td style="text-align:right">9</td><td style="text-align:right">0</td><td style="text-align:right;color:#ef4444">0%</td></tr>
-          <tr><td>Natal Spot</td><td style="text-align:right">6</td><td style="text-align:right">0</td><td style="text-align:right;color:#ef4444">0%</td></tr>
-          <tr><td>Ponta das Canas Spot II</td><td style="text-align:right">8</td><td style="text-align:right">1</td><td style="text-align:right;color:#6b7280">13%</td></tr>
-          <tr><td>Marista 144 Spot</td><td style="text-align:right">5</td><td style="text-align:right">1</td><td style="text-align:right;color:#16a34a">20%</td></tr>
-          <tr><td>Novo Campeche Spot II</td><td style="text-align:right">15</td><td style="text-align:right">3</td><td style="text-align:right;color:#16a34a;font-weight:700">20%</td></tr>
+          <tr><th>Empreendimento</th><th style="text-align:right">Leads</th><th style="text-align:right">SQL</th><th style="text-align:right">Agendou</th><th style="text-align:right">Reunião</th><th style="text-align:right">SQL→OPP</th></tr>
+          <tr><td>Itacaré Spot</td><td style="text-align:right">1.207</td><td style="text-align:right">44</td><td style="text-align:right">3</td><td style="text-align:right">2</td><td style="text-align:right;color:#ef4444;font-weight:700">4,5%</td></tr>
+          <tr><td>Novo Campeche Spot II</td><td style="text-align:right">1.099</td><td style="text-align:right">29</td><td style="text-align:right">9</td><td style="text-align:right">7</td><td style="text-align:right;color:#16a34a;font-weight:700">24,1%</td></tr>
+          <tr><td>Natal Spot</td><td style="text-align:right">1.115</td><td style="text-align:right">28</td><td style="text-align:right">6</td><td style="text-align:right;color:#ef4444;font-weight:700">0</td><td style="text-align:right;color:#ef4444;font-weight:700">0%</td></tr>
+          <tr><td>Jurerê Spot III</td><td style="text-align:right">637</td><td style="text-align:right">23</td><td style="text-align:right">3</td><td style="text-align:right">1</td><td style="text-align:right;color:#ef4444">4,3%</td></tr>
+          <tr><td>Marista 144 Spot</td><td style="text-align:right">467</td><td style="text-align:right">22</td><td style="text-align:right">8</td><td style="text-align:right">4</td><td style="text-align:right;color:#16a34a">18,2%</td></tr>
+          <tr><td>Jurerê Spot II</td><td style="text-align:right">576</td><td style="text-align:right">18</td><td style="text-align:right">3</td><td style="text-align:right">1</td><td style="text-align:right;color:#ef4444">5,6%</td></tr>
+          <tr><td>Vistas de Anitá II</td><td style="text-align:right">1.008</td><td style="text-align:right">9</td><td style="text-align:right">3</td><td style="text-align:right">1</td><td style="text-align:right;color:#f59e0b">11,1%</td></tr>
+          <tr><td>Ponta das Canas Spot II</td><td style="text-align:right">536</td><td style="text-align:right">9</td><td style="text-align:right">4</td><td style="text-align:right">1</td><td style="text-align:right;color:#f59e0b">11,1%</td></tr>
+          <tr><td>Bonito Spot II</td><td style="text-align:right">199</td><td style="text-align:right">6</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td style="text-align:right;color:#16a34a">16,7%</td></tr>
         </table>
-        <div class="proof-note">Itacaré sozinho concentra o maior volume de SQL (16) e só 1 reunião — consertar a qualificação de região aqui é o maior ganho isolado de OPP do mês.</div>
+        <div class="proof-note">Dois padrões distintos, que pedem ações distintas: <strong>Itacaré e Jurerê II/III quase não conseguem agendar</strong> (3 agendamentos para 44, 18 e 23 SQLs — problema de interesse/região), enquanto <strong>Natal agenda e ninguém aparece</strong> (6 de 6 no-show — problema de confirmação). Novo Campeche II e Marista 144 agendam e realizam.</div>
       </div>
     </div>
   </div>
@@ -1289,8 +1295,8 @@ const rows = [
   ["07-14","Gestão","[SS] [SIA AGENDADORA [LEAD] [BRASIL] [CBO] [LEAD ADS]  13/07/2026",2,1,0,0,0],
   ["07-14","Marketplace","HOSP CANAS CACHOEIRA PONTA MKTPL PONTA DAS CANAS SPOT",80,10,5,0,0],
   ["07-14","Marketplace","OPORTUNIDADE DA SEMANA MKTPL NOVO CAMPECHE SPOT",40,6,1,0,0],
-  ["07-14","Marketplace","OPORTUNIDADE DA SEMANA NAO ABRIRAM MKTPL NOVO CAMPECHE SPOT",3,0,0,0,0],
   ["07-14","Marketplace","OPORTUNIDADE DA SEMANA NAO ABRIRAM MKTPL NOVO CAMPECHE SPOT",40,1,0,0,0],
+  ["07-14","Marketplace","OPORTUNIDADE DA SEMANA NAO ABRIRAM MKTPL NOVO CAMPECHE SPOT",3,0,0,0,0],
   ["07-14","Outros","GESTAO APRESENTACAO EXPANSÃO SZS HOUSE JDN",1,1,1,0,0],
   ["07-14","SZI","LOST BONITO SPOT II SEM CAMPANHA SZI BONITO SPOT II",183,28,5,2,0],
   ["07-14","SZI","LOST MARISTA SEM CAMPANHA SZI MARISTA 144 SPOT",40,5,3,0,0],
