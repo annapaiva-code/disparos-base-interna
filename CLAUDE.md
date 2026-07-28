@@ -27,7 +27,16 @@ Cobre leads gerados por campanhas de WA via MIA a partir de 11/06/2026.
 Cada aba tem: funil do mês → 3 cards insight → tabela de campanhas → seção SQL→OPP ⚡ (análise do mês).
 
 ## Dados
-- **Fonte:** Nekt → `pipedrive_marketing_deals_disparos_mia`
+- **Fonte (desde 27/07/2026):** Nekt → `pipedrive_deals_readable` + joins bronze
+  (`pipedrive_pipelines`, `pipedrive_stages`), filtro `rd_campanha LIKE '%_MIA%' OR LIKE '%_SIA%'`.
+  A lógica está inlinada em `C:\Users\compu\disparos-auto\atualizar.mjs` (const `DISPAROS`).
+- **NÃO usar mais `pipedrive_marketing_deals_disparos_mia`:** a transformação que a gera
+  (`query-qB7h`) filtra só `rd_campanha LIKE '%_MIA%'` e é **cega aos disparos da SIA**, que
+  substituiu a MIA em jul/2026 (última campanha MIA 24/07; SIA desde 17/07 na Gestão/SZS e
+  27/07 no SZI). Em 27/07 a tabela pronta perdia 447 leads, 34 SQL e 13 OPP do mês.
+- **Mês corrente é reconstruído a cada rodada** (não mais congelado por dia): SQL/OPP/WON são
+  preenchidos dias depois da criação do lead, então o snapshot congelado subcontava para sempre
+  (julho marcava 34 OPPs contra 82 reais). `--congelar` volta ao comportamento antigo.
 - **Período:** a partir de `2026-06-11` (atualizar no prompt da rotina ao iniciar nova campanha)
 - **Pipelines:** Vendas Spot = SZI · Marketplace = MKT · outros = Gestão/Outros
 - **ATENÇÃO — bug de case no cálculo de "Responderam":** `stage_name` do estágio inicial
