@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 28/07): <strong>18.679 leads</strong> (7.189 SZI · 6.445 MKT · 5.042 Gestão/SZS), <strong>1.705 SQLs</strong>, <strong>90 OPPs</strong> (19 SZI + 10 MKT + 60 Gestão/SZS) e <strong>18 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 31,7% · SZI 9,7% · MKT 0,8%</strong>. <em>Atualização automática · 28/07/2026.</em></div>
+<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 28/07): <strong>19.040 leads</strong> (7.550 SZI · 6.445 MKT · 5.042 Gestão/SZS), <strong>1.711 SQLs</strong>, <strong>90 OPPs</strong> (19 SZI + 10 MKT + 60 Gestão/SZS) e <strong>18 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 31,6% · SZI 9,5% · MKT 0,8%</strong>. <em>Atualização automática · 28/07/2026.</em></div>
 
 <div class="alert-box" style="border-color:#86efac;background:#f0fdf4;color:#15803d">🔄 <strong>Transição MIA → SIA (jul/26):</strong> os disparos passaram a sair pela <strong>SIA</strong> — última campanha MIA em 24/07; SIA desde 17/07 na Gestão/SZS e 27/07 no SZI. O painel conta as duas: campanhas da SIA aparecem com o prefixo <strong>SIA ·</strong> nas tabelas. A leitura passou a ser direto de <code>pipedrive_deals_readable</code>, porque a tabela pronta do Nekt (<code>…disparos_mia</code>) filtra só <code>_MIA_</code> e é cega aos disparos da SIA.</div>
 
@@ -1412,7 +1412,7 @@ const rows = [
   ["07-22","Gestão","GESTAO APRESENTACAO EXPANSÃO PIRIÁPOLIS SZS",4,0,0,0,0],
   ["07-22","Gestão","GESTAO APRESENTACAO EXPANSÃO VILLA FORSTER SZS",10,1,0,0,0],
   ["07-22","Gestão","LOST SEM CAMPANHA NAO ATENDE RESPONDE SZS GESTAO",120,24,3,1,0],
-  ["07-22","Gestão","LOST SQL NAO RESPONDE S CAMPANHA SZI MARISTA",1,0,0,0,0],
+  ["07-22","Gestão","LOST SQL NAO RESPONDE S CAMPANHA SZI MARISTA",1,1,1,0,0],
   ["07-22","Marketplace","LOST FOZ SPOT LEAD IN SEM CAMPANHA MKTPL FOZ SPOT",253,18,16,0,0],
   ["07-22","Marketplace","LOST SANTO ANTONIO SPOT LOST OPP MKTPL SANTO ANTONIO SPOT",67,5,2,0,0],
   ["07-22","SZI","LOST SQL NAO RESPONDE S CAMPANHA SZI BONITO II",18,3,2,0,0],
@@ -1430,7 +1430,7 @@ const rows = [
   ["07-23","Gestão","GESTAO APRESENTACAO EXPANSÃO CADENCIA ONE HOUSE SZS",9,2,1,1,0],
   ["07-23","Gestão","GESTAO APRESENTACAO EXPANSÃO CONCEPT LIFE SZS",66,11,0,0,0],
   ["07-23","Gestão","GESTAO APRESENTACAO EXPANSÃO HOUSE GRACA SZS",59,7,1,0,0],
-  ["07-23","Gestão","LOST NO SHOW PONTA DAS CANAS SPOT",14,12,12,0,0],
+  ["07-23","Gestão","LOST NO SHOW PONTA DAS CANAS SPOT",13,11,11,0,0],
   ["07-23","Gestão","LOST PROP SAO PAULO SZS GESTAO",270,50,7,3,0],
   ["07-23","Marketplace","HOSPEDES ROSA SPOT MKTP",1,1,1,1,1],
   ["07-23","Marketplace","LOST NO SHOW CANAS BEACH",54,7,49,0,0],
@@ -1452,7 +1452,7 @@ const rows = [
   ["07-24","Gestão","120248356104290716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,0,0,0,0],
   ["07-24","Gestão","GESTAO APRESENTACAO EXPANSÃO LIFE CO SZS",59,4,0,0,0],
   ["07-24","Gestão","GESTAO APRESENTACAO EXPANSÃO SMART PITUBA SZS",46,5,0,0,0],
-  ["07-24","Gestão","LOST NAO ATENDE RESPONDE SZS GESTAO",80,7,3,2,0],
+  ["07-24","Gestão","LOST NAO ATENDE RESPONDE SZS GESTAO",80,7,4,2,0],
   ["07-24","Gestão","PROP SZS TESTE 2 VERTICAIS SZI ITACARE SPOT",5,5,1,1,0],
   ["07-24","Gestão","SIA · LOST NAO ATENDE RESPONDE SZS GESTAO",6,1,1,0,0],
   ["07-24","Gestão","SIA · LOST TIMING FUP SZS GESTAO",2,0,0,0,0],
@@ -1487,15 +1487,20 @@ const rows = [
   ["07-27","SZI","SIA · LOST SQL NATAL SPOT NAO RESPONDE SZI NATAL SPOT",10,1,0,0,0],
   ["07-27","SZI","SIA · REPESCAGEM SZI NATAL SPOT",7,1,0,0,0],
   ["07-27","SZI","SIA · REPESCAGEM SZI VISTAS II SPOT",1,0,0,0,0],
+  ["07-28","Gestão","120248356090880716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,0,0,0,0],
   ["07-28","Gestão","120248356107810716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,0,0,0,0],
   ["07-28","Gestão","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,2],
+  ["07-28","Marketplace","LOST MQL NOVO CAMPECHE II SZI NOVO CAMPECHE II",2,0,0,0,0],
   ["07-28","Marketplace","OPORTUNIDADE DA SEMANA ABRIRAM MKTPL CANASVIEIRAS SPOT",170,23,0,0,0],
-  ["07-28","Marketplace","OPORTUNIDADE DA SEMANA NÃO ABRIRAM MKTPL CANASVIEIRAS SPOT",126,18,2,0,0],
+  ["07-28","Marketplace","OPORTUNIDADE DA SEMANA NÃO ABRIRAM MKTPL CANASVIEIRAS SPOT",124,20,2,0,0],
   ["07-28","Outros","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,1],
-  ["07-28","SZI","LOST JURERE II SEM CAMPANHA SZI JURERE II",107,7,3,0,0],
-  ["07-28","SZI","LOST VISTAS DE ANITA II SEM CAMPANHA SZI VISTAS DE ANITA II",183,13,1,0,0],
+  ["07-28","SZI","LOST JURERE II SEM CAMPANHA SZI JURERE II",107,9,4,0,0],
+  ["07-28","SZI","LOST MQL A ITACARE SEM CAMPANHA SZI ITACARE",167,6,0,0,0],
+  ["07-28","SZI","LOST MQL NOVO CAMPECHE II SZI NOVO CAMPECHE II",93,5,4,0,0],
+  ["07-28","SZI","LOST VISTAS DE ANITA II SEM CAMPANHA SZI VISTAS DE ANITA II",183,14,1,0,0],
   ["07-28","SZI","OPORTUNIDADE DA SEMANA ABRIRAM MKTPL CANASVIEIRAS SPOT",1,0,0,0,0],
   ["07-28","SZI","OPORTUNIDADE DA SEMANA NÃO ABRIRAM MKTPL CANASVIEIRAS SPOT",3,0,0,0,0],
+  ["07-28","SZI","SIA · LOST MQL BONITO II SPOT NAO RESPONDE SZI BONITO II SPOT",101,0,0,0,0],
   ["07-28","SZI","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,1],
   // ── histórico (congelado) ──,
   ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
@@ -1802,13 +1807,25 @@ document.getElementById('vel-stages').innerHTML = stageData.map(s=>`
 
 // ─── Velocity table ───
 const velData = [
+  ["07-15","07-15",0,"lost","Lost Itacaré — Itacaré Spot"],
+  ["07-16","07-16",0,"lost","Lost Bonito II sem campanha — Bonito Spot II"],
+  ["07-17","07-17",0,"open","Repescagem SLA lead — Novo Campeche II"],
+  ["07-17","07-17",0,"lost","Lost Ponta das Canas (Google) — Novo Campeche II"],
+  ["07-17","07-17",0,"lost","Lost Bonito II sem campanha — Marista 144"],
+  ["07-22","07-22",0,"open","Lost SQL não responde s/ campanha — Jurerê III"],
+  ["07-24","07-24",0,"open","Lost SQL Jurerê II — Jurerê Spot II"],
   ["07-02","07-03",1,"won","Repescagem Prop Não Premium 10D — Ponta II"],
-  ["07-06","07-08",2,"open","Repescagem SLA — Jurerê III / Natal"],
-  ["07-07","07-10",3,"open","2 Lost Novo Campeche — Ponta das Canas II"],
-  ["07-02","07-06",4,"open","Novo Campeche II — Não Abriram"],
-  ["07-02","07-06",4,"open","Novo Campeche II — Não Abriram"],
-  ["07-02","07-06",4,"open","Novo Campeche II — Não Abriram"],
-  ["07-03","07-07",4,"open","Repescagem SZI 29/06–02/07 — Marista 144"],
+  ["07-06","07-08",2,"lost","Repescagem SLA lead — Caraguá Spot"],
+  ["07-13","07-15",2,"lost","Losts Vistas II sem campanha — Vistas de Anitá II"],
+  ["07-15","07-17",2,"lost","Lost Itacaré MQL sem campanha — Itacaré Spot"],
+  ["07-22","07-25",3,"open","Lost SQL não responde — Marista 144"],
+  ["07-02","07-06",4,"lost","Oportunidade Imperdível (não abriram) — Novo Campeche II"],
+  ["07-02","07-06",4,"lost","Oportunidade Imperdível (não abriram) — Novo Campeche II"],
+  ["07-02","07-06",4,"open","Oportunidade Imperdível (não abriram) — Novo Campeche II"],
+  ["07-03","07-07",4,"lost","Repescagem 29/06–02/07 — Marista 144"],
+  ["07-17","07-22",5,"open","Lost SQL região Campeche A — Novo Campeche II"],
+  ["07-22","07-27",5,"open","Lost SQL não responde — Marista 144"],
+  ["07-17","07-26",9,"lost","Lost região Campeche B — Novo Campeche II"],
 ];
 const dCol = d => d===0?'#10b981':d===1?'#22d3ee':d===2?'#f59e0b':d<=4?'#f97316':'#ef4444';
 document.getElementById('tbody-vel').innerHTML = velData.map(([sqld,oppd,dias,status,camp])=>{
