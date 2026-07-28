@@ -135,13 +135,13 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 28/07): <strong>19.040 leads</strong> (7.550 SZI · 6.445 MKT · 5.042 Gestão/SZS), <strong>1.711 SQLs</strong>, <strong>90 OPPs</strong> (19 SZI + 10 MKT + 60 Gestão/SZS) e <strong>18 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 31,6% · SZI 9,5% · MKT 0,8%</strong>. <em>Atualização automática · 28/07/2026.</em></div>
+<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 28/07): <strong>19.668 leads</strong> (7.590 SZI · 6.691 MKT · 5.384 Gestão/SZS), <strong>1.716 SQLs</strong>, <strong>92 OPPs</strong> (21 SZI + 10 MKT + 60 Gestão/SZS) e <strong>18 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 31,3% · SZI 10,4% · MKT 0,8%</strong>. <em>Atualização automática · 28/07/2026.</em></div>
 
 <div class="alert-box" style="border-color:#86efac;background:#f0fdf4;color:#15803d">🔄 <strong>Transição MIA → SIA (jul/26):</strong> os disparos passaram a sair pela <strong>SIA</strong> — última campanha MIA em 24/07; SIA desde 17/07 na Gestão/SZS e 27/07 no SZI. O painel conta as duas: campanhas da SIA aparecem com o prefixo <strong>SIA ·</strong> nas tabelas. A leitura passou a ser direto de <code>pipedrive_deals_readable</code>, porque a tabela pronta do Nekt (<code>…disparos_mia</code>) filtra só <code>_MIA_</code> e é cega aos disparos da SIA.</div>
 
 <div class="alert-box" style="border-color:#fcd34d;background:#fffbeb;color:#b45309;margin-bottom:20px">⏱️ <strong>Mês corrente recalculado a cada rodada.</strong> Antes os dias passados ficavam congelados no valor do dia da publicação — e como SQL, OPP e WON são preenchidos <em>dias depois</em> da criação do lead, o painel subcontava de forma permanente. Correção em 27/07: julho saiu de <strong>34 para 82 OPPs</strong> e de 1.423 para 1.692 SQLs (mesmos leads, agora com o preenchimento que chegou atrasado). Números de meses fechados seguem congelados.</div>
 
-<div style="font-size:10px;color:#9ca3af;margin-bottom:16px">🔍 Funis, tabelas e comparativos são recalculados automaticamente. Os <strong>cards de insight</strong> (todas as abas) são análise manual: SZI apurado em <strong>16/07/2026</strong>, Marketplace e Gestão/SZS em <strong>13/07/2026</strong> — leia-os como diagnóstico daquela data, não como número do dia.</div>
+<div style="font-size:10px;color:#9ca3af;margin-bottom:16px">🔍 Funis, tabelas e comparativos são recalculados automaticamente. Os <strong>cards de insight</strong> são análise manual: SZI reapurado em <strong>28/07/2026</strong> (mês fechando, campanhas MIA + SIA); Marketplace e Gestão/SZS ainda em <strong>13/07/2026</strong> — nessas duas abas, leia os cards como diagnóstico daquela data, não como número do dia.</div>
 
 <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap">
   <label for="date-from" style="font-size:11px;color:#6b7280;font-weight:600">De</label>
@@ -533,21 +533,21 @@
   </div>
 
   <div class="insight-card ok" style="margin-bottom:20px">
-    <div class="ic-eyebrow g">✅ Única fórmula vencedora: D+1</div>
-    <div class="ic-headline">O único WON SZI de julho foi qualificado e agendado no dia seguinte</div>
+    <div class="ic-eyebrow w">⚠ Revisto em 28/07: velocidade não explica o WON</div>
+    <div class="ic-headline">O único WON veio em D+1 — mas as 7 reuniões feitas no mesmo dia (D+0) não fecharam nenhuma</div>
     <div class="mini-funnel" style="margin:10px 0">
-      <div class="mf-block"><div class="mf-n" style="color:#0284c7">02/07</div><div class="mf-l">SQL</div></div>
-      <div class="mf-arrow">→</div>
-      <div class="mf-block"><div class="mf-n" style="color:#a78bfa">03/07</div><div class="mf-l">Reunião</div></div>
-      <div class="mf-arrow">→</div>
-      <div class="mf-block"><div class="mf-n" style="color:#047857">WON</div><div class="mf-l">Repescagem Prop Não Premium 10D — Ponta II</div></div>
+      <div class="mf-block"><div class="mf-n" style="color:#6b7280">7</div><div class="mf-l">D+0 · 0 WON</div></div>
+      <div class="mf-arrow">·</div>
+      <div class="mf-block"><div class="mf-n" style="color:#047857">1</div><div class="mf-l">D+1 · 1 WON</div></div>
+      <div class="mf-arrow">·</div>
+      <div class="mf-block"><div class="mf-n" style="color:#6b7280">11</div><div class="mf-l">D+2 ou mais · 0 WON</div></div>
     </div>
-    <div class="ic-body">Dos 7 SQLs que chegaram a ter reunião este mês: <strong>1 WON</strong>, exatamente o único agendado em D+1. Os outros 6 foram agendados em D+2 a D+4 e continuam abertos, sem desfecho ainda. Amostra pequena, mas repete o padrão observado em junho: quanto mais rápido o agendamento pós-qualificação, maior a chance de fechar.</div>
-    <span class="ic-action g">→ Política: reunião marcada no mesmo dia ou no dia seguinte à qualificação</span>
+    <div class="ic-body">Com as <strong>19 reuniões</strong> do mês na mesa, a leitura anterior ("quanto mais rápido, maior a chance de fechar") <strong>não se sustenta</strong>: o único WON foi de fato um D+1, mas <strong>7 reuniões aconteceram no mesmo dia da qualificação e nenhuma fechou</strong> (4 perdidas, 3 abertas). Com 1 WON em 19 reuniões, não há amostra para afirmar efeito de velocidade — o gargalo mensurável continua sendo <em>chegar</em> à reunião (22% dos SQLs) e ela <em>acontecer</em> (55% de no-show), não o intervalo até ela.</div>
+    <span class="ic-action w">→ Parar de otimizar o intervalo e atacar agendamento + confirmação. Reavaliar velocidade quando houver ≥10 WONs para comparar</span>
   </div>
 
   <div class="alert-box">
-    7 dos <strong>7 SQLs SZI</strong> (Julho/2026) que chegaram a ter <strong>data de reunião preenchida</strong> no Pipedrive, com detalhe individual por deal mapeado
+    As <strong>19 reuniões realizadas</strong> do SZI em julho/2026 (SQLs com <strong>data de reunião preenchida</strong> no Pipedrive), com detalhe individual por deal e intervalo entre qualificação e reunião
   </div>
   <div class="table-wrap"><table>
     <thead><tr>
@@ -561,7 +561,7 @@
   </table></div>
   <div class="legend" style="margin-top:12px">
     <span><span class="leg-dot" style="background:#047857"></span>D+0 mesmo dia</span>
-    <span><span class="leg-dot" style="background:#0369a1"></span>D+1 (onde veio o WON)</span>
+    <span><span class="leg-dot" style="background:#22d3ee"></span>D+1 (onde veio o único WON)</span>
     <span><span class="leg-dot" style="background:#f59e0b"></span>D+2</span>
     <span><span class="leg-dot" style="background:#f97316"></span>D+3–4</span>
     <span><span class="leg-dot" style="background:#ef4444"></span>D+7+</span>
@@ -1303,7 +1303,7 @@ const rows = [
   ["07-14","SZI","LOST NATAL SPOT TIMING SZI MARISTA 144 SPOT",32,4,0,0,0],
   ["07-14","SZI","LOST PONTA DAS CANAS SPOT II MQL SZI JURERE SPOT II",147,15,1,0,0],
   ["07-15","Gestão","120248356104290716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS]  13/07/2026",3,1,1,1,0],
-  ["07-15","Gestão","120248356120130716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS]  13/07/2026",3,0,0,0,0],
+  ["07-15","Gestão","120248356120130716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS]  13/07/2026",3,1,0,0,0],
   ["07-15","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS SKYLINE",102,10,0,0,0],
   ["07-15","Gestão","LOST ETAPAS AVANCADAS SZS GESTAO",320,43,7,3,1],
   ["07-15","Gestão","[SS] [SIA AGENDADORA [LEAD] [BRASIL] [CBO] [LEAD ADS]  13/07/2026",3,1,1,0,0],
@@ -1444,7 +1444,7 @@ const rows = [
   ["07-23","Marketplace","REPESCAGEM FORA DO SLA MKTPL SALVADOR",1,0,0,0,0],
   ["07-23","Marketplace","REPESCAGEM FORA DO SLA MKTPL SANTINHO SPOT",1,0,0,0,0],
   ["07-23","Marketplace","REPESCAGEM FORA DO SLA MKTPL SANTO ANTONIO",2,1,1,0,0],
-  ["07-23","SZI","LOST SQL JURERE II SZI JURERE SPOT II",236,33,17,1,0],
+  ["07-23","SZI","LOST SQL JURERE II SZI JURERE SPOT II",236,33,17,2,0],
   ["07-23","SZI","LOST SQL VISTAS II SZI VISTAS II",199,9,2,0,0],
   ["07-23","SZI","REPESCAGEM FORA DO SLA MKTPL BARRA GRANDE",1,0,0,0,0],
   ["07-24","Gestão","120248356090880716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,1,1,0,0],
@@ -1473,9 +1473,9 @@ const rows = [
   ["07-26","Gestão","120248356104290716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,1,1,0,0],
   ["07-26","Gestão","120248356120130716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",2,0,0,0,0],
   ["07-26","Gestão","120248356129120716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,1,1,0,0],
-  ["07-27","Gestão","120248356090880716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",7,2,1,0,0],
+  ["07-27","Gestão","120248356090880716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",7,3,1,0,0],
   ["07-27","Gestão","120248356094280716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",3,1,1,0,0],
-  ["07-27","Gestão","120248356104290716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,0,0,0,0],
+  ["07-27","Gestão","120248356104290716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,1,1,0,0],
   ["07-27","Gestão","120248356107810716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,0,0,0,0],
   ["07-27","Gestão","120248356129120716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",3,1,1,0,0],
   ["07-27","Gestão","PROP SZS TESTE 2 VERTICAIS SZI ITACARE SPOT",1,1,1,1,0],
@@ -1483,24 +1483,28 @@ const rows = [
   ["07-27","Marketplace","HOSPEDES ROSA SPOT MKTP",6,3,0,0,0],
   ["07-27","Marketplace","HOSPEDES ROSA SPOT MSG2 MKTP",69,13,0,0,0],
   ["07-27","Marketplace","LOST SQL CACHOEIRA MKTPL CACHOEIRA BEACH SPOT",335,285,285,0,0],
-  ["07-27","SZI","SIA · LOST NATAL SPOT NAO RESPONDE SZI NATAL SPOT",268,9,1,0,0],
+  ["07-27","SZI","SIA · LOST NATAL SPOT NAO RESPONDE SZI NATAL SPOT",140,9,1,1,0],
   ["07-27","SZI","SIA · LOST SQL NATAL SPOT NAO RESPONDE SZI NATAL SPOT",10,1,0,0,0],
   ["07-27","SZI","SIA · REPESCAGEM SZI NATAL SPOT",7,1,0,0,0],
   ["07-27","SZI","SIA · REPESCAGEM SZI VISTAS II SPOT",1,0,0,0,0],
-  ["07-28","Gestão","120248356090880716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,0,0,0,0],
-  ["07-28","Gestão","120248356107810716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,0,0,0,0],
+  ["07-28","Gestão","120248356090880716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",3,0,0,0,0],
+  ["07-28","Gestão","120248356107810716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",2,1,1,0,0],
+  ["07-28","Gestão","SIA · LOST TIMING ETAPAS PRE REUNIAO SZS GESTAO",339,0,0,0,0],
   ["07-28","Gestão","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,2],
   ["07-28","Marketplace","LOST MQL NOVO CAMPECHE II SZI NOVO CAMPECHE II",2,0,0,0,0],
-  ["07-28","Marketplace","OPORTUNIDADE DA SEMANA ABRIRAM MKTPL CANASVIEIRAS SPOT",170,23,0,0,0],
-  ["07-28","Marketplace","OPORTUNIDADE DA SEMANA NÃO ABRIRAM MKTPL CANASVIEIRAS SPOT",124,20,2,0,0],
+  ["07-28","Marketplace","OPORTUNIDADE DA SEMANA ABRIRAM MKTPL CANASVIEIRAS SPOT",170,24,0,0,0],
+  ["07-28","Marketplace","OPORTUNIDADE DA SEMANA NÃO ABRIRAM MKTPL CANASVIEIRAS SPOT",124,21,4,0,0],
+  ["07-28","Marketplace","SIA · 2026 07 28 SIA MKT LOST SQL SEM CAMPANHA MKTP CACHOEIRA BEACH",196,0,0,0,0],
+  ["07-28","Marketplace","SIA · PROP DISTRATO FLORIPA MKTP CACHOEIRA BEACH",50,0,0,0,0],
   ["07-28","Outros","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,1],
   ["07-28","SZI","LOST JURERE II SEM CAMPANHA SZI JURERE II",107,9,4,0,0],
-  ["07-28","SZI","LOST MQL A ITACARE SEM CAMPANHA SZI ITACARE",167,6,0,0,0],
-  ["07-28","SZI","LOST MQL NOVO CAMPECHE II SZI NOVO CAMPECHE II",93,5,4,0,0],
-  ["07-28","SZI","LOST VISTAS DE ANITA II SEM CAMPANHA SZI VISTAS DE ANITA II",183,14,1,0,0],
+  ["07-28","SZI","LOST MQL A ITACARE SEM CAMPANHA SZI ITACARE",167,17,0,0,0],
+  ["07-28","SZI","LOST MQL NOVO CAMPECHE II SZI NOVO CAMPECHE II",93,8,5,0,0],
+  ["07-28","SZI","LOST VISTAS DE ANITA II SEM CAMPANHA SZI VISTAS DE ANITA II",183,15,1,0,0],
   ["07-28","SZI","OPORTUNIDADE DA SEMANA ABRIRAM MKTPL CANASVIEIRAS SPOT",1,0,0,0,0],
   ["07-28","SZI","OPORTUNIDADE DA SEMANA NÃO ABRIRAM MKTPL CANASVIEIRAS SPOT",3,0,0,0,0],
-  ["07-28","SZI","SIA · LOST MQL BONITO II SPOT NAO RESPONDE SZI BONITO II SPOT",101,0,0,0,0],
+  ["07-28","SZI","SIA · LOST MQL B ITACARE SZI ITACARE",168,0,0,0,0],
+  ["07-28","SZI","SIA · LOST MQL BONITO II SPOT NAO RESPONDE SZI BONITO II SPOT",101,3,0,0,0],
   ["07-28","SZI","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,1],
   // ── histórico (congelado) ──,
   ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
