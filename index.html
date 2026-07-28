@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 28/07): <strong>18.382 leads</strong> (7.189 SZI · 6.149 MKT · 5.041 Gestão/SZS), <strong>1.703 SQLs</strong>, <strong>89 OPPs</strong> (19 SZI + 10 MKT + 59 Gestão/SZS) e <strong>18 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 31,2% · SZI 9,7% · MKT 0,8%</strong>. <em>Atualização automática · 28/07/2026.</em></div>
+<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 28/07): <strong>18.679 leads</strong> (7.189 SZI · 6.445 MKT · 5.042 Gestão/SZS), <strong>1.705 SQLs</strong>, <strong>90 OPPs</strong> (19 SZI + 10 MKT + 60 Gestão/SZS) e <strong>18 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 31,7% · SZI 9,7% · MKT 0,8%</strong>. <em>Atualização automática · 28/07/2026.</em></div>
 
 <div class="alert-box" style="border-color:#86efac;background:#f0fdf4;color:#15803d">🔄 <strong>Transição MIA → SIA (jul/26):</strong> os disparos passaram a sair pela <strong>SIA</strong> — última campanha MIA em 24/07; SIA desde 17/07 na Gestão/SZS e 27/07 no SZI. O painel conta as duas: campanhas da SIA aparecem com o prefixo <strong>SIA ·</strong> nas tabelas. A leitura passou a ser direto de <code>pipedrive_deals_readable</code>, porque a tabela pronta do Nekt (<code>…disparos_mia</code>) filtra só <code>_MIA_</code> e é cega aos disparos da SIA.</div>
 
@@ -1275,10 +1275,10 @@ const rows = [
   ["07-13","Gestão","2026 07 13 MIA FRANQUIA UBATUBA SP POOL D",11,0,0,0,0],
   ["07-13","Gestão","2026 07 13 MIA FRANQUIA UBATUBA SP POOL E",4,0,1,0,0],
   ["07-13","Gestão","2026 07 13 MIA FRANQUIA ÍLHEUS BA POOL F",2,0,0,0,0],
-  ["07-13","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS HOUSE JDN",79,7,2,0,0],
   ["07-13","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS HOUSE JDN",1,0,0,0,0],
-  ["07-13","Gestão","LOST MOTIVO NA SZS GESTAO",95,16,7,2,0],
+  ["07-13","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS HOUSE JDN",79,7,2,0,0],
   ["07-13","Gestão","LOST MOTIVO NA SZS GESTAO",1,0,0,0,0],
+  ["07-13","Gestão","LOST MOTIVO NA SZS GESTAO",95,16,7,2,0],
   ["07-13","Marketplace","HOSPEDES EM URUBICI MKTPL URUBICI SPOT",122,25,19,0,0],
   ["07-13","Marketplace","LEADS SZS MKTPL PONTA DAS CANAS",8,0,0,0,0],
   ["07-13","Marketplace","LEADS SZS MKTPL PONTA DAS CANAS",376,33,22,0,0],
@@ -1479,7 +1479,7 @@ const rows = [
   ["07-27","Gestão","120248356107810716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,0,0,0,0],
   ["07-27","Gestão","120248356129120716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",3,1,1,0,0],
   ["07-27","Gestão","PROP SZS TESTE 2 VERTICAIS SZI ITACARE SPOT",1,1,1,1,0],
-  ["07-27","Gestão","SIA · LOST ETAPA FUP SZS GESTAO",119,3,2,0,0],
+  ["07-27","Gestão","SIA · LOST ETAPA FUP SZS GESTAO",119,6,2,1,0],
   ["07-27","Marketplace","HOSPEDES ROSA SPOT MKTP",6,3,0,0,0],
   ["07-27","Marketplace","HOSPEDES ROSA SPOT MSG2 MKTP",69,13,0,0,0],
   ["07-27","Marketplace","LOST SQL CACHOEIRA MKTPL CACHOEIRA BEACH SPOT",335,285,285,0,0],
@@ -1487,10 +1487,15 @@ const rows = [
   ["07-27","SZI","SIA · LOST SQL NATAL SPOT NAO RESPONDE SZI NATAL SPOT",10,1,0,0,0],
   ["07-27","SZI","SIA · REPESCAGEM SZI NATAL SPOT",7,1,0,0,0],
   ["07-27","SZI","SIA · REPESCAGEM SZI VISTAS II SPOT",1,0,0,0,0],
+  ["07-28","Gestão","120248356107810716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,0,0,0,0],
   ["07-28","Gestão","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,2],
+  ["07-28","Marketplace","OPORTUNIDADE DA SEMANA ABRIRAM MKTPL CANASVIEIRAS SPOT",170,23,0,0,0],
+  ["07-28","Marketplace","OPORTUNIDADE DA SEMANA NÃO ABRIRAM MKTPL CANASVIEIRAS SPOT",126,18,2,0,0],
   ["07-28","Outros","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,1],
-  ["07-28","SZI","LOST JURERE II SEM CAMPANHA SZI JURERE II",109,7,3,0,0],
-  ["07-28","SZI","LOST VISTAS DE ANITA II SEM CAMPANHA SZI VISTAS DE ANITA II",185,5,1,0,0],
+  ["07-28","SZI","LOST JURERE II SEM CAMPANHA SZI JURERE II",107,7,3,0,0],
+  ["07-28","SZI","LOST VISTAS DE ANITA II SEM CAMPANHA SZI VISTAS DE ANITA II",183,13,1,0,0],
+  ["07-28","SZI","OPORTUNIDADE DA SEMANA ABRIRAM MKTPL CANASVIEIRAS SPOT",1,0,0,0,0],
+  ["07-28","SZI","OPORTUNIDADE DA SEMANA NÃO ABRIRAM MKTPL CANASVIEIRAS SPOT",3,0,0,0,0],
   ["07-28","SZI","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,1],
   // ── histórico (congelado) ──,
   ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
