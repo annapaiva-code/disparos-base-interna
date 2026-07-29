@@ -119,10 +119,10 @@
 <div class="header">
   <div>
     <div class="title">Disparos Base Interna — Funil por Frente</div>
-    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · Jul/26 em andamento (dados até 28/07) · Fonte: Nekt · pipedrive_deals_readable · campanhas MIA + SIA</div>
+    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · Jul/26 em andamento (dados até 29/07) · Fonte: Nekt · pipedrive_deals_readable · campanhas MIA + SIA</div>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
-    <div class="updated" id="updated-label">Atualizado: 28/07/2026 (dados até 28/07)</div>
+    <div class="updated" id="updated-label">Atualizado: 29/07/2026 (dados até 29/07)</div>
   </div>
 </div>
 
@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 28/07): <strong>19.700 leads</strong> (7.621 SZI · 6.691 MKT · 5.385 Gestão/SZS), <strong>1.721 SQLs</strong>, <strong>100 OPPs</strong> (23 SZI + 12 MKT + 64 Gestão/SZS) e <strong>19 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 33,3% · SZI 11,3% · MKT 0,9%</strong>. <em>Atualização automática · 28/07/2026.</em></div>
+<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 29/07): <strong>19.700 leads</strong> (7.621 SZI · 6.691 MKT · 5.385 Gestão/SZS), <strong>1.721 SQLs</strong>, <strong>100 OPPs</strong> (23 SZI + 12 MKT + 64 Gestão/SZS) e <strong>19 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 33,3% · SZI 11,3% · MKT 0,9%</strong>. <em>Atualização automática · 29/07/2026.</em></div>
 
 <div class="alert-box" style="border-color:#86efac;background:#f0fdf4;color:#15803d">🔄 <strong>Transição MIA → SIA (jul/26):</strong> os disparos passaram a sair pela <strong>SIA</strong> — última campanha MIA em 24/07; SIA desde 17/07 na Gestão/SZS e 27/07 no SZI. O painel conta as duas: campanhas da SIA aparecem com o prefixo <strong>SIA ·</strong> nas tabelas. A leitura passou a ser direto de <code>pipedrive_deals_readable</code>, porque a tabela pronta do Nekt (<code>…disparos_mia</code>) filtra só <code>_MIA_</code> e é cega aos disparos da SIA.</div>
 
@@ -147,7 +147,7 @@
   <label for="date-from" style="font-size:11px;color:#6b7280;font-weight:600">De</label>
   <input type="date" id="date-from" value="2026-07-01" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <label for="date-to" style="font-size:11px;color:#6b7280;font-weight:600">Até</label>
-  <input type="date" id="date-to" value="2026-07-28" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
+  <input type="date" id="date-to" value="2026-07-29" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <button id="date-clear-btn" class="refresh-btn" style="padding:5px 11px">Limpar</button>
 </div>
 
@@ -1275,10 +1275,10 @@ const rows = [
   ["07-13","Gestão","2026 07 13 MIA FRANQUIA UBATUBA SP POOL D",11,0,0,0,0],
   ["07-13","Gestão","2026 07 13 MIA FRANQUIA UBATUBA SP POOL E",4,0,1,0,0],
   ["07-13","Gestão","2026 07 13 MIA FRANQUIA ÍLHEUS BA POOL F",2,0,0,0,0],
-  ["07-13","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS HOUSE JDN",1,0,0,0,0],
   ["07-13","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS HOUSE JDN",79,7,2,0,0],
-  ["07-13","Gestão","LOST MOTIVO NA SZS GESTAO",1,0,0,0,0],
+  ["07-13","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS HOUSE JDN",1,0,0,0,0],
   ["07-13","Gestão","LOST MOTIVO NA SZS GESTAO",95,16,7,2,0],
+  ["07-13","Gestão","LOST MOTIVO NA SZS GESTAO",1,0,0,0,0],
   ["07-13","Marketplace","HOSPEDES EM URUBICI MKTPL URUBICI SPOT",122,25,19,0,0],
   ["07-13","Marketplace","LEADS SZS MKTPL PONTA DAS CANAS",8,0,0,0,0],
   ["07-13","Marketplace","LEADS SZS MKTPL PONTA DAS CANAS",376,33,22,0,0],
@@ -1295,8 +1295,8 @@ const rows = [
   ["07-14","Gestão","[SS] [SIA AGENDADORA [LEAD] [BRASIL] [CBO] [LEAD ADS]  13/07/2026",2,1,0,0,0],
   ["07-14","Marketplace","HOSP CANAS CACHOEIRA PONTA MKTPL PONTA DAS CANAS SPOT",80,10,5,0,0],
   ["07-14","Marketplace","OPORTUNIDADE DA SEMANA MKTPL NOVO CAMPECHE SPOT",40,6,1,0,0],
-  ["07-14","Marketplace","OPORTUNIDADE DA SEMANA NAO ABRIRAM MKTPL NOVO CAMPECHE SPOT",3,0,0,0,0],
   ["07-14","Marketplace","OPORTUNIDADE DA SEMANA NAO ABRIRAM MKTPL NOVO CAMPECHE SPOT",40,1,0,0,0],
+  ["07-14","Marketplace","OPORTUNIDADE DA SEMANA NAO ABRIRAM MKTPL NOVO CAMPECHE SPOT",3,0,0,0,0],
   ["07-14","Outros","GESTAO APRESENTACAO EXPANSÃO SZS HOUSE JDN",1,1,1,0,0],
   ["07-14","SZI","LOST BONITO SPOT II SEM CAMPANHA SZI BONITO SPOT II",183,28,5,2,0],
   ["07-14","SZI","LOST MARISTA SEM CAMPANHA SZI MARISTA 144 SPOT",40,5,3,0,0],
@@ -1490,13 +1490,11 @@ const rows = [
   ["07-28","Gestão","120248356090880716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",3,0,0,0,0],
   ["07-28","Gestão","120248356107810716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",3,1,1,0,0],
   ["07-28","Gestão","SIA · LOST TIMING ETAPAS PRE REUNIAO SZS GESTAO",339,1,0,0,0],
-  ["07-28","Gestão","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,2],
   ["07-28","Marketplace","LOST MQL NOVO CAMPECHE II SZI NOVO CAMPECHE II",2,0,0,0,0],
   ["07-28","Marketplace","OPORTUNIDADE DA SEMANA ABRIRAM MKTPL CANASVIEIRAS SPOT",170,26,2,0,0],
   ["07-28","Marketplace","OPORTUNIDADE DA SEMANA NÃO ABRIRAM MKTPL CANASVIEIRAS SPOT",124,22,4,0,0],
   ["07-28","Marketplace","SIA · 2026 07 28 SIA MKT LOST SQL SEM CAMPANHA MKTP CACHOEIRA BEACH",196,3,0,0,0],
   ["07-28","Marketplace","SIA · PROP DISTRATO FLORIPA MKTP CACHOEIRA BEACH",50,1,0,0,0],
-  ["07-28","Outros","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,1],
   ["07-28","SZI","LOST JURERE II SEM CAMPANHA SZI JURERE II",107,10,5,0,0],
   ["07-28","SZI","LOST MQL A ITACARE SEM CAMPANHA SZI ITACARE",167,18,0,0,0],
   ["07-28","SZI","LOST MQL NOVO CAMPECHE II SZI NOVO CAMPECHE II",93,9,6,0,0],
@@ -1510,7 +1508,9 @@ const rows = [
   ["07-28","SZI","SIA · LOST FECHAMENTO ESPECIAL AMBROSI SZI NOVO CAMPECHE II SPOT CAMPAIGN COPIA",4,0,0,0,0],
   ["07-28","SZI","SIA · LOST MQL B ITACARE SZI ITACARE",168,0,0,0,0],
   ["07-28","SZI","SIA · LOST MQL BONITO II SPOT NAO RESPONDE SZI BONITO II SPOT",101,3,0,0,0],
-  ["07-28","SZI","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,2],
+  ["07-29","Gestão","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,2],
+  ["07-29","Outros","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,1],
+  ["07-29","SZI","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,2],
   // ── histórico (congelado) ──,
   ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
   ["06-29","SZI","REPESCAGEM NATAL",2,2,1,0,0],
@@ -1771,7 +1771,7 @@ document.getElementById('date-from').addEventListener('change', applyDateFilter)
 document.getElementById('date-to').addEventListener('change', applyDateFilter);
 document.getElementById('date-clear-btn').addEventListener('click', () => {
   document.getElementById('date-from').value = '2026-01-01';
-  document.getElementById('date-to').value = '2026-07-28';
+  document.getElementById('date-to').value = '2026-07-29';
   applyDateFilter();
 });
 
