@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 29/07): <strong>24.810 leads</strong> (11.529 SZI · 7.887 MKT · 5.391 Gestão/SZS), <strong>1.781 SQLs</strong>, <strong>107 OPPs</strong> (24 SZI + 12 MKT + 70 Gestão/SZS) e <strong>21 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 34,1% · SZI 9,6% · MKT 0,9%</strong>. <em>Atualização automática · 29/07/2026.</em></div>
+<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 29/07): <strong>24.809 leads</strong> (11.529 SZI · 7.887 MKT · 5.390 Gestão/SZS), <strong>1.782 SQLs</strong>, <strong>108 OPPs</strong> (24 SZI + 12 MKT + 71 Gestão/SZS) e <strong>21 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 34,5% · SZI 9,6% · MKT 0,9%</strong>. <em>Atualização automática · 29/07/2026.</em></div>
 
 <div class="alert-box" style="border-color:#86efac;background:#f0fdf4;color:#15803d">🔄 <strong>Transição MIA → SIA (jul/26):</strong> os disparos passaram a sair pela <strong>SIA</strong> — última campanha MIA em 24/07; SIA desde 17/07 na Gestão/SZS e 27/07 no SZI. O painel conta as duas: campanhas da SIA aparecem com o prefixo <strong>SIA ·</strong> nas tabelas. A leitura passou a ser direto de <code>pipedrive_deals_readable</code>, porque a tabela pronta do Nekt (<code>…disparos_mia</code>) filtra só <code>_MIA_</code> e é cega aos disparos da SIA.</div>
 
@@ -1383,7 +1383,7 @@ const rows = [
   ["07-20","SZI","REPESCAGEM SZI MARISTA 144 SPOT",3,1,1,0,0],
   ["07-20","SZI","REPESCAGEM SZI NATAL SPOT",3,0,0,0,0],
   ["07-21","Gestão","120248356090880716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",9,5,3,1,0],
-  ["07-21","Gestão","120248356094280716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",3,2,1,0,0],
+  ["07-21","Gestão","120248356094280716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",2,2,1,0,0],
   ["07-21","Gestão","120248356104290716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",2,1,1,1,0],
   ["07-21","Gestão","120248356107810716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,0,0,0,0],
   ["07-21","Gestão","GESTAO APRESENTACAO EXPANSÃO GW 270 SZS",17,0,0,0,0],
@@ -1451,7 +1451,7 @@ const rows = [
   ["07-24","Gestão","120248356094280716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",2,0,0,0,0],
   ["07-24","Gestão","120248356104290716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,0,0,0,0],
   ["07-24","Gestão","GESTAO APRESENTACAO EXPANSÃO LIFE CO SZS",59,4,0,0,0],
-  ["07-24","Gestão","GESTAO APRESENTACAO EXPANSÃO SMART PITUBA SZS",46,5,0,0,0],
+  ["07-24","Gestão","GESTAO APRESENTACAO EXPANSÃO SMART PITUBA SZS",46,5,1,0,0],
   ["07-24","Gestão","LOST NAO ATENDE RESPONDE SZS GESTAO",80,7,4,3,1],
   ["07-24","Gestão","PROP SZS TESTE 2 VERTICAIS SZI ITACARE SPOT",6,5,1,1,0],
   ["07-24","Gestão","SIA · LOST NAO ATENDE RESPONDE SZS GESTAO",6,1,1,0,0],
@@ -1489,7 +1489,7 @@ const rows = [
   ["07-27","SZI","SIA · REPESCAGEM SZI VISTAS II SPOT",1,0,0,0,0],
   ["07-28","Gestão","120248356090880716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",6,1,1,1,0],
   ["07-28","Gestão","120248356094280716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",1,1,1,1,0],
-  ["07-28","Gestão","120248356107810716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",4,1,1,0,0],
+  ["07-28","Gestão","120248356107810716 [SS] [SIA QUALIFICADORA] [LEAD] [BRASIL] [CBO] [LEAD ADS] 13/07/2026",4,1,1,1,0],
   ["07-28","Gestão","SIA · LOST TIMING ETAPAS PRE REUNIAO SZS GESTAO",339,8,5,1,0],
   ["07-28","Marketplace","LOST MQL NOVO CAMPECHE II SZI NOVO CAMPECHE II",2,0,0,0,0],
   ["07-28","Marketplace","OPORTUNIDADE DA SEMANA ABRIRAM MKTPL CANASVIEIRAS SPOT",171,166,2,0,0],
@@ -1499,7 +1499,7 @@ const rows = [
   ["07-28","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI ITACARE SPOT",488,39,8,0,0],
   ["07-28","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI ITACARE SPOT CAMPAIGN (CÓPIA)",127,12,3,0,0],
   ["07-28","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI JURERE III",482,29,17,0,0],
-  ["07-28","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI MARISTA144 SPOT",480,53,11,0,0],
+  ["07-28","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI MARISTA144 SPOT",480,54,11,0,0],
   ["07-28","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI NATAL",496,21,7,0,0],
   ["07-28","SZI","LOST JURERE II SEM CAMPANHA SZI JURERE II",107,11,5,0,0],
   ["07-28","SZI","LOST MQL A ITACARE SEM CAMPANHA SZI ITACARE",167,22,1,0,0],
@@ -1517,7 +1517,7 @@ const rows = [
   ["07-29","Marketplace","SIA · LOST MQL ILHA DO CAMPECHE SEM CAMPANHA MKTPL",1192,0,0,0,0],
   ["07-29","Outros","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,1],
   ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI BONITO II",317,0,0,0,0],
-  ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI JURERE II",535,2,0,0,0],
+  ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI JURERE II",535,5,0,0,0],
   ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI NATAL SPOT",491,0,0,0,0],
   ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI VISTAS II SPOT",497,0,0,0,0],
   ["07-29","SZI","WON — GANHO RECENTE (DEAL DE MÊS ANTERIOR)",0,0,0,0,2],
