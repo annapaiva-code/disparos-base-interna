@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 31/07): <strong>31.771 leads</strong> (16.409 SZI · 9.139 MKT · 6.220 Gestão/SZS), <strong>1.800 SQLs</strong>, <strong>100 OPPs</strong> (28 SZI + 12 MKT + 59 Gestão/SZS) e <strong>22 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 29,1% · SZI 10,4% · MKT 0,9%</strong>. <em>Atualização automática · 31/07/2026.</em></div>
+<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 31/07): <strong>33.488 leads</strong> (16.409 SZI · 9.139 MKT · 7.937 Gestão/SZS), <strong>1.800 SQLs</strong>, <strong>102 OPPs</strong> (30 SZI + 12 MKT + 59 Gestão/SZS) e <strong>23 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 29,1% · SZI 11,2% · MKT 0,9%</strong>. <em>Atualização automática · 31/07/2026.</em></div>
 
 <div class="alert-box" style="border-color:#86efac;background:#f0fdf4;color:#15803d">🔄 <strong>Transição MIA → SIA (jul/26):</strong> os disparos passaram a sair pela <strong>SIA</strong> — última campanha MIA em 24/07; SIA desde 17/07 na Gestão/SZS e 27/07 no SZI. O painel conta as duas: campanhas da SIA aparecem com o prefixo <strong>SIA ·</strong> nas tabelas. A leitura passou a ser direto de <code>pipedrive_deals_readable</code>, porque a tabela pronta do Nekt (<code>…disparos_mia</code>) filtra só <code>_MIA_</code> e é cega aos disparos da SIA.</div>
 
@@ -1229,7 +1229,7 @@ const rows = [
   ["07-07","Marketplace","2026 07 07 MIA MKT LOST CACHOEIRA MKP CANAS BEACH",192,40,5,0,0],
   ["07-07","Marketplace","OPORTUNIDADE DA SEMANA MKTPL FOZ",149,17,5,0,0],
   ["07-07","SZI","1 LOST NOVO CAMPECHE LEAD SZI PONTA DAS CANAS II",147,33,1,0,0],
-  ["07-07","SZI","2 LOST NOVO CAMPECHE LEAD SZI PONTA DAS CANAS II",146,28,5,0,0],
+  ["07-07","SZI","2 LOST NOVO CAMPECHE LEAD SZI PONTA DAS CANAS II",146,28,5,1,0],
   ["07-07","SZI","3 LOST NOVO CAMPECHE LEAD SZI PONTA DAS CANAS II",147,19,1,0,0],
   ["07-08","Gestão","TESTE SIRIUS MSG4 D+15 SZS EXPANSAO",20,0,0,0,0],
   ["07-08","Gestão","TESTE SIRIUS MSG5 D+22 SZS EXPANSAO",16,0,0,0,0],
@@ -1239,7 +1239,7 @@ const rows = [
   ["07-08","SZI","REPESCAGEM SLA LEAD SZI MARISTA SPOT",2,1,1,0,0],
   ["07-08","SZI","REPESCAGEM SLA LEAD SZI NATAL SPOT",1,0,0,0,0],
   ["07-09","Gestão","2026 07 09 MIA MKT UTIL NUTRICAO SZS GESTAO",2,1,1,0,0],
-  ["07-09","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS SMART AMARALINA",143,7,4,3,1],
+  ["07-09","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS SMART AMARALINA",143,7,4,3,2],
   ["07-09","Gestão","LOST TIMING GESTAO APRESENTACAO SZS",35,14,6,2,0],
   ["07-09","Marketplace","2026 07 09 MIA MKT UTIL MKTPL BATEL SPOT",1,0,0,0,0],
   ["07-09","Marketplace","2026 07 09 MIA MKT UTIL SZI BATEL SPOT",2,0,0,0,0],
@@ -1278,10 +1278,10 @@ const rows = [
   ["07-13","Gestão","2026 07 13 MIA FRANQUIA UBATUBA SP POOL D",11,0,0,0,0],
   ["07-13","Gestão","2026 07 13 MIA FRANQUIA UBATUBA SP POOL E",4,0,1,0,0],
   ["07-13","Gestão","2026 07 13 MIA FRANQUIA ÍLHEUS BA POOL F",2,0,0,0,0],
-  ["07-13","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS HOUSE JDN",79,7,2,0,0],
   ["07-13","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS HOUSE JDN",1,0,0,0,0],
-  ["07-13","Gestão","LOST MOTIVO NA SZS GESTAO",95,16,7,2,0],
+  ["07-13","Gestão","GESTAO APRESENTACAO EXPANSÃO SZS HOUSE JDN",79,7,2,0,0],
   ["07-13","Gestão","LOST MOTIVO NA SZS GESTAO",1,0,0,0,0],
+  ["07-13","Gestão","LOST MOTIVO NA SZS GESTAO",95,16,7,2,0],
   ["07-13","Marketplace","HOSPEDES EM URUBICI MKTPL URUBICI SPOT",122,25,19,0,0],
   ["07-13","Marketplace","LEADS SZS MKTPL PONTA DAS CANAS",8,0,0,0,0],
   ["07-13","Marketplace","LEADS SZS MKTPL PONTA DAS CANAS",376,33,22,0,0],
@@ -1457,8 +1457,8 @@ const rows = [
   ["07-28","Marketplace","SIA · 2026 07 28 SIA MKT LOST SQL SEM CAMPANHA MKTP CACHOEIRA BEACH",196,24,0,0,0],
   ["07-28","Marketplace","SIA · PROP DISTRATO FLORIPA MKTP CACHOEIRA BEACH",50,7,0,0,0],
   ["07-28","SZI","DISPARO SEM CAMPANHA CARIMBADA — NATAL SPOT",0,0,0,0,1],
-  ["07-28","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI ITACARE SPOT",488,40,8,1,0],
-  ["07-28","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI ITACARE SPOT CAMPAIGN (CÓPIA)",127,12,3,0,0],
+  ["07-28","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI ITACARE SPOT",489,41,8,1,0],
+  ["07-28","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI ITACARE SPOT CAMPAIGN (CÓPIA)",126,11,3,0,0],
   ["07-28","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI JURERE III",482,28,18,0,0],
   ["07-28","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI MARISTA144 SPOT",480,57,12,0,0],
   ["07-28","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI NATAL",496,22,8,0,0],
@@ -1483,7 +1483,7 @@ const rows = [
   ["07-29","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI MARISTA144 SPOT",19,0,0,0,0],
   ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI BONITO II",316,22,1,0,0],
   ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI CARAGUA",474,38,0,0,0],
-  ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI JURERE II",534,30,1,0,0],
+  ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI JURERE II",534,30,1,1,0],
   ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI NATAL SPOT",491,27,3,0,0],
   ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI VISTAS II SPOT",497,34,1,0,0],
   ["07-29","SZI","SIA · HOSPEDES CAMPECHE SZI NOVO CAMPECHE SPOT II",300,33,1,0,0],
@@ -1505,6 +1505,7 @@ const rows = [
   ["07-30","SZI","SIA · HOSPEDES SUDESTE 25K RESERVAS SZI JURERE II CAMPAIGN",726,0,0,0,0],
   ["07-30","SZI","SIA · HOSPEDES SUDESTE 25K RESERVAS SZI MARISTA CAMPAIGN",734,0,0,0,0],
   ["07-30","SZI","SIA · HOSPEDES SUDESTE 25K RESERVAS SZI NOVO CAMPECHE II CAMPAIGN",724,0,0,0,0],
+  ["07-31","Gestão","LOST TRANCOSO SZS GESTAO",1717,0,0,0,0],
   // ── histórico (congelado) ──,
   ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
   ["06-29","SZI","REPESCAGEM NATAL",2,2,1,0,0],
