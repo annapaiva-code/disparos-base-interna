@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 31/07): <strong>37.270 leads</strong> (19.110 SZI · 10.220 MKT · 7.937 Gestão/SZS), <strong>1.807 SQLs</strong>, <strong>105 OPPs</strong> (30 SZI + 12 MKT + 62 Gestão/SZS) e <strong>24 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 29,7% · SZI 11,2% · MKT 0,9%</strong>. <em>Atualização automática · 31/07/2026.</em></div>
+<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 31/07): <strong>37.379 leads</strong> (19.115 SZI · 10.231 MKT · 8.030 Gestão/SZS), <strong>1.809 SQLs</strong>, <strong>106 OPPs</strong> (30 SZI + 12 MKT + 63 Gestão/SZS) e <strong>26 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 30,1% · SZI 11,1% · MKT 0,9%</strong>. <em>Atualização automática · 31/07/2026.</em></div>
 
 <div class="alert-box" style="border-color:#86efac;background:#f0fdf4;color:#15803d">🔄 <strong>Transição MIA → SIA (jul/26):</strong> os disparos passaram a sair pela <strong>SIA</strong> — última campanha MIA em 24/07; SIA desde 17/07 na Gestão/SZS e 27/07 no SZI. O painel conta as duas: campanhas da SIA aparecem com o prefixo <strong>SIA ·</strong> nas tabelas. A leitura passou a ser direto de <code>pipedrive_deals_readable</code>, porque a tabela pronta do Nekt (<code>…disparos_mia</code>) filtra só <code>_MIA_</code> e é cega aos disparos da SIA. Desde 31/07 o filtro exige MIA/SIA como token delimitado — antes deixava entrar campanha de Meta Lead Ads chamada <code>[SIA QUALIFICADORA]</code>, que é lead pago (164 leads, 47 SQL e 24 OPP indevidos em julho, nenhum no SZI).</div>
 
@@ -1232,6 +1232,7 @@ const rows = [
   ["07-07","SZI","1 LOST NOVO CAMPECHE LEAD SZI PONTA DAS CANAS II",147,33,1,0,0],
   ["07-07","SZI","2 LOST NOVO CAMPECHE LEAD SZI PONTA DAS CANAS II",146,28,5,1,0],
   ["07-07","SZI","3 LOST NOVO CAMPECHE LEAD SZI PONTA DAS CANAS II",147,19,1,0,0],
+  ["07-07","SZI","DISPARO SEM CAMPANHA CARIMBADA — PONTA DAS CANAS SPOT II",0,0,0,0,1],
   ["07-08","Gestão","TESTE SIRIUS MSG4 D+15 SZS EXPANSAO",20,0,0,0,0],
   ["07-08","Gestão","TESTE SIRIUS MSG5 D+22 SZS EXPANSAO",16,0,0,0,0],
   ["07-08","Marketplace","LOSTS NEVINE MKTPL CAMPECHE SPOT",6,0,0,0,0],
@@ -1475,15 +1476,15 @@ const rows = [
   ["07-28","SZI","SIA · LOST MQL B ITACARE SZI ITACARE",168,12,0,0,0],
   ["07-28","SZI","SIA · LOST MQL BONITO II SPOT NAO RESPONDE SZI BONITO II SPOT",101,9,0,0,0],
   ["07-29","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO SZS HOUSE SANTA CATARINA",39,0,0,0,0],
-  ["07-29","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO SZS MARINE HOME",54,2,1,0,0],
+  ["07-29","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO SZS MARINE HOME",54,2,1,1,0],
   ["07-29","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO SZS SMART EXPRESS PITUBA",44,0,0,0,0],
-  ["07-29","Gestão","SIA · LOST TIMING ETAPAS AVANCADAS SZS GESTAO",422,18,17,4,0],
+  ["07-29","Gestão","SIA · LOST TIMING ETAPAS AVANCADAS SZS GESTAO",422,18,17,4,1],
   ["07-29","Marketplace","SIA · LOST MQL ILHA DO CAMPECHE SEM CAMPANHA MKTPL",1192,157,2,0,0],
   ["07-29","Marketplace","SIA · LOST SQL ILHA DO CAMPECHE SEM CAMPANHA MKTPL CAMPAIGN",19,4,0,0,0],
   ["07-29","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI JURERE III",17,0,0,0,0],
   ["07-29","SZI","EXTRA LOST NAO ATENDE RESPONDE SZI MARISTA144 SPOT",19,0,0,0,0],
   ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI BONITO II",316,22,1,0,0],
-  ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI CARAGUA",474,38,0,0,0],
+  ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI CARAGUA",474,38,1,0,0],
   ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI JURERE II",534,30,2,1,0],
   ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI NATAL SPOT",491,27,3,0,0],
   ["07-29","SZI","SIA · EXTRA LOST NAO ATENDE RESPONDE SZI VISTAS II SPOT",497,34,1,0,0],
@@ -1507,14 +1508,25 @@ const rows = [
   ["07-30","SZI","SIA · HOSPEDES SUDESTE 25K RESERVAS SZI MARISTA CAMPAIGN",734,0,0,0,0],
   ["07-30","SZI","SIA · HOSPEDES SUDESTE 25K RESERVAS SZI NOVO CAMPECHE II CAMPAIGN",724,0,0,0,0],
   ["07-31","Gestão","LOST TRANCOSO SZS GESTAO",1717,9,2,0,0],
+  ["07-31","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO PROVINCIA LA RIOJA SZS",33,0,0,0,0],
+  ["07-31","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO SMART JP SZS",28,0,0,0,0],
+  ["07-31","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO YOU BY FAMA SZS",32,0,0,0,0],
   ["07-31","Marketplace","SIA · LOSTS 3MESES LOSTS R$25K HOSPEDAGEM MKTPL",454,0,0,0,0],
   ["07-31","Marketplace","SIA · OPP DA SEMANA SANTINHO SPOT R$25K HOSPEDAGEM MKTPL",627,0,0,0,0],
+  ["07-31","Marketplace","SIA · REPESCAGEM FORA DO SLA MKTPL CACHOEIRA BEACH 25K HOSPEDAGEM",2,0,0,0,0],
+  ["07-31","Marketplace","SIA · REPESCAGEM FORA DO SLA MKTPL CACHOEIRA SPOT R$25K HOSPEDAGEM",1,0,0,0,0],
+  ["07-31","Marketplace","SIA · REPESCAGEM FORA DO SLA MKTPL FOZ SPOT R$25K HOSPEDAGEM",2,0,0,0,0],
+  ["07-31","Marketplace","SIA · REPESCAGEM FORA DO SLA MKTPL IMBASSAI SPOT R$25K HOSPEDAGEM",1,0,0,0,0],
+  ["07-31","Marketplace","SIA · REPESCAGEM FORADOSLA MKTPL CANASVIEIRAS SPOT 25K HOSPEDAGEM",2,0,0,0,0],
+  ["07-31","Marketplace","SIA · REPESCAGEM FORADOSLA MKTPL NOVO CAMPECHE SPOT 25K HOSPEDAGEM",2,0,0,0,0],
+  ["07-31","Marketplace","SIA · REPESCAGEM MKTPL INGLESES SPOT 25K HOSPEDAGEM",1,0,0,0,0],
   ["07-31","SZI","SIA · HOSPEDES FLORIPA 25K RESERVAS SZI ITACARE SPOT",466,0,0,0,0],
   ["07-31","SZI","SIA · HOSPEDES FLORIPA 25K RESERVAS SZI JURERE III",497,0,0,0,0],
-  ["07-31","SZI","SIA · HOSPEDES FLORIPA 25K RESERVAS SZI NATAL",500,0,0,0,0],
+  ["07-31","SZI","SIA · HOSPEDES FLORIPA 25K RESERVAS SZI NATAL",500,1,0,0,0],
   ["07-31","SZI","SIA · HOSPEDES FLORIPA 25K RESERVAS SZI NOVO CAMPECHE II CAMPAIGN",465,0,0,0,0],
-  ["07-31","SZI","SIA · LOST PROPRIETARIOS SZS 25K RESERVA SZI",216,0,0,0,0],
+  ["07-31","SZI","SIA · LOST PROPRIETARIOS SZS 25K RESERVA SZI",216,1,1,0,0],
   ["07-31","SZI","SIA · LOST REPESCAGEM QUENTES 6 MESES 25K RESERVA SZI",557,1,0,0,0],
+  ["07-31","SZI","SIA · REPESCAGEM 25K RESERVAS SZI NATAL SPOT",5,0,0,0,0],
   // ── histórico (congelado) ──,
   ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
   ["06-29","SZI","REPESCAGEM NATAL",2,2,1,0,0],
