@@ -119,10 +119,10 @@
 <div class="header">
   <div>
     <div class="title">Disparos Base Interna — Funil por Frente</div>
-    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · Jul/26 em andamento (dados até 31/07) · Fonte: Nekt · pipedrive_deals_readable · campanhas MIA + SIA</div>
+    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · Jul/26 em andamento (dados até 01/08) · Fonte: Nekt · pipedrive_deals_readable · campanhas MIA + SIA</div>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
-    <div class="updated" id="updated-label">Atualizado: 31/07/2026 (dados até 31/07)</div>
+    <div class="updated" id="updated-label">Atualizado: 01/08/2026 (dados até 01/08)</div>
   </div>
 </div>
 
@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Julho (até 31/07): <strong>37.379 leads</strong> (19.115 SZI · 10.231 MKT · 8.030 Gestão/SZS), <strong>1.809 SQLs</strong>, <strong>106 OPPs</strong> (30 SZI + 12 MKT + 63 Gestão/SZS) e <strong>26 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 30,1% · SZI 11,1% · MKT 0,9%</strong>. <em>Atualização automática · 31/07/2026.</em></div>
+<div class="alert-box" style="margin-bottom:12px">📅 Agosto (até 01/08): <strong>0 leads</strong> (0 SZI · 0 MKT · 0 Gestão/SZS), <strong>0 SQLs</strong>, <strong>0 OPPs</strong> (0 SZI + 0 MKT + 0 Gestão/SZS) e <strong>0 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão — · SZI — · MKT —</strong>. <em>Atualização automática · 01/08/2026.</em></div>
 
 <div class="alert-box" style="border-color:#86efac;background:#f0fdf4;color:#15803d">🔄 <strong>Transição MIA → SIA (jul/26):</strong> os disparos passaram a sair pela <strong>SIA</strong> — última campanha MIA em 24/07; SIA desde 17/07 na Gestão/SZS e 27/07 no SZI. O painel conta as duas: campanhas da SIA aparecem com o prefixo <strong>SIA ·</strong> nas tabelas. A leitura passou a ser direto de <code>pipedrive_deals_readable</code>, porque a tabela pronta do Nekt (<code>…disparos_mia</code>) filtra só <code>_MIA_</code> e é cega aos disparos da SIA. Desde 31/07 o filtro exige MIA/SIA como token delimitado — antes deixava entrar campanha de Meta Lead Ads chamada <code>[SIA QUALIFICADORA]</code>, que é lead pago (164 leads, 47 SQL e 24 OPP indevidos em julho, nenhum no SZI).</div>
 
@@ -147,7 +147,7 @@
   <label for="date-from" style="font-size:11px;color:#6b7280;font-weight:600">De</label>
   <input type="date" id="date-from" value="2026-07-01" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <label for="date-to" style="font-size:11px;color:#6b7280;font-weight:600">Até</label>
-  <input type="date" id="date-to" value="2026-07-31" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
+  <input type="date" id="date-to" value="2026-08-01" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <button id="date-clear-btn" class="refresh-btn" style="padding:5px 11px">Limpar</button>
 </div>
 
@@ -1187,6 +1187,7 @@
 
 <script>
 const rows = [
+  // ── histórico (congelado) ──,
   ["07-01","Gestão","DECOR URUBICI SPOT SZS",5,2,1,0,0],
   ["07-01","Marketplace","OPORTUNIDADE IMPERDIVEL SZI NOVO CAMPECHE II SPOT ABRIRAM",2,2,2,1,0],
   ["07-01","SZI","OPORTUNIDADE IMPERDIVEL SZI NOVO CAMPECHE II SPOT ABRIRAM",146,21,4,0,0],
@@ -1527,7 +1528,6 @@ const rows = [
   ["07-31","SZI","SIA · LOST PROPRIETARIOS SZS 25K RESERVA SZI",216,1,1,0,0],
   ["07-31","SZI","SIA · LOST REPESCAGEM QUENTES 6 MESES 25K RESERVA SZI",557,1,0,0,0],
   ["07-31","SZI","SIA · REPESCAGEM 25K RESERVAS SZI NATAL SPOT",5,0,0,0,0],
-  // ── histórico (congelado) ──,
   ["06-29","SZI","REPESCAGEM PONTA DAS CANAS II",1,1,1,0,0],
   ["06-29","SZI","REPESCAGEM NATAL",2,2,1,0,0],
   ["06-29","SZI","REPESCAGEM MARISTA 144",2,2,0,0,0],
@@ -1787,7 +1787,7 @@ document.getElementById('date-from').addEventListener('change', applyDateFilter)
 document.getElementById('date-to').addEventListener('change', applyDateFilter);
 document.getElementById('date-clear-btn').addEventListener('click', () => {
   document.getElementById('date-from').value = '2026-01-01';
-  document.getElementById('date-to').value = '2026-07-31';
+  document.getElementById('date-to').value = '2026-08-01';
   applyDateFilter();
 });
 
