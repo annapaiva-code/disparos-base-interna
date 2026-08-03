@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Agosto (até 03/08): <strong>0 leads</strong> (0 SZI · 0 MKT · 0 Gestão/SZS), <strong>0 SQLs</strong>, <strong>0 OPPs</strong> (0 SZI + 0 MKT + 0 Gestão/SZS) e <strong>0 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão — · SZI — · MKT —</strong>. <em>Atualização automática · 03/08/2026.</em></div>
+<div class="alert-box" style="margin-bottom:12px">📅 Agosto (até 03/08): <strong>32 leads</strong> (0 SZI · 0 MKT · 32 Gestão/SZS), <strong>0 SQLs</strong>, <strong>0 OPPs</strong> (0 SZI + 0 MKT + 0 Gestão/SZS) e <strong>1 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão — · SZI — · MKT —</strong>. <em>Atualização automática · 03/08/2026.</em></div>
 
 <div class="alert-box" style="border-color:#86efac;background:#f0fdf4;color:#15803d">🔄 <strong>Transição MIA → SIA (jul/26):</strong> os disparos passaram a sair pela <strong>SIA</strong> — última campanha MIA em 24/07; SIA desde 17/07 na Gestão/SZS e 27/07 no SZI. O painel conta as duas: campanhas da SIA aparecem com o prefixo <strong>SIA ·</strong> nas tabelas. A leitura passou a ser direto de <code>pipedrive_deals_readable</code>, porque a tabela pronta do Nekt (<code>…disparos_mia</code>) filtra só <code>_MIA_</code> e é cega aos disparos da SIA. Desde 31/07 o filtro exige MIA/SIA como token delimitado — antes deixava entrar campanha de Meta Lead Ads chamada <code>[SIA QUALIFICADORA]</code>, que é lead pago (164 leads, 47 SQL e 24 OPP indevidos em julho, nenhum no SZI).</div>
 
@@ -1187,6 +1187,8 @@
 
 <script>
 const rows = [
+  ["08-03","Gestão","LOST TRANCOSO SZS GESTAO · WON DE LEAD DE MÊS ANTERIOR",0,0,0,0,1],
+  ["08-03","Gestão","SIA · GESTAO APRESENTACAO CADENCIA EXPANSÃO SZS HOUSE ESPATODEAS",32,0,0,0,0],
   // ── histórico (congelado) ──,
   ["07-01","Gestão","DECOR URUBICI SPOT SZS",5,2,1,0,0],
   ["07-01","Marketplace","OPORTUNIDADE IMPERDIVEL SZI NOVO CAMPECHE II SPOT ABRIRAM",2,2,2,1,0],
