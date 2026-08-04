@@ -119,10 +119,10 @@
 <div class="header">
   <div>
     <div class="title">Disparos Base Interna — Funil por Frente</div>
-    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · Jul/26 em andamento (dados até 03/08) · Fonte: Nekt · pipedrive_deals_readable · campanhas MIA + SIA</div>
+    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · Jul/26 em andamento (dados até 04/08) · Fonte: Nekt · pipedrive_deals_readable · campanhas MIA + SIA</div>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
-    <div class="updated" id="updated-label">Atualizado: 03/08/2026 (dados até 03/08)</div>
+    <div class="updated" id="updated-label">Atualizado: 04/08/2026 (dados até 04/08)</div>
   </div>
 </div>
 
@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Agosto (até 03/08): <strong>1.952 leads</strong> (933 SZI · 257 MKT · 762 Gestão/SZS), <strong>7 SQLs</strong>, <strong>2 OPPs</strong> (0 SZI + 0 MKT + 2 Gestão/SZS) e <strong>1 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 40,0% · SZI — · MKT 0,0%</strong>. <em>Atualização automática · 03/08/2026.</em></div>
+<div class="alert-box" style="margin-bottom:12px">📅 Agosto (até 04/08): <strong>2.148 leads</strong> (1.129 SZI · 257 MKT · 762 Gestão/SZS), <strong>8 SQLs</strong>, <strong>2 OPPs</strong> (0 SZI + 0 MKT + 2 Gestão/SZS) e <strong>1 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 33,3% · SZI — · MKT 0,0%</strong>. <em>Atualização automática · 04/08/2026.</em></div>
 
 <div class="alert-box" style="border-color:#86efac;background:#f0fdf4;color:#15803d">🔄 <strong>Transição MIA → SIA (jul/26):</strong> os disparos passaram a sair pela <strong>SIA</strong> — última campanha MIA em 24/07; SIA desde 17/07 na Gestão/SZS e 27/07 no SZI. O painel conta as duas: campanhas da SIA aparecem com o prefixo <strong>SIA ·</strong> nas tabelas. A leitura passou a ser direto de <code>pipedrive_deals_readable</code>, porque a tabela pronta do Nekt (<code>…disparos_mia</code>) filtra só <code>_MIA_</code> e é cega aos disparos da SIA. Desde 31/07 o filtro exige MIA/SIA como token delimitado — antes deixava entrar campanha de Meta Lead Ads chamada <code>[SIA QUALIFICADORA]</code>, que é lead pago (164 leads, 47 SQL e 24 OPP indevidos em julho, nenhum no SZI).</div>
 
@@ -147,7 +147,7 @@
   <label for="date-from" style="font-size:11px;color:#6b7280;font-weight:600">De</label>
   <input type="date" id="date-from" value="2026-07-01" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <label for="date-to" style="font-size:11px;color:#6b7280;font-weight:600">Até</label>
-  <input type="date" id="date-to" value="2026-08-03" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
+  <input type="date" id="date-to" value="2026-08-04" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <button id="date-clear-btn" class="refresh-btn" style="padding:5px 11px">Limpar</button>
 </div>
 
@@ -1190,9 +1190,10 @@ const rows = [
   ["08-03","Gestão","LOST TRANCOSO SZS GESTAO · WON DE LEAD DE MÊS ANTERIOR",0,0,0,0,1],
   ["08-03","Gestão","SIA · GESTAO APRESENTACAO CADENCIA EXPANSÃO SZS HOUSE ESPATODEAS",32,5,0,0,0],
   ["08-03","Gestão","SIA · LOST CONTATADOS TIMING SZS GESTAO",263,3,3,2,0],
-  ["08-03","Gestão","SIA · LOST SALVADOR SZS GESTAO",467,2,2,0,0],
+  ["08-03","Gestão","SIA · LOST SALVADOR SZS GESTAO",467,4,3,0,0],
   ["08-03","Marketplace","SIA · LOST CACHOEIRA BEACH E SPOT MKTPL CACHOEIRA SPOT",257,9,2,0,0],
   ["08-03","SZI","SIA · HOSPEDES FLORIPA SZI VISTAS DE ANITA II",486,0,0,0,0],
+  ["08-03","SZI","SIA · LOST CARAGUA ALVARA APROVADO SPOT SZI CARAGUA SPOT",196,0,0,0,0],
   ["08-03","SZI","SIA · LOST TIMING SEM CAMPANHA SZI NOVO CAMPECHE SPOT II",427,0,0,0,0],
   ["08-03","SZI","SIA · REPESCAGEM SLA LEAD SZI ITACARE",4,0,0,0,0],
   ["08-03","SZI","SIA · REPESCAGEM SZI CARAGUA SPOT",1,0,0,0,0],
@@ -1798,7 +1799,7 @@ document.getElementById('date-from').addEventListener('change', applyDateFilter)
 document.getElementById('date-to').addEventListener('change', applyDateFilter);
 document.getElementById('date-clear-btn').addEventListener('click', () => {
   document.getElementById('date-from').value = '2026-01-01';
-  document.getElementById('date-to').value = '2026-08-03';
+  document.getElementById('date-to').value = '2026-08-04';
   applyDateFilter();
 });
 
