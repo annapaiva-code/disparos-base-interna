@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Agosto (até 04/08): <strong>4.514 leads</strong> (2.081 SZI · 782 MKT · 1.053 Gestão/SZS), <strong>26 SQLs</strong>, <strong>3 OPPs</strong> (0 SZI + 0 MKT + 2 Gestão/SZS) e <strong>1 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 12,5% · SZI 0,0% · MKT 0,0%</strong>. <em>Atualização automática · 04/08/2026.</em></div>
+<div class="alert-box" style="margin-bottom:12px">📅 Agosto (até 04/08): <strong>4.891 leads</strong> (2.081 SZI · 1.159 MKT · 1.053 Gestão/SZS), <strong>32 SQLs</strong>, <strong>6 OPPs</strong> (0 SZI + 0 MKT + 3 Gestão/SZS) e <strong>1 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 17,6% · SZI 0,0% · MKT 0,0%</strong>. <em>Atualização automática · 04/08/2026.</em></div>
 
 <div class="alert-box" style="border-color:#86efac;background:#f0fdf4;color:#15803d">🔄 <strong>Transição MIA → SIA (jul/26):</strong> os disparos passaram a sair pela <strong>SIA</strong> — última campanha MIA em 24/07; SIA desde 17/07 na Gestão/SZS e 27/07 no SZI. O painel conta as duas: campanhas da SIA aparecem com o prefixo <strong>SIA ·</strong> nas tabelas. A leitura passou a ser direto de <code>pipedrive_deals_readable</code>, porque a tabela pronta do Nekt (<code>…disparos_mia</code>) filtra só <code>_MIA_</code> e é cega aos disparos da SIA. Desde 31/07 o filtro exige MIA/SIA como token delimitado — antes deixava entrar campanha de Meta Lead Ads chamada <code>[SIA QUALIFICADORA]</code>, que é lead pago (164 leads, 47 SQL e 24 OPP indevidos em julho, nenhum no SZI).</div>
 
@@ -1190,8 +1190,8 @@ const rows = [
   ["08-03","Gestão","LOST TRANCOSO SZS GESTAO · WON DE LEAD DE MÊS ANTERIOR",0,0,0,0,1],
   ["08-03","Gestão","SIA · GESTAO APRESENTACAO CADENCIA EXPANSÃO SZS HOUSE ESPATODEAS",32,5,0,0,0],
   ["08-03","Gestão","SIA · LOST CONTATADOS TIMING SZS GESTAO",263,5,5,2,0],
-  ["08-03","Gestão","SIA · LOST SALVADOR SZS GESTAO",467,48,11,0,0],
-  ["08-03","Marketplace","SIA · LOST CACHOEIRA BEACH E SPOT MKTPL CACHOEIRA SPOT",257,12,2,0,0],
+  ["08-03","Gestão","SIA · LOST SALVADOR SZS GESTAO",467,48,11,1,0],
+  ["08-03","Marketplace","SIA · LOST CACHOEIRA BEACH E SPOT MKTPL CACHOEIRA SPOT",257,19,2,0,0],
   ["08-03","SZI","SIA · HOSPEDES FLORIPA SZI VISTAS DE ANITA II",486,1,0,0,0],
   ["08-03","SZI","SIA · LOST CARAGUA ALVARA APROVADO SPOT SZI CARAGUA SPOT",196,2,1,0,0],
   ["08-03","SZI","SIA · LOST TIMING SEM CAMPANHA SZI NOVO CAMPECHE SPOT II",427,0,0,0,0],
@@ -1199,15 +1199,17 @@ const rows = [
   ["08-03","SZI","SIA · REPESCAGEM SZI CARAGUA SPOT",1,0,0,0,0],
   ["08-03","SZI","SIA · REPESCAGEM SZI NATAL SPOT",13,0,0,0,0],
   ["08-03","SZI","SIA · REPESCAGEM SZI VISTAS II SPOT",2,0,0,0,0],
-  ["08-04","Gestão","SIA · LOST MQL TIMING SZS GESTAO",291,27,0,0,0],
+  ["08-04","Gestão","SIA · LOST MQL TIMING SZS GESTAO",291,31,1,0,0],
   ["08-04","Marketplace","SIA · HOSPEDES FLORIPA SZI JURERE SPOT III",1,1,1,0,0],
-  ["08-04","Marketplace","SIA · LOST FOZ SPOT ESTAPAS PRE REUNIAO MKTPL FOZ SPOT",324,53,2,0,0],
+  ["08-04","Marketplace","SIA · LOST FOZ SPOT ESTAPAS PRE REUNIAO MKTPL FOZ SPOT",324,54,2,0,0],
   ["08-04","Marketplace","SIA · LOST ROSA SUL NORTE E SPOT MKTPL",200,23,0,0,0],
+  ["08-04","Marketplace","SIA · OPORTUNIDADE DA SEMANA ABRIRAM MKTPL SANTO ANTONIO SPOT",231,12,0,0,0],
+  ["08-04","Marketplace","SIA · OPORTUNIDADE DA SEMANA NAO ABRIRAM MKTPL SANTO ANTONIO SPOT",146,7,0,0,0],
   ["08-04","Outros","SIA · LOST SALVADOR SZS GESTAO",1,1,1,1,0],
-  ["08-04","Outros","SIA · PRIMEIRA ABORDAGEM DECOR",597,1,1,0,0],
-  ["08-04","SZI","SIA · HOSPEDES FLORIPA SZI JURERE SPOT III",509,62,2,0,0],
-  ["08-04","SZI","SIA · LOST TIMING SZI ITACARE SPOT",225,30,0,0,0],
-  ["08-04","SZI","SIA · LOST TIMING SZI NATAL SPOT",218,24,0,0,0],
+  ["08-04","Outros","SIA · PRIMEIRA ABORDAGEM DECOR",597,151,5,2,0],
+  ["08-04","SZI","SIA · HOSPEDES FLORIPA SZI JURERE SPOT III",509,63,2,0,0],
+  ["08-04","SZI","SIA · LOST TIMING SZI ITACARE SPOT",225,34,0,0,0],
+  ["08-04","SZI","SIA · LOST TIMING SZI NATAL SPOT",218,29,1,0,0],
   // ── histórico (congelado) ──,
   ["07-01","Gestão","DECOR URUBICI SPOT SZS",5,2,1,0,0],
   ["07-01","Marketplace","OPORTUNIDADE IMPERDIVEL SZI NOVO CAMPECHE II SPOT ABRIRAM",2,2,2,1,0],
