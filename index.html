@@ -119,10 +119,10 @@
 <div class="header">
   <div>
     <div class="title">Disparos Base Interna — Funil por Frente</div>
-    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · Jul/26 em andamento (dados até 05/08) · Fonte: Nekt · pipedrive_deals_readable · campanhas MIA + SIA</div>
+    <div class="subtitle">Pipeline 28 (SZI) · Pipeline 37 (Marketplace) · Jun/26 encerrado · Jul/26 em andamento (dados até 06/08) · Fonte: Nekt · pipedrive_deals_readable · campanhas MIA + SIA</div>
   </div>
   <div style="display:flex;align-items:center;gap:10px;">
-    <div class="updated" id="updated-label">Atualizado: 05/08/2026 (dados até 05/08)</div>
+    <div class="updated" id="updated-label">Atualizado: 06/08/2026 (dados até 06/08)</div>
   </div>
 </div>
 
@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Agosto (até 05/08): <strong>5.586 leads</strong> (2.470 SZI · 1.412 MKT · 1.106 Gestão/SZS), <strong>62 SQLs</strong>, <strong>15 OPPs</strong> (1 SZI + 1 MKT + 7 Gestão/SZS) e <strong>1 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 31,8% · SZI 7,7% · MKT 12,5%</strong>. <em>Atualização automática · 05/08/2026.</em></div>
+<div class="alert-box" style="margin-bottom:12px">📅 Agosto (até 06/08): <strong>6.659 leads</strong> (2.705 SZI · 1.694 MKT · 1.469 Gestão/SZS), <strong>89 SQLs</strong>, <strong>16 OPPs</strong> (1 SZI + 1 MKT + 7 Gestão/SZS) e <strong>1 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 25,0% · SZI 6,7% · MKT 11,1%</strong>. <em>Atualização automática · 06/08/2026.</em></div>
 
 <div class="alert-box" style="border-color:#86efac;background:#f0fdf4;color:#15803d">🔄 <strong>Transição MIA → SIA (jul/26):</strong> os disparos passaram a sair pela <strong>SIA</strong> — última campanha MIA em 24/07; SIA desde 17/07 na Gestão/SZS e 27/07 no SZI. O painel conta as duas: campanhas da SIA aparecem com o prefixo <strong>SIA ·</strong> nas tabelas. A leitura passou a ser direto de <code>pipedrive_deals_readable</code>, porque a tabela pronta do Nekt (<code>…disparos_mia</code>) filtra só <code>_MIA_</code> e é cega aos disparos da SIA. Desde 31/07 o filtro exige MIA/SIA como token delimitado — antes deixava entrar campanha de Meta Lead Ads chamada <code>[SIA QUALIFICADORA]</code>, que é lead pago (164 leads, 47 SQL e 24 OPP indevidos em julho, nenhum no SZI).</div>
 
@@ -147,7 +147,7 @@
   <label for="date-from" style="font-size:11px;color:#6b7280;font-weight:600">De</label>
   <input type="date" id="date-from" value="2026-07-01" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <label for="date-to" style="font-size:11px;color:#6b7280;font-weight:600">Até</label>
-  <input type="date" id="date-to" value="2026-08-05" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
+  <input type="date" id="date-to" value="2026-08-06" style="background:#ffffff;border:1px solid #e5e7eb;border-radius:6px;padding:5px 8px;font-size:12px;color:#374151">
   <button id="date-clear-btn" class="refresh-btn" style="padding:5px 11px">Limpar</button>
 </div>
 
@@ -1206,15 +1206,24 @@ const rows = [
   ["08-04","Marketplace","SIA · LOST FOZ SPOT ESTAPAS PRE REUNIAO MKTPL FOZ SPOT",324,58,3,1,0],
   ["08-04","Marketplace","SIA · LOST ROSA SUL NORTE E SPOT MKTPL",200,24,1,0,0],
   ["08-04","Marketplace","SIA · OPORTUNIDADE DA SEMANA ABRIRAM MKTPL SANTO ANTONIO SPOT",231,14,1,0,0],
-  ["08-04","Marketplace","SIA · OPORTUNIDADE DA SEMANA NAO ABRIRAM MKTPL SANTO ANTONIO SPOT",146,8,0,0,0],
+  ["08-04","Marketplace","SIA · OPORTUNIDADE DA SEMANA NAO ABRIRAM MKTPL SANTO ANTONIO SPOT",146,8,1,0,0],
   ["08-04","Outros","SIA · LOST SALVADOR SZS GESTAO",1,1,1,0,0],
-  ["08-04","Outros","SIA · PRIMEIRA ABORDAGEM DECOR",597,155,18,6,0],
+  ["08-04","Outros","SIA · PRIMEIRA ABORDAGEM DECOR",596,154,32,7,0],
   ["08-04","SZI","SIA · HOSPEDES FLORIPA SZI JURERE SPOT III",509,64,3,1,0],
   ["08-04","SZI","SIA · LOST TIMING SZI ITACARE SPOT",225,39,0,0,0],
   ["08-04","SZI","SIA · LOST TIMING SZI NATAL SPOT",218,32,2,0,0],
-  ["08-05","Marketplace","SIA · LOST MQL MKTPL CACHOEIRA BEACH SPOT",253,13,0,0,0],
-  ["08-05","SZI","SIA · LOST MQL BONITO II SZI BONITO SPOT II CAMPAIGN",140,18,0,0,0],
-  ["08-05","SZI","SIA · LOST NO SHOW NATAL SPOT SZI NATAL SPOT",249,27,5,0,0],
+  ["08-05","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO ACADIA RESIDENCE SZS",25,4,0,0,0],
+  ["08-05","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO TAMISA RESIDENCE SZS",23,2,0,0,0],
+  ["08-05","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO VILLAS MANATEE SZS",22,0,0,0,0],
+  ["08-05","Gestão","SIA · LOST ETAPAS AVANCADAS TIMING NAO ATENDE SZS GESTAO",293,49,6,0,0],
+  ["08-05","Marketplace","SIA · LOST LEAD IN SANTINHO MKTPL",282,49,0,0,0],
+  ["08-05","Marketplace","SIA · LOST MQL MKTPL CACHOEIRA BEACH SPOT",253,40,0,0,0],
+  ["08-05","Outros","SIA · LOST +15 DIAS SANTINHO SPOT DECOR",98,29,3,0,0],
+  ["08-05","Outros","SIA · LOST +15 DIAS SUL DA ILHA DECOR",84,27,1,0,0],
+  ["08-05","Outros","SIA · LOST ULTIMOS 15 DIAS DECOR",12,3,0,0,0],
+  ["08-05","SZI","SIA · LOST MQL BONITO II SZI BONITO SPOT II CAMPAIGN",140,28,0,0,0],
+  ["08-05","SZI","SIA · LOST NO SHOW NATAL SPOT SZI NATAL SPOT",249,30,6,0,0],
+  ["08-05","SZI","SIA · LOST SQL SZI MARISTA 144 SPOT",235,43,1,0,0],
   // ── histórico (congelado) ──,
   ["07-01","Gestão","DECOR URUBICI SPOT SZS",5,2,1,0,0],
   ["07-01","Marketplace","OPORTUNIDADE IMPERDIVEL SZI NOVO CAMPECHE II SPOT ABRIRAM",2,2,2,1,0],
@@ -1815,7 +1824,7 @@ document.getElementById('date-from').addEventListener('change', applyDateFilter)
 document.getElementById('date-to').addEventListener('change', applyDateFilter);
 document.getElementById('date-clear-btn').addEventListener('click', () => {
   document.getElementById('date-from').value = '2026-01-01';
-  document.getElementById('date-to').value = '2026-08-05';
+  document.getElementById('date-to').value = '2026-08-06';
   applyDateFilter();
 });
 
