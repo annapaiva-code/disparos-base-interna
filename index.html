@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div class="alert-box" style="margin-bottom:12px">📅 Agosto (até 07/08): <strong>11.487 leads</strong> (4.867 SZI · 2.629 MKT · 2.867 Gestão/SZS), <strong>145 SQLs</strong>, <strong>48 OPPs</strong> (3 SZI + 3 MKT + 19 Gestão/SZS) e <strong>3 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 44,2% · SZI 10,7% · MKT 20,0%</strong>. <em>Atualização automática · 07/08/2026.</em></div>
+<div class="alert-box" style="margin-bottom:12px">📅 Agosto (até 07/08): <strong>11.530 leads</strong> (4.867 SZI · 2.672 MKT · 2.867 Gestão/SZS), <strong>148 SQLs</strong>, <strong>50 OPPs</strong> (3 SZI + 3 MKT + 20 Gestão/SZS) e <strong>3 WONs no mês</strong> (contados pelo <em>mês do ganho</em>). SQL→OPP por frente: <strong>Gestão 45,5% · SZI 10,3% · MKT 20,0%</strong>. <em>Atualização automática · 07/08/2026.</em></div>
 
 <div class="alert-box" style="border-color:#86efac;background:#f0fdf4;color:#15803d">🔄 <strong>Transição MIA → SIA (jul/26):</strong> os disparos passaram a sair pela <strong>SIA</strong> — última campanha MIA em 24/07; SIA desde 17/07 na Gestão/SZS e 27/07 no SZI. O painel conta as duas: campanhas da SIA aparecem com o prefixo <strong>SIA ·</strong> nas tabelas. A leitura passou a ser direto de <code>pipedrive_deals_readable</code>, porque a tabela pronta do Nekt (<code>…disparos_mia</code>) filtra só <code>_MIA_</code> e é cega aos disparos da SIA. Desde 31/07 o filtro exige MIA/SIA como token delimitado — antes deixava entrar campanha de Meta Lead Ads chamada <code>[SIA QUALIFICADORA]</code>, que é lead pago (164 leads, 47 SQL e 24 OPP indevidos em julho, nenhum no SZI).</div>
 
@@ -1208,14 +1208,14 @@ const rows = [
   ["08-04","Marketplace","SIA · OPORTUNIDADE DA SEMANA ABRIRAM MKTPL SANTO ANTONIO SPOT",231,14,1,0,0],
   ["08-04","Marketplace","SIA · OPORTUNIDADE DA SEMANA NAO ABRIRAM MKTPL SANTO ANTONIO SPOT",146,8,1,0,0],
   ["08-04","Outros","SIA · LOST SALVADOR SZS GESTAO",1,1,1,0,0],
-  ["08-04","Outros","SIA · PRIMEIRA ABORDAGEM DECOR",596,154,43,18,0],
+  ["08-04","Outros","SIA · PRIMEIRA ABORDAGEM DECOR",596,154,43,19,0],
   ["08-04","SZI","SIA · HOSPEDES FLORIPA SZI JURERE SPOT III",509,64,4,1,0],
   ["08-04","SZI","SIA · LOST TIMING SZI ITACARE SPOT",225,39,0,0,0],
   ["08-04","SZI","SIA · LOST TIMING SZI NATAL SPOT",218,32,2,0,0],
   ["08-05","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO ACADIA RESIDENCE SZS",25,4,1,1,0],
   ["08-05","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO TAMISA RESIDENCE SZS",23,2,0,0,0],
   ["08-05","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO VILLAS MANATEE SZS",22,0,0,0,0],
-  ["08-05","Gestão","SIA · LOST ETAPAS AVANCADAS TIMING NAO ATENDE SZS GESTAO",292,49,7,3,0],
+  ["08-05","Gestão","SIA · LOST ETAPAS AVANCADAS TIMING NAO ATENDE SZS GESTAO",292,49,7,4,0],
   ["08-05","Marketplace","SIA · LOST LEAD IN SANTINHO MKTPL",282,52,1,0,0],
   ["08-05","Marketplace","SIA · LOST MQL MKTPL CACHOEIRA BEACH SPOT",253,42,1,0,0],
   ["08-05","Outros","SIA · LOST +15 DIAS SANTINHO SPOT DECOR",98,31,4,3,0],
@@ -1245,8 +1245,9 @@ const rows = [
   ["08-07","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO COTE DUL SOLEIL SZS",25,3,0,0,0],
   ["08-07","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO FLAT FOR SEASONS SZS",21,4,0,0,0],
   ["08-07","Gestão","SIA · GESTAO APRESENTACAO EXPANSÃO RESIDENCIAL FLAMBOYANT SZS",24,5,0,0,0],
-  ["08-07","Gestão","SIA · LOST PROP SAO PAULO SZS GESTAO",681,129,2,0,0],
-  ["08-07","Marketplace","SIA · LOST MQL MKTPL CACHOEIRA BEACH SPOT",252,25,0,0,0],
+  ["08-07","Gestão","SIA · LOST PROP SAO PAULO SZS GESTAO",681,134,3,0,0],
+  ["08-07","Marketplace","SIA · 2026 08 07 SIA MKT REPESC AVANC LOST PONTA I E II MKTPL PONTA DAS CANAS SPOT MKTPL",43,15,0,0,0],
+  ["08-07","Marketplace","SIA · LOST MQL MKTPL CACHOEIRA BEACH SPOT",252,28,0,0,0],
   ["08-07","Marketplace","SIA · MARCO INICIO DAS OBRAS MKTPL SALVADOR SPOT",229,17,0,0,0],
   ["08-07","Marketplace","SIA · REPESCAGEM FORA DO SLA MKTPL BATEL",1,0,0,0,0],
   ["08-07","Marketplace","SIA · REPESCAGEM FORA DO SLA MKTPL FOZ SPOT",2,1,0,0,0],
@@ -1256,13 +1257,13 @@ const rows = [
   ["08-07","Marketplace","SIA · REPESCAGEM FORA DO SLA MKTPL SANTINHO SPOT",2,0,0,0,0],
   ["08-07","Marketplace","SIA · REPESCAGEM FORA SLA MKTPL CANAS BEACH SPOT",2,0,0,0,0],
   ["08-07","Outros","SIA · LOST 15 DIAS MEIRELES SPOT DECOR",38,11,1,1,0],
-  ["08-07","Outros","SIA · LOST 15 DIAS PONTA DAS CANAS SPOT DECOR CAMPAIGN",49,9,0,0,0],
+  ["08-07","Outros","SIA · LOST 15 DIAS PONTA DAS CANAS SPOT DECOR CAMPAIGN",49,10,1,0,0],
   ["08-07","Outros","SIA · LOST 15 DIAS URUBICI II SPOT DECOR",55,15,1,0,0],
   ["08-07","SZI","REPESC AVANÇADOS LOST SQL NAO ATENDE RESPONDE SZI MARISTA 144 SPOT",11,2,0,0,0],
   ["08-07","SZI","SIA · 2026 08 07 SIA MKT REPESC AVANCADOS LOST SQL JURERE II SZI JURERE SPOT II",23,2,0,0,0],
   ["08-07","SZI","SIA · HOSPEDES FLORIPA SZI VISTAS III",668,55,0,0,0],
   ["08-07","SZI","SIA · REPESC MQL LOST SQL JURERE II SZI JURERE SPOT II",182,14,1,0,0],
-  ["08-07","SZI","SIA · REPESC MQL LOST SQL NAO RESPONDE S CAMPANHA SZI MARISTA 144 SPOT",262,30,0,0,0],
+  ["08-07","SZI","SIA · REPESC MQL LOST SQL NAO RESPONDE S CAMPANHA SZI MARISTA 144 SPOT",262,30,1,0,0],
   ["08-07","SZI","SIA · REPESCAGEM ESP SZI NATAL SPOT",9,1,0,0,0],
   ["08-07","SZI","SIA · REPESCAGEM SLA LEAD SZI ITACARE",1,1,0,0,0],
   ["08-07","SZI","SIA · REPESCAGEM SZI CARAGUA SPOT",1,0,0,0,0],
