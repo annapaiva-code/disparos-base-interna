@@ -135,7 +135,7 @@
   <button class="tab-btn"            onclick="showTab('copy',this)">🏆 Copy Campeão</button>
 </div>
 
-<div style="font-size:10px;color:#9ca3af;margin-bottom:16px">🔍 Funis, tabelas e comparativos são recalculados automaticamente. Os <strong>cards de insight</strong> são análise manual: SZI reapurado em <strong>31/07/2026</strong> (julho fechado, campanhas MIA + SIA); Marketplace e Gestão/SZS ainda em <strong>13/07/2026</strong> — nessas duas abas, leia os cards como diagnóstico daquela data, não como número do dia.</div>
+<div style="font-size:10px;color:#9ca3af;margin-bottom:16px">🔍 Funis, tabelas, comparativos e a aba <strong>Copy campeão</strong> são recalculados automaticamente a cada rodada. Os <strong>cards de insight</strong> são análise manual: as quatro frentes foram reapuradas em <strong>11/08/2026</strong> com agosto em curso (até 11/08), já na fonte que enxerga os disparos da SIA.</div>
 
 <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap">
   <label for="date-from" style="font-size:11px;color:#6b7280;font-weight:600">De</label>
@@ -377,94 +377,33 @@
 
   <div class="insights">
     <div class="insight-card alert">
-      <div class="ic-eyebrow r">🔴 O maior ralo: SQL sem horário + no-show</div>
-      <div class="ic-headline">Só 24% dos SQLs chegam a ter reunião marcada — e 53% do que é marcado não acontece</div>
-      <div class="mini-funnel">
-        <div class="mf-block"><div class="mf-n" style="color:#0f172a">268</div><div class="mf-l">SQL</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#f59e0b">64</div><div class="mf-l">Agendadas</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#059669">30</div><div class="mf-l">Realizadas</div></div>
-        <div class="mf-arrow">·</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">34</div><div class="mf-l">No-show</div></div>
-      </div>
-      <div class="ic-body">O topo funciona e cresceu muito: <strong>17.897 leads</strong> no mês (a SIA disparou 5 mil em um único dia, 29/07). O funil quebra em duas etapas seguidas, não uma: <strong>dos 268 SQLs, apenas 64 (23,9%) chegaram a ter horário marcado</strong> — e desses, <strong>34 não aconteceram (53,1%)</strong>, contra 30 reuniões realizadas. Nenhum estava agendado para depois de hoje: é no-show puro. Julho fechou com <strong>SQL→reunião de 11,2%</strong>.</div>
-      <span class="ic-action r">→ Agendar no ato da qualificação (não depois) + confirmação no dia + resgate em 10 min de quem não aparece · Metas: SQL→agendou 24% → 40% · no-show 53% → ≤35%</span>
-      <button class="proof-toggle" id="ptgl-szi1" onclick="toggleProof('szi1')">▼ Ver prova — reapuração do mês (Pipedrive · Nekt)</button>
-      <div class="proof-panel" id="proof-szi1">
-        <div class="proof-src">Fonte: Nekt · pipedrive_deals_readable · pipeline 28 (SZI) · campanhas MIA + SIA · julho/26 fechado · reapurado em 31/07/2026</div>
-        <div class="proof-h">Da auditoria (16/07) ao fechamento do mês (31/07):</div>
-        <table class="proof-tbl" style="margin-bottom:10px">
-          <tr><th>Métrica</th><th style="text-align:right">Auditoria 16/07</th><th style="text-align:right">Julho fechado</th><th style="text-align:right">Leitura</th></tr>
-          <tr><td>SQL qualificados</td><td style="text-align:right">68</td><td style="text-align:right">268</td><td style="text-align:right;color:#16a34a">+294%</td></tr>
-          <tr><td>Agendamentos</td><td style="text-align:right">21</td><td style="text-align:right">64</td><td style="text-align:right;color:#16a34a">+205%</td></tr>
-          <tr><td>Reuniões realizadas (OPP)</td><td style="text-align:right">10</td><td style="text-align:right">30</td><td style="text-align:right;color:#16a34a">+200%</td></tr>
-          <tr><td>SQL→OPP</td><td style="text-align:right">15%</td><td style="text-align:right;color:#ef4444;font-weight:700">11,2%</td><td style="text-align:right;color:#ef4444">piorou</td></tr>
-          <tr><td>No-show</td><td style="text-align:right">12 de 21 (57%)</td><td style="text-align:right;color:#ef4444;font-weight:700">34 de 64 (53%)</td><td style="text-align:right;color:#6b7280">manteve</td></tr>
-          <tr><td>WON (criados no mês)</td><td style="text-align:right">1</td><td style="text-align:right">1</td><td style="text-align:right;color:#ef4444">empate</td></tr>
-        </table>
-        <div class="proof-note">O SQL quase quadruplicou e a venda ficou em 1 — o gargalo absorveu todo o ganho de volume. O no-show é estrutural, não ruído: ficou em ~53% mesmo com 3× mais agendamentos. Duas ressalvas de método corrigidas no caminho: até 27/07 o painel congelava os dias passados e subcontava OPP; e até 31/07 o filtro de campanha deixava entrar Meta Lead Ads chamado "[SIA QUALIFICADORA]" (lead pago), que inflava 24 OPPs no mês — nenhum deles em SZI.</div>
-      </div>
+      <div class="ic-eyebrow r">🔴 A qualificação despencou</div>
+      <div class="ic-headline">Só <strong>0,54%</strong> dos leads viram SQL em agosto — era 1,42% em julho</div>
+      <div class="mini-funnel"><div class="mf-block"><div class="mf-n" style="color:#0f172a">5.879</div><div class="mf-l">Leads</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#f59e0b">609</div><div class="mf-l">Responderam</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#ef4444">32</div><div class="mf-l">SQL</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#7c3aed">6</div><div class="mf-l">Reuniões</div></div></div>
+      <div class="ic-body">O topo encolheu (5.879 leads contra 19.110 em julho inteiro), mas a <strong>taxa</strong> caiu junto: de 1,42% para 0,54% — uma queda de 62% na eficiência de qualificação. A resposta se manteve em 10,4%, ou seja, <strong>o lead responde e mesmo assim não vira SQL</strong>. Com 6 reuniões e nenhuma venda no mês, o SZI é hoje a frente que mais consome disparo e menos entrega.</div>
+      <span class="ic-action r">→ O problema mudou de lugar: em julho era no-show, agora é qualificação. Revisar critério de base antes de aumentar volume.</span>
+      <button class="proof-toggle" id="ptgl-agszi1" onclick="toggleProof('agszi1')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agszi1"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Julho: 19.110 leads → 272 SQL (1,42%). Agosto até 11/08: 5.879 leads → 32 SQL (0,54%) → 6 reuniões → 0 venda.</div></div>
     </div>
 
     <div class="insight-card warn">
-      <div class="ic-eyebrow w">⚠ Mudou o diagnóstico: silêncio pós-qualificação</div>
-      <div class="ic-headline">Não é "aguardando data": 150 dos 224 SQLs perdidos (67%) morreram em "Não atende/Não responde"</div>
-      <div class="mini-funnel">
-        <div class="mf-block"><div class="mf-n" style="color:#0f172a">224</div><div class="mf-l">Perdas SQL</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">150</div><div class="mf-l">Não atende</div></div>
-        <div class="mf-arrow">=</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">67%</div><div class="mf-l">das perdas</div></div>
-      </div>
-      <div class="ic-body">Com julho fechado: <strong>224 dos 268 SQLs foram perdidos</strong> e a causa dominante é <strong>silêncio depois de qualificar — 150 casos (67%)</strong>. O lead responde ao disparo, é qualificado, e some antes de marcar. Fit errado (perfil/valor/prazo) responde por 28 (12,5%) e desinteresse declarado por 25 (11%): o problema é muito maior de <em>alcance na hora de agendar</em> do que de público. A proporção se manteve exata entre 28 e 31/07, com 71 SQLs a mais — não é ruído de amostra.</div>
-      <span class="ic-action w">→ Qualificar só com horário aceito no mesmo contato + segunda tentativa por outro canal (ligação/áudio) antes de dar por perdido · Meta: perda por silêncio 67% → ≤45%</span>
-      <button class="proof-toggle" id="ptgl-szi2" onclick="toggleProof('szi2')">▼ Ver prova — motivo das 153 perdas de SQL</button>
-      <div class="proof-panel" id="proof-szi2">
-        <div class="proof-src">Fonte: Nekt · pipedrive_deals_readable · pipeline 28 (SZI) · campanhas MIA + SIA · SQLs de julho/26 com status lost · reapurado em 31/07/2026</div>
-        <div class="proof-h">Motivo das 224 perdas de SQL (agrupado):</div>
-        <table class="proof-tbl">
-          <tr><th>Motivo</th><th style="text-align:right">Perdas</th><th style="text-align:right">%</th></tr>
-          <tr><td>Não atende / Não responde (inclui "sem resposta — disparo 24h")</td><td style="text-align:right;color:#ef4444;font-weight:700">150</td><td style="text-align:right;color:#6b7280">67,0%</td></tr>
-          <tr><td>Perfil / fit errado (valor, tamanho, prazo, SPE, jurídico, moradia)</td><td style="text-align:right;color:#f59e0b;font-weight:700">28</td><td style="text-align:right;color:#6b7280">12,5%</td></tr>
-          <tr><td>Não tem interesse / sem interesse</td><td style="text-align:right;color:#f59e0b;font-weight:700">25</td><td style="text-align:right;color:#6b7280">11,2%</td></tr>
-          <tr><td>Timing</td><td style="text-align:right;color:#6b7280">13</td><td style="text-align:right;color:#6b7280">5,8%</td></tr>
-          <tr><td>Outros (localização, concorrência, contato inválido, fornecedor próprio)</td><td style="text-align:right;color:#6b7280">8</td><td style="text-align:right;color:#6b7280">3,6%</td></tr>
-        </table>
-        <div class="proof-note">A auditoria de 16/07 via "Aguardando data" liderando com 42% de 33 perdas — amostra pequena, e era etapa, não motivo. Com 224 perdas classificadas por <code>motivo_da_perda</code>, o silêncio pós-qualificação é a causa dominante e estável (67% tanto em 28/07 quanto no fechamento). As duas leituras apontam para a mesma ação: tirar o lead do limbo entre qualificar e marcar.</div>
-      </div>
+      <div class="ic-eyebrow w">⚠ Três empreendimentos queimando base</div>
+      <div class="ic-headline">Natal, Itacaré e Novo Campeche II somam <strong>2.329 leads</strong>, 15 SQLs e <strong>nenhuma reunião</strong></div>
+      <div class="mini-funnel"><div class="mf-block"><div class="mf-n" style="color:#0f172a">2.329</div><div class="mf-l">Leads</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#f59e0b">15</div><div class="mf-l">SQL</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#ef4444">0</div><div class="mf-l">Reuniões</div></div></div>
+      <div class="ic-body">Itacaré recebeu <strong>1.091 leads</strong> e produziu 4 SQLs e zero reunião; Novo Campeche II, 721 leads → 3 SQL → zero; Natal, 517 leads → 8 SQL → zero. Juntos são <strong>40% de todo o disparo do SZI no mês</strong> sem um único agendamento. Não é problema de volume de topo — é base errada ou oferta que não sustenta a conversa até o agendamento.</div>
+      <span class="ic-action w">→ Pausar Itacaré e Novo Campeche II até revisar a copy; Natal qualifica mas não agenda — testar agendamento no ato da qualificação.</span>
+      <button class="proof-toggle" id="ptgl-agszi2" onclick="toggleProof('agszi2')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agszi2"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Por empreendimento (agosto): Itacaré 1.091 leads/4 SQL/0 OPP · Novo Campeche II 721/3/0 · Natal 517/8/0 · Marista 144 738/6/1 · Bonito II 140/2/0.</div></div>
     </div>
 
     <div class="insight-card ok">
-      <div class="ic-eyebrow g">📊 SQL→reunião por empreendimento</div>
-      <div class="ic-headline">Jurerê III virou o gargalo (41 SQLs → 1 reunião, 2,4%); Natal se recuperou de zero para 5 reuniões; Novo Campeche II segue o teto (18,9%)</div>
-      <div class="mini-funnel">
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">2,4%</div><div class="mf-l">Jurerê III</div></div>
-        <div class="mf-arrow">vs</div>
-        <div class="mf-block"><div class="mf-n" style="color:#059669">18,9%</div><div class="mf-l">Novo Campeche II</div></div>
-        <div class="mf-arrow">·</div>
-        <div class="mf-block"><div class="mf-n" style="color:#f59e0b">11,2%</div><div class="mf-l">média frente</div></div>
-      </div>
-      <div class="ic-body">A conversão SQL→reunião varia de 2,4% a 25% entre empreendimentos. <strong>Jurerê III é o pior caso: 41 SQLs geraram só 5 agendamentos e 1 reunião</strong>. <strong>Itacaré vaza em escala (60 SQLs → 3 reuniões, 5,0%)</strong>, mantendo o padrão de região errada da auditoria. <strong>Correção importante: Natal deixou de ser o epicentro</strong> — em 28/07 tinha 6 agendamentos e nenhuma reunião; fechou o mês com 10 agendamentos e <strong>5 realizadas (11,9%)</strong>. No topo, <strong>Novo Campeche II (37 → 7, 18,9%)</strong> e <strong>Marista 144 (35 → 6, 17,1%)</strong> mostram o teto na mesma operação.</div>
-      <span class="ic-action g">→ Atacar Jurerê III e Itacaré pelo <em>agendamento</em> (qualificar região antes de qualificar o lead) e replicar o roteiro de Novo Campeche II/Marista · Meta: Jurerê III 2,4% → 12% · Itacaré 5% → 13%</span>
-      <button class="proof-toggle" id="ptgl-szi3" onclick="toggleProof('szi3')">▼ Ver prova — SQL→OPP por empreendimento (julho 1–28)</button>
-      <div class="proof-panel" id="proof-szi3">
-        <div class="proof-src">Fonte: Nekt · pipedrive_deals_readable · pipeline 28 (SZI) · campanhas MIA + SIA · julho/26 fechado · reapurado em 31/07/2026 · empreendimentos com ≥5 SQL</div>
-        <div class="proof-h">Conversão SQL → agendamento → reunião (OPP) por empreendimento:</div>
-        <table class="proof-tbl">
-          <tr><th>Empreendimento</th><th style="text-align:right">Leads</th><th style="text-align:right">SQL</th><th style="text-align:right">Agendou</th><th style="text-align:right">Reunião</th><th style="text-align:right">SQL→OPP</th></tr>
-          <tr><td>Itacaré Spot</td><td style="text-align:right">3.472</td><td style="text-align:right">60</td><td style="text-align:right">11</td><td style="text-align:right">3</td><td style="text-align:right;color:#ef4444;font-weight:700">5,0%</td></tr>
-          <tr><td>Natal Spot</td><td style="text-align:right">2.281</td><td style="text-align:right">42</td><td style="text-align:right">10</td><td style="text-align:right">5</td><td style="text-align:right;color:#f59e0b">11,9%</td></tr>
-          <tr><td>Jurerê Spot III</td><td style="text-align:right">1.148</td><td style="text-align:right">41</td><td style="text-align:right;color:#ef4444;font-weight:700">5</td><td style="text-align:right">1</td><td style="text-align:right;color:#ef4444;font-weight:700">2,4%</td></tr>
-          <tr><td>Novo Campeche Spot II</td><td style="text-align:right">2.686</td><td style="text-align:right">37</td><td style="text-align:right">11</td><td style="text-align:right">7</td><td style="text-align:right;color:#16a34a;font-weight:700">18,9%</td></tr>
-          <tr><td>Marista 144 Spot</td><td style="text-align:right">1.705</td><td style="text-align:right">35</td><td style="text-align:right">11</td><td style="text-align:right">6</td><td style="text-align:right;color:#16a34a">17,1%</td></tr>
-          <tr><td>Jurerê Spot II</td><td style="text-align:right">1.945</td><td style="text-align:right">24</td><td style="text-align:right">4</td><td style="text-align:right">3</td><td style="text-align:right;color:#f59e0b">12,5%</td></tr>
-          <tr><td>Vistas de Anitá II</td><td style="text-align:right">1.689</td><td style="text-align:right">11</td><td style="text-align:right">5</td><td style="text-align:right">1</td><td style="text-align:right;color:#f59e0b">9,1%</td></tr>
-          <tr><td>Ponta das Canas Spot II</td><td style="text-align:right">535</td><td style="text-align:right">8</td><td style="text-align:right">3</td><td style="text-align:right">2</td><td style="text-align:right;color:#16a34a">25,0%</td></tr>
-          <tr><td>Bonito Spot II</td><td style="text-align:right">1.350</td><td style="text-align:right">7</td><td style="text-align:right">2</td><td style="text-align:right">1</td><td style="text-align:right;color:#16a34a">14,3%</td></tr>
-        </table>
-        <div class="proof-note">Dois padrões distintos, que pedem ações distintas. <strong>Não conseguem agendar:</strong> Jurerê III (5 agendamentos em 41 SQLs), Itacaré (11 em 60) e Jurerê II (4 em 24) — problema de interesse/região, não de confirmação. <strong>Agendam e perdem na hora:</strong> Itacaré perde 8 dos 11 agendados e Natal perde 5 dos 10. Novo Campeche II e Marista 144 agendam bem (11 cada) e realizam mais da metade — é o roteiro a copiar.</div>
-      </div>
+      <div class="ic-eyebrow g">📊 Quem ainda agenda</div>
+      <div class="ic-headline">Caraguá e Jurerê III convertem <strong>metade dos SQLs em reunião</strong> — o resto do SZI, quase nada</div>
+      <div class="mini-funnel"><div class="mf-block"><div class="mf-n" style="color:#0f172a">1.010</div><div class="mf-l">Leads</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#f59e0b">8</div><div class="mf-l">SQL</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#059669">4</div><div class="mf-l">Reuniões</div></div></div>
+      <div class="ic-body">Com 501 e 509 leads, <strong>Caraguá</strong> e <strong>Jurerê Spot III</strong> fizeram 4 SQLs cada e levaram 2 cada um até a reunião — <strong>50% de SQL→reunião</strong>, contra 18,8% da média do SZI. São bases pequenas, mas é o único lugar da frente onde a conversa chega ao fim. Marista 144 aparece logo atrás (738 leads → 6 SQL → 1 reunião).</div>
+      <span class="ic-action g">→ Replicar o roteiro de Caraguá/Jurerê III nas bases travadas antes de trocar o público.</span>
+      <button class="proof-toggle" id="ptgl-agszi3" onclick="toggleProof('agszi3')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agszi3"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">SQL→reunião (agosto): Caraguá 4→2 (50%) · Jurerê III 4→2 (50%) · Marista 144 6→1 (16,7%) · Natal 8→0 · Itacaré 4→0 · Novo Campeche II 3→0.</div></div>
     </div>
   </div>
 
@@ -489,25 +428,25 @@
 
   <div style="margin-top:32px;margin-bottom:18px;display:flex;align-items:center;gap:12px">
     <div style="flex:1;height:1px;background:#dbeafe"></div>
-    <div style="font-size:11px;font-weight:700;color:#0369a1;text-transform:uppercase;letter-spacing:.08em">⚡ SQL → OPP — Análise do Mês (Julho)</div>
+    <div style="font-size:11px;font-weight:700;color:#0369a1;text-transform:uppercase;letter-spacing:.08em">⚡ SQL → OPP — Análise do Mês (Agosto)</div>
     <div style="flex:1;height:1px;background:#dbeafe"></div>
   </div>
 
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:20px">
     <div class="ss-card" style="border-radius:10px 0 0 10px">
-      <div class="ss-label">SQLs SZI — Julho</div>
-      <div class="ss-value" style="color:#0f172a">51</div>
-      <div class="ss-sub">data_de_qualificacao preenchida · a partir 01/07</div>
+      <div class="ss-label">SQLs SZI — Agosto</div>
+      <div class="ss-value" style="color:#0f172a">32</div>
+      <div class="ss-sub">data_de_qualificacao preenchida · agosto até 11/08</div>
     </div>
     <div class="ss-card" style="border-color:#06b6d433">
       <div class="ss-label" style="color:#0369a1">Com Reunião Marcada</div>
-      <div class="ss-value" style="color:#0369a1">7</div>
-      <div class="ss-sub">13,7% dos SQLs · data_da_reuniao preenchida</div>
+      <div class="ss-value" style="color:#0369a1">6</div>
+      <div class="ss-sub">18,8% dos SQLs · data_da_reuniao preenchida</div>
     </div>
     <div class="ss-card" style="border-color:#ef444433;border-radius:0 10px 10px 0">
       <div class="ss-label" style="color:#ef4444">Sem Reunião Agendada</div>
-      <div class="ss-value" style="color:#ef4444">44</div>
-      <div class="ss-sub">86,3% dos SQLs · gargalo principal</div>
+      <div class="ss-value" style="color:#ef4444">26</div>
+      <div class="ss-sub">81,3% dos SQLs · gargalo principal</div>
     </div>
   </div>
 
@@ -527,19 +466,15 @@
 
   </div>
 
-  <div class="insight-card ok" style="margin-bottom:20px">
-    <div class="ic-eyebrow w">⚠ Revisto em 31/07: velocidade não explica o WON</div>
-    <div class="ic-headline">O único WON veio em D+1 — mas as 8 reuniões feitas no mesmo dia (D+0) não fecharam nenhuma</div>
-    <div class="mini-funnel" style="margin:10px 0">
-      <div class="mf-block"><div class="mf-n" style="color:#6b7280">8</div><div class="mf-l">D+0 · 0 WON</div></div>
-      <div class="mf-arrow">·</div>
-      <div class="mf-block"><div class="mf-n" style="color:#047857">5</div><div class="mf-l">D+1 · 1 WON</div></div>
-      <div class="mf-arrow">·</div>
-      <div class="mf-block"><div class="mf-n" style="color:#6b7280">17</div><div class="mf-l">D+2 ou mais · 0 WON</div></div>
+  <div class="insight-card warn">
+      <div class="ic-eyebrow w">⚠ Agosto ainda não vendeu</div>
+      <div class="ic-headline">6 reuniões realizadas, <strong>0 venda</strong> — no trimestre o SZI tem 2 WON, ambos fora de agosto</div>
+      
+      <div class="ic-body">As 6 reuniões de agosto não geraram venda até 11/08. Olhando a janela de 90 dias, o SZI tem <strong>2 WON</strong>: Ponta das Canas Spot II (campanha de fechamento de mês, 455 leads → 13 SQL → 2 reuniões → 2 vendas) e Jurerê Spot III. É pouco dado para conclusão de causa — o que dá para afirmar é que <strong>o volume de agosto não produziu venda nenhuma</strong>.</div>
+      <span class="ic-action w">→ Não tirar conclusão de velocidade/roteiro com 6 reuniões. Acompanhar o fechamento das reuniões abertas antes de mudar o discurso.</span>
+      <button class="proof-toggle" id="ptgl-agszi4" onclick="toggleProof('agszi4')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agszi4"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Trimestre (jun–ago): Ponta das Canas II — FECHAMENTO MES INVESTIDORES: 455 leads, 13 SQL, 2 OPP, 2 WON. Agosto isolado: 6 OPP, 0 WON.</div></div>
     </div>
-    <div class="ic-body">Com as <strong>30 reuniões</strong> do mês fechado na mesa, a leitura anterior ("quanto mais rápido, maior a chance de fechar") <strong>não se sustenta</strong>: o único WON foi de fato um D+1, mas <strong>8 reuniões aconteceram no mesmo dia da qualificação e nenhuma fechou</strong> (5 perdidas, 3 abertas) — e outras 4 em D+1 também não fecharam. Com 1 WON em 30 reuniões não há amostra para afirmar efeito de velocidade. O gargalo mensurável continua sendo <em>chegar</em> à reunião (24% dos SQLs) e ela <em>acontecer</em> (53% de no-show), não o intervalo até ela.</div>
-    <span class="ic-action w">→ Parar de otimizar o intervalo e atacar agendamento + confirmação. Reavaliar velocidade quando houver ≥10 WONs para comparar</span>
-  </div>
 
   <div class="alert-box">
     As <strong>30 reuniões realizadas</strong> do SZI em julho/2026 (SQLs com <strong>data de reunião preenchida</strong> no Pipedrive), com detalhe individual por deal e intervalo entre qualificação e reunião
@@ -643,73 +578,34 @@
   </div>
 
   <div class="insights">
-    <div class="insight-card warn">
-      <div class="ic-eyebrow w">⚠ Pior SQL→OPP da Seazone</div>
-      <div class="ic-headline">MKT fecha até 13/07 com só 2 de 50 SQLs confirmados em reunião — nenhuma frente converte pior</div>
-      <div class="mini-funnel">
-        <div class="mf-block"><div class="mf-n" style="color:#0284c7">50</div><div class="mf-l">SQL (jul)</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">2</div><div class="mf-l">OPP confirmada</div></div>
-        <div class="mf-arrow">=</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">4,0%</div><div class="mf-l">SQL→OPP</div></div>
-      </div>
-      <div class="ic-body">SZI confirma 13,7% dos SQLs em reunião (7 de 51) e Gestão/SZS confirma 32,1% (17 de 53) — MKT confirmou só 2 dos 50 este mês. O volume de SQL mais que triplicou (era 15 em 09/07), puxado por Cachoeira Beach e Hóspedes Reserva, mas quase nada vira reunião: 39 dos 48 SQLs sem OPP seguem/ficaram em "Aguardando data" sem nunca receber proposta de horário.</div>
-      <span class="ic-action w">→ Atacar o agendamento: o gargalo de MKT é transformar SQL em reunião, não gerar SQL</span>
-      <button class="proof-toggle" id="ptgl-mkt1" onclick="toggleProof('mkt1')">▼ Ver prova — dados reais extraídos do Pipedrive</button>
-      <div class="proof-panel" id="proof-mkt1">
-        <div class="proof-src">Fonte: Nekt · AWS Athena · pipedrive_marketing_deals_disparos_mia · consultado 13/07/2026 · SQLs MKT de julho sem data_da_reunião</div>
-        <div class="proof-h">Estágio dos 48 SQLs MKT sem OPP confirmada:</div>
-        <table class="proof-tbl">
-          <tr><th>Estágio</th><th>Status</th><th style="text-align:right">Deals</th></tr>
-          <tr><td>Aguardando data</td><td style="color:#f59e0b">Open</td><td style="text-align:right;color:#f59e0b;font-weight:700">21</td></tr>
-          <tr><td>Aguardando data</td><td style="color:#ef4444">Lost</td><td style="text-align:right;color:#ef4444;font-weight:700">18</td></tr>
-          <tr><td>Reunião Agendada</td><td style="color:#f59e0b">Open</td><td style="text-align:right;color:#f59e0b;font-weight:700">5</td></tr>
-          <tr><td>Reunião Agendada</td><td style="color:#ef4444">Lost</td><td style="text-align:right;color:#ef4444;font-weight:700">3</td></tr>
-          <tr><td>No show</td><td style="color:#f59e0b">Open</td><td style="text-align:right;color:#f59e0b;font-weight:700">1</td></tr>
-        </table>
-        <div class="proof-note">As 2 OPPs confirmadas vieram de Cachoeira Beach (D+0, aberta) e de um SQL de 01/07 agendado só em 10/07 (D+9, lost). Os 8 SQLs em "Reunião Agendada" mostram data prometida mas sem <em>data_da_reunião</em> preenchida — não entram no funil oficial. Cachoeira Beach (14 SQLs) e Hóspedes Reserva Ponta (8) concentram quase metade dos SQLs do mês.</div>
-      </div>
+    <div class="insight-card alert">
+      <div class="ic-eyebrow r">🔴 O SQL do Marketplace era carimbo, não qualificação</div>
+      <div class="ic-headline"><strong>1.167 dos SQLs de julho</strong> foram marcados em 3 dias e renderam 2 reuniões</div>
+      <div class="mini-funnel"><div class="mf-block"><div class="mf-n" style="color:#ef4444">660</div><div class="mf-l">SQL em 24/07</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#7c3aed">2</div><div class="mf-l">Reuniões</div></div></div>
+      <div class="ic-body">Em 24/07 o Marketplace carimbou <strong>660 SQLs num único dia</strong> — que viraram 2 reuniões. Em 23/07 foram 222 e em 27/07 mais 285, ambos com <strong>zero</strong> reunião. Para comparar: o maior dia do SZI no mesmo período foi 53. Isso inflou o SQL de julho para 1.335 e é a razão de o "SQL→OPP" da frente parecer catastrófico. Em agosto, sem o carimbo, sobraram <strong>18 SQLs reais</strong> e 4 reuniões (22,2%).</div>
+      <span class="ic-action r">→ Tratar SQL do Marketplace de julho como não-comparável. A régua honesta da frente é a de agosto: 18 SQL, 4 reuniões.</span>
+      <button class="proof-toggle" id="ptgl-agmkt1" onclick="toggleProof('agmkt1')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agmkt1"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">SQL por dia de qualificação (MKT): 24/07 = 660 SQL / 2 OPP · 27/07 = 285 / 0 · 23/07 = 222 / 0 · demais dias ≤ 39. Controle SZI: máximo de 53 num dia.</div></div>
     </div>
 
-    <div class="insight-card alert">
-      <div class="ic-eyebrow r">🔴 Gargalo por silêncio</div>
-      <div class="ic-headline">1.104 perdas MKT (quase 9 de cada 10) são por "Não atende/Não responde"</div>
-      <div class="mini-funnel">
-        <div class="mf-block"><div class="mf-n" style="color:#0f172a">1.235</div><div class="mf-l">Perdas (jul)</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">1.104</div><div class="mf-l">Não atende</div></div>
-        <div class="mf-arrow">=</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">89,4%</div><div class="mf-l">do total</div></div>
-      </div>
-      <div class="ic-body">Mesmo padrão do SZI: a maioria das perdas MKT nem chega a responder. "Não tem interesse" (67) é o segundo motivo, ~16× menor. Ainda assim, com 384 respostas em 1.826 leads (21,0%), MKT teve boa taxa de resposta em julho — o problema não é o topo, é converter SQL em reunião.</div>
-      <span class="ic-action r">→ Revisar segmentação de base antes do próximo disparo MKT</span>
-      <button class="proof-toggle" id="ptgl-mkt2" onclick="toggleProof('mkt2')">▼ Ver prova — dados reais extraídos do Pipedrive</button>
-      <div class="proof-panel" id="proof-mkt2">
-        <div class="proof-src">Fonte: Nekt · AWS Athena · pipedrive_marketing_deals_disparos_mia · consultado 13/07/2026 · deals MKT criados em julho/26</div>
-        <div class="proof-h">Motivo de perda — MKT, julho/26 (1.235 deals lost):</div>
-        <table class="proof-tbl">
-          <tr><th>Motivo</th><th style="text-align:right">Deals</th><th style="text-align:right">%</th></tr>
-          <tr><td>Não atende/Não responde</td><td style="text-align:right;color:#ef4444;font-weight:700">1.104</td><td style="text-align:right;color:#6b7280">89,4%</td></tr>
-          <tr><td>Não tem interesse</td><td style="text-align:right;color:#f59e0b;font-weight:700">67</td><td style="text-align:right;color:#6b7280">5,4%</td></tr>
-          <tr><td>Contato Inválido</td><td style="text-align:right;color:#6b7280">37</td><td style="text-align:right;color:#6b7280">3,0%</td></tr>
-          <tr><td>Timing</td><td style="text-align:right;color:#6b7280">7</td><td style="text-align:right;color:#6b7280">0,6%</td></tr>
-          <tr><td>Outros (Seguiu outra cota, Localização, Perfil)</td><td style="text-align:right;color:#6b7280">20</td><td style="text-align:right;color:#6b7280">1,6%</td></tr>
-        </table>
-      </div>
+    <div class="insight-card warn">
+      <div class="ic-eyebrow w">⚠ O custo de funil mais caro das 4 frentes</div>
+      <div class="ic-headline"><strong>895 leads por reunião</strong> — o Decor faz a mesma coisa com 42</div>
+      <div class="mini-funnel"><div class="mf-block"><div class="mf-n" style="color:#0f172a">3.581</div><div class="mf-l">Leads</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#f59e0b">423</div><div class="mf-l">Responderam</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#f59e0b">18</div><div class="mf-l">SQL</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#7c3aed">4</div><div class="mf-l">Reuniões</div></div></div>
+      <div class="ic-body">O Marketplace consumiu <strong>25,7% de todo o disparo do mês</strong> e produziu <strong>6,5% das reuniões</strong>. São 895 leads para cada reunião marcada, contra 141 na Gestão e 42 no Decor. A resposta é normal (11,8%) — o lead atende; a conversa é que não avança até o agendamento.</div>
+      <span class="ic-action w">→ Reduzir volume e testar a base do Decor (proprietário que já comprou) antes de disparar mais lista fria.</span>
+      <button class="proof-toggle" id="ptgl-agmkt2" onclick="toggleProof('agmkt2')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agmkt2"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Leads por reunião em agosto: Decor 42 · Gestão/SZS 141 · Marketplace 895 · SZI 980.</div></div>
     </div>
 
     <div class="insight-card ok">
-      <div class="ic-eyebrow g">✅ Cachoeira Beach lidera o mês</div>
-      <div class="ic-headline">Cachoeira Beach (10/07): 232 respostas de 243 leads e 14 SQLs — a maior concentração de MKT</div>
-      <div class="mini-funnel">
-        <div class="mf-block"><div class="mf-n" style="color:#059669">243</div><div class="mf-l">Leads</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#f59e0b">232</div><div class="mf-l">Resp</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#0284c7">14</div><div class="mf-l">SQL</div></div>
-      </div>
-      <div class="ic-body">OPORTUNIDADE DA SEMANA — CACHOEIRA BEACH SPOT (10/07) teve 232 respostas de 243 leads (95% — o maior engajamento do mês em qualquer frente) e converteu 14 SQLs, quase o dobro do 2º lugar (Hóspedes Reserva Ponta, 8). Já gerou 1 reunião (a única OPP viva de MKT no mês). Foz Spot (5) e Lost Cachoeira Canas Beach (5) completam o topo.</div>
-      <span class="ic-action g">→ Agendar rápido os 14 SQLs de Cachoeira Beach: engajamento altíssimo, mas só 1 virou reunião</span>
+      <div class="ic-eyebrow g">✅ Santinho é o único que vendeu</div>
+      <div class="ic-headline">2 vendas no trimestre — e com <strong>32 SQLs</strong>, não com os 636 carimbados do Ponta das Canas</div>
+      
+      <div class="ic-body">Na janela de 90 dias, <strong>Santinho Spot</strong> é o único empreendimento do Marketplace com venda: 1.962 leads → 32 SQL → 5 reuniões → <strong>2 WON</strong>. No mesmo período, Ponta das Canas registrou 636 SQLs (os do carimbo em massa) e nenhuma venda. Em agosto, Cachoeira Beach (752 leads), Salvador (469) e Foz (586) fizeram 1 reunião cada.</div>
+      <span class="ic-action g">→ Usar Santinho como referência de copy da frente; ignorar o ranking por SQL, que está contaminado.</span>
+      <button class="proof-toggle" id="ptgl-agmkt3" onclick="toggleProof('agmkt3')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agmkt3"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Trimestre (jun–ago), MKT: Santinho 1.962 leads / 32 SQL / 5 OPP / 2 WON · Cachoeira Beach 1.790 / 308 / 3 / 0 · Ponta das Canas 3.251 / 636 / 2 / 0.</div></div>
     </div>
   </div>
 
@@ -734,56 +630,48 @@
 
   <div style="margin-top:32px;margin-bottom:18px;display:flex;align-items:center;gap:12px">
     <div style="flex:1;height:1px;background:#ede9fe"></div>
-    <div style="font-size:11px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:.08em">⚡ SQL → OPP — Análise do Mês (Julho)</div>
+    <div style="font-size:11px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:.08em">⚡ SQL → OPP — Análise do Mês (Agosto)</div>
     <div style="flex:1;height:1px;background:#ede9fe"></div>
   </div>
 
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:20px">
     <div class="ss-card" style="border-radius:10px 0 0 10px">
-      <div class="ss-label">SQLs MKT — Julho</div>
-      <div class="ss-value" style="color:#0f172a">50</div>
-      <div class="ss-sub">data_de_qualificacao preenchida · a partir 01/07</div>
+      <div class="ss-label">SQLs MKT — Agosto</div>
+      <div class="ss-value" style="color:#0f172a">18</div>
+      <div class="ss-sub">data_de_qualificacao preenchida · agosto até 11/08</div>
     </div>
     <div class="ss-card" style="border-color:#a78bfa33">
       <div class="ss-label" style="color:#a78bfa">Com Reunião Marcada</div>
-      <div class="ss-value" style="color:#a78bfa">2</div>
-      <div class="ss-sub">4,0% dos SQLs · data_da_reuniao preenchida</div>
+      <div class="ss-value" style="color:#a78bfa">4</div>
+      <div class="ss-sub">22,2% dos SQLs · data_da_reuniao preenchida</div>
     </div>
     <div class="ss-card" style="border-color:#ef444433;border-radius:0 10px 10px 0">
       <div class="ss-label" style="color:#ef4444">Sem Reunião Agendada</div>
-      <div class="ss-value" style="color:#ef4444">48</div>
-      <div class="ss-sub">96,0% dos SQLs · gargalo principal</div>
+      <div class="ss-value" style="color:#ef4444">14</div>
+      <div class="ss-sub">77,8% dos SQLs · gargalo principal</div>
     </div>
   </div>
 
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
 
     <div class="insight-card alert">
-      <div class="ic-eyebrow r">🔴 SQL cresce, OPP não acompanha</div>
-      <div class="ic-headline">50 SQLs, só 2 OPPs (4,0%) — pior SQL→OPP da Seazone em julho</div>
-      <div class="mini-funnel" style="margin:10px 0">
-        <div class="mf-block"><div class="mf-n" style="color:#059669">1.826</div><div class="mf-l">Leads</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#0284c7">50</div><div class="mf-l">SQL</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">2</div><div class="mf-l">OPP</div></div>
-      </div>
-      <div class="ic-body">Em junho MKT fez 5 OPPs de 45 SQLs (11,1%); em julho, só 2 de 50 (4,0%) — pior conversão de reunião entre as frentes. O topo do funil melhorou muito (21% de resposta, SQL 3×), mas o time não está transformando esse SQL em reunião marcada.</div>
-      <span class="ic-action r">→ Definir dono e SLA de agendamento para os SQLs de MKT (Cachoeira, Hóspedes Reserva, Foz)</span>
+      <div class="ic-eyebrow r">🔴 Ponta das Canas: 433 SQLs, 1 reunião</div>
+      <div class="ic-headline">A campanha com mais SQL da frente é também a que menos agenda</div>
+      
+      <div class="ic-body">A campanha <strong>LOST PONTA I E II</strong> soma 465 leads e <strong>433 SQLs</strong> — praticamente todo lead virou SQL — e produziu <strong>1 reunião</strong>. É a assinatura da marcação em massa: quando o SQL é real, ele se distribui ao longo dos dias e converte em alguma proporção de reunião. Aqui não converte.</div>
+      <span class="ic-action r">→ Auditar quem/que automação preencheu a data de qualificação dessas bases antes de usar o número em qualquer meta.</span>
+      <button class="proof-toggle" id="ptgl-agmkt4" onclick="toggleProof('agmkt4')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agmkt4"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">LOST PONTA I E II (jun–ago): 465 leads · 97 responderam · 433 SQL · 1 OPP · 0 WON. O painel marca essa linha com ⚠ na aba Copy campeão.</div></div>
     </div>
 
     <div class="insight-card warn">
-      <div class="ic-eyebrow w">⚠ Engajamento recorde, conversão travada</div>
-      <div class="ic-headline">Cachoeira Beach teve 95% de resposta e 14 SQLs, mas só 1 virou reunião</div>
-      <div class="mini-funnel" style="margin:10px 0">
-        <div class="mf-block"><div class="mf-n" style="color:#059669">14</div><div class="mf-l">SQL (líder)</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#0284c7">28%</div><div class="mf-l">dos SQLs MKT</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">1</div><div class="mf-l">OPP</div></div>
-      </div>
-      <div class="ic-body">Os 50 SQLs de julho concentram-se em Cachoeira Beach (14), Hóspedes Reserva Ponta (8), Foz Spot (5) e Lost Cachoeira Canas Beach (5). Cachoeira Beach teve engajamento recorde (232 resp de 243 leads), mas apenas 1 desses SQLs chegou a reunião — o mesmo travamento SQL→OPP que derruba a frente inteira.</div>
-      <span class="ic-action w">→ Testar proposta de horário automática no fluxo da Mia logo após a qualificação em MKT</span>
+      <div class="ic-eyebrow w">⚠ Agosto: 3.581 leads, 4 reuniões</div>
+      <div class="ic-headline">Cachoeira Beach, Salvador, Foz e Santinho fizeram <strong>1 reunião cada</strong></div>
+      
+      <div class="ic-body">O disparo de agosto se espalhou por quatro empreendimentos e cada um produziu exatamente uma reunião: Cachoeira Beach (752 leads → 4 SQL), Salvador (469 → 4), Foz (586 → 3) e Santinho (485 → 2). Nenhum virou venda até 11/08. A frente não tem um gargalo único — <strong>ela tem baixa conversão em todo lugar</strong>.</div>
+      <span class="ic-action w">→ Concentrar o disparo em um empreendimento por semana em vez de pulverizar; sem massa não dá para ler o que funciona.</span>
+      <button class="proof-toggle" id="ptgl-agmkt5" onclick="toggleProof('agmkt5')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agmkt5"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Agosto por empreendimento (MKT): Cachoeira Beach 752/4/1 · Salvador 469/4/1 · Foz 586/3/1 · Santinho 485/2/1 · Ponta das Canas 233/2/0.</div></div>
     </div>
 
   </div>
@@ -870,66 +758,33 @@
 
   <div class="insights">
     <div class="insight-card ok">
-      <div class="ic-eyebrow g">✅ LOST COM OPP TIMING DEZ-MAR domina o mês</div>
-      <div class="ic-headline">170 leads, 28 SQLs, 9 OPPs e 4 WONs — sozinha responde por mais da metade dos SQLs de Gestão</div>
-      <div class="mini-funnel">
-        <div class="mf-block"><div class="mf-n" style="color:#059669">170</div><div class="mf-l">Leads</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#0284c7">28</div><div class="mf-l">SQL</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#047857">9</div><div class="mf-l">OPP</div></div>
-      </div>
-      <div class="ic-body">Reativação de losts com OPP por objeção de Timing (dez-mar), disparada em 02/07 — <strong>43% de resposta</strong>, 28 SQLs (mais da metade dos 53 de Gestão), 9 OPPs e <strong>4 WONs</strong>, o maior motor da frente. NO-SHOW SZS (5 leads, 3 SQL, 3 OPP, 1 WON) reforça o padrão: bases já qualificadas anteriormente respondem e agendam muito melhor que leads frios.</div>
-      <span class="ic-action g">→ Replicar reativação por objeção específica (Timing) em outras praças SZS</span>
-      <button class="proof-toggle" id="ptgl-out1" onclick="toggleProof('out1')">▼ Ver prova — dados reais extraídos do Pipedrive</button>
-      <div class="proof-panel" id="proof-out1">
-        <div class="proof-src">Fonte: Nekt · AWS Athena · pipedrive_marketing_deals_disparos_mia · consultado 13/07/2026</div>
-        <div class="proof-h">As duas campanhas GES com melhor SQL→OPP em julho:</div>
-        <table class="proof-tbl">
-          <tr><th>Campanha</th><th style="text-align:right">Leads</th><th style="text-align:right">Resp</th><th style="text-align:right">SQL</th><th style="text-align:right">OPP</th><th style="text-align:right">SQL→OPP</th><th style="text-align:right">WON</th></tr>
-          <tr><td>Lost com OPP Timing Dez-Mar (02/07)</td><td style="text-align:right">170</td><td style="text-align:right;color:#059669">73</td><td style="text-align:right;color:#0284c7;font-weight:700">28</td><td style="text-align:right;color:#047857;font-weight:700">9</td><td style="text-align:right;color:#047857;font-weight:700">32%</td><td style="text-align:right;color:#047857">4</td></tr>
-          <tr><td>No-Show SZS (06/07)</td><td style="text-align:right">5</td><td style="text-align:right;color:#059669">3</td><td style="text-align:right;color:#0284c7;font-weight:700">3</td><td style="text-align:right;color:#047857;font-weight:700">3</td><td style="text-align:right;color:#047857;font-weight:700">100%</td><td style="text-align:right;color:#047857">1</td></tr>
-        </table>
-        <div class="proof-note">Juntas, essas 2 campanhas concentram 5 dos 9 WONs de Gestão/SZS em julho, com conversão muito acima da média da frente (23,3% SQL/resp, 32,1% SQL→OPP no total do mês).</div>
-      </div>
-    </div>
-
-    <div class="insight-card ok">
-      <div class="ic-eyebrow g">✅ Correção do WON resgatou 3 vendas "escondidas"</div>
-      <div class="ic-headline">Disparos de junho fecharam 3 negócios em julho que o cálculo antigo não contava</div>
-      <div class="mini-funnel">
-        <div class="mf-block"><div class="mf-n" style="color:#059669">2</div><div class="mf-l">Desconto SZS (26/06)</div></div>
-        <div class="mf-arrow">+</div>
-        <div class="mf-block"><div class="mf-n" style="color:#0284c7">1</div><div class="mf-l">Decor Jurerê (08/06)</div></div>
-        <div class="mf-arrow">=</div>
-        <div class="mf-block"><div class="mf-n" style="color:#047857">3</div><div class="mf-l">WON (jul)</div></div>
-      </div>
-      <div class="ic-body">Três vendas de leads criados em junho foram fechadas em julho: 2 da LOST COM OPP DESCONTO SZS (disparo 26/06) e 1 da base Decor Jurerê (08/06). Como o funil antigo contava WON pelo mês de <em>criação</em> do lead, ficavam presas em junho e nunca apareciam. Com o cálculo por mês de <em>ganho</em>, as 3 entram corretamente em julho — de um total de 9 WONs da frente.</div>
-      <span class="ic-action g">→ Revisar mensalmente deals com OPP aberta de meses anteriores para não perder vendas atrasadas no relatório</span>
-      <button class="proof-toggle" id="ptgl-out2" onclick="toggleProof('out2')">▼ Ver prova — dados reais extraídos do Pipedrive</button>
-      <div class="proof-panel" id="proof-out2">
-        <div class="proof-src">Fonte: Nekt · AWS Athena · pipedrive_marketing_deals_disparos_mia · consultado 13/07/2026</div>
-        <div class="proof-h">As 2 vendas retroativas — criadas em junho, ganhas em julho:</div>
-        <table class="proof-tbl">
-          <tr><th>Campanha</th><th>Criado em</th><th>Ganho em</th><th style="text-align:right">Intervalo</th></tr>
-          <tr style="background:#f0fdf4"><td>Lost com Opp Desconto SZS Gestão</td><td>26/06</td><td>02/07</td><td style="text-align:right;color:#047857;font-weight:700">6 dias</td></tr>
-          <tr style="background:#f0fdf4"><td>Lost com Opp Desconto SZS Gestão</td><td>26/06</td><td>07/07</td><td style="text-align:right;color:#047857;font-weight:700">11 dias</td></tr>
-          <tr style="background:#f0fdf4"><td>Base de Disparos Decor — Jurerê Beach</td><td>08/06</td><td>09/07</td><td style="text-align:right;color:#047857;font-weight:700">31 dias</td></tr>
-        </table>
-        <div class="proof-note">Sem essa correção, o total de WON de Gestão/SZS em julho apareceria como 6 em vez de 9 — uma subestimação de 33%.</div>
-      </div>
+      <div class="ic-eyebrow g">✅ Melhor conversão do painel</div>
+      <div class="ic-headline"><strong>36,5%</strong> dos SQLs viram reunião — quase o dobro do SZI e 3 WONs no mês</div>
+      <div class="mini-funnel"><div class="mf-block"><div class="mf-n" style="color:#0f172a">3.240</div><div class="mf-l">Leads</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#f59e0b">477</div><div class="mf-l">Responderam</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#2563eb">63</div><div class="mf-l">SQL</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#7c3aed">23</div><div class="mf-l">Reuniões</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#059669">3</div><div class="mf-l">WON</div></div></div>
+      <div class="ic-body">A Gestão/SZS converte <strong>36,5% dos SQLs em reunião</strong> (SZI: 18,8%; Marketplace: 22,2%) e é a <strong>única frente com venda em agosto</strong>: 3 WONs contados pelo mês do ganho. Também tem a melhor taxa de resposta entre as frentes de volume (14,7%). O modelo aqui é diferente: base de gente que já conversou com a Seazone e travou por timing ou desconto.</div>
+      <span class="ic-action g">→ É o playbook a copiar. A pergunta certa não é como melhorar a Gestão, e sim por que SZI e MKT não usam bases equivalentes.</span>
+      <button class="proof-toggle" id="ptgl-agges1" onclick="toggleProof('agges1')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agges1"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Agosto: 3.240 leads · 477 responderam (14,7%) · 63 SQL · 23 reuniões (36,5% dos SQL) · 3 WON (2 criados em agosto + 1 de julho ganho em agosto).</div></div>
     </div>
 
     <div class="insight-card warn">
-      <div class="ic-eyebrow w">⚠ Perfil de perda diferente: aqui não é silêncio</div>
-      <div class="ic-headline">"Não tem interesse" lidera as perdas GES (84) — ao contrário de SZI e MKT</div>
-      <div class="mini-funnel">
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">84</div><div class="mf-l">Não tem interesse</div></div>
-        <div class="mf-arrow">vs</div>
-        <div class="mf-block"><div class="mf-n" style="color:#f59e0b">53</div><div class="mf-l">Não atende</div></div>
-      </div>
-      <div class="ic-body">Diferente de SZI (86,2% das perdas por silêncio) e MKT (89,4%), em Gestão/SZS o lead responde e recusa ativamente: "Não tem interesse" (84) supera "Não atende" (53). 31 perdas são por "Mora no imóvel/Imóvel alugado" — perfil de proprietário fora do escopo SZS. Isso indica uma base mais engajada e mais dados sobre objeção real de perfil. Separadamente, 26 SQLs GES ficaram parados em "Qualificado" antes de qualquer tentativa de agendamento — o maior bloco de SQLs sem OPP da frente.</div>
-      <span class="ic-action w">→ Tratar objeções de perfil (mora no imóvel) com script específico em vez de reforçar tentativa de contato</span>
+      <div class="ic-eyebrow w">⚠ Aqui a perda é de FIT, não de silêncio</div>
+      <div class="ic-headline">Região inativa e imóvel fora do perfil respondem por <strong>40% das perdas</strong></div>
+      
+      <div class="ic-body">Das 37 perdas de SQL em agosto, <strong>8 são "Região Inativa/Descartada"</strong>, 7 "Timing", <strong>7 "Imóvel fora do perfil SZS"</strong> e 5 "Não atende/Não responde". É o oposto do SZI, onde 67% das perdas eram silêncio puro. Aqui o lead conversa e é <strong>descartado por critério</strong> — perda cara, porque consumiu atendimento humano até descobrir que não servia.</div>
+      <span class="ic-action w">→ Filtrar região e itens obrigatórios do imóvel ANTES do disparo: 15 das 37 perdas eram evitáveis na montagem da base.</span>
+      <button class="proof-toggle" id="ptgl-agges2" onclick="toggleProof('agges2')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agges2"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Motivos de perda dos SQLs (agosto, Gestão): Região Inativa/Descartada 8 · Timing 7 · Imóvel fora do perfil (itens obrigatórios + condomínio) 7 · Não atende/Não responde 5 · Não tem interesse 3 · demais 7.</div></div>
+    </div>
+
+    <div class="insight-card ok">
+      <div class="ic-eyebrow g">✅ As bases LOST COM OPP seguem sendo a mina</div>
+      <div class="ic-headline">Duas bases de reengajamento somam <strong>8 das vendas</strong> do trimestre</div>
+      
+      <div class="ic-body"><strong>LOST COM OPP TIMING DEZ–MAR</strong>: 168 leads → 28 SQL → 10 reuniões → <strong>5 WON</strong>. <strong>LOST COM OPP DESCONTO</strong>: 480 leads → 35 SQL → 12 reuniões → <strong>3 WON</strong>. São pessoas que já tinham chegado à reunião e travaram por preço ou momento — a menor base e a maior taxa de venda do painel inteiro. Em agosto, LOST SALVADOR repetiu o padrão (467 leads → 14 SQL → 7 reuniões → 1 WON).</div>
+      <span class="ic-action g">→ Reservar cadência fixa para lost-com-reunião de 3 a 6 meses atrás; é a base com maior retorno por lead disparado.</span>
+      <button class="proof-toggle" id="ptgl-agges3" onclick="toggleProof('agges3')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agges3"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Trimestre (jun–ago): LOST COM OPP TIMING DEZ-MAR 168/28/10/5 · LOST COM OPP DESCONTO 480/35/12/3 · Five Trade Residence 81/24/16/2 · REATIVAÇÃO EXPANSÃO SIRIUS 177/25/8/2.</div></div>
     </div>
   </div>
 
@@ -953,64 +808,58 @@
 
   <div style="margin-top:32px;margin-bottom:18px;display:flex;align-items:center;gap:12px">
     <div style="flex:1;height:1px;background:#dcfce7"></div>
-    <div style="font-size:11px;font-weight:700;color:#047857;text-transform:uppercase;letter-spacing:.08em">⚡ SQL → OPP — Análise do Mês (Julho)</div>
+    <div style="font-size:11px;font-weight:700;color:#047857;text-transform:uppercase;letter-spacing:.08em">⚡ SQL → OPP — Análise do Mês (Agosto)</div>
     <div style="flex:1;height:1px;background:#dcfce7"></div>
   </div>
 
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:20px">
     <div class="ss-card" style="border-radius:10px 0 0 10px">
-      <div class="ss-label">SQLs Gestão — Julho</div>
-      <div class="ss-value" style="color:#0f172a">53</div>
-      <div class="ss-sub">data_de_qualificacao preenchida · a partir 01/07</div>
+      <div class="ss-label">SQLs Gestão — Agosto</div>
+      <div class="ss-value" style="color:#0f172a">63</div>
+      <div class="ss-sub">data_de_qualificacao preenchida · agosto até 11/08</div>
     </div>
     <div class="ss-card" style="border-color:#04785733">
       <div class="ss-label" style="color:#047857">Com Reunião Marcada</div>
-      <div class="ss-value" style="color:#047857">17</div>
-      <div class="ss-sub">32,1% dos SQLs · melhor frente do mês</div>
+      <div class="ss-value" style="color:#047857">23</div>
+      <div class="ss-sub">36,5% dos SQLs · data_da_reuniao preenchida</div>
     </div>
     <div class="ss-card" style="border-color:#f59e0b33;border-radius:0 10px 10px 0">
       <div class="ss-label" style="color:#f59e0b">Sem Reunião Agendada</div>
-      <div class="ss-value" style="color:#f59e0b">36</div>
-      <div class="ss-sub">67,9% dos SQLs · 26 ainda em "Qualificado"</div>
+      <div class="ss-value" style="color:#f59e0b">40</div>
+      <div class="ss-sub">63,5% dos SQLs · melhor entre as frentes de volume</div>
     </div>
   </div>
 
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px">
 
     <div class="insight-card ok">
-      <div class="ic-eyebrow g">✅ Melhor conversão da Seazone</div>
-      <div class="ic-headline">Gestão/SZS: 32,1% SQL→OPP e 9 WONs — bem acima de SZI (13,7%) e MKT (4,0%)</div>
-      <div class="mini-funnel" style="margin:10px 0">
-        <div class="mf-block"><div class="mf-n" style="color:#0284c7">53</div><div class="mf-l">SQL</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#047857">17</div><div class="mf-l">OPP</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#047857">9</div><div class="mf-l">WON</div></div>
-      </div>
-      <div class="ic-body">Base proprietária com relacionamento existente responde e agenda melhor. Lost com OPP Timing (32%, 4 WONs) e No-Show SZS (100%, amostra de 3) puxam a média para cima.</div>
+      <div class="ic-eyebrow g">✅ Five Trade Residence: a melhor taxa do painel</div>
+      <div class="ic-headline">81 leads → 24 SQL → <strong>16 reuniões</strong> → 2 vendas</div>
+      
+      <div class="ic-body">A base <strong>CLIENTES FIVE TRADE RESIDENCE (B2B/Expansão)</strong> converteu <strong>66% dos SQLs em reunião</strong> — 16 reuniões de 24 qualificados, com apenas 81 leads disparados. É o oposto da lógica de volume: base minúscula, altamente segmentada, com resultado maior que campanhas de 3.000 leads.</div>
+      <span class="ic-action g">→ Mapear outras carteiras B2B/condomínio no mesmo formato: é o melhor retorno por lead que o painel já mediu.</span>
+      <button class="proof-toggle" id="ptgl-agges4" onclick="toggleProof('agges4')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agges4"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Five Trade Residence (jun–ago): 81 leads · 33 responderam · 24 SQL · 16 OPP (66,7%) · 2 WON.</div></div>
     </div>
 
     <div class="insight-card ok">
-      <div class="ic-eyebrow g">✅ WON recuperado pela correção</div>
-      <div class="ic-headline">3 dos 9 WONs de julho vieram de disparos de junho</div>
-      <div class="mini-funnel" style="margin:10px 0">
-        <div class="mf-block"><div class="mf-n" style="color:#0284c7">3</div><div class="mf-l">WON retroativos</div></div>
-        <div class="mf-arrow">de</div>
-        <div class="mf-block"><div class="mf-n" style="color:#047857">9</div><div class="mf-l">WON (jul)</div></div>
-      </div>
-      <div class="ic-body">Lost com Opp Desconto SZS (26/06, 2 vendas) e a base Decor Jurerê (08/06, 1 venda) fecharam em julho — só aparecem porque o WON passou a contar pelo mês do <em>ganho</em>, não da criação do lead.</div>
+      <div class="ic-eyebrow g">✅ 3 vendas no mês, todas da Gestão</div>
+      <div class="ic-headline">2 de leads criados em agosto e 1 de lead de julho, ganho em agosto</div>
+      
+      <div class="ic-body">As 3 vendas de agosto são todas da Gestão/SZS: um lead de 31/07 ganho em 03/08 (base LOST TRANCOSO), um criado e ganho em 06/08 e um de 03/08 ganho em 07/08 (LOST SALVADOR). Todas passaram por qualificação e reunião — <strong>nenhuma venda do painel pula a reunião</strong>. A contagem usa o mês do ganho, então o lead de julho aparece aqui e não em julho.</div>
+      <span class="ic-action g">→ Manter a contagem por mês do ganho; por data de criação, uma das três vendas ficaria invisível.</span>
+      <button class="proof-toggle" id="ptgl-agges5" onclick="toggleProof('agges5')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agges5"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">WON de agosto: deal 342284 (criado 31/07, ganho 03/08) · deal 355462 (criado e ganho 06/08) · deal 349388 (criado 03/08, ganho 07/08). Todos com SQL e reunião registrados.</div></div>
     </div>
 
     <div class="insight-card warn">
-      <div class="ic-eyebrow w">⚠ 26 SQLs parados em "Qualificado"</div>
-      <div class="ic-headline">Maior bloco de SQLs GES sem OPP nunca teve tentativa de agendamento</div>
-      <div class="mini-funnel" style="margin:10px 0">
-        <div class="mf-block"><div class="mf-n" style="color:#059669">36</div><div class="mf-l">SQL sem OPP</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">26</div><div class="mf-l">"Qualificado" (lost)</div></div>
-      </div>
-      <div class="ic-body">26 dos 36 SQLs sem OPP (72%) foram perdidos ainda no estágio "Qualificado" — nunca chegaram a "Agendado" ou "Reunião Agendada". Os outros 10 estão distribuídos entre "Agendado" (6), "Qualificado" aberto (2) e outros.</div>
-      <span class="ic-action w">→ Padronizar follow-up de agendamento no mesmo dia da qualificação em SZS</span>
+      <div class="ic-eyebrow w">⚠ Uma das 3 vendas veio de campanha marcada como TESTE</div>
+      <div class="ic-headline">O deal 355462 entrou pela base <code>TESTE_SIRIUS_MSG1</code></div>
+      
+      <div class="ic-body">Uma das três vendas de agosto tem <code>rd_campanha</code> = <strong>2026-06-25_MIA_MKT_PROMO_TESTE_SIRIUS_MSG1_SZS_EXPANSAO</strong> — campanha com "TESTE" no nome, criada e ganha no mesmo dia (06/08). O filtro do painel exclui o pipeline "Morada TESTE", mas <strong>não</strong> campanha nomeada como teste. A venda é real; a dúvida é se ela deve contar como resultado de disparo.</div>
+      <span class="ic-action w">→ Decisão de negócio: se essa campanha for descartada, agosto cai de 3 para 2 WONs. Enquanto não houver decisão, ela segue contada.</span>
+      <button class="proof-toggle" id="ptgl-agges6" onclick="toggleProof('agges6')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agges6"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Deal 355462 · campanha 2026-06-25_MIA_MKT_PROMO_TESTE_SIRIUS_MSG1_SZS_EXPANSAO_CAMPAIGN · criado e ganho em 06/08 · com SQL e reunião registrados. Trimestre: 214 leads, 6 SQL, 3 OPP, 1 WON.</div></div>
     </div>
 
   </div>
@@ -1053,29 +902,23 @@
   </div>
 
   <div class="insights" style="grid-template-columns:1fr 1fr">
-    <div class="insight-card warn">
-      <div class="ic-eyebrow w">⚠ Decor — Japaratinga</div>
-      <div class="ic-headline">10 leads, 4 SQLs, 0 OPPs — padrão de silêncio pós-qualificação</div>
-      <div class="mini-funnel" style="margin:10px 0">
-        <div class="mf-block"><div class="mf-n" style="color:#059669">10</div><div class="mf-l">Leads</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#0284c7">4</div><div class="mf-l">SQL</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#ef4444">0</div><div class="mf-l">OPP</div></div>
-      </div>
-      <div class="ic-body">Reativação Japaratinga SPOT (Decor, 17/06). 4 SQLs qualificados, nenhum chegou a reunião. Mesmo gargalo das outras frentes.</div>
+    <div class="insight-card ok">
+      <div class="ic-eyebrow g">✅ O Decor virou a frente que mais marca reunião</div>
+      <div class="ic-headline"><strong>29 das 62 reuniões</strong> do mês — com 8,7% do disparo</div>
+      <div class="mini-funnel"><div class="mf-block"><div class="mf-n" style="color:#0f172a">1.212</div><div class="mf-l">Leads</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#f59e0b">325</div><div class="mf-l">Responderam</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#2563eb">64</div><div class="mf-l">SQL</div></div><div class="mf-arrow">→</div><div class="mf-block"><div class="mf-n" style="color:#7c3aed">29</div><div class="mf-l">Reuniões</div></div></div>
+      <div class="ic-body">O Decor recebeu <strong>8,7% dos leads disparados</strong> em agosto e produziu <strong>46,8% de todas as reuniões</strong> do painel — mais que Gestão (23), SZI (6) e Marketplace (4). Tem a maior taxa de resposta (<strong>26,8%</strong>, contra 10,4% do SZI) e a maior conversão SQL→reunião (<strong>45,3%</strong>). O motor é a campanha SIA · PRIMEIRA ABORDAGEM DECOR (596 leads → 46 SQL → 23 reuniões), disparada em 04/08.</div>
+      <span class="ic-action g">→ Esta aba dizia que o Decor estava parado — estava, até 13/07. Hoje é a frente mais eficiente do painel.</span>
+      <button class="proof-toggle" id="ptgl-agout1" onclick="toggleProof('agout1')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agout1"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Agosto: 1.212 leads · 325 responderam (26,8%) · 64 SQL · 29 reuniões (45,3% dos SQL) · 0 WON no mês. Campanha PRIMEIRA ABORDAGEM DECOR (04/08): 596 leads, 46 SQL, 23 OPP.</div></div>
     </div>
     <div class="insight-card ok">
-      <div class="ic-eyebrow g">✅ Decor Ilha do Campeche</div>
-      <div class="ic-headline">1 lead direto: qualificou — aguardando agendamento</div>
-      <div class="mini-funnel" style="margin:10px 0">
-        <div class="mf-block"><div class="mf-n" style="color:#059669">1</div><div class="mf-l">Lead</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#0284c7">1</div><div class="mf-l">SQL</div></div>
-        <div class="mf-arrow">→</div>
-        <div class="mf-block"><div class="mf-n" style="color:#374151">0</div><div class="mf-l">OPP</div></div>
-      </div>
-      <div class="ic-body">DECOR LOST DCR Ilha do Campeche SPOT II (03/16). Lead individual, qualificou — ainda sem reunião marcada.</div>
+      <div class="ic-eyebrow g">✅ 42 leads por reunião — 23× o SZI</div>
+      <div class="ic-headline">Bases minúsculas por empreendimento com conversão que nenhuma frente alcança</div>
+      
+      <div class="ic-body">Itacaré: <strong>7 leads → 7 SQL → 5 reuniões</strong>. Natal: 9 → 9 → 3. Barra Grande: 10 → 6 → 3. Sul da Ilha: 9 → 2 → 2. São listas de dezenas de pessoas — proprietários que já compraram — com <strong>100% de qualificação</strong>. No agregado, o Decor gasta 42 leads por reunião; o SZI gasta 980. A diferença não é copy, é <strong>quem está na lista</strong>.</div>
+      <span class="ic-action g">→ A alavanca do painel inteiro é seleção de base. Antes de escalar volume no SZI, testar listas de proprietários no mesmo formato.</span>
+      <button class="proof-toggle" id="ptgl-agout2" onclick="toggleProof('agout2')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agout2"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Agosto, Decor por empreendimento: Ponta das Canas II 78 leads/10 SQL/4 OPP · Natal 9/9/3 · Itacaré 7/7/5 · Barra Grande 10/6/3 · Santinho 101/4/3 · Jurerê III 6/5/2 · Sul da Ilha 9/2/2.</div></div>
     </div>
   </div>
 
@@ -1099,34 +942,37 @@
 
   <div style="margin-top:32px;margin-bottom:18px;display:flex;align-items:center;gap:12px">
     <div style="flex:1;height:1px;background:#fef9c3"></div>
-    <div style="font-size:11px;font-weight:700;color:#f59e0b;text-transform:uppercase;letter-spacing:.08em">⚡ SQL → OPP — Análise do Mês (Julho)</div>
+    <div style="font-size:11px;font-weight:700;color:#f59e0b;text-transform:uppercase;letter-spacing:.08em">⚡ SQL → OPP — Análise do Mês (Agosto)</div>
     <div style="flex:1;height:1px;background:#fef9c3"></div>
   </div>
 
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:20px">
     <div class="ss-card" style="border-radius:10px 0 0 10px">
-      <div class="ss-label">SQLs Outros — Julho</div>
-      <div class="ss-value" style="color:#0f172a">0</div>
-      <div class="ss-sub">Decor + Parceiros · a partir 01/07</div>
+      <div class="ss-label">SQLs Outros — Agosto</div>
+      <div class="ss-value" style="color:#0f172a">64</div>
+      <div class="ss-sub">data_de_qualificacao preenchida · agosto até 11/08</div>
     </div>
     <div class="ss-card" style="border-color:#f59e0b33">
       <div class="ss-label" style="color:#f59e0b">Com Reunião Marcada</div>
-      <div class="ss-value" style="color:#f59e0b">—</div>
-      <div class="ss-sub">sem SQL no mês</div>
+      <div class="ss-value" style="color:#f59e0b">29</div>
+      <div class="ss-sub">45,3% dos SQLs · data_da_reuniao preenchida</div>
     </div>
     <div class="ss-card" style="border-color:#f59e0b33;border-radius:0 10px 10px 0">
       <div class="ss-label" style="color:#f59e0b">Sem Reunião Agendada</div>
-      <div class="ss-value" style="color:#f59e0b">—</div>
-      <div class="ss-sub">sem SQL no mês</div>
+      <div class="ss-value" style="color:#f59e0b">35</div>
+      <div class="ss-sub">54,7% dos SQLs · melhor taxa do painel</div>
     </div>
   </div>
 
-  <div class="insight-card warn" style="margin-bottom:20px">
-    <div class="ic-eyebrow w">⚠ Nenhum disparo em Outros este mês</div>
-    <div class="ic-headline">Decor/Parceiros ficaram parados em julho — mas historicamente convertem bem</div>
-    <div class="ic-body" style="margin-top:8px">Nenhuma campanha nova para Decor ou Prospecção [Parceiros] até 13/07. Vale observar o histórico: em junho essa frente teve 54 leads, 24 SQLs e <strong>7 WONs</strong> (a maior taxa de conversão para venda de todas as frentes); em maio, 44 leads e 5 WONs. É uma base pequena mas de alto ROI por lead quando ativada — os leads B2B individuais (Royal Palace, Mondrian Studios, The Studio, Five Trade) que já geraram WON nos últimos meses vieram dessa frente.</div>
-    <span class="ic-action w">→ Avaliar retomar disparo B2B/Decor — histórico de conversão é o melhor da casa</span>
-  </div>
+  <div class="insight-card warn">
+      <div class="ic-eyebrow w">⚠ 29 reuniões e nenhuma venda em agosto</div>
+      <div class="ic-headline">O gargalo do Decor está <strong>depois</strong> da reunião</div>
+      
+      <div class="ic-body">Com a melhor entrada de funil do painel, o Decor não fechou venda em agosto: <strong>29 reuniões, 0 WON</strong>. No trimestre a frente tem 2 vendas (Ponta das Canas e Jurerê Beach, uma cada). Parte pode ser maturação — as reuniões são de 04/08 em diante e o ciclo não fechou. Mas vale vigiar: gerar reunião deixou de ser o problema aqui.</div>
+      <span class="ic-action w">→ Acompanhar semanalmente a conversão reunião→venda do Decor. Se seguir zerada em setembro, o problema é oferta ou closer, não base.</span>
+      <button class="proof-toggle" id="ptgl-agout3" onclick="toggleProof('agout3')">▼ Ver prova — apuração de agosto</button>
+      <div class="proof-panel" id="proof-agout3"><div class="proof-src">Fonte: Nekt · pipedrive_deals_readable + bronze (pipelines/stages) · campanhas MIA + SIA · agosto/26 até 11/08 · apurado em 11/08/2026</div><div class="proof-h">Agosto: 29 reuniões, 0 WON. Trimestre (jun–ago): Ponta das Canas Spot 62 leads/4 SQL/2 OPP/1 WON · Jurerê Beach Spot 11/8/1/1 · Cachoeira Spot 27/20/7/2.</div></div>
+    </div>
 
 </div>
 
